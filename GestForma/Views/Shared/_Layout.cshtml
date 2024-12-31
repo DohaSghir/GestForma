@@ -8,9 +8,13 @@
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
 
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+  
+   
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
@@ -82,7 +86,7 @@
                     </div>
                     <a href="contact.html" class="nav-item nav-link">Contact</a>
                 </div>
-                <a href="" class="btn btn-primary py-2 px-4 d-none d-lg-block">Join Us</a>
+                <partial name="_LoginPartial" />
             </div>
         </nav>
     </div>
@@ -155,7 +159,7 @@
     <script src="../lib/waypoints/waypoints.min.js"></script>
     <script src="../lib/counterup/counterup.min.js"></script>
     <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
-
+    @await RenderSectionAsync("Scripts", required: false)
     <!-- Template Javascript -->
     <script src="../js/main.js"></script>
 </body>
