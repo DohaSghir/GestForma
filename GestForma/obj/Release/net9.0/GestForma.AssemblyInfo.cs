@@ -11,7 +11,13 @@
 using System;
 using System.Reflection;
 
-[assembly: Microsoft.AspNetCore.Mvc.ApplicationParts.ApplicationPartAttribute("Microsoft.AspNetCore.Identity.UI")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("GestForma")]
+[assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bdc56302758775132e8c1bb4b3cfe78f61718d2b")]
+[assembly: System.Reflection.AssemblyProductAttribute("GestForma")]
+[assembly: System.Reflection.AssemblyTitleAttribute("GestForma")]
+[assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Généré par la classe MSBuild WriteCodeFragment.
 
