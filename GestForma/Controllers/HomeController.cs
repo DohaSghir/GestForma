@@ -15,6 +15,19 @@ namespace GestForma.Controllers
 
         public IActionResult Index()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                if (User.IsInRole("administrateur"))
+                {
+                    return RedirectToAction("AdminDashboard"); 
+                }
+
+
+                if (User.IsInRole("professeur"))
+                {
+                    return RedirectToAction("FormateurDashboard");
+                }
+            }
             return View();
         }
 
