@@ -2,6 +2,7 @@ using GestForma.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using GestForma.Models;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,7 +17,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 });
 
-builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false).AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
+    .AddRoles<IdentityRole>()
+    .AddEntityFrameworkStores<ApplicationDbContext>();
 
 var app = builder.Build();
 
@@ -27,6 +30,61 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+/*app.Use(async (context, next) =>
+{
+    if (context.User.Identity.IsAuthenticated)
+    {
+        var userManager = context.RequestServices.GetRequiredService<UserManager<ApplicationUser>>();
+        var signInManager = context.RequestServices.GetRequiredService<SignInManager<ApplicationUser>>();
+
+        var user = await userManager.GetUserAsync(context.User);
+
+        if (user != null)
+        {
+            // Vérifiez si l'utilisateur a le rôle "invité"
+            if (await userManager.IsInRoleAsync(user, "invité"))
+            {
+                await signInManager.SignOutAsync(); // Déconnectez l'utilisateur
+                context.Response.Redirect("/"); // Redirigez vers une page d'accès refusé
+                return;
+            }
+
+            // Vérifiez si l'utilisateur a le rôle "participant"
+           
+        }
+    }
+
+    // Continuez le pipeline si aucune condition n'est remplie
+    await next.Invoke();
+});
+*/
+app.Use(async (context, next) =>
+{
+    if (context.User.Identity.IsAuthenticated)
+    {
+        var userManager = context.RequestServices.GetRequiredService<UserManager<ApplicationUser>>();
+        var signInManager = context.RequestServices.GetRequiredService<SignInManager<ApplicationUser>>();
+        var tempData = context.RequestServices.GetService<ITempDataDictionaryFactory>().GetTempData(context);
+
+        var user = await userManager.GetUserAsync(context.User);
+
+        if (user != null && await userManager.IsInRoleAsync(user, "invité"))
+        {
+            // Ajoutez un message pour l'utilisateur
+            tempData["ErrorMessage"] = "Votre compte est en attente de validation par un administrateur.";
+
+            await signInManager.SignOutAsync(); // Déconnectez l'utilisateur
+            context.Response.Redirect(context.Request.Path); // Rechargez la page actuelle
+            return;
+        }
+    }
+
+    await next.Invoke();
+});
+
+
+
 
 app.UseHttpsRedirection();
 app.UseRouting();

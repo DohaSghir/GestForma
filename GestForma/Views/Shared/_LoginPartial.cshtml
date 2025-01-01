@@ -5,31 +5,30 @@
 @inject UserManager<ApplicationUser> UserManager
 
 <ul class="navbar-nav">
-@if (SignInManager.IsSignedIn(User))
-{
+    @if (SignInManager.IsSignedIn(User))
+    {
 
+     
 
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-toggle="dropdown">
+                    <i class="fa-solid fa-user"></i>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index">
+                            Profile
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Logout">
+                            Logout
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        
 
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-toggle="dropdown">
-                <i class="fa-solid fa-user"></i>
-            </a>
-            <ul class="dropdown-menu">
-                <li>
-                    <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index">
-                        Profile
-                    </a>
-                </li>
-                <li>
-                    <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Logout">
-                        Logout
-                    </a>
-                </li>
-            </ul>
-        </li>
-
-
-       
 }
 else
     {
