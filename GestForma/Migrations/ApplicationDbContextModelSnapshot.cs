@@ -136,25 +136,25 @@ namespace GestForma.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "2185f3b7-c78a-4b04-89da-6a02eb440102",
+                            Id = "5f46036f-2903-4ddb-be78-2239e8c349dd",
                             Name = "administrateur",
                             NormalizedName = "administrateur"
                         },
                         new
                         {
-                            Id = "2266c9ac-206d-41c0-809a-4272c74b141f",
+                            Id = "ceab2aee-7bce-4e2b-9536-520dc01ef683",
                             Name = "professeur",
                             NormalizedName = "professeur"
                         },
                         new
                         {
-                            Id = "dddd34a9-ed14-4bcd-94b4-18e4954d0c6a",
+                            Id = "51b010ee-fe0e-42d8-aeb1-deeed6fc892b",
                             Name = "participant",
                             NormalizedName = "participant"
                         },
                         new
                         {
-                            Id = "68c34b5d-fc84-4765-9f14-8906f883ec1a",
+                            Id = "c3daebd3-010a-409b-a268-046b887740c2",
                             Name = "invité",
                             NormalizedName = "invité"
                         });
@@ -213,12 +213,10 @@ namespace GestForma.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderKey")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -255,12 +253,10 @@ namespace GestForma.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
