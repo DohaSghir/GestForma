@@ -15,6 +15,12 @@ namespace GestForma.Services
 
         }
 
+        public DbSet<Formation> Formations { get; set; }
+        public DbSet<Inscription> Inscriptions { get; set; }
+        public DbSet<CommentairesDeFormation> CommentairesDeFormation { get; set; }
+        public DbSet<CommentairesEntiers> CommentairesEntiers { get; set; }
+        public DbSet<Rates> Rates { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

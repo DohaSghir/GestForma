@@ -1,0 +1,92 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\githubProjects\\GestForma\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{38374EBB-DB81-4046-98CB-D6171FFE1911}|GestForma\\GestForma.csproj|d:\\githubprojects\\gestforma\\gestforma\\migrations\\20250101131409_thirdmigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38374EBB-DB81-4046-98CB-D6171FFE1911}|GestForma\\GestForma.csproj|solutionrelative:gestforma\\migrations\\20250101131409_thirdmigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38374EBB-DB81-4046-98CB-D6171FFE1911}|GestForma\\GestForma.csproj|d:\\githubprojects\\gestforma\\gestforma\\models\\commentairesdeformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38374EBB-DB81-4046-98CB-D6171FFE1911}|GestForma\\GestForma.csproj|solutionrelative:gestforma\\models\\commentairesdeformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38374EBB-DB81-4046-98CB-D6171FFE1911}|GestForma\\GestForma.csproj|d:\\githubprojects\\gestforma\\gestforma\\models\\formation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38374EBB-DB81-4046-98CB-D6171FFE1911}|GestForma\\GestForma.csproj|solutionrelative:gestforma\\models\\formation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38374EBB-DB81-4046-98CB-D6171FFE1911}|GestForma\\GestForma.csproj|d:\\githubprojects\\gestforma\\gestforma\\models\\inscription.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38374EBB-DB81-4046-98CB-D6171FFE1911}|GestForma\\GestForma.csproj|solutionrelative:gestforma\\models\\inscription.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "20250101131409_thirdMigration.cs",
+              "DocumentMoniker": "D:\\githubProjects\\GestForma\\GestForma\\Migrations\\20250101131409_thirdMigration.cs",
+              "RelativeDocumentMoniker": "GestForma\\Migrations\\20250101131409_thirdMigration.cs",
+              "ToolTip": "D:\\githubProjects\\GestForma\\GestForma\\Migrations\\20250101131409_thirdMigration.cs",
+              "RelativeToolTip": "GestForma\\Migrations\\20250101131409_thirdMigration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-01T14:18:24.175Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CommentairesDeFormation.cs",
+              "DocumentMoniker": "D:\\githubProjects\\GestForma\\GestForma\\Models\\CommentairesDeFormation.cs",
+              "RelativeDocumentMoniker": "GestForma\\Models\\CommentairesDeFormation.cs",
+              "ToolTip": "D:\\githubProjects\\GestForma\\GestForma\\Models\\CommentairesDeFormation.cs",
+              "RelativeToolTip": "GestForma\\Models\\CommentairesDeFormation.cs",
+              "ViewState": "AgIAAAUAAABQmZmZmZk+wBQAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-01T12:29:53.085Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Inscription.cs",
+              "DocumentMoniker": "D:\\githubProjects\\GestForma\\GestForma\\Models\\Inscription.cs",
+              "RelativeDocumentMoniker": "GestForma\\Models\\Inscription.cs",
+              "ToolTip": "D:\\githubProjects\\GestForma\\GestForma\\Models\\Inscription.cs",
+              "RelativeToolTip": "GestForma\\Models\\Inscription.cs",
+              "ViewState": "AgIAAAYAAACAZWZmZmYowA4AAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-01T12:28:38.778Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Formation.cs",
+              "DocumentMoniker": "D:\\githubProjects\\GestForma\\GestForma\\Models\\Formation.cs",
+              "RelativeDocumentMoniker": "GestForma\\Models\\Formation.cs",
+              "ToolTip": "D:\\githubProjects\\GestForma\\GestForma\\Models\\Formation.cs",
+              "RelativeToolTip": "GestForma\\Models\\Formation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-01T12:24:03.314Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
