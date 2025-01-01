@@ -73,18 +73,18 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav mx-auto py-0">
-                    <a asp-controller="Home" asp-action="Index" class="nav-item nav-link active">Home</a>
-                    <a asp-controller="Home" asp-action="About" class="nav-item nav-link">About</a>
-                    <a asp-controller="Home" asp-action="Courses" class="nav-item nav-link">Courses</a>
+                    <a asp-controller="Home" asp-action="Index" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "active" : "")">Home</a>
+                    <a asp-controller="Home" asp-action="About" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "About" ? "active" : "")">About</a>
+                    <a asp-controller="Home" asp-action="Courses" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Courses" ? "active" : "")">Courses</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
+                        <a href="#" class="nav-link dropdown-toggle @(new[] { "Details", "Instructors", "Testimonial" }.Contains(ViewContext.RouteData.Values["action"]?.ToString()) ? "active" : "")" data-toggle="dropdown">Pages</a>
                         <div class="dropdown-menu m-0">
-                            <a href="detail.html" class="dropdown-item">Course Detail</a>
-                            <a href="team.html" class="dropdown-item">Instructors</a>
-                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                            <a asp-controller="Home" asp-action="Details" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "Details" ? "active" : "")">Course Detail</a>
+                            <a asp-controller="Home" asp-action="Instructors" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "Instructors" ? "active" : "")">Instructors</a>
+                            <a asp-controller="Home" asp-action="Testimonial" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "Testimonial" ? "active" : "")">Testimonial</a>
                         </div>
                     </div>
-                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    <a asp-controller="Home" asp-action="Contact" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Contact" ? "active" : "")">Contact</a>
                 </div>
                 <partial name="_LoginPartial" />
             </div>
@@ -123,9 +123,9 @@
                 <div class="col-md-4 mb-5">
                     <h3 class="text-white mb-4">Quick Links</h3>
                     <div class="d-flex flex-column justify-content-start">
-                        <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>About Us</a>
-                        <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
-                        <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Privacy Policy</a>
+                        <a class="text-white-50 mb-2" asp-controller="Home" asp-action="About"><i class="fa fa-angle-right mr-2"></i>About Us</a>
+                        <a class="text-white-50 mb-2" asp-controller="Home" asp-action="Contact"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
+                        <a class="text-white-50 mb-2" asp-controller="Home" asp-action="Privacy"><i class="fa fa-angle-right mr-2"></i>Privacy Policy</a>
                     </div>
                 </div>
             </div>
