@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\githubProjects\\GestForma\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\githubProjects\\GestForma\\GestForma\\Migrations\\20250101181050_ThirdMigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GestForma\\Migrations\\20250101181050_ThirdMigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{38374EBB-DB81-4046-98CB-D6171FFE1911}|GestForma\\GestForma.csproj|d:\\githubprojects\\gestforma\\gestforma\\services\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{38374EBB-DB81-4046-98CB-D6171FFE1911}|GestForma\\GestForma.csproj|solutionrelative:gestforma\\services\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -27,14 +31,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "20250101181050_ThirdMigration.cs",
+              "DocumentMoniker": "D:\\githubProjects\\GestForma\\GestForma\\Migrations\\20250101181050_ThirdMigration.cs",
+              "RelativeDocumentMoniker": "GestForma\\Migrations\\20250101181050_ThirdMigration.cs",
+              "ToolTip": "D:\\githubProjects\\GestForma\\GestForma\\Migrations\\20250101181050_ThirdMigration.cs",
+              "RelativeToolTip": "GestForma\\Migrations\\20250101181050_ThirdMigration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-01T18:10:50.315Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "ApplicationDbContext.cs",
               "DocumentMoniker": "D:\\githubProjects\\GestForma\\GestForma\\Services\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "GestForma\\Services\\ApplicationDbContext.cs",
               "ToolTip": "D:\\githubProjects\\GestForma\\GestForma\\Services\\ApplicationDbContext.cs",
               "RelativeToolTip": "GestForma\\Services\\ApplicationDbContext.cs",
-              "ViewState": "AgIAABkAAABAMjMzMzMwwCUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAACAmZmZmVkswBcAAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-01T17:57:09.457Z",
+              "WhenOpened": "2025-01-01T18:10:06.143Z",
               "EditorCaption": ""
             }
           ]
