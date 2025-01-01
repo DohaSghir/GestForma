@@ -4,6 +4,17 @@
     ViewData["Title"] = "Register";
 }
 
+<div class="container">
+    <!-- Ajout du bloc pour afficher le message d'erreur -->
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["ErrorMessage"]
+        </div>
+    }
+
+
+</div>
 
 <div class="row">
     <div class="col-lg-6 mx-auto rounded border p-3">
@@ -95,24 +106,31 @@
             </div>
 
 
+            
+
 
 
             <div class="row mb-3">
 
                 <div class="col d-grid">
-                    <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+                    <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary"> Register</a></button>
                 </div>
 
                 <div class="col d-grid">
                     <a class="btn btn-outline-primary" btn btn-primary" href="/" role="button">Cancel</a>
                     
                 </div>
+
+
+
                 
               
             </div>
 
 
         </form>
+
+       
     </div>
 
 
