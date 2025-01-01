@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GestForma.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250101181359_ThirdMigration")]
+    [Migration("20250101193854_ThirdMigration")]
     partial class ThirdMigration
     {
         /// <inheritdoc />
@@ -334,25 +334,25 @@ namespace GestForma.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "fb7f3a4b-6cfd-4451-a8ec-c6d69f5ca9e6",
+                            Id = "48697a7a-6bc7-4c07-b3a5-92355d09d2bf",
                             Name = "administrateur",
                             NormalizedName = "administrateur"
                         },
                         new
                         {
-                            Id = "d609ec45-9228-4d07-aa80-1917e4631d17",
+                            Id = "a3777f13-980d-4a1b-b7d9-594c729954b6",
                             Name = "professeur",
                             NormalizedName = "professeur"
                         },
                         new
                         {
-                            Id = "5c368016-f98f-41f0-9a62-5fe3e66b056d",
+                            Id = "6398b0f7-ee51-4e76-93cb-1583e7d5067c",
                             Name = "participant",
                             NormalizedName = "participant"
                         },
                         new
                         {
-                            Id = "150d866e-2015-4109-a3a8-5ca8e149e3ff",
+                            Id = "e1347096-2f25-4f59-b4b3-ae2a4e5095dc",
                             Name = "invité",
                             NormalizedName = "invité"
                         });

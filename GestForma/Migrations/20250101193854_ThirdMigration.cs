@@ -13,61 +13,7 @@ namespace GestForma.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DeleteData(
-                table: "AspNetRoles",
-                keyColumn: "Id",
-                keyValue: "51b010ee-fe0e-42d8-aeb1-deeed6fc892b");
-
-            migrationBuilder.DeleteData(
-                table: "AspNetRoles",
-                keyColumn: "Id",
-                keyValue: "5f46036f-2903-4ddb-be78-2239e8c349dd");
-
-            migrationBuilder.DeleteData(
-                table: "AspNetRoles",
-                keyColumn: "Id",
-                keyValue: "c3daebd3-010a-409b-a268-046b887740c2");
-
-            migrationBuilder.DeleteData(
-                table: "AspNetRoles",
-                keyColumn: "Id",
-                keyValue: "ceab2aee-7bce-4e2b-9536-520dc01ef683");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "Name",
-                table: "AspNetUserTokens",
-                type: "nvarchar(128)",
-                maxLength: 128,
-                nullable: false,
-                oldClrType: typeof(string),
-                oldType: "nvarchar(450)");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "LoginProvider",
-                table: "AspNetUserTokens",
-                type: "nvarchar(128)",
-                maxLength: 128,
-                nullable: false,
-                oldClrType: typeof(string),
-                oldType: "nvarchar(450)");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "ProviderKey",
-                table: "AspNetUserLogins",
-                type: "nvarchar(128)",
-                maxLength: 128,
-                nullable: false,
-                oldClrType: typeof(string),
-                oldType: "nvarchar(450)");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "LoginProvider",
-                table: "AspNetUserLogins",
-                type: "nvarchar(128)",
-                maxLength: 128,
-                nullable: false,
-                oldClrType: typeof(string),
-                oldType: "nvarchar(450)");
+            
 
             migrationBuilder.CreateTable(
                 name: "CommentairesEntiers",
@@ -226,16 +172,7 @@ namespace GestForma.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.InsertData(
-                table: "AspNetRoles",
-                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[,]
-                {
-                    { "150d866e-2015-4109-a3a8-5ca8e149e3ff", null, "invité", "invité" },
-                    { "5c368016-f98f-41f0-9a62-5fe3e66b056d", null, "participant", "participant" },
-                    { "d609ec45-9228-4d07-aa80-1917e4631d17", null, "professeur", "professeur" },
-                    { "fb7f3a4b-6cfd-4451-a8ec-c6d69f5ca9e6", null, "administrateur", "administrateur" }
-                });
+            
 
             migrationBuilder.CreateIndex(
                 name: "IX_CommentairesDeFormations_ID_Formation",
@@ -302,72 +239,7 @@ namespace GestForma.Migrations
             migrationBuilder.DropTable(
                 name: "Formations");
 
-            migrationBuilder.DeleteData(
-                table: "AspNetRoles",
-                keyColumn: "Id",
-                keyValue: "150d866e-2015-4109-a3a8-5ca8e149e3ff");
-
-            migrationBuilder.DeleteData(
-                table: "AspNetRoles",
-                keyColumn: "Id",
-                keyValue: "5c368016-f98f-41f0-9a62-5fe3e66b056d");
-
-            migrationBuilder.DeleteData(
-                table: "AspNetRoles",
-                keyColumn: "Id",
-                keyValue: "d609ec45-9228-4d07-aa80-1917e4631d17");
-
-            migrationBuilder.DeleteData(
-                table: "AspNetRoles",
-                keyColumn: "Id",
-                keyValue: "fb7f3a4b-6cfd-4451-a8ec-c6d69f5ca9e6");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "Name",
-                table: "AspNetUserTokens",
-                type: "nvarchar(450)",
-                nullable: false,
-                oldClrType: typeof(string),
-                oldType: "nvarchar(128)",
-                oldMaxLength: 128);
-
-            migrationBuilder.AlterColumn<string>(
-                name: "LoginProvider",
-                table: "AspNetUserTokens",
-                type: "nvarchar(450)",
-                nullable: false,
-                oldClrType: typeof(string),
-                oldType: "nvarchar(128)",
-                oldMaxLength: 128);
-
-            migrationBuilder.AlterColumn<string>(
-                name: "ProviderKey",
-                table: "AspNetUserLogins",
-                type: "nvarchar(450)",
-                nullable: false,
-                oldClrType: typeof(string),
-                oldType: "nvarchar(128)",
-                oldMaxLength: 128);
-
-            migrationBuilder.AlterColumn<string>(
-                name: "LoginProvider",
-                table: "AspNetUserLogins",
-                type: "nvarchar(450)",
-                nullable: false,
-                oldClrType: typeof(string),
-                oldType: "nvarchar(128)",
-                oldMaxLength: 128);
-
-            migrationBuilder.InsertData(
-                table: "AspNetRoles",
-                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[,]
-                {
-                    { "51b010ee-fe0e-42d8-aeb1-deeed6fc892b", null, "participant", "participant" },
-                    { "5f46036f-2903-4ddb-be78-2239e8c349dd", null, "administrateur", "administrateur" },
-                    { "c3daebd3-010a-409b-a268-046b887740c2", null, "invité", "invité" },
-                    { "ceab2aee-7bce-4e2b-9536-520dc01ef683", null, "professeur", "professeur" }
-                });
+           
         }
     }
 }
