@@ -331,25 +331,25 @@ namespace GestForma.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "9ee20775-9919-425a-9d4b-16ee36459a01",
+                            Id = "fb7f3a4b-6cfd-4451-a8ec-c6d69f5ca9e6",
                             Name = "administrateur",
                             NormalizedName = "administrateur"
                         },
                         new
                         {
-                            Id = "de3b47f0-1f7a-4691-8d43-dc991d732bd7",
+                            Id = "d609ec45-9228-4d07-aa80-1917e4631d17",
                             Name = "professeur",
                             NormalizedName = "professeur"
                         },
                         new
                         {
-                            Id = "cc48312e-e6b2-4d88-8525-e0f1213f5e12",
+                            Id = "5c368016-f98f-41f0-9a62-5fe3e66b056d",
                             Name = "participant",
                             NormalizedName = "participant"
                         },
                         new
                         {
-                            Id = "e79e07c7-49bb-4927-b1b0-adcc0ad484eb",
+                            Id = "150d866e-2015-4109-a3a8-5ca8e149e3ff",
                             Name = "invité",
                             NormalizedName = "invité"
                         });
@@ -470,13 +470,13 @@ namespace GestForma.Migrations
                     b.HasOne("GestForma.Models.Formation", "Formation")
                         .WithMany("Commentaires")
                         .HasForeignKey("ID_Formation")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("GestForma.Models.ApplicationUser", "User")
                         .WithMany()
                         .HasForeignKey("ID_User")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Formation");
@@ -500,7 +500,7 @@ namespace GestForma.Migrations
                     b.HasOne("GestForma.Models.Formation", "Formation")
                         .WithMany("Inscriptions")
                         .HasForeignKey("ID_Formation")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("GestForma.Models.ApplicationUser", "User")
@@ -519,7 +519,7 @@ namespace GestForma.Migrations
                     b.HasOne("GestForma.Models.Formation", "Formation")
                         .WithMany("Evaluations")
                         .HasForeignKey("ID_Formation")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("GestForma.Models.ApplicationUser", "User")

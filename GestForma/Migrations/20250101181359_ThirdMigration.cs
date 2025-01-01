@@ -140,13 +140,13 @@ namespace GestForma.Migrations
                         column: x => x.ID_User,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_CommentairesDeFormations_Formations_ID_Formation",
                         column: x => x.ID_Formation,
                         principalTable: "Formations",
                         principalColumn: "ID_Formation",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -174,7 +174,7 @@ namespace GestForma.Migrations
                         column: x => x.ID_Formation,
                         principalTable: "Formations",
                         principalColumn: "ID_Formation",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -201,7 +201,7 @@ namespace GestForma.Migrations
                         column: x => x.ID_Formation,
                         principalTable: "Formations",
                         principalColumn: "ID_Formation",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -231,10 +231,10 @@ namespace GestForma.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "9ee20775-9919-425a-9d4b-16ee36459a01", null, "administrateur", "administrateur" },
-                    { "cc48312e-e6b2-4d88-8525-e0f1213f5e12", null, "participant", "participant" },
-                    { "de3b47f0-1f7a-4691-8d43-dc991d732bd7", null, "professeur", "professeur" },
-                    { "e79e07c7-49bb-4927-b1b0-adcc0ad484eb", null, "invité", "invité" }
+                    { "150d866e-2015-4109-a3a8-5ca8e149e3ff", null, "invité", "invité" },
+                    { "5c368016-f98f-41f0-9a62-5fe3e66b056d", null, "participant", "participant" },
+                    { "d609ec45-9228-4d07-aa80-1917e4631d17", null, "professeur", "professeur" },
+                    { "fb7f3a4b-6cfd-4451-a8ec-c6d69f5ca9e6", null, "administrateur", "administrateur" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -305,22 +305,22 @@ namespace GestForma.Migrations
             migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumn: "Id",
-                keyValue: "9ee20775-9919-425a-9d4b-16ee36459a01");
+                keyValue: "150d866e-2015-4109-a3a8-5ca8e149e3ff");
 
             migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumn: "Id",
-                keyValue: "cc48312e-e6b2-4d88-8525-e0f1213f5e12");
+                keyValue: "5c368016-f98f-41f0-9a62-5fe3e66b056d");
 
             migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumn: "Id",
-                keyValue: "de3b47f0-1f7a-4691-8d43-dc991d732bd7");
+                keyValue: "d609ec45-9228-4d07-aa80-1917e4631d17");
 
             migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumn: "Id",
-                keyValue: "e79e07c7-49bb-4927-b1b0-adcc0ad484eb");
+                keyValue: "fb7f3a4b-6cfd-4451-a8ec-c6d69f5ca9e6");
 
             migrationBuilder.AlterColumn<string>(
                 name: "Name",

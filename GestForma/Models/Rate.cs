@@ -16,7 +16,7 @@ namespace GestForma.Models
         public Formation? Formation { get; set; }
 
         [Required]
-        public string ID_User { get; set; }
+        public string? ID_User { get; set; }
 
         [ForeignKey("ID_User")]
         public ApplicationUser? User { get; set; }

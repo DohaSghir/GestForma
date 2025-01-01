@@ -43,8 +43,37 @@ namespace GestForma.Services
 
             builder.Entity<IdentityRole>().HasData(administrateur, professeur, participant, invité);
 
+            // Configuration pour CommentairesDeFormations
+            builder.Entity<CommentairesDeFormation>()
+                .HasOne(c => c.Formation)
+                .WithMany(f => f.Commentaires)
+                .HasForeignKey(c => c.ID_Formation)
+                .OnDelete(DeleteBehavior.Restrict); // Empêche les suppressions en cascade
+
+            builder.Entity<CommentairesDeFormation>()
+                .HasOne(c => c.User)
+                .WithMany() // Supposant que User n'a pas de collection
+                .HasForeignKey(c => c.ID_User)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Configuration pour d'autres relations similaires
+            builder.Entity<Formation>()
+                .HasMany(f => f.Inscriptions)
+                .WithOne(i => i.Formation)
+                .HasForeignKey(i => i.ID_Formation)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<Formation>()
+                .HasMany(f => f.Evaluations)
+                .WithOne(e => e.Formation)
+                .HasForeignKey(e => e.ID_Formation)
+                .OnDelete(DeleteBehavior.Restrict);
+
 
         }
+
+
+        
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
