@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HP\\Documents\\GestForma\\GestForma\\GestForma.csproj": {}
+    "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\GestForma.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HP\\Documents\\GestForma\\GestForma\\GestForma.csproj": {
+    "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\GestForma.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\Documents\\GestForma\\GestForma\\GestForma.csproj",
+        "projectUniqueName": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\GestForma.csproj",
         "projectName": "GestForma",
-        "projectPath": "C:\\Users\\HP\\Documents\\GestForma\\GestForma\\GestForma.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\Documents\\GestForma\\GestForma\\obj\\",
+        "projectPath": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\GestForma.csproj",
+        "packagesPath": "C:\\Users\\Doha\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Doha\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
