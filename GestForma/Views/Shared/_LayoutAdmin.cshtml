@@ -10,8 +10,8 @@
 
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-  
-   
+
+
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -24,7 +24,7 @@
 
     <!-- Libraries Stylesheet -->
     <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    
+
     <!-- Customized Bootstrap Stylesheet -->
     <link href="../css/style.css" rel="stylesheet">
 </head>
@@ -63,83 +63,7 @@
     </div>
     <!-- Topbar End -->
     <!-- Navbar Start -->
-    @if (User.Identity.IsAuthenticated)
-    {
-
-
-        @if (User.IsInRole("administrateur"))
-        {
-            <div class="container-fluid p-0">
-                <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
-                    <a href="index.html" class="navbar-brand ml-lg-3">
-                        <h1 class="m-0 text-uppercase text-primary"><i class="fa fa-book-reader mr-3"></i>PowerLearn</h1>
-                    </a>
-                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
-                        <div class="navbar-nav mx-auto py-0">
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Utilisateurs</a>
-                                <div class="dropdown-menu m-0">
-                                    <a asp-controller="Home" asp-action="Participants" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "Participants" ? "active" : "")">Participants</a>
-                                    <a asp-controller="Home" asp-action="Formations" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "Formations" ? "active" : "")">Formateurs</a>
-
-                                </div>
-                            </div>
-                            <a asp-controller="Home" asp-action="AdminDashboard" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "AdminDashboard" ? "active" : "")">Paiement</a>
-                            <a asp-controller="Home" asp-action="AdminDashboard" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "AdminDashboard" ? "active" : "")">Certificats</a>
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Statistiques</a>
-                                <div class="dropdown-menu m-0">
-                                    <a asp-controller="Home" asp-action="Participants" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "Participants" ? "active" : "")">Participants</a>
-                                    <a asp-controller="Home" asp-action="Formations" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "Formations" ? "active" : "")">Formations</a>
-                                    <a asp-controller="Home" asp-action="FormateursActifs" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "FormateursActifs" ? "active" : "")">Formateurs Actifs</a>
-                                </div>
-                            </div>
-                            <a asp-controller="Home" asp-action="Contact" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Contact" ? "active" : "")">Contact</a>
-                        </div>
-                        <partial name="_LoginPartial" />
-                    </div>
-                </nav>
-            </div>
-
-        }
-
-        @if (User.IsInRole("participant"))
-        {
-        <div class="container-fluid p-0">
-            <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
-                <a href="index.html" class="navbar-brand ml-lg-3">
-                    <h1 class="m-0 text-uppercase text-primary"><i class="fa fa-book-reader mr-3"></i>PowerLearn</h1>
-                </a>
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
-                    <div class="navbar-nav mx-auto py-0">
-                        <a asp-controller="Home" asp-action="Index" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "active" : "")">Home</a>
-                        <a asp-controller="Home" asp-action="About" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "About" ? "active" : "")">About</a>
-                        <a asp-controller="Home" asp-action="Courses" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Courses" ? "active" : "")">Courses</a>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle @(new[] { "Details", "Instructors", "Testimonial" }.Contains(ViewContext.RouteData.Values["action"]?.ToString()) ? "active" : "")" data-toggle="dropdown">Pages</a>
-                            <div class="dropdown-menu m-0">
-                                <a asp-controller="Home" asp-action="Details" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "Details" ? "active" : "")">Course Detail</a>
-                                <a asp-controller="Home" asp-action="Instructors" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "Instructors" ? "active" : "")">Instructors</a>
-                                <a asp-controller="Home" asp-action="Testimonial" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "Testimonial" ? "active" : "")">Testimonial</a>
-                            </div>
-                        </div>
-                        <a asp-controller="Home" asp-action="Contact" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Contact" ? "active" : "")">Contact</a>
-                    </div>
-
-                    <partial name="_LoginPartial" />
-                </div>
-            </nav>
-        </div>
-        }       }
-    @if (!User.Identity.IsAuthenticated)
-    {
-        <div class="container-fluid p-0">
+    <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
             <a href="index.html" class="navbar-brand ml-lg-3">
                 <h1 class="m-0 text-uppercase text-primary"><i class="fa fa-book-reader mr-3"></i>PowerLearn</h1>
@@ -149,33 +73,33 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav mx-auto py-0">
-                    <a asp-controller="Home" asp-action="Index" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "active" : "")">Home</a>
-                    <a asp-controller="Home" asp-action="About" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "About" ? "active" : "")">About</a>
-                    <a asp-controller="Home" asp-action="Courses" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Courses" ? "active" : "")">Courses</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle @(new[] { "Details", "Instructors", "Testimonial" }.Contains(ViewContext.RouteData.Values["action"]?.ToString()) ? "active" : "")" data-toggle="dropdown">Pages</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Utilisateurs</a>
                         <div class="dropdown-menu m-0">
-                            <a asp-controller="Home" asp-action="Details" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "Details" ? "active" : "")">Course Detail</a>
-                            <a asp-controller="Home" asp-action="Instructors" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "Instructors" ? "active" : "")">Instructors</a>
-                            <a asp-controller="Home" asp-action="Testimonial" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "Testimonial" ? "active" : "")">Testimonial</a>
+                            <a asp-controller="Home" asp-action="Participants" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "Participants" ? "active" : "")">Participants</a>
+                            <a asp-controller="Home" asp-action="Formations" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "Formations" ? "active" : "")">Formateurs</a>
+                            
+                        </div>
+                    </div>
+                    <a asp-controller="Home" asp-action="AdminDashboard" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "AdminDashboard" ? "active" : "")">Paiement</a>
+                    <a asp-controller="Home" asp-action="AdminDashboard" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "AdminDashboard" ? "active" : "")">Certificats</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Statistiques</a>
+                        <div class="dropdown-menu m-0">
+                            <a asp-controller="Home" asp-action="Participants" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "Participants" ? "active" : "")">Participants</a>
+                            <a asp-controller="Home" asp-action="Formations" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "Formations" ? "active" : "")">Formations</a>
+                            <a asp-controller="Home" asp-action="FormateursActifs" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "FormateursActifs" ? "active" : "")">Formateurs Actifs</a>
                         </div>
                     </div>
                     <a asp-controller="Home" asp-action="Contact" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Contact" ? "active" : "")">Contact</a>
                 </div>
-
-                    <partial name="_LoginPartial" />
+                <a asp-controller="Home" asp-action="Index" class="btn btn-danger">Logout</a>
             </div>
         </nav>
     </div>
-    }
+
     <!-- Navbar End -->
-
-   
- 
-        @RenderBody()
-  
-
- 
+    @RenderBody()
 
     <!-- Footer Start -->
     <div class="container-fluid position-relative overlay-top bg-dark text-white-50 py-5" style="margin-top: 90px;">

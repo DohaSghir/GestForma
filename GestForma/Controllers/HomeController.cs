@@ -53,5 +53,28 @@ namespace GestForma.Controllers
         {
             return View();
         }
+        // Admin
+        public IActionResult AdminDashboard()
+        {
+            /*if (!User.IsInRole("Admin"))
+            {
+                return RedirectToAction("Login", "Account");  // Rediriger vers la page de connexion si l'utilisateur n'est pas un admin
+            }
+            */
+            ViewData["Layout"] = "_LayoutAdmin";
+            return View();
+        }
+
+        //Formateur
+        public IActionResult FormateurDashboard()
+        {
+            /*if (!User.IsInRole("Formateur"))
+            {
+                return RedirectToAction("Login", "Account");  // Rediriger vers la page de connexion si l'utilisateur n'est pas un formateur
+            }*/
+
+            ViewData["Layout"] = "_LayoutFormateur";
+            return View();
+        }
     }
 }
