@@ -69,7 +69,7 @@ app.Use(async (context, next) =>
 
         var user = await userManager.GetUserAsync(context.User);
 
-        if (user != null && await userManager.IsInRoleAsync(user, "invit�"))
+        if (user != null && await userManager.IsInRoleAsync(user, "invité"))
         {
             // Ajoutez un message pour l'utilisateur
             tempData["ErrorMessage"] = "Votre compte est en attente de validation par un administrateur.";
