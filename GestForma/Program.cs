@@ -42,15 +42,15 @@ if (!app.Environment.IsDevelopment())
 
         if (user != null)
         {
-            // Vérifiez si l'utilisateur a le rôle "invité"
-            if (await userManager.IsInRoleAsync(user, "invité"))
+            // Vï¿½rifiez si l'utilisateur a le rï¿½le "invitï¿½"
+            if (await userManager.IsInRoleAsync(user, "invitï¿½"))
             {
-                await signInManager.SignOutAsync(); // Déconnectez l'utilisateur
-                context.Response.Redirect("/"); // Redirigez vers une page d'accès refusé
+                await signInManager.SignOutAsync(); // Dï¿½connectez l'utilisateur
+                context.Response.Redirect("/"); // Redirigez vers une page d'accï¿½s refusï¿½
                 return;
             }
 
-            // Vérifiez si l'utilisateur a le rôle "participant"
+            // Vï¿½rifiez si l'utilisateur a le rï¿½le "participant"
            
         }
     }
@@ -69,12 +69,12 @@ app.Use(async (context, next) =>
 
         var user = await userManager.GetUserAsync(context.User);
 
-        if (user != null && await userManager.IsInRoleAsync(user, "invité"))
+        if (user != null && await userManager.IsInRoleAsync(user, "invitï¿½"))
         {
             // Ajoutez un message pour l'utilisateur
             tempData["ErrorMessage"] = "Votre compte est en attente de validation par un administrateur.";
 
-            await signInManager.SignOutAsync(); // Déconnectez l'utilisateur
+            await signInManager.SignOutAsync(); // Dï¿½connectez l'utilisateur
             context.Response.Redirect(context.Request.Path); // Rechargez la page actuelle
             return;
         }
