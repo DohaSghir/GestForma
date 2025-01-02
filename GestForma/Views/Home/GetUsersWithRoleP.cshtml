@@ -41,7 +41,7 @@
                     <td>@user.CreatedAt.ToString("d")</td>
                     <td>
 
-                        <form asp-action="DeleteParticipant" asp-route-id="@user.Id" method="post" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce participant ?');">
+                        <form asp-action="DeleteParticipant" asp-route-id="@user.Id" method="post" onsubmit="return confirm('Are you sure you want to delete this participant? ?');">
                             <button type="submit" class="btn btn-danger btn-sm">
                                 <i class="fa fa-trash"></i> Delete
                             </button>
