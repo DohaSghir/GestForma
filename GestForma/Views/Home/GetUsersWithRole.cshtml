@@ -1,0 +1,42 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model List<ApplicationUser>
+
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    Layout = ViewData["LayoutAdmin"]?.ToString() ?? "~/Views/Shared/_LayoutAdmin.cshtml"; // Définit un layout par défaut si ViewData["Layout"] est vide
+    ViewData["Title"] = "Liste des utilisateurs invités";
+}
+<div class="table-responsive">
+    <table class="table table-bordered  table-hover table-striped text-center">
+        <thead>
+            <tr>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Created At</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.LastName</td>
+                    <td>@user.Email</td>
+                    <td>@user.CreatedAt.ToString("d")</td>
+                    <td>
+                        <!-- Bouton pour changer le rôle -->
+                        @if (await UserManager.IsInRoleAsync(user, "invité"))
+                        {
+                            <form asp-action="ChangeRoleToParticipant" asp-route-userId="@user.Id" method="post" class="d-inline">
+                                <button type="submit" class="btn btn-primary btn-sm">
+                                    <i class="fa fa-user-plus"></i> Accept
+                                </button>
+                            </form>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
