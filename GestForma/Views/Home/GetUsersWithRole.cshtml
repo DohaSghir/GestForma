@@ -25,7 +25,6 @@
                     <td>@user.Email</td>
                     <td>@user.CreatedAt.ToString("d")</td>
                     <td>
-                        <!-- Bouton pour changer le rôle -->
                         @if (await UserManager.IsInRoleAsync(user, "invité"))
                         {
                             <form asp-action="ChangeRoleToParticipant" asp-route-userId="@user.Id" method="post" class="d-inline">
