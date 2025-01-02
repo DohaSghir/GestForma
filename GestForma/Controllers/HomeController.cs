@@ -65,7 +65,7 @@ namespace GestForma.Controllers
             return View();
         }
 
-        // Action pour récupérer les utilisateurs ayant le rôle "invité"
+        // Action pour rï¿½cupï¿½rer les utilisateurs ayant le rï¿½le "invitï¿½"
         [Authorize(Roles = "administrateur")]
         public async Task<IActionResult> GetUsersWithRole()
         {
@@ -74,7 +74,7 @@ namespace GestForma.Controllers
 
             foreach (var user in users)
             {
-                if (await _userManager.IsInRoleAsync(user, "invité"))
+                if (await _userManager.IsInRoleAsync(user, "invitÃ©"))
                 {
                     invitedUsers.Add(user);
                 }
@@ -83,39 +83,39 @@ namespace GestForma.Controllers
             return View(invitedUsers);
         }
 
-        // Action pour changer le rôle d'un utilisateur en "participant"
+        // Action pour changer le rï¿½le d'un utilisateur en "participant"
         [Authorize(Roles = "administrateur")]
         [HttpPost]
         public async Task<IActionResult> ChangeRoleToParticipant(string userId)
         {
             if (string.IsNullOrEmpty(userId))
             {
-                TempData["Error"] = "ID invalide.";
+                TempData["Error"] = "Invalid ID.";
                 return RedirectToAction(nameof(GetUsersWithRole));
             }
 
             var user = await _userManager.FindByIdAsync(userId);
             if (user == null)
             {
-                TempData["Error"] = "Utilisateur introuvable.";
+                TempData["Error"] = "User not found.";
                 return RedirectToAction(nameof(GetUsersWithRole));
             }
 
-            var removeRoleResult = await _userManager.RemoveFromRoleAsync(user, "invité");
+            var removeRoleResult = await _userManager.RemoveFromRoleAsync(user, "invitÃ©");
             if (!removeRoleResult.Succeeded)
             {
-                TempData["Error"] = "Une erreur est survenue lors de la suppression du rôle 'invité'.";
+                TempData["Error"] = "An error occurred while deleting the 'guest' role.";
                 return RedirectToAction(nameof(GetUsersWithRole));
             }
 
             var addRoleResult = await _userManager.AddToRoleAsync(user, "participant");
             if (!addRoleResult.Succeeded)
             {
-                TempData["Error"] = "Une erreur est survenue lors de l'ajout du rôle 'participant'.";
+                TempData["Error"] = "An error occurred while adding the 'participant' role.";
                 return RedirectToAction(nameof(GetUsersWithRole));
             }
 
-            TempData["Success"] = $"L'utilisateur {user.UserName} a été promu en tant que participant.";
+            TempData["Success"] = $"The user {user.UserName} has been promoted to participant.";
             return RedirectToAction(nameof(GetUsersWithRole));
         }
 
@@ -126,25 +126,25 @@ namespace GestForma.Controllers
         {
             if (string.IsNullOrEmpty(id))
             {
-                TempData["Error"] = "ID invalide.";
+                TempData["Error"] = "Invalid ID.";
                 return RedirectToAction(nameof(GetUsersWithRoleP));
             }
 
             var user = await _userManager.FindByIdAsync(id);
             if (user == null)
             {
-                TempData["Error"] = "Utilisateur introuvable.";
+                TempData["Error"] = "User not found.";
                 return RedirectToAction(nameof(GetUsersWithRoleP));
             }
 
             var result = await _userManager.DeleteAsync(user);
             if (result.Succeeded)
             {
-                TempData["Success"] = $"L'utilisateur {user.UserName} a été supprimé avec succès.";
+                TempData["Success"] = $"The user {user.UserName} has been successfully deleted.";
             }
             else
             {
-                TempData["Error"] = "Une erreur est survenue lors de la suppression de l'utilisateur.";
+                TempData["Error"] = "An error occurred while deleting the user.";
                 foreach (var error in result.Errors)
                 {
                     ModelState.AddModelError("", error.Description);
@@ -154,7 +154,7 @@ namespace GestForma.Controllers
             return RedirectToAction(nameof(GetUsersWithRoleP));
         }
 
-        // Action pour récupérer la liste des utilisateurs ayant le rôle "participant"
+        // Action pour rï¿½cupï¿½rer la liste des utilisateurs ayant le rï¿½le "participant"
         [Authorize(Roles = "administrateur")]
         public async Task<IActionResult> GetUsersWithRoleP()
         {
