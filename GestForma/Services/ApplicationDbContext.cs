@@ -10,6 +10,7 @@ namespace GestForma.Services
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
 
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {
 
