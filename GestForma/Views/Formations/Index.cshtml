@@ -1,0 +1,66 @@
+﻿@model IEnumerable<GestForma.Models.Formation>
+
+@{
+    ViewData["Title"] = "Courses";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Courses</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Title
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Category
+            </th>
+            <th>
+                Duration
+            </th>
+            <th>
+                Cost
+            </th>
+            <th>
+                Trainer
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Intitule)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categorie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Duree)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cout)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.FirstName) @Html.DisplayFor(modelItem => item.User.LastName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID_Formation">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ID_Formation">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID_Formation">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
