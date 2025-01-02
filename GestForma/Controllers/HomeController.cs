@@ -103,25 +103,25 @@ namespace GestForma.Controllers
         }
 
         [Authorize(Roles = "administrateur")]
-        // Action pour récupérer la liste des utilisateurs ayant le rôle "invité"
+        // Action pour rï¿½cupï¿½rer la liste des utilisateurs ayant le rï¿½le "invitï¿½"
         public async Task<IActionResult> GetUsersWithRole()
         {
-            // Récupérer tous les utilisateurs
+            // Rï¿½cupï¿½rer tous les utilisateurs
             var users = _userManager.Users.ToList();
 
-            // Créer une liste pour stocker les utilisateurs avec le rôle "invité"
+            // Crï¿½er une liste pour stocker les utilisateurs avec le rï¿½le "invitï¿½"
             var invitedUsers = new List<ApplicationUser>();
 
-            // Vérifier pour chaque utilisateur s'il a le rôle "invité"
+            // Vï¿½rifier pour chaque utilisateur s'il a le rï¿½le "invitï¿½"
             foreach (var user in users)
             {
-                if (await _userManager.IsInRoleAsync(user, "invité"))
+                if (await _userManager.IsInRoleAsync(user, "invitÃ©"))
                 {
-                    invitedUsers.Add(user); // Ajouter à la liste si l'utilisateur est dans le rôle "invité"
+                    invitedUsers.Add(user); // Ajouter ï¿½ la liste si l'utilisateur est dans le rï¿½le "invitï¿½"
                 }
             }
 
-            // Retourner la liste des utilisateurs "invités" à la vue
+            // Retourner la liste des utilisateurs "invitï¿½s" ï¿½ la vue
             return View(invitedUsers);
         }
 
@@ -141,23 +141,23 @@ namespace GestForma.Controllers
                 return RedirectToAction(nameof(GetUsersWithRole));
             }
 
-            // Supprimer l'utilisateur du rôle "invité"
-            var removeRoleResult = await _userManager.RemoveFromRoleAsync(user, "invité");
+            // Supprimer l'utilisateur du rï¿½le "invitï¿½"
+            var removeRoleResult = await _userManager.RemoveFromRoleAsync(user, "invitÃ©");
             if (!removeRoleResult.Succeeded)
             {
-                // Gérer l'échec de la suppression du rôle
+                // Gï¿½rer l'ï¿½chec de la suppression du rï¿½le
                 return RedirectToAction(nameof(GetUsersWithRole));
             }
 
-            // Ajouter l'utilisateur au rôle "participant"
+            // Ajouter l'utilisateur au rï¿½le "participant"
             var addRoleResult = await _userManager.AddToRoleAsync(user, "participant");
             if (!addRoleResult.Succeeded)
             {
-                // Gérer l'échec de l'ajout du rôle
+                // Gï¿½rer l'ï¿½chec de l'ajout du rï¿½le
                 return RedirectToAction(nameof(GetUsersWithRole));
             }
 
-            // Rediriger après la modification du rôle
+            // Rediriger aprï¿½s la modification du rï¿½le
             return RedirectToAction(nameof(GetUsersWithRole));
         }
     }
