@@ -73,7 +73,7 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav mx-auto py-0">
-                    <a asp-controller="Home" asp-action="FormateurDashboard" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "FormateurDashboard" ? "active" : "")">Formations</a>
+                    <a asp-controller="Formations" asp-action="Index" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "active" : "")">Formations</a>
                     <a asp-controller="Home" asp-action="FormateurDashboard" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "FormateurDashboard" ? "active" : "")">Activités</a>
                     <a asp-controller="Home" asp-action="Contact" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Contact" ? "active" : "")">Contact</a>
                 </div>

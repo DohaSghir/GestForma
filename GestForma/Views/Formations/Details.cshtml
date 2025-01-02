@@ -1,0 +1,50 @@
+﻿@model GestForma.Models.Formation
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_LayoutFormateur.cshtml";
+}
+
+<div class="d-flex flex-column justify-content-center align-items-center vh-100">
+    <h1 class="text-center text-dark fw-bold mb-5">Course Details</h1>
+
+    <div class="container">
+        <dl class="row justify-content-center text-center">
+            <dt class="col-sm-3">
+                <i class="fas fa-book"></i> Title
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Intitule)
+            </dd>
+            <dt class="col-sm-3">
+                <i class="fas fa-align-left"></i> Description
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+            <dt class="col-sm-3">
+                <i class="fas fa-tags"></i> Category
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Categorie)
+            </dd>
+            <dt class="col-sm-3">
+                <i class="fas fa-clock"></i> Duration
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Duree)
+            </dd>
+            <dt class="col-sm-3">
+                <i class="fas fa-dollar-sign"></i> Cost
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Cout, "{0:C}")
+            </dd>
+        </dl>
+    </div>
+
+    <div class="d-flex justify-content-center mt-4">
+        <a asp-action="Edit" asp-route-id="@Model?.ID_Formation" class="btn btn-primary mx-2">Edit</a>
+        <a asp-action="Index" class="btn btn-secondary mx-2">Back to List</a>
+    </div>
+</div>
