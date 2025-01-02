@@ -124,6 +124,66 @@ namespace GestForma.Controllers
             // Retourner la liste des utilisateurs "invités" à la vue
             return View(invitedUsers);
         }
+        
+                [Authorize(Roles = "administrateur")] 
+                [HttpPost]
+                public async Task<IActionResult> DeleteParticipant(string id)
+                {
+                    if (string.IsNullOrEmpty(id))
+                    {
+                        TempData["Error"] = "ID invalide.";
+                        return RedirectToAction("GetUsersWithRoleP"); 
+                    }
+
+                    var user = await _userManager.FindByIdAsync(id);
+                    if (user == null)
+                    {
+                        TempData["Error"] = "Utilisateur introuvable.";
+                        return RedirectToAction("GetUsersWithRoleP");
+                    }
+
+
+                    var result = await _userManager.DeleteAsync(user);
+                    if (result.Succeeded)
+                    {
+                        TempData["Success"] = $" {user.UserName} deleted.";
+                    }
+                    else
+                    {
+                        TempData["Error"] = "Une erreur est survenue lors de la suppression de l'utilisateur.";
+                        foreach (var error in result.Errors)
+                        {
+                            ModelState.AddModelError("", error.Description);
+                        }
+                    }
+
+                    return RedirectToAction("GetUsersWithRoleP");
+                }
+
+          
+     
+
+        [Authorize(Roles = "administrateur")]
+        public async Task<IActionResult> GetUsersWithRoleP()
+        {
+            // Récupérer tous les utilisateurs
+            var users = _userManager.Users.ToList();
+
+            // Créer une liste pour stocker les utilisateurs avec le rôle "invité"
+            var invitedUsers = new List<ApplicationUser>();
+
+            // Vérifier pour chaque utilisateur s'il a le rôle "invité"
+            foreach (var user in users)
+            {
+                if (await _userManager.IsInRoleAsync(user, "participant"))
+                {
+                    invitedUsers.Add(user); // Ajouter à la liste si l'utilisateur est dans le rôle "invité"
+                }
+            }
+
+            // Retourner la liste des utilisateurs "invités" à la vue
+            return View(invitedUsers);
+        }
 
 
         [Authorize(Roles = "administrateur")]

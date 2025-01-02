@@ -74,22 +74,23 @@
             <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav mx-auto py-0">
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Utilisateurs</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Users</a>
                         <div class="dropdown-menu m-0">
-                            <a asp-controller="Home" asp-action="GetUsersWithRole" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "GetUsersWithRole" ? "active" : "")">Participants</a>
+                            <a asp-controller="Home" asp-action="GetUsersWithRole" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "GetUsersWithRole" ? "active" : "")">Guests</a>
+                            <a asp-controller="Home" asp-action="GetUsersWithRoleP" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "GetUsersWithRoleP" ? "active" : "")">Participants</a>
 
-                            <a asp-controller="Home" asp-action="Formations" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "Formations" ? "active" : "")">Formateurs</a>
+                            <a asp-controller="Home" asp-action="Formations" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "Formations" ? "active" : "")" >Trainers </a>
                             
                         </div>
                     </div>
-                    <a asp-controller="Home" asp-action="AdminDashboard" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "AdminDashboard" ? "active" : "")">Paiement</a>
-                    <a asp-controller="Home" asp-action="AdminDashboard" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "AdminDashboard" ? "active" : "")">Certificats</a>
+                    <a asp-controller="Home" asp-action="AdminDashboard" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "AdminDashboard" ? "active" : "")">Payment</a>
+                    <a asp-controller="Home" asp-action="AdminDashboard" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "AdminDashboard" ? "active" : "")">Certificates</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Statistiques</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Statistics</a>
                         <div class="dropdown-menu m-0">
                             <a asp-controller="Home" asp-action="Participants" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "Participants" ? "active" : "")">Participants</a>
-                            <a asp-controller="Home" asp-action="Formations" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "Formations" ? "active" : "")">Formations</a>
-                            <a asp-controller="Home" asp-action="FormateursActifs" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "FormateursActifs" ? "active" : "")">Formateurs Actifs</a>
+                            <a asp-controller="Home" asp-action="Formations" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "Formations" ? "active" : "")">Courses</a>
+                            <a asp-controller="Home" asp-action="FormateursActifs" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "FormateursActifs" ? "active" : "")">Active Trainers</a>
                         </div>
                     </div>
                 </div>
@@ -134,6 +135,9 @@
     <script src="../lib/waypoints/waypoints.min.js"></script>
     <script src="../lib/counterup/counterup.min.js"></script>
     <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
+
+   
+
     @await RenderSectionAsync("Scripts", required: false)
     <!-- Template Javascript -->
     <script src="../js/main.js"></script>
