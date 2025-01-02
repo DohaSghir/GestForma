@@ -74,7 +74,7 @@ namespace GestForma.Controllers
 
             foreach (var user in users)
             {
-                if (await _userManager.IsInRoleAsync(user, "invit�"))
+                if (await _userManager.IsInRoleAsync(user, "invité"))
                 {
                     invitedUsers.Add(user);
                 }
@@ -90,32 +90,32 @@ namespace GestForma.Controllers
         {
             if (string.IsNullOrEmpty(userId))
             {
-                TempData["Error"] = "ID invalide.";
+                TempData["Error"] = "Invalid ID.";
                 return RedirectToAction(nameof(GetUsersWithRole));
             }
 
             var user = await _userManager.FindByIdAsync(userId);
             if (user == null)
             {
-                TempData["Error"] = "Utilisateur introuvable.";
+                TempData["Error"] = "User not found.";
                 return RedirectToAction(nameof(GetUsersWithRole));
             }
 
-            var removeRoleResult = await _userManager.RemoveFromRoleAsync(user, "invit�");
+            var removeRoleResult = await _userManager.RemoveFromRoleAsync(user, "invité");
             if (!removeRoleResult.Succeeded)
             {
-                TempData["Error"] = "Une erreur est survenue lors de la suppression du r�le 'invit�'.";
+                TempData["Error"] = "An error occurred while deleting the 'guest' role.";
                 return RedirectToAction(nameof(GetUsersWithRole));
             }
 
             var addRoleResult = await _userManager.AddToRoleAsync(user, "participant");
             if (!addRoleResult.Succeeded)
             {
-                TempData["Error"] = "Une erreur est survenue lors de l'ajout du r�le 'participant'.";
+                TempData["Error"] = "An error occurred while adding the 'participant' role.";
                 return RedirectToAction(nameof(GetUsersWithRole));
             }
 
-            TempData["Success"] = $"L'utilisateur {user.UserName} a �t� promu en tant que participant.";
+            TempData["Success"] = $"The user {user.UserName} has been promoted to participant.";
             return RedirectToAction(nameof(GetUsersWithRole));
         }
 
@@ -126,25 +126,25 @@ namespace GestForma.Controllers
         {
             if (string.IsNullOrEmpty(id))
             {
-                TempData["Error"] = "ID invalide.";
+                TempData["Error"] = "Invalid ID.";
                 return RedirectToAction(nameof(GetUsersWithRoleP));
             }
 
             var user = await _userManager.FindByIdAsync(id);
             if (user == null)
             {
-                TempData["Error"] = "Utilisateur introuvable.";
+                TempData["Error"] = "User not found.";
                 return RedirectToAction(nameof(GetUsersWithRoleP));
             }
 
             var result = await _userManager.DeleteAsync(user);
             if (result.Succeeded)
             {
-                TempData["Success"] = $"L'utilisateur {user.UserName} a �t� supprim� avec succ�s.";
+                TempData["Success"] = $"The user {user.UserName} has been successfully deleted.";
             }
             else
             {
-                TempData["Error"] = "Une erreur est survenue lors de la suppression de l'utilisateur.";
+                TempData["Error"] = "An error occurred while deleting the user.";
                 foreach (var error in result.Errors)
                 {
                     ModelState.AddModelError("", error.Description);
