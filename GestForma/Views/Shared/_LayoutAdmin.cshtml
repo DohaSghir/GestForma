@@ -76,7 +76,8 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Utilisateurs</a>
                         <div class="dropdown-menu m-0">
-                            <a asp-controller="Home" asp-action="Participants" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "Participants" ? "active" : "")">Participants</a>
+                            <a asp-controller="Home" asp-action="GetUsersWithRole" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "GetUsersWithRole" ? "active" : "")">Participants</a>
+
                             <a asp-controller="Home" asp-action="Formations" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "Formations" ? "active" : "")">Formateurs</a>
                             
                         </div>
@@ -92,7 +93,7 @@
                         </div>
                     </div>
                 </div>
-                <a asp-controller="Home" asp-action="Index" class="btn btn-danger">Logout</a>
+                <partial name="_LoginPartial" />
             </div>
         </nav>
     </div>

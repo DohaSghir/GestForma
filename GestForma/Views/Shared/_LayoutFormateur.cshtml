@@ -78,7 +78,7 @@
                     <a asp-controller="Home" asp-action="Contact" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Contact" ? "active" : "")">Contact</a>
                 </div>
                 <!-- Align the logout button to the right -->
-                <a asp-controller="Home" asp-action="Index" class="btn btn-danger ml-auto">Logout</a>
+                <partial name="_LoginPartial" />
 
             </div>
         </nav>
