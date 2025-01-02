@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Courses";
-    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = "~/Views/Shared/_LayoutFormateur.cshtml";
 }
 
 <h1>Courses</h1>
@@ -10,7 +10,8 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<div class="table-responsive">
+<table class="table table-bordered  table-hover table-striped text-center">
     <thead>
         <tr>
             <th>
@@ -27,9 +28,6 @@
             </th>
             <th>
                 Cost
-            </th>
-            <th>
-                Trainer
             </th>
             <th></th>
         </tr>
@@ -53,14 +51,26 @@
                 @Html.DisplayFor(modelItem => item.Cout)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.User.FirstName) @Html.DisplayFor(modelItem => item.User.LastName)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ID_Formation">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID_Formation">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID_Formation">Delete</a>
+                        <form asp-action="Edit" asp-route-id="@item.ID_Formation" method="get" class="d-inline">
+                            <button type="submit" class="btn btn-info btn-sm">
+                                <i class="fa fa-edit"></i> Edit
+                            </button>
+                        </form>
+                        
+                        <form asp-action="Details" asp-route-id="@item.ID_Formation" method="get" class="d-inline">
+                            <button type="submit" class="btn btn-info btn-sm">
+                                <i class="fa fa-info-circle"></i> Details
+                            </button>
+                        </form>
+                        
+                        <form asp-action="Delete" asp-route-id="@item.ID_Formation" method="post" class="d-inline">
+                            <button type="submit" class="btn btn-danger btn-sm">
+                                <i class="fa fa-trash"></i> Delete
+                            </button>
+                        </form>
             </td>
         </tr>
 }
     </tbody>
 </table>
+</div>

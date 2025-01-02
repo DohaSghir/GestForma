@@ -26,7 +26,7 @@ namespace GestForma.Models
         
         public float Cout { get; set; }
 
-        [Required]
+        
         public string? ID_User { get; set; }
 
         [ForeignKey("ID_User")]

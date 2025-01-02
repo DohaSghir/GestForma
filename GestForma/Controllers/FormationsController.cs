@@ -7,23 +7,37 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GestForma.Models;
 using GestForma.Services;
+using Microsoft.AspNetCore.Identity;
 
 namespace GestForma.Controllers
 {
     public class FormationsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
+       
 
-        public FormationsController(ApplicationDbContext context)
+        public FormationsController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Formations
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Formations.Include(f => f.User);
-            return View(await applicationDbContext.ToListAsync());
+            
+                var userId = _userManager.GetUserId(User);
+                if (string.IsNullOrEmpty(userId))
+                {
+                    return Unauthorized(); // Retourner une erreur si l'utilisateur n'est pas connecté
+                }
+
+                var formations = _context.Formations
+                    .Include(f => f.User)
+                    .Where(f => f.ID_User == userId);
+
+                return View(await formations.ToListAsync());
         }
 
         // GET: Formations/Details/5
@@ -48,26 +62,36 @@ namespace GestForma.Controllers
         // GET: Formations/Create
         public IActionResult Create()
         {
-            ViewData["ID_User"] = new SelectList(_context.Users, "Id", "Id");
+            // Pas besoin de ViewData pour ID_User
             return View();
         }
 
         // POST: Formations/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID_Formation,Intitule,Description,Categorie,Duree,Cout,ID_User")] Formation formation)
+        public async Task<IActionResult> Create([Bind("ID_Formation,Intitule,Description,Categorie,Duree,Cout")] Formation formation)
         {
             if (ModelState.IsValid)
             {
+                // Récupérer l'ID de l'utilisateur connecté
+                formation.ID_User = _userManager.GetUserId(User);
+
+                if (string.IsNullOrEmpty(formation.ID_User))
+                {
+                    // Si l'utilisateur n'est pas authentifié, retournez une erreur
+                    return Unauthorized();
+                }
+
+                // Ajouter la formation au contexte
                 _context.Add(formation);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ID_User"] = new SelectList(_context.Users, "Id", "Id", formation.ID_User);
+
+            // Retourner la vue avec les données invalides
             return View(formation);
         }
+
 
         // GET: Formations/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -82,16 +106,7 @@ namespace GestForma.Controllers
             {
                 return NotFound();
             }
-            ViewData["ID_User"] = new SelectList(
-                _context.Users.Select(user => new
-                {
-                    Id = user.Id,
-                    FullName = user.FirstName + " " + user.LastName
-                }),
-                "Id",
-                "FullName",
-                formation.ID_User
-            );
+            
             return View(formation);
         }
 
@@ -100,7 +115,7 @@ namespace GestForma.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID_Formation,Intitule,Description,Categorie,Duree,Cout,ID_User")] Formation formation)
+        public async Task<IActionResult> Edit(int id, [Bind("ID_Formation,Intitule,Description,Categorie,Duree,Cout")] Formation formation)
         {
             if (id != formation.ID_Formation)
             {
@@ -109,6 +124,15 @@ namespace GestForma.Controllers
 
             if (ModelState.IsValid)
             {
+                // Récupérer l'ID de l'utilisateur connecté
+                formation.ID_User = _userManager.GetUserId(User);
+
+                if (string.IsNullOrEmpty(formation.ID_User))
+                {
+                    // Si l'utilisateur n'est pas authentifié, retournez une erreur
+                    return Unauthorized();
+                }
+
                 try
                 {
                     _context.Update(formation);
@@ -127,16 +151,6 @@ namespace GestForma.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ID_User"] = new SelectList(
-                 _context.Users.Select(user => new
-                 {
-                     Id = user.Id,
-                     FullName = user.FirstName + " " + user.LastName
-                 }),
-                 "Id",
-                 "FullName",
-                 formation.ID_User
-             );
             return View(formation);
         }
 

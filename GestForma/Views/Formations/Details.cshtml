@@ -2,50 +2,43 @@
 
 @{
     ViewData["Title"] = "Details";
-    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = "~/Views/Shared/_LayoutFormateur.cshtml";
 }
 
-<h1>Details</h1>
+<h1>Course Details</h1>
 
 <div>
-    <h4>Formation</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Intitule)
+            Title
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Intitule)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
+            Description
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Description)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Categorie)
+            Category
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Categorie)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Duree)
+            Duration
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Duree)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Cout)
+            Cost
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Cout)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.User)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.User.Id)
         </dd>
     </dl>
 </div>
