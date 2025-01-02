@@ -63,7 +63,9 @@
     </div>
     <!-- Topbar End -->
     <!-- Navbar Start -->
-    <div class="container-fluid p-0">
+  
+
+        <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
             <a href="index.html" class="navbar-brand ml-lg-3">
                 <h1 class="m-0 text-uppercase text-primary"><i class="fa fa-book-reader mr-3"></i>PowerLearn</h1>
@@ -86,19 +88,14 @@
                     </div>
                     <a asp-controller="Home" asp-action="Contact" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Contact" ? "active" : "")">Contact</a>
                 </div>
-                <partial name="_LoginPartial" />
+
+                    <partial name="_LoginPartial" />
             </div>
         </nav>
     </div>
+    
     <!-- Navbar End -->
-
-   
- 
-        @RenderBody()
-  
-
- 
-
+    @RenderBody()
     <!-- Footer Start -->
     <div class="container-fluid position-relative overlay-top bg-dark text-white-50 py-5" style="margin-top: 90px;">
         <div class="container mt-5 pt-5">
