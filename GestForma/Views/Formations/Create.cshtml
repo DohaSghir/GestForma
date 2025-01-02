@@ -5,11 +5,11 @@
     Layout = "~/Views/Shared/_LayoutFormateur.cshtml";
 }
 
-<h1>Create Course</h1>
+<h1 class="text-center text-primary fw-bold mt-5">Create Course</h1>
 
 <hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="row mx-auto">
+    <div class="col-md-4 mx-auto">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -37,14 +37,24 @@
                 <input asp-for="Cout" class="form-control" />
                 <span asp-validation-for="Cout" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+         
+
+            <div class="row mb-3">
+
+                <div class="col d-grid">
+                    <input type="submit" value="Create" class="w-100 btn btn-lg btn-primary " />
+                </div>
+
+                <div class="col d-grid">
+                    <button class="w-100 btn btn-outline-primary">
+                        <a asp-action="Index">Back to List</a>
+                    </button>
+
+                </div>
+
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
