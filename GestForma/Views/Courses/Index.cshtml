@@ -5,6 +5,7 @@
     Layout = "~/Views/Shared/_LayoutFormateur.cshtml";
 }
 
+
 <h1 class="text-center text-dark fw-bold mt-5">Courses</h1>
 
 
@@ -17,52 +18,53 @@
 </p>
 
 <div class="table-responsive mx-auto px-4 mt-5">
-<table class="table table-bordered  table-hover table-striped text-center">
-    <thead>
-        <tr>
-            <th>
-                Title
-            </th>
-            <th>
-                Description
-            </th>
-            <th>
-                Category
-            </th>
-            <th>
-                Duration
-            </th>
-            <th>
-                Cost
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Intitule)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Categorie)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Duree)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cout)
-            </td>
-            <td>
+    <table class="table table-bordered  table-hover table-striped text-center">
+        <thead>
+            <tr>
+                <th>
+                    Title
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Category
+                </th>
+                <th>
+                    Duration
+                </th>
+                <th>
+                    Cost
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Intitule)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Categorie.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Duree)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cout)
+                    </td>
+                    <td>
                         <form asp-action="Edit" asp-route-id="@item.ID_Formation" method="get" class="d-inline">
                             <button type="submit" class="btn btn-info btn-sm">
                                 <i class="fa fa-edit"></i> Edit
                             </button>
                         </form>
-                        
+
                         <form asp-action="Details" asp-route-id="@item.ID_Formation" method="get" class="d-inline">
                             <button type="submit" class="btn btn-dark btn-sm">
                                 <i class="fa fa-info-circle"></i> Details
@@ -79,8 +81,9 @@
                             </button>
                         </form>
 
-        </tr>
-}
-    </tbody>
-</table>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
+

@@ -1,17 +1,17 @@
 ﻿@model GestForma.Models.Formation
 
 @{
-    ViewData["Title"] = "Create Course";
+    ViewData["Title"] = "Edit Course";
     Layout = "~/Views/Shared/_LayoutFormateur.cshtml";
 }
 
-<h1 class="text-center text-dark fw-bold mt-5">Create Course</h1>
-
+<h1 class="text-center text-dark fw-bold mt-5">Edit Course</h1>
 <hr />
 <div class="row mx-auto">
     <div class="col-md-4 mx-auto">
-        <form asp-action="Create">
+        <form asp-action="Edit" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID_Formation" />
             <div class="form-group">
                 <label asp-for="Intitule" class="control-label"></label>
                 <input asp-for="Intitule" class="form-control" />
@@ -23,9 +23,9 @@
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Categorie" class="control-label"></label>
-                <input asp-for="Categorie" class="form-control" />
-                <span asp-validation-for="Categorie" class="text-danger"></span>
+                <label asp-for="Id_Categorie" class="control-label"></label>
+                <select asp-for="Id_Categorie" class="form-control" asp-items="ViewBag.Id_Categorie"></select>
+                <span asp-validation-for="Id_Categorie" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Duree" class="control-label"></label>
@@ -37,22 +37,25 @@
                 <input asp-for="Cout" class="form-control" />
                 <span asp-validation-for="Cout" class="text-danger"></span>
             </div>
-         
+            <div class="form-group">
+                <label for="file">Image :</label>
+                <input type="file" id="file" name="file" class="form-control" />
+            </div>
+            
 
             <div class="row mb-3">
 
                 <div class="col d-grid">
-                    <input type="submit" value="Create" class="w-100 btn btn-lg btn-info " />
+                    <input type="submit" value="Save" class="w-100 btn btn-lg btn-primary " />
                 </div>
 
                 <div class="col d-grid">
-                    <button class="w-100 btn btn-info">
-                        <a asp-action="Index" class="text-light">Back to List</a>
+                    <button class="w-100 btn btn-outline-primary">
+                        <a asp-action="Index">Back to List</a>
                     </button>
 
                 </div>
-
-            </div>
+             </div>
         </form>
     </div>
 </div>
