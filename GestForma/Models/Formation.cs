@@ -11,19 +11,23 @@ namespace GestForma.Models
 
         [Required]
         [MaxLength(255)]
+        [Display(Name = "Title")]
         public string? Intitule { get; set; }
 
         [Required]
+        [Display(Name = "Description")]
         public string? Description { get; set; }
 
         [Required]
         [MaxLength(100)]
+        [Display(Name = "Category")]
         public string? Categorie { get; set; }
 
         [Range(0, float.MaxValue)]
+        [Display(Name = "Duration")]
         public float Duree { get; set; }
 
-        
+        [Display(Name = "Cost")]
         public float Cout { get; set; }
 
         
