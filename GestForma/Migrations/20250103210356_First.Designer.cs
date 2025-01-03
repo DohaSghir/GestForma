@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GestForma.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250103143527_First")]
+    [Migration("20250103210356_First")]
     partial class First
     {
         /// <inheritdoc />
@@ -223,15 +223,13 @@ namespace GestForma.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID_Formation"));
 
                     b.Property<string>("ContentType")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<float>("Cout")
                         .HasColumnType("real");
 
                     b.Property<byte[]>("Data")
-                        .IsRequired()
                         .HasColumnType("varbinary(max)");
 
                     b.Property<string>("Description")
@@ -242,15 +240,13 @@ namespace GestForma.Migrations
                         .HasColumnType("real");
 
                     b.Property<string>("FileName")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasMaxLength(2955)
+                        .HasColumnType("nvarchar(2955)");
 
                     b.Property<string>("ID_User")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("Id_Categorie")
-                        .HasMaxLength(100)
+                    b.Property<int?>("Id_Categorie")
                         .HasColumnType("int");
 
                     b.Property<string>("Intitule")
@@ -451,25 +447,25 @@ namespace GestForma.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "8e528a18-ae8d-4558-970f-21b3d1ea4e0d",
+                            Id = "bd00591b-f9d1-4641-a953-ab3e705ff654",
                             Name = "administrateur",
                             NormalizedName = "administrateur"
                         },
                         new
                         {
-                            Id = "b4ca9b4b-725d-4349-8752-f0495126c681",
+                            Id = "53f89cd5-b4b5-470d-a0fc-42a688c12288",
                             Name = "professeur",
                             NormalizedName = "professeur"
                         },
                         new
                         {
-                            Id = "de8584dd-d1b7-4231-b4b4-6ce0323242fc",
+                            Id = "977593b5-f3bd-4464-bc7f-b1b57077661d",
                             Name = "participant",
                             NormalizedName = "participant"
                         },
                         new
                         {
-                            Id = "1970c941-7b00-442a-9f1f-4cb3f7c3829a",
+                            Id = "40e20fc5-087c-4133-b304-f30a10f92d12",
                             Name = "invité",
                             NormalizedName = "invité"
                         });
@@ -612,9 +608,7 @@ namespace GestForma.Migrations
 
                     b.HasOne("GestForma.Models.Category", "Categorie")
                         .WithMany()
-                        .HasForeignKey("Id_Categorie")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("Id_Categorie");
 
                     b.Navigation("Categorie");
 

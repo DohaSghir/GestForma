@@ -254,14 +254,14 @@ namespace GestForma.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Intitule = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Id_Categorie = table.Column<int>(type: "int", maxLength: 100, nullable: false),
+                    Id_Categorie = table.Column<int>(type: "int", nullable: true),
                     Duree = table.Column<float>(type: "real", nullable: false),
                     Cout = table.Column<float>(type: "real", nullable: false),
                     ID_User = table.Column<string>(type: "nvarchar(450)", nullable: true),
-                    FileName = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    ContentType = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    FileName = table.Column<string>(type: "nvarchar(2955)", maxLength: 2955, nullable: true),
+                    ContentType = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
                     Size = table.Column<long>(type: "bigint", nullable: false),
-                    Data = table.Column<byte[]>(type: "varbinary(max)", nullable: false)
+                    Data = table.Column<byte[]>(type: "varbinary(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -275,8 +275,7 @@ namespace GestForma.Migrations
                         name: "FK_Formations_Categories_Id_Categorie",
                         column: x => x.Id_Categorie,
                         principalTable: "Categories",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -390,10 +389,10 @@ namespace GestForma.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "1970c941-7b00-442a-9f1f-4cb3f7c3829a", null, "invité", "invité" },
-                    { "8e528a18-ae8d-4558-970f-21b3d1ea4e0d", null, "administrateur", "administrateur" },
-                    { "b4ca9b4b-725d-4349-8752-f0495126c681", null, "professeur", "professeur" },
-                    { "de8584dd-d1b7-4231-b4b4-6ce0323242fc", null, "participant", "participant" }
+                    { "40e20fc5-087c-4133-b304-f30a10f92d12", null, "invité", "invité" },
+                    { "53f89cd5-b4b5-470d-a0fc-42a688c12288", null, "professeur", "professeur" },
+                    { "977593b5-f3bd-4464-bc7f-b1b57077661d", null, "participant", "participant" },
+                    { "bd00591b-f9d1-4641-a953-ab3e705ff654", null, "administrateur", "administrateur" }
                 });
 
             migrationBuilder.CreateIndex(
