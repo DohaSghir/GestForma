@@ -18,7 +18,7 @@ namespace GestForma.Models
 
 
         [Required]
-        [MaxLength(100)]
+        
         public int? Id_Categorie { get; set; }
 
         [ForeignKey("Id_Categorie")]
@@ -31,18 +31,18 @@ namespace GestForma.Models
 
         public string? ID_User { get; set; }
 
-        [Required]
-        [MaxLength(255)]
+    
+        [MaxLength(2955)]
         public string FileName { get; set; } // Nom de l'image
 
-        [Required]
-        [MaxLength(50)]
+        
+        [MaxLength(500)]
         public string ContentType { get; set; } // Type MIME (ex. "image/png", "image/jpeg")
 
-        [Required]
+        
         public long Size { get; set; } // Taille de l'image en octets
 
-        [Required]
+        
         public byte[] Data { get; set; } // Contenu binaire de l'image
 
         [ForeignKey("ID_User")]

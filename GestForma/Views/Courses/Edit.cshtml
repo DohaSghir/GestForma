@@ -1,0 +1,77 @@
+﻿@model GestForma.Models.Formation
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_LayoutFormateur.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>Formation</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID_Formation" />
+            <div class="form-group">
+                <label asp-for="Intitule" class="control-label"></label>
+                <input asp-for="Intitule" class="form-control" />
+                <span asp-validation-for="Intitule" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Id_Categorie" class="control-label"></label>
+                <select asp-for="Id_Categorie" class="form-control" asp-items="ViewBag.Id_Categorie"></select>
+                <span asp-validation-for="Id_Categorie" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Duree" class="control-label"></label>
+                <input asp-for="Duree" class="form-control" />
+                <span asp-validation-for="Duree" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cout" class="control-label"></label>
+                <input asp-for="Cout" class="form-control" />
+                <span asp-validation-for="Cout" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ID_User" class="control-label"></label>
+                <select asp-for="ID_User" class="form-control" asp-items="ViewBag.ID_User"></select>
+                <span asp-validation-for="ID_User" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FileName" class="control-label"></label>
+                <input asp-for="FileName" class="form-control" />
+                <span asp-validation-for="FileName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContentType" class="control-label"></label>
+                <input asp-for="ContentType" class="form-control" />
+                <span asp-validation-for="ContentType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Size" class="control-label"></label>
+                <input asp-for="Size" class="form-control" />
+                <span asp-validation-for="Size" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Data" class="control-label"></label>
+                <input asp-for="Data" class="form-control" />
+                <span asp-validation-for="Data" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
