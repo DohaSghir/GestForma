@@ -1,7 +1,59 @@
-﻿
+﻿@using GestForma.Models.
 @{
     ViewData["Title"] = "AddTrainer";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
+
+<div class="row">
+    <div class="col-lg-6 mx-auto rounded border p-3">
+        <h2 class="text-center mb-3">Register.</h2>
+        <hr />
+        <form asp-controller="Trainer" asp-action="RegisterTrainer" method="post" enctype="multipart/form-data">
+            <div>
+                <label asp-for="FirstName"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="LastName"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Password"></label>
+                <input asp-for="Password" type="password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="ConfirmPassword"></label>
+                <input asp-for="ConfirmPassword" type="password" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="PhoneNumber"></label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Field"></label>
+                <input asp-for="Field" class="form-control" />
+                <span asp-validation-for="Field" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="ProfileImage"></label>
+                <input asp-for="ProfileImage" type="file" class="form-control" />
+                <span asp-validation-for="ProfileImage" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+
+    </div>
+
+</div>
 
 
