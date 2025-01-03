@@ -181,6 +181,7 @@ namespace GestForma.Controllers
 
             return View(participants);
         }
+        //Inscription d'un participant a une formation
         public async Task<IActionResult> Inscription(int formationId)
         {
             // Vérifier si l'utilisateur est connecté et a le rôle "participant"
