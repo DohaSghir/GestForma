@@ -1,17 +1,15 @@
 ﻿@model GestForma.Models.Formation
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edit Course";
     Layout = "~/Views/Shared/_LayoutFormateur.cshtml";
 }
 
-<h1>Edit</h1>
-
-<h4>Formation</h4>
+<h1 class="text-center text-dark fw-bold mt-5">Edit Course</h1>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
+<div class="row mx-auto">
+    <div class="col-md-4 mx-auto">
+        <form asp-action="Edit" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ID_Formation" />
             <div class="form-group">
@@ -40,38 +38,26 @@
                 <span asp-validation-for="Cout" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ID_User" class="control-label"></label>
-                <select asp-for="ID_User" class="form-control" asp-items="ViewBag.ID_User"></select>
-                <span asp-validation-for="ID_User" class="text-danger"></span>
+                <label for="file">Image :</label>
+                <input type="file" id="file" name="file" class="form-control" />
             </div>
-            <div class="form-group">
-                <label asp-for="FileName" class="control-label"></label>
-                <input asp-for="FileName" class="form-control" />
-                <span asp-validation-for="FileName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ContentType" class="control-label"></label>
-                <input asp-for="ContentType" class="form-control" />
-                <span asp-validation-for="ContentType" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Size" class="control-label"></label>
-                <input asp-for="Size" class="form-control" />
-                <span asp-validation-for="Size" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Data" class="control-label"></label>
-                <input asp-for="Data" class="form-control" />
-                <span asp-validation-for="Data" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
+            
+
+            <div class="row mb-3">
+
+                <div class="col d-grid">
+                    <input type="submit" value="Save" class="w-100 btn btn-lg btn-primary " />
+                </div>
+
+                <div class="col d-grid">
+                    <button class="w-100 btn btn-outline-primary">
+                        <a asp-action="Index">Back to List</a>
+                    </button>
+
+                </div>
+             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 

@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
 
 namespace GestForma.Models
 {
@@ -11,21 +12,27 @@ namespace GestForma.Models
 
         [Required]
         [MaxLength(255)]
+        [DisplayName("Title")]
         public string? Intitule { get; set; }
 
         [Required]
+        [DisplayName("Description")]
+
         public string? Description { get; set; }
 
+        [DisplayName("Category")]
 
-        [Required]
-        
         public int? Id_Categorie { get; set; }
 
         [ForeignKey("Id_Categorie")]
         public Category? Categorie { get; set; }
 
         [Range(0, float.MaxValue)]
+        [DisplayName("Duration")]
+
         public float Duree { get; set; }
+
+        [DisplayName("Cost")]
 
         public float Cout { get; set; }
 
@@ -33,17 +40,17 @@ namespace GestForma.Models
 
     
         [MaxLength(2955)]
-        public string FileName { get; set; } // Nom de l'image
+        public string? FileName { get; set; } // Nom de l'image
 
         
         [MaxLength(500)]
-        public string ContentType { get; set; } // Type MIME (ex. "image/png", "image/jpeg")
+        public string? ContentType { get; set; } // Type MIME (ex. "image/png", "image/jpeg")
 
         
         public long Size { get; set; } // Taille de l'image en octets
 
         
-        public byte[] Data { get; set; } // Contenu binaire de l'image
+        public byte[]? Data { get; set; } // Contenu binaire de l'image
 
         [ForeignKey("ID_User")]
         public ApplicationUser? User { get; set; }

@@ -53,6 +53,18 @@ namespace GestForma.Controllers
             return View(formation);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetImage(int id)
+        {
+            var formation = await _context.Formations.FindAsync(id);
+            if (formation == null)
+            {
+                return NotFound();
+            }
+
+            return File(formation.Data,formation.ContentType);  // Retourner l'image avec le type MIME
+        }
+
         // GET: Courses/Create
         public IActionResult Create()
         {
@@ -63,6 +75,8 @@ namespace GestForma.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(IFormFile file, [Bind("ID_Formation,Intitule,Description,Id_Categorie,Duree,Cout")] Formation formation)
         {
+
+
             if (ModelState.IsValid)
             {
                 if (file != null && file.Length > 0)
@@ -82,11 +96,17 @@ namespace GestForma.Controllers
                 {
                     return Unauthorized();
                 }
-
+                
                 _context.Add(formation);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+            {
+                Console.WriteLine($"Validation error: {error.ErrorMessage}");
+                ModelState.AddModelError("", error.ErrorMessage);
+            }
+
             ViewData["Id_Categorie"] = new SelectList(_context.Categories, "Id", "Title", formation.Id_Categorie);
             return View(formation);
         }
@@ -107,7 +127,6 @@ namespace GestForma.Controllers
                 return NotFound();
             }
             ViewData["Id_Categorie"] = new SelectList(_context.Categories, "Id", "Title", formation.Id_Categorie);
-            ViewData["ID_User"] = new SelectList(_context.Users, "Id", "Id", formation.ID_User);
             return View(formation);
         }
 
@@ -116,17 +135,29 @@ namespace GestForma.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID_Formation,Intitule,Description,Id_Categorie,Duree,Cout,ID_User,FileName,ContentType,Size,Data")] Formation formation)
+        public async Task<IActionResult> Edit(int id,IFormFile file, [Bind("ID_Formation,Intitule,Description,Id_Categorie,Duree,Cout")] Formation formation)
         {
             if (id != formation.ID_Formation)
             {
                 return NotFound();
             }
+            if (file != null && file.Length > 0)
+                    {
+                        using (var memoryStream = new MemoryStream())
+                        {
+                            await file.CopyToAsync(memoryStream);
+                            formation.FileName = file.FileName;
+                            formation.ContentType = file.ContentType;
+                            formation.Size = file.Length;
+                            formation.Data = memoryStream.ToArray();
+                        }
+                    }
 
             if (ModelState.IsValid)
             {
                 try
                 {
+                    
                     _context.Update(formation);
                     await _context.SaveChangesAsync();
                 }
@@ -143,8 +174,12 @@ namespace GestForma.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+            {
+                Console.WriteLine($"Validation error: {error.ErrorMessage}");
+                ModelState.AddModelError("", error.ErrorMessage);
+            }
             ViewData["Id_Categorie"] = new SelectList(_context.Categories, "Id", "Title", formation.Id_Categorie);
-            ViewData["ID_User"] = new SelectList(_context.Users, "Id", "Id", formation.ID_User);
             return View(formation);
         }
 
@@ -188,39 +223,5 @@ namespace GestForma.Controllers
             return _context.Formations.Any(e => e.ID_Formation == id);
         }
 
-
-        [HttpPost]
-        public async Task<IActionResult> UploadImage(IFormFile file)
-        {
-            if (file == null || file.Length == 0)
-            {
-                return BadRequest("Aucun fichier sélectionné.");
-            }
-
-            using (var memoryStream = new MemoryStream())
-            {
-               
-                
-                await file.CopyToAsync(memoryStream);
-
-                var formation = new Formation
-                {
-                    Intitule ="h",
-                    Description = "h",
-                    Id_Categorie =1,
-                    FileName = file.FileName,
-                    ContentType = file.ContentType,
-                    Size = file.Length,
-                    Data = memoryStream.ToArray()
-                };
-
-                _context.Formations.Add(formation);
-                await _context.SaveChangesAsync();
-            }
-
-            // Ajouter un message à afficher dans la vue
-            ViewData["Message"] = "Image téléchargée avec succès.";
-            return RedirectToAction("Index");
-        }
     }
 }
