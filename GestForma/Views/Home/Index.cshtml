@@ -1,4 +1,7 @@
-﻿ <!-- Header Start -->
+﻿@{
+    var formations = ViewBag.Formations as List<GestForma.Models.Formation>;
+}
+<!-- Header Start -->
 <div class="jumbotron jumbotron-fluid position-relative overlay-bottom" style="margin-bottom: 90px;">
     <div class="container text-center my-5 py-5">
         <h2 class="display-3 text-white animated slideInDown">Get Educated Online or On-Site From Your Home or Office</h2>
@@ -8,13 +11,15 @@
             <div class="input-group">
                 <div class="input-group-prepend">
                     <button class="btn btn-outline-light bg-white text-body px-4 dropdown-toggle" type="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
+                    aria-haspopup="true" aria-expanded="false">
                         Courses
                     </button>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Courses 1</a>
-                        <a class="dropdown-item" href="#">Courses 2</a>
-                        <a class="dropdown-item" href="#">Courses 3</a>
+                 
+                            @foreach (var formation in formations)
+                            {
+                                <option value="@formation.ID_Formation">@formation.Intitule</option>
+                            }
                     </div>
                 </div>
                 <input type="text" class="form-control border-light" style="padding: 30px 25px;" placeholder="Keyword">
@@ -226,7 +231,7 @@
         <div class="col-lg-6 py-5">
             <div class="bg-white p-5 my-5">
                 <h1 class="text-center mb-4">Sign Up For New Students</h1>
-                <form>
+                <form method="post" action="@Url.Action("Inscription", "Home")">
                     <div class="form-row">
                         <div class="col-sm-6">
                             <div class="form-group">
@@ -242,11 +247,12 @@
                     <div class="form-row">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <select class="custom-select bg-light border-0 px-3" style="height: 60px;">
-                                    <option selected>Select A courses</option>
-                                    <option value="1">courses 1</option>
-                                    <option value="2">courses 1</option>
-                                    <option value="3">courses 1</option>
+                                <select name="formationId" class="custom-select bg-light border-0 px-3" style="height: 60px;">
+                                    <option selected>Select A course</option>
+                                    @foreach (var formation in formations)
+                                    {
+                                        <option value="@formation.ID_Formation">@formation.Intitule</option>
+                                    }
                                 </select>
                             </div>
                         </div>

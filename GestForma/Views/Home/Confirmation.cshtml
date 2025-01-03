@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Confirmation d'inscription";
+    Layout = "_Layout";
+}
+
+<div class="container text-center mt-5">
+    <h1 class="display-4">Inscription réussie !</h1>
+    <p class="lead">Vous avez été inscrit(e) avec succès à la formation.</p>
+
+    <div class="alert alert-success mt-4" role="alert">
+        <h4 class="alert-heading">Détails de votre inscription</h4>
+        <p>Félicitations, vous êtes maintenant inscrit(e) à notre formation ! Nous vous enverrons plus de détails bientôt.</p>
+        <hr>
+        <p class="mb-0">Formation : <strong>@ViewBag.IntituleFormation</strong></p>
+        <p>État de l'inscription : <strong>En attente de paiement</strong></p>
+    </div>
+
+</div>
+

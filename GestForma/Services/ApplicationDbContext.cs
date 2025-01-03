@@ -44,5 +44,8 @@ namespace GestForma.Services
                 .ConfigureWarnings(warnings => warnings.Ignore(RelationalEventId.PendingModelChangesWarning));
         }
         public DbSet<GestForma.Models.Formation> Formations { get; set; } = default!;
+        // DbSet pour la table des inscriptions
+        public DbSet<Inscription> Inscriptions { get; set; }
+
     }
 }
