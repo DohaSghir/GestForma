@@ -43,6 +43,11 @@ namespace GestForma.Controllers
             return View();
         }
 
+        public IActionResult Courses()
+        {
+            return View();
+        }
+
         // Action Error
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
