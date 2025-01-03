@@ -40,12 +40,37 @@ namespace GestForma.Controllers
                 return View(await formations.ToListAsync());
         }
 
-        public IActionResult courses()
+        /*  public IActionResult courses()
+          {
+              var courses = _context.Formations.ToList();
+              if (courses == null) return NotFound(); // Gérer les cas où les données sont nulles
+              return View(courses);
+          }*/
+        public IActionResult Courses(string category, string keyword)
         {
-            var courses = _context.Formations.ToList();
-            if (courses == null) return NotFound(); // Gérer les cas où les données sont nulles
-            return View(courses);
+            // Charger toutes les catégories pour la liste déroulante
+            var categories = _context.Formations.Select(f => f.Categorie).Distinct().ToList();
+            ViewBag.Categories = categories;
+
+            // Charger les formations
+            var formations = _context.Formations.AsQueryable();
+
+            // Appliquer les filtres si les paramètres sont présents
+            if (!string.IsNullOrEmpty(category))
+            {
+                formations = formations.Where(f => f.Categorie == category);
+            }
+
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                formations = formations.Where(f => f.Intitule.Contains(keyword));
+            }
+
+            // Retourner les formations filtrées à la vue
+            return View(formations.ToList());
         }
+
+
 
         // GET: Formations/Details/5
         public async Task<IActionResult> Details(int? id)
