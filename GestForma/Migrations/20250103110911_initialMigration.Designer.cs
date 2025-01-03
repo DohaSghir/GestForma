@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GestForma.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241231144436_FirstMigration")]
-    partial class FirstMigration
+    [Migration("20250103110911_initialMigration")]
+    partial class initialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,28 @@ namespace GestForma.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("GestForma.Models.Actualite", b =>
+                {
+                    b.Property<int>("IdActualite")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdActualite"));
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Titre")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("IdActualite");
+
+                    b.ToTable("Actualites");
+                });
 
             modelBuilder.Entity("GestForma.Models.ApplicationUser", b =>
                 {
@@ -110,6 +132,156 @@ namespace GestForma.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("GestForma.Models.CommentairesDeFormation", b =>
+                {
+                    b.Property<int>("IdCommentaire")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdCommentaire"));
+
+                    b.Property<string>("Commentaire")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<int>("ID_Formation")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ID_User")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("IdCommentaire");
+
+                    b.HasIndex("ID_Formation");
+
+                    b.HasIndex("ID_User");
+
+                    b.ToTable("CommentairesDeFormation");
+                });
+
+            modelBuilder.Entity("GestForma.Models.Formation", b =>
+                {
+                    b.Property<int>("ID_Formation")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID_Formation"));
+
+                    b.Property<string>("Categorie")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<float>("Cout")
+                        .HasColumnType("real");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("Duree")
+                        .HasColumnType("real");
+
+                    b.Property<string>("ID_User")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Intitule")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.HasKey("ID_Formation");
+
+                    b.HasIndex("ID_User");
+
+                    b.ToTable("Formations");
+                });
+
+            modelBuilder.Entity("GestForma.Models.Inscription", b =>
+                {
+                    b.Property<int>("ID_Inscription")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID_Inscription"));
+
+                    b.Property<bool>("Etat")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("ID_Formation")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ID_User")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<bool>("Paiement")
+                        .HasColumnType("bit");
+
+                    b.HasKey("ID_Inscription");
+
+                    b.HasIndex("ID_Formation");
+
+                    b.HasIndex("ID_User");
+
+                    b.ToTable("Inscription");
+                });
+
+            modelBuilder.Entity("GestForma.Models.Rate", b =>
+                {
+                    b.Property<int>("IdRate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdRate"));
+
+                    b.Property<double>("ContenuRate")
+                        .HasColumnType("float");
+
+                    b.Property<int>("ID_Formation")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ID_User")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("IdRate");
+
+                    b.HasIndex("ID_Formation");
+
+                    b.HasIndex("ID_User");
+
+                    b.ToTable("Rate");
+                });
+
+            modelBuilder.Entity("GestForma.Models.Trainer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Field")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Id_user")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProfileImagePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Id_user");
+
+                    b.ToTable("Trainers");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -135,6 +307,32 @@ namespace GestForma.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "52ff0a10-8721-462b-b712-8e1a993022cf",
+                            Name = "administrateur",
+                            NormalizedName = "administrateur"
+                        },
+                        new
+                        {
+                            Id = "84efaa68-3448-4cf6-841e-f547a2edf849",
+                            Name = "professeur",
+                            NormalizedName = "professeur"
+                        },
+                        new
+                        {
+                            Id = "1fd44f73-0242-40bc-93be-276d40b44f47",
+                            Name = "participant",
+                            NormalizedName = "participant"
+                        },
+                        new
+                        {
+                            Id = "c795d34e-0c78-48a1-8f0b-ada816506a69",
+                            Name = "invité",
+                            NormalizedName = "invité"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -190,10 +388,12 @@ namespace GestForma.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -230,10 +430,12 @@ namespace GestForma.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -241,6 +443,81 @@ namespace GestForma.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("GestForma.Models.CommentairesDeFormation", b =>
+                {
+                    b.HasOne("GestForma.Models.Formation", "Formation")
+                        .WithMany("Commentaires")
+                        .HasForeignKey("ID_Formation")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("GestForma.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("ID_User")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Formation");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("GestForma.Models.Formation", b =>
+                {
+                    b.HasOne("GestForma.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("ID_User");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("GestForma.Models.Inscription", b =>
+                {
+                    b.HasOne("GestForma.Models.Formation", "Formation")
+                        .WithMany("Inscriptions")
+                        .HasForeignKey("ID_Formation")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("GestForma.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("ID_User")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Formation");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("GestForma.Models.Rate", b =>
+                {
+                    b.HasOne("GestForma.Models.Formation", "Formation")
+                        .WithMany("Evaluations")
+                        .HasForeignKey("ID_Formation")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("GestForma.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("ID_User")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Formation");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("GestForma.Models.Trainer", b =>
+                {
+                    b.HasOne("GestForma.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("Id_user");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -292,6 +569,15 @@ namespace GestForma.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("GestForma.Models.Formation", b =>
+                {
+                    b.Navigation("Commentaires");
+
+                    b.Navigation("Evaluations");
+
+                    b.Navigation("Inscriptions");
                 });
 #pragma warning restore 612, 618
         }

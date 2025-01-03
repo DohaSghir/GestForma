@@ -44,5 +44,7 @@ namespace GestForma.Services
                 .ConfigureWarnings(warnings => warnings.Ignore(RelationalEventId.PendingModelChangesWarning));
         }
         public DbSet<GestForma.Models.Formation> Formations { get; set; } = default!;
+        public DbSet<GestForma.Models.Trainer> Trainers  { get; set; }
+        public DbSet<GestForma.Models.Actualite> Actualites  { get; set; }
     }
 }

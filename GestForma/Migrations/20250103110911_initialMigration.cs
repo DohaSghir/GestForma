@@ -3,14 +3,30 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace GestForma.Migrations
 {
     /// <inheritdoc />
-    public partial class FirstMigration : Migration
+    public partial class initialMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Actualites",
+                columns: table => new
+                {
+                    IdActualite = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Titre = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Actualites", x => x.IdActualite);
+                });
+
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -101,8 +117,8 @@ namespace GestForma.Migrations
                 name: "AspNetUserLogins",
                 columns: table => new
                 {
-                    LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ProviderKey = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    LoginProvider = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
+                    ProviderKey = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
                     ProviderDisplayName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
@@ -146,8 +162,8 @@ namespace GestForma.Migrations
                 columns: table => new
                 {
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    LoginProvider = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
                     Value = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -159,6 +175,142 @@ namespace GestForma.Migrations
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Formations",
+                columns: table => new
+                {
+                    ID_Formation = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Intitule = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Categorie = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Duree = table.Column<float>(type: "real", nullable: false),
+                    Cout = table.Column<float>(type: "real", nullable: false),
+                    ID_User = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Formations", x => x.ID_Formation);
+                    table.ForeignKey(
+                        name: "FK_Formations_AspNetUsers_ID_User",
+                        column: x => x.ID_User,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Trainers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ProfileImagePath = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Field = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Id_user = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Trainers", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Trainers_AspNetUsers_Id_user",
+                        column: x => x.Id_user,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CommentairesDeFormation",
+                columns: table => new
+                {
+                    IdCommentaire = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ID_Formation = table.Column<int>(type: "int", nullable: false),
+                    ID_User = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Commentaire = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CommentairesDeFormation", x => x.IdCommentaire);
+                    table.ForeignKey(
+                        name: "FK_CommentairesDeFormation_AspNetUsers_ID_User",
+                        column: x => x.ID_User,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_CommentairesDeFormation_Formations_ID_Formation",
+                        column: x => x.ID_Formation,
+                        principalTable: "Formations",
+                        principalColumn: "ID_Formation",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Inscription",
+                columns: table => new
+                {
+                    ID_Inscription = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ID_User = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ID_Formation = table.Column<int>(type: "int", nullable: false),
+                    Etat = table.Column<bool>(type: "bit", nullable: false),
+                    Paiement = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Inscription", x => x.ID_Inscription);
+                    table.ForeignKey(
+                        name: "FK_Inscription_AspNetUsers_ID_User",
+                        column: x => x.ID_User,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Inscription_Formations_ID_Formation",
+                        column: x => x.ID_Formation,
+                        principalTable: "Formations",
+                        principalColumn: "ID_Formation",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Rate",
+                columns: table => new
+                {
+                    IdRate = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ID_Formation = table.Column<int>(type: "int", nullable: false),
+                    ID_User = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ContenuRate = table.Column<double>(type: "float", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Rate", x => x.IdRate);
+                    table.ForeignKey(
+                        name: "FK_Rate_AspNetUsers_ID_User",
+                        column: x => x.ID_User,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Rate_Formations_ID_Formation",
+                        column: x => x.ID_Formation,
+                        principalTable: "Formations",
+                        principalColumn: "ID_Formation",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[,]
+                {
+                    { "1fd44f73-0242-40bc-93be-276d40b44f47", null, "participant", "participant" },
+                    { "52ff0a10-8721-462b-b712-8e1a993022cf", null, "administrateur", "administrateur" },
+                    { "84efaa68-3448-4cf6-841e-f547a2edf849", null, "professeur", "professeur" },
+                    { "c795d34e-0c78-48a1-8f0b-ada816506a69", null, "invité", "invité" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -199,11 +351,54 @@ namespace GestForma.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CommentairesDeFormation_ID_Formation",
+                table: "CommentairesDeFormation",
+                column: "ID_Formation");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CommentairesDeFormation_ID_User",
+                table: "CommentairesDeFormation",
+                column: "ID_User");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Formations_ID_User",
+                table: "Formations",
+                column: "ID_User");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Inscription_ID_Formation",
+                table: "Inscription",
+                column: "ID_Formation");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Inscription_ID_User",
+                table: "Inscription",
+                column: "ID_User");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Rate_ID_Formation",
+                table: "Rate",
+                column: "ID_Formation");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Rate_ID_User",
+                table: "Rate",
+                column: "ID_User");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Trainers_Id_user",
+                table: "Trainers",
+                column: "Id_user");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Actualites");
+
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
@@ -220,7 +415,22 @@ namespace GestForma.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "CommentairesDeFormation");
+
+            migrationBuilder.DropTable(
+                name: "Inscription");
+
+            migrationBuilder.DropTable(
+                name: "Rate");
+
+            migrationBuilder.DropTable(
+                name: "Trainers");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "Formations");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
