@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using GestForma.Models;
+using GestForma.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -12,12 +13,14 @@ namespace GestForma.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly ApplicationDbContext _context;
 
         // Injection des services UserManager et RoleManager
-        public HomeController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
+        public HomeController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, ApplicationDbContext context)
         {
             _userManager = userManager;
             _roleManager = roleManager;
+            _context = context;
         }
 
         // Action Index
@@ -41,7 +44,7 @@ namespace GestForma.Controllers
             // Passer la liste des formations à la vue via ViewBag
             ViewBag.Formations = formations;
 
-            return View();
+           
             return View();
         }
 
