@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Formation>
+@{
+    ViewData["Title"] = "courses";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>courses</h1>
+
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="row mx-0 justify-content-center">
+            <div class="col-lg-8">
+                <div class="section-title text-center position-relative mb-5">
+                    <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Our Courses</h6>
+                    <h1 class="display-4">Checkout New Releases Of Our Courses</h1>
+                </div>
+            </div>
+
+<@if (Model != null && Model.Any())
+{
+            <div class="row">
+        @foreach (var formation in Model)
+        {
+                    
+                            <div class="col-md-4 mb-4">
+                                <div class="card shadow-sm">
+                                    <div class="card-body">
+                                        <h5 class="card-title">@formation.Intitule</h5>
+                                        <p class="card-text">@formation.Cout</p>
+                                    </div>
+                                </div>
+                            </div>
+        }
+            </div>
+}
+else
+{
+            <p>No formations found for this user.</p>
+}

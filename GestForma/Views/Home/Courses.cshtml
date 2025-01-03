@@ -1,5 +1,6 @@
-﻿ <!-- Header Start -->
-  <div class="jumbotron jumbotron-fluid page-header position-relative overlay-bottom" style="margin-bottom: 20px;">
+﻿  @model IEnumerable<Formation>
+<!-- Header Start -->
+ <!-- <div class="jumbotron jumbotron-fluid page-header position-relative overlay-bottom" style="margin-bottom: 20px;">
         <div class="container text-center py-5">
             <div class="mx-auto mb-5" style="width: 100%; max-width: 600px;">
                 <div class="input-group">
@@ -20,7 +21,8 @@
             </div>
         </div>
     </div>
-
+    -->
+<!--
     <div class="container-fluid py-5">
         <div class="container py-5">
             <div class="row mx-0 justify-content-center">
@@ -150,7 +152,30 @@
                       </nav>
                 </div>
             </div>
+        </div>-->
+      
+
+<@if (Model != null && Model.Any())
+{
+        <div class="row">
+        @foreach (var formation in Model)
+        {
+                    <div class="col-md-4 mb-4">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">@formation.Intitule</h5>
+                                <p class="card-text">@formation.Cout</p>
+                            </div>
+                        </div>
+                    </div>
+        }
         </div>
-    </div>
+}
+else
+{
+        <p>No formations found for this user.</p>
+}
+
+
   
  

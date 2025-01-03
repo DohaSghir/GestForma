@@ -3,6 +3,7 @@ using GestForma.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace GestForma.Controllers
 {
@@ -43,10 +44,8 @@ namespace GestForma.Controllers
             return View();
         }
 
-        public IActionResult Courses()
-        {
-            return View();
-        }
+      
+
 
         // Action Error
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

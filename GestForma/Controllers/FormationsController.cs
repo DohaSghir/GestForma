@@ -40,6 +40,13 @@ namespace GestForma.Controllers
                 return View(await formations.ToListAsync());
         }
 
+        public IActionResult courses()
+        {
+            var courses = _context.Formations.ToList();
+            if (courses == null) return NotFound(); // Gérer les cas où les données sont nulles
+            return View(courses);
+        }
+
         // GET: Formations/Details/5
         public async Task<IActionResult> Details(int? id)
         {
