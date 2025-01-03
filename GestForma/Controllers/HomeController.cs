@@ -3,6 +3,7 @@ using GestForma.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace GestForma.Controllers
 {
@@ -34,6 +35,13 @@ namespace GestForma.Controllers
                     return RedirectToAction("FormateurDashboard");
                 }
             }
+            // Si l'utilisateur n'est ni administrateur ni professeur, alors on récupère les formations disponibles
+            var formations = await _context.Formations.ToListAsync();
+
+            // Passer la liste des formations à la vue via ViewBag
+            ViewBag.Formations = formations;
+
+            return View();
             return View();
         }
 
@@ -175,6 +183,49 @@ namespace GestForma.Controllers
             }
 
             return View(participants);
+        }
+        //Inscription d'un participant a une formation
+        public async Task<IActionResult> Inscription(int formationId)
+        {
+            // Vérifier si l'utilisateur est connecté et a le rôle "participant"
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null || !await _userManager.IsInRoleAsync(user, "participant"))
+            {
+                return RedirectToAction("ErreurInscription", "Home"); // Rediriger vers une page d'erreur si l'utilisateur n'est pas un participant
+            }
+
+            // Vérifier si la formation choisie existe
+            var formation = await _context.Formations.FindAsync(formationId);
+            if (formation == null)
+            {
+                return NotFound(); // Si la formation n'existe pas, renvoyer une erreur
+            }
+
+            // Créer l'inscription dans la table Inscription
+            var inscription = new Inscription
+            {
+                ID_User = user.Id,           // ID de l'utilisateur
+                ID_Formation = formationId,  // ID de la formation choisie
+                Etat = false,                 // Vous pouvez personnaliser l'état de l'inscription si nécessaire
+                Paiement = false,            // Paiement par défaut à false
+            };
+
+            // Ajouter l'inscription à la base de données
+            _context.Inscriptions.Add(inscription);
+
+            // Sauvegarder les changements dans la base de données
+            await _context.SaveChangesAsync();
+
+            // Rediriger l'utilisateur vers une autre page, par exemple le tableau de bord ou la confirmation
+            return RedirectToAction("Confirmation", "Home"); // Ou une autre vue de confirmation
+        }
+        public IActionResult Confirmation()
+        {
+            return View();
+        }
+        public IActionResult ErreurInscription()
+        {
+            return View();
         }
     }
 }
