@@ -155,7 +155,7 @@ namespace GestForma.Controllers
         }
 
         // GET: Formations/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+      /*  public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
             {
@@ -171,7 +171,46 @@ namespace GestForma.Controllers
             }
 
             return View(formation);
+        }*/
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            // Vérification si l'ID est valide
+            if (!id.HasValue)
+            {
+                TempData["Error"] = "Invalid ID.";
+                return RedirectToAction(nameof(Index));
+            }
+
+            // Recherche de la formation à supprimer
+            var formation = await _context.Formations
+                .Include(f => f.User)
+                .FirstOrDefaultAsync(m => m.ID_Formation == id.Value);
+
+            if (formation == null)
+            {
+                TempData["Error"] = "Formation not found.";
+                return RedirectToAction(nameof(Index));
+            }
+
+            try
+            {
+                // Suppression de l'entité
+                _context.Formations.Remove(formation);
+                await _context.SaveChangesAsync();
+
+                TempData["Success"] = $"The formation {formation.Intitule} has been successfully deleted.";
+            }
+            catch (Exception ex)
+            {
+                TempData["Error"] = "An error occurred while deleting the formation.";
+                // Vous pouvez ajouter des logs ici si nécessaire
+                ModelState.AddModelError("", ex.Message);
+            }
+
+            return RedirectToAction(nameof(Index));
         }
+
 
         // POST: Formations/Delete/5
         [HttpPost, ActionName("Delete")]
