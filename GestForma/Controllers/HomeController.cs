@@ -24,7 +24,7 @@ namespace GestForma.Controllers
         }
 
         // Action Index
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             if (User.Identity.IsAuthenticated)
             {
