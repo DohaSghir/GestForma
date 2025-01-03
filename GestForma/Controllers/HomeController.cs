@@ -188,7 +188,7 @@ namespace GestForma.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null || !await _userManager.IsInRoleAsync(user, "participant"))
             {
-                return RedirectToAction("Erreur", "Home"); // Rediriger vers une page d'erreur si l'utilisateur n'est pas un participant
+                return RedirectToAction("ErreurInscription", "Home"); // Rediriger vers une page d'erreur si l'utilisateur n'est pas un participant
             }
 
             // Vérifier si la formation choisie existe
@@ -220,6 +220,9 @@ namespace GestForma.Controllers
         {
             return View();
         }
-
+        public IActionResult ErreurInscription()
+        {
+            return View();
+        }
     }
 }
