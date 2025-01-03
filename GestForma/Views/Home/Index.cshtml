@@ -1,4 +1,7 @@
-﻿ <!-- Header Start -->
+﻿@{
+    var formations = ViewBag.Formations as List<GestForma.Models.Formation>;
+}
+<!-- Header Start -->
 <div class="jumbotron jumbotron-fluid position-relative overlay-bottom" style="margin-bottom: 90px;">
     <div class="container text-center my-5 py-5">
         <h2 class="display-3 text-white animated slideInDown">Get Educated Online or On-Site From Your Home or Office</h2>
@@ -243,10 +246,11 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <select class="custom-select bg-light border-0 px-3" style="height: 60px;">
-                                    <option selected>Select A courses</option>
-                                    <option value="1">courses 1</option>
-                                    <option value="2">courses 1</option>
-                                    <option value="3">courses 1</option>
+                                    <option selected>Select A course</option>
+                                    @foreach (var formation in formations)
+                                    {
+                                        <option value="@formation.ID_Formation">@formation.Intitule</option>
+                                    }
                                 </select>
                             </div>
                         </div>
