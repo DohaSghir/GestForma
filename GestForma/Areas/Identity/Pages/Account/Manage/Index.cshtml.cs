@@ -83,6 +83,7 @@ namespace GestForma.Areas.Identity.Pages.Account.Manage
             }
 
             await LoadAsync(user);
+           
             return Page();
         }
 
