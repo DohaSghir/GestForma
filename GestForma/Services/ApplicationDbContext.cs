@@ -43,6 +43,17 @@ namespace GestForma.Services
             optionsBuilder
                 .ConfigureWarnings(warnings => warnings.Ignore(RelationalEventId.PendingModelChangesWarning));
         }
-        public DbSet<GestForma.Models.Formation> Formations { get; set; } = default!;
+        // Ajouter un DbSet pour chaque entité
+        public DbSet<Actualite> Actualites { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<CommentairesDeFormation> CommentairesDeFormations { get; set; }
+        public DbSet<CommentairesEntiers> CommentairesEntiers { get; set; }
+        public DbSet<Formation> Formations { get; set; }
+        public DbSet<Inscription> Inscriptions { get; set; }
+        public DbSet<Rate> Rates { get; set; }
+        public DbSet<StatistiqueFormation> StatistiqueFormations { get; set; }
+        public DbSet<StatistiqueGlobale> StatistiqueGlobales { get; set; }
+        public DbSet<Trainer> Trainers { get; set; }
+
     }
 }
