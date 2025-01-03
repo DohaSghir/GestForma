@@ -27,7 +27,7 @@ namespace GestForma.Models
         public string ConfirmPassword { get; set; } = "";
 
         [Required]
-        public string PhoneNumber { get; set; } = "";
+        public string Phone { get; set; } = "";
 
         // For the Trainer
         [Required]

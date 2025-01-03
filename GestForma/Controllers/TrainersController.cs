@@ -8,5 +8,9 @@ namespace GestForma.Controllers
         {
             return View();
         }
+        public IActionResult RegisterTrainer()
+        {
+
+        }
     }
 }
