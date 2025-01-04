@@ -181,33 +181,72 @@ namespace GestForma.Controllers
             return View(participants);
         }
 
-        public async Task<IActionResult> NbrPart()
+        public async Task<IActionResult> Statistic()
         {
-            var role = "participant";
+            
 
             var par = await _userManager.GetUsersInRoleAsync("participant");
 
-            // Nombre d'utilisateurs dans ce rôle
             var nbrPart = par.Count;
 
-            // Retourner le nombre dans une vue ou une réponse API
             ViewBag.nbrPart = nbrPart;
 
             var prof = await _userManager.GetUsersInRoleAsync("professeur");
 
-            // Nombre d'utilisateurs dans ce rôle
             var nbrprof = prof.Count;
 
             ViewBag.nbrprof = nbrprof;
 
+
+            var inv = await _userManager.GetUsersInRoleAsync("invité");
+
+           
+            var nbrinv = inv.Count;
+
+            ViewBag.nbrinv = nbrinv;
+
             var totalNumberOfFormations = await _context.Formations.CountAsync();
 
-            // Passer le nombre total de formations à la vue
+            
             ViewBag.TotalNumberOfFormations = totalNumberOfFormations;
 
+            var role = await _roleManager.FindByNameAsync("participant");   
+
+            if (role != null)
+            {
+                // Obtenir les utilisateurs dans ce rôle
+                var usersInRole = await _userManager.GetUsersInRoleAsync("participant");
+
+                // Extraire l'âge des utilisateurs
+                var ageGroups = usersInRole
+                    .Where(user => user.Age != null)  // Assurez-vous que la propriété d'âge est dans la base de données, par exemple BirthDate
+                    .GroupBy(user => GetAgeGroup(user.Age))
+                    .Select(group => new
+                    {
+                        AgeGroup = group.Key,
+                        Count = group.Count()
+                    })
+                    .ToList();
+
+                return View(ageGroups);
+            }
+
+            ViewBag.ErrorMessage = "Le rôle 'participant' n'existe pas.";
             return View();
         }
 
-      
-}
+       
+        private string GetAgeGroup(int age)
+        {
+
+            if (age < 18) return "Moins de 18";
+            if (age <= 25) return "18-25";
+            if (age <= 35) return "26-35";
+            if (age <= 45) return "36-45";
+            if (age <= 60) return "46-60";
+            return "60+";
+        }
+
+
+    }
 }
