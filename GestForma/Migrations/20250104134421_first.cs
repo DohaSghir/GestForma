@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace GestForma.Migrations
 {
     /// <inheritdoc />
-    public partial class First : Migration
+    public partial class first : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -21,10 +21,10 @@ namespace GestForma.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Titre = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    FileName = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    ContentType = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Size = table.Column<long>(type: "bigint", nullable: false),
-                    Data = table.Column<byte[]>(type: "varbinary(max)", nullable: false)
+                    FileName = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
+                    ContentType = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    Size = table.Column<long>(type: "bigint", nullable: true),
+                    Data = table.Column<byte[]>(type: "varbinary(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -389,10 +389,10 @@ namespace GestForma.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "40e20fc5-087c-4133-b304-f30a10f92d12", null, "invité", "invité" },
-                    { "53f89cd5-b4b5-470d-a0fc-42a688c12288", null, "professeur", "professeur" },
-                    { "977593b5-f3bd-4464-bc7f-b1b57077661d", null, "participant", "participant" },
-                    { "bd00591b-f9d1-4641-a953-ab3e705ff654", null, "administrateur", "administrateur" }
+                    { "3b979c37-2ecd-463f-b66b-dbadd0d18585", null, "administrateur", "administrateur" },
+                    { "a962545d-e2b0-42bd-89c9-2d5a4dafe157", null, "professeur", "professeur" },
+                    { "ad1b1f5e-99c8-40a7-bfd4-399ca48f603c", null, "invité", "invité" },
+                    { "c8c2fa10-7bbf-42b8-98c4-7a1183600d94", null, "participant", "participant" }
                 });
 
             migrationBuilder.CreateIndex(

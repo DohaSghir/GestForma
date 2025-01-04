@@ -1,0 +1,38 @@
+﻿@model GestForma.Models.Actualite
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Actualite</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Titre)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Titre)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class="col-sm-3 text-left">
+            image
+        </dt>
+        <dd class="col-sm-9 text-left">
+            <img src="/Actualites/GetImage/@Html.DisplayFor(model => model.IdActualite)" alt="@Html.DisplayFor(model => model.FileName)" style="max-width: 200px; max-height: 200px;" />
+
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.IdActualite">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

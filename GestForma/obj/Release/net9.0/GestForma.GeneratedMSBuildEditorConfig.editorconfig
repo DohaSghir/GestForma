@@ -192,6 +192,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/githubProjects/GestForma/GestForma/Views/Actualites/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0dWFsaXRlc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/githubProjects/GestForma/GestForma/Views/Actualites/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0dWFsaXRlc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/githubProjects/GestForma/GestForma/Views/Actualites/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0dWFsaXRlc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/githubProjects/GestForma/GestForma/Views/Actualites/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0dWFsaXRlc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/githubProjects/GestForma/GestForma/Views/Actualites/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0dWFsaXRlc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/githubProjects/GestForma/GestForma/Views/Courses/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -272,6 +292,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/githubProjects/GestForma/GestForma/Views/Shared/nav.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXG5hdi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/githubProjects/GestForma/GestForma/Views/Shared/_LayoutAdmin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRBZG1pbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -286,6 +310,22 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/githubProjects/GestForma/GestForma/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/githubProjects/GestForma/GestForma/Views/Trainers/Actions.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhaW5lcnNcQWN0aW9ucy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/githubProjects/GestForma/GestForma/Views/Trainers/AddTrainer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhaW5lcnNcQWRkVHJhaW5lci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/githubProjects/GestForma/GestForma/Views/Trainers/GetImage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhaW5lcnNcR2V0SW1hZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/githubProjects/GestForma/GestForma/Views/Trainers/Trainers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhaW5lcnNcVHJhaW5lcnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/githubProjects/GestForma/GestForma/Views/_ViewImports.cshtml]

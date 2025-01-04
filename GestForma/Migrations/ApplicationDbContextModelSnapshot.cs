@@ -31,12 +31,10 @@ namespace GestForma.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdActualite"));
 
                     b.Property<string>("ContentType")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<byte[]>("Data")
-                        .IsRequired()
                         .HasColumnType("varbinary(max)");
 
                     b.Property<string>("Description")
@@ -44,11 +42,10 @@ namespace GestForma.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FileName")
-                        .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
-                    b.Property<long>("Size")
+                    b.Property<long?>("Size")
                         .HasColumnType("bigint");
 
                     b.Property<string>("Titre")
@@ -444,25 +441,25 @@ namespace GestForma.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "bd00591b-f9d1-4641-a953-ab3e705ff654",
+                            Id = "3b979c37-2ecd-463f-b66b-dbadd0d18585",
                             Name = "administrateur",
                             NormalizedName = "administrateur"
                         },
                         new
                         {
-                            Id = "53f89cd5-b4b5-470d-a0fc-42a688c12288",
+                            Id = "a962545d-e2b0-42bd-89c9-2d5a4dafe157",
                             Name = "professeur",
                             NormalizedName = "professeur"
                         },
                         new
                         {
-                            Id = "977593b5-f3bd-4464-bc7f-b1b57077661d",
+                            Id = "c8c2fa10-7bbf-42b8-98c4-7a1183600d94",
                             Name = "participant",
                             NormalizedName = "participant"
                         },
                         new
                         {
-                            Id = "40e20fc5-087c-4133-b304-f30a10f92d12",
+                            Id = "ad1b1f5e-99c8-40a7-bfd4-399ca48f603c",
                             Name = "invité",
                             NormalizedName = "invité"
                         });
