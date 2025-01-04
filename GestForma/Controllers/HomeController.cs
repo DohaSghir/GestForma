@@ -24,8 +24,39 @@ namespace GestForma.Controllers
         }
 
         // Action Index
-        public IActionResult Index()
+        public async Task<IActionResult> IndexAsync()
         {
+          
+            // Charger les formations avec leurs catégories et les formateurs
+            var formations = _context.Formations
+                .Include(f => f.Categorie) // Charger la catégorie associée
+                .Include(f => f.User)      // Charger le formateur associé
+                .AsQueryable();
+
+            var par = await _userManager.GetUsersInRoleAsync("participant");
+
+            var nbrPart = par.Count;
+
+            ViewBag.nbrPart = nbrPart;
+
+            var prof = await _userManager.GetUsersInRoleAsync("professeur");
+
+            var nbrprof = prof.Count;
+
+            ViewBag.nbrprof = nbrprof;
+
+
+            var inv = await _userManager.GetUsersInRoleAsync("invité");
+
+
+            var nbrinv = inv.Count;
+
+            ViewBag.nbrinv = nbrinv;
+
+            var nbrform = await _context.Formations.CountAsync();
+            ViewBag.nbrform = nbrform;
+            var nbrcat = await _context.Categories.CountAsync();
+            ViewBag.nbrcat = nbrcat;
             if (User.Identity.IsAuthenticated)
             {
                 if (User.IsInRole("administrateur"))
@@ -38,7 +69,7 @@ namespace GestForma.Controllers
                     return RedirectToAction("FormateurDashboard");
                 }
             }
-            return View();
+            return View(await formations.ToListAsync());
         }
 
         // Action Privacy
