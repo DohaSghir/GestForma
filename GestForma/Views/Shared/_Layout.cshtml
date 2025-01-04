@@ -77,7 +77,7 @@
                 <div class="navbar-nav mx-auto py-0">
                     <a asp-controller="Home" asp-action="Index" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "active" : "")">Home</a>
                     <a asp-controller="Home" asp-action="About" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "About" ? "active" : "")">About</a>
-                    <a asp-controller="Home" asp-action="Courses" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Courses" ? "active" : "")">Courses</a>
+                    <a asp-controller="Courses" asp-action="Courses" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Courses" ? "active" : "")">Courses</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle @(new[] { "Details", "Instructors", "Testimonial" }.Contains(ViewContext.RouteData.Values["action"]?.ToString()) ? "active" : "")" data-toggle="dropdown">Pages</a>
                         <div class="dropdown-menu m-0">
