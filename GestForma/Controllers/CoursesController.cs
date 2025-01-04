@@ -11,13 +11,13 @@ using Microsoft.AspNetCore.Identity;
 
 namespace GestForma.Controllers
 {
-    public class FormationsController : Controller
+    public class CoursesController : Controller
     {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
        
 
-        public FormationsController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
+        public CoursesController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
             _userManager = userManager;
