@@ -10,105 +10,21 @@ namespace GestForma.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ApplicationDbContext _context;
         private readonly ILogger<HomeController> _logger;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
-        private readonly ApplicationDbContext _context;
 
         // Injection des services UserManager et RoleManager
-        public HomeController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, ApplicationDbContext context)
+        public HomeController(ApplicationDbContext context,UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
         {
+            _context = context;
             _userManager = userManager;
             _roleManager = roleManager;
-            _context = context;
         }
-
-        public async Task<IActionResult> ParticipantRoleSummary()
-        {
-            // Vérifier si le rôle "participant" existe
-            var roleName = "participant";
-            var role = await _roleManager.FindByNameAsync(roleName);
-
-            if (role != null)
-            {
-                // Obtenir le nombre d'utilisateurs dans ce rôle
-                var usersInRole = await _userManager.GetUsersInRoleAsync(roleName);
-                var userCount = usersInRole.Count();
-
-                // Passer le résultat à la vue
-                ViewBag.RoleName = roleName;
-                ViewBag.UserCount = userCount;
-
-                return View();
-            }
-
-            // Si le rôle "participant" n'existe pas
-            ViewBag.ErrorMessage = "Le rôle 'participant' n'existe pas.";
-            return View();
-      
-    }
-
-
-        public async Task<IActionResult> ParticipantsAgeDistribution()
-        {
-            // Vérifier si le rôle "participant" existe
-            var roleName = "participant";
-            var role = await _roleManager.FindByNameAsync(roleName);
-
-            if (role != null)
-            {
-                // Obtenir le nombre d'utilisateurs dans ce rôle
-                var usersInRole = await _userManager.GetUsersInRoleAsync(roleName);
-                var userCount = usersInRole.Count();
-
-                // Passer le résultat à la vue
-                ViewBag.RoleName = roleName;
-                ViewBag.UserCount = userCount;
-
-               
-            }
-            // Vérifier si le rôle "participant" existe
-           
-
-            if (role != null)
-            {
-                // Obtenir les utilisateurs dans ce rôle
-                var usersInRole = await _userManager.GetUsersInRoleAsync(roleName);
-
-                // Extraire l'âge des utilisateurs
-                var ageGroups = usersInRole
-                    .Where(user => user.Age != null)  // Assurez-vous que la propriété d'âge est dans la base de données, par exemple BirthDate
-                    .GroupBy(user => GetAgeGroup(user.Age))
-                    .Select(group => new
-                    {
-                        AgeGroup = group.Key,
-                        Count = group.Count()
-                    })
-                    .ToList();
-
-                return View(ageGroups);
-            }
-
-            ViewBag.ErrorMessage = "Le rôle 'participant' n'existe pas.";
-            return View();
-        }
-
-        // Fonction pour déterminer le groupe d'âge d'un utilisateur
-        private string GetAgeGroup(int age)
-        {
-            
-            if (age < 18) return "Moins de 18";
-            if (age <= 25) return "18-25";
-            if (age <= 35) return "26-35";
-            if (age <= 45) return "36-45";
-            if (age <= 60) return "46-60";
-            return "60+";
-        }
-    
-
 
         // Action Index
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             if (User.Identity.IsAuthenticated)
             {
@@ -122,13 +38,6 @@ namespace GestForma.Controllers
                     return RedirectToAction("FormateurDashboard");
                 }
             }
-            // Si l'utilisateur n'est ni administrateur ni professeur, alors on récupère les formations disponibles
-            var formations = await _context.Formations.ToListAsync();
-
-            // Passer la liste des formations à la vue via ViewBag
-            ViewBag.Formations = formations;
-
-           
             return View();
         }
 
@@ -271,48 +180,73 @@ namespace GestForma.Controllers
 
             return View(participants);
         }
-        //Inscription d'un participant a une formation
-        public async Task<IActionResult> Inscription(int formationId)
+
+        public async Task<IActionResult> Statistic()
         {
-            // Vérifier si l'utilisateur est connecté et a le rôle "participant"
-            var user = await _userManager.GetUserAsync(User);
-            if (user == null || !await _userManager.IsInRoleAsync(user, "participant"))
+            
+
+            var par = await _userManager.GetUsersInRoleAsync("participant");
+
+            var nbrPart = par.Count;
+
+            ViewBag.nbrPart = nbrPart;
+
+            var prof = await _userManager.GetUsersInRoleAsync("professeur");
+
+            var nbrprof = prof.Count;
+
+            ViewBag.nbrprof = nbrprof;
+
+
+            var inv = await _userManager.GetUsersInRoleAsync("invité");
+
+           
+            var nbrinv = inv.Count;
+
+            ViewBag.nbrinv = nbrinv;
+
+            var totalNumberOfFormations = await _context.Formations.CountAsync();
+
+            
+            ViewBag.TotalNumberOfFormations = totalNumberOfFormations;
+
+            var role = await _roleManager.FindByNameAsync("participant");   
+
+            if (role != null)
             {
-                return RedirectToAction("ErreurInscription", "Home"); // Rediriger vers une page d'erreur si l'utilisateur n'est pas un participant
+                // Obtenir les utilisateurs dans ce rôle
+                var usersInRole = await _userManager.GetUsersInRoleAsync("participant");
+
+                // Extraire l'âge des utilisateurs
+                var ageGroups = usersInRole
+                    .Where(user => user.Age != null)  // Assurez-vous que la propriété d'âge est dans la base de données, par exemple BirthDate
+                    .GroupBy(user => GetAgeGroup(user.Age))
+                    .Select(group => new
+                    {
+                        AgeGroup = group.Key,
+                        Count = group.Count()
+                    })
+                    .ToList();
+
+                return View(ageGroups);
             }
 
-            // Vérifier si la formation choisie existe
-            var formation = await _context.Formations.FindAsync(formationId);
-            if (formation == null)
-            {
-                return NotFound(); // Si la formation n'existe pas, renvoyer une erreur
-            }
-
-            // Créer l'inscription dans la table Inscription
-            var inscription = new Inscription
-            {
-                ID_User = user.Id,           // ID de l'utilisateur
-                ID_Formation = formationId,  // ID de la formation choisie
-                Etat = false,                 // Vous pouvez personnaliser l'état de l'inscription si nécessaire
-                Paiement = false,            // Paiement par défaut à false
-            };
-
-            // Ajouter l'inscription à la base de données
-            _context.Inscriptions.Add(inscription);
-
-            // Sauvegarder les changements dans la base de données
-            await _context.SaveChangesAsync();
-
-            // Rediriger l'utilisateur vers une autre page, par exemple le tableau de bord ou la confirmation
-            return RedirectToAction("Confirmation", "Home"); // Ou une autre vue de confirmation
-        }
-        public IActionResult Confirmation()
-        {
+            ViewBag.ErrorMessage = "Le rôle 'participant' n'existe pas.";
             return View();
         }
-        public IActionResult ErreurInscription()
+
+       
+        private string GetAgeGroup(int age)
         {
-            return View();
+
+            if (age < 18) return "Moins de 18";
+            if (age <= 25) return "18-25";
+            if (age <= 35) return "26-35";
+            if (age <= 45) return "36-45";
+            if (age <= 60) return "46-60";
+            return "60+";
         }
+
+
     }
 }
