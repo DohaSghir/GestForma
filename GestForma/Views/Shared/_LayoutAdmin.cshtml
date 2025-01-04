@@ -86,11 +86,7 @@
                     <a asp-controller="Home" asp-action="AdminDashboard" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "AdminDashboard" ? "active" : "")">Payment</a>
                     <a asp-controller="Home" asp-action="AdminDashboard" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "AdminDashboard" ? "active" : "")">Certificates</a>
                     <a asp-controller="Home" asp-action="Statistic" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Statistic" ? "active" : "")">Statistics</a>
-
-
-                     
-                   
-            
+                    
                 <partial name="_LoginPartial" />
             </div>
         </nav>
