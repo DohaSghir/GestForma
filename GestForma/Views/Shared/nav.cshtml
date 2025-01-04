@@ -8,10 +8,10 @@
    style="border: 1px solid gray; padding: 5px; border-radius: 5px;">
     Add a Trainer
 </a>
-<a asp-controller="Trainers" asp-action="Actions"
-   class="dropdown-item text-center mb-2 @(ViewContext.RouteData.Values["action"]?.ToString() == "Actions" ? "active" : "")"
+<a asp-controller="Trainers" asp-action="DeleteFormTrainer"
+   class="dropdown-item text-center mb-2 @(ViewContext.RouteData.Values["action"]?.ToString() == "DeleteFormTrainer" ? "active" : "")"
    style="border: 1px solid gray; padding: 5px; border-radius: 5px;">
-    Actions
+    Delete a Trainer
 </a>
 
 
