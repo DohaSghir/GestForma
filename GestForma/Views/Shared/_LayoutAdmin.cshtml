@@ -79,7 +79,7 @@
                             <a asp-controller="Home" asp-action="GetUsersWithRole" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "GetUsersWithRole" ? "active" : "")">Guests</a>
                             <a asp-controller="Home" asp-action="GetUsersWithRoleP" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "GetUsersWithRoleP" ? "active" : "")">Participants</a>
 
-                            <a asp-controller="Home" asp-action="Formations" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "Formations" ? "active" : "")" >Trainers </a>
+                            <a asp-controller="Trainers" asp-action="Trainers" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "Trainers" ? "active" : "")" >Trainers </a>
                             
                         </div>
                     </div>
