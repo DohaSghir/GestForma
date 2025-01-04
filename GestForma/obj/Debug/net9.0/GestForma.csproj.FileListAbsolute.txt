@@ -1743,3 +1743,4 @@ C:\Users\Doha\source\repos\GestForma\GestForma\obj\Debug\net9.0\GestForma.pdb
 C:\Users\Doha\source\repos\GestForma\GestForma\obj\Debug\net9.0\GestForma.genruntimeconfig.cache
 C:\Users\Doha\source\repos\GestForma\GestForma\obj\Debug\net9.0\ref\GestForma.dll
 C:\Users\Doha\source\repos\GestForma\GestForma\obj\Debug\net9.0\compressed\0tpyqhd445-s0bqaxpus4.gz
+C:\Users\Doha\source\repos\GestForma\GestForma\obj\Debug\net9.0\compressed\bhw52e9owe-5gg35ioea8.gz

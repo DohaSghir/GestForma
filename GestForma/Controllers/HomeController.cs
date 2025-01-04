@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace GestForma.Controllers
 {
     public class HomeController : Controller
@@ -21,6 +22,18 @@ namespace GestForma.Controllers
             _userManager = userManager;
             _roleManager = roleManager;
             _context = context;
+        }
+
+        
+        public async Task<IActionResult> GetImage(int id)
+        {
+            var trainer = await _context.Trainers.FindAsync(id);
+            if (trainer == null)
+            {
+                return NotFound("Trainer not found.");
+            }
+
+            return File(trainer.Data, trainer.ContentType);  // Return the image file with the content type
         }
 
         // Action Index
@@ -43,9 +56,25 @@ namespace GestForma.Controllers
 
             // Passer la liste des formations à la vue via ViewBag
             ViewBag.Formations = formations;
+            //list of trainer
 
-           
-            return View();
+            var users = _userManager.Users.ToList();
+
+            List<List<Object>> trainers = new List<List<Object>>();
+
+            foreach (var user in users)
+            {
+                if (await _userManager.IsInRoleAsync(user, "professeur"))
+                {
+                    var trainer = await _context.Trainers.FirstOrDefaultAsync(t => t.Id_user == user.Id);
+                    string imageUrl = trainer != null ? Url.Action("GetImage", "Home", new { id = trainer.Id }) : null;
+                    trainers.Add(new List<Object> { user.Id, user.LastName, user.FirstName, user.Email, user.PhoneNumber, trainer.Field, imageUrl });
+                }
+            }
+
+
+            return View(trainers);
+            
         }
 
         // Action Privacy

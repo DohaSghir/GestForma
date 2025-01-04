@@ -13,6 +13,19 @@
     <title>@ViewData["Title"]</title>
 </head>
 <body>
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-primary text-center mx-auto">
+            @TempData["Success"]
+        </div>
+    }
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger text-center">
+            @TempData["Error"]
+        </div>
+    }
     <div class="row">
         <div class="col-md-2 col-12 mr-md-n5 ml-md-3">
             <partial name="nav" />

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "s2Ko6eo8IWsSF6SLSlx+bBKRvI6RNep5ukR/T0IkiOY=",
+  "Hash": "zy8bL3e/fURhdjPjK2Oo1THxXgYQD3Jbq9x2TScwZJ4=",
   "Source": "GestForma",
   "BasePath": "_content/GestForma",
   "Mode": "Default",
@@ -2222,6 +2222,27 @@
       "OriginalItemSpec": "C:\\Users\\Doha\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\9.0.0\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
+      "Identity": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\bhw52e9owe-5gg35ioea8.gz",
+      "SourceId": "GestForma",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/GestForma",
+      "RelativePath": "css/trainers#[.{fingerprint=5gg35ioea8}]?.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\css\\trainers.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "8cemrlbg1a",
+      "Integrity": "GBEGRjvYWVkdWOoT8c3LU8dq2ckKCtolzqABCRqN+pg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\css\\trainers.css"
+    },
+    {
       "Identity": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\bww8ud00yd-ausgxo2sd3.gz",
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
@@ -4425,6 +4446,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\style.min.css"
+    },
+    {
+      "Identity": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\css\\trainers.css",
+      "SourceId": "GestForma",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\",
+      "BasePath": "_content/GestForma",
+      "RelativePath": "css/trainers#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "5gg35ioea8",
+      "Integrity": "BSP9av1/QjB+ru1YjwgUW7QS+fLZ3ppU+3AK1zSIgiA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\trainers.css"
     },
     {
       "Identity": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\favicon.ico",
@@ -9367,6 +9409,304 @@
         {
           "Name": "integrity",
           "Value": "sha256-nnZA2tSQGkDMeuVmmHpFqCInie8LBd8PAWjbn1KXP/0="
+        }
+      ]
+    },
+    {
+      "Route": "css/trainers.5gg35ioea8.css",
+      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\bhw52e9owe-5gg35ioea8.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.003649635036"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "273"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"GBEGRjvYWVkdWOoT8c3LU8dq2ckKCtolzqABCRqN+pg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 04 Jan 2025 21:08:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"BSP9av1/QjB+ru1YjwgUW7QS+fLZ3ppU+3AK1zSIgiA=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "5gg35ioea8"
+        },
+        {
+          "Name": "label",
+          "Value": "css/trainers.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-BSP9av1/QjB+ru1YjwgUW7QS+fLZ3ppU+3AK1zSIgiA="
+        }
+      ]
+    },
+    {
+      "Route": "css/trainers.5gg35ioea8.css",
+      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\css\\trainers.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "464"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"BSP9av1/QjB+ru1YjwgUW7QS+fLZ3ppU+3AK1zSIgiA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 04 Jan 2025 21:08:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "5gg35ioea8"
+        },
+        {
+          "Name": "label",
+          "Value": "css/trainers.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-BSP9av1/QjB+ru1YjwgUW7QS+fLZ3ppU+3AK1zSIgiA="
+        }
+      ]
+    },
+    {
+      "Route": "css/trainers.5gg35ioea8.css.gz",
+      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\bhw52e9owe-5gg35ioea8.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "273"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"GBEGRjvYWVkdWOoT8c3LU8dq2ckKCtolzqABCRqN+pg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 04 Jan 2025 21:08:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "5gg35ioea8"
+        },
+        {
+          "Name": "label",
+          "Value": "css/trainers.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-GBEGRjvYWVkdWOoT8c3LU8dq2ckKCtolzqABCRqN+pg="
+        }
+      ]
+    },
+    {
+      "Route": "css/trainers.css",
+      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\bhw52e9owe-5gg35ioea8.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.003649635036"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "273"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"GBEGRjvYWVkdWOoT8c3LU8dq2ckKCtolzqABCRqN+pg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 04 Jan 2025 21:08:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"BSP9av1/QjB+ru1YjwgUW7QS+fLZ3ppU+3AK1zSIgiA=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-BSP9av1/QjB+ru1YjwgUW7QS+fLZ3ppU+3AK1zSIgiA="
+        }
+      ]
+    },
+    {
+      "Route": "css/trainers.css",
+      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\css\\trainers.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "464"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"BSP9av1/QjB+ru1YjwgUW7QS+fLZ3ppU+3AK1zSIgiA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 04 Jan 2025 21:08:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-BSP9av1/QjB+ru1YjwgUW7QS+fLZ3ppU+3AK1zSIgiA="
+        }
+      ]
+    },
+    {
+      "Route": "css/trainers.css.gz",
+      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\bhw52e9owe-5gg35ioea8.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "273"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"GBEGRjvYWVkdWOoT8c3LU8dq2ckKCtolzqABCRqN+pg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 04 Jan 2025 21:08:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-GBEGRjvYWVkdWOoT8c3LU8dq2ckKCtolzqABCRqN+pg="
         }
       ]
     },

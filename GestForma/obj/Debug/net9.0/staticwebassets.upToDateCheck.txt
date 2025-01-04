@@ -25,6 +25,7 @@ C:\Users\Doha\source\repos\GestForma\GestForma\wwwroot\lib\bootstrap\dist\css\bo
 C:\Users\Doha\source\repos\GestForma\GestForma\wwwroot\js\main.js
 C:\Users\Doha\source\repos\GestForma\GestForma\wwwroot\lib\jquery-validation\dist\additional-methods.min.js
 C:\Users\Doha\source\repos\GestForma\GestForma\wwwroot\lib\waypoints\waypoints.min.js
+C:\Users\Doha\source\repos\GestForma\GestForma\wwwroot\css\trainers.css
 C:\Users\Doha\source\repos\GestForma\GestForma\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 C:\Users\Doha\source\repos\GestForma\GestForma\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map
 C:\Users\Doha\source\repos\GestForma\GestForma\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css
@@ -79,6 +80,7 @@ C:\Users\Doha\source\repos\GestForma\GestForma\wwwroot\lib\owlcarousel\assets\ow
 wwwroot\css\site.css
 wwwroot\css\style.css
 wwwroot\css\style.min.css
+wwwroot\css\trainers.css
 wwwroot\favicon.ico
 wwwroot\img\About.jpg
 wwwroot\img\bg-image.jpg

@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\css\\style.min.css"
     },
     {
+      "Id": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\css\\trainers.css",
+      "PackagePath": "staticwebassets\\css\\trainers.css"
+    },
+    {
       "Id": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },

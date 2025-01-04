@@ -82,13 +82,12 @@ namespace GestForma.Controllers
                         await _context.SaveChangesAsync();
 
                     }
-                    // Additional setup or logging in the user if needed
-                    await _signInManager.SignInAsync(user, isPersistent: false);
 
                     // Optionally, save any other data to the database if needed
 
                     // Redirect or return a success message
-                    return RedirectToAction("Trainers", "Trainers"); // Or any other page
+                    TempData["Success"] = $"The user {model.Email} has been successfully added.";
+                    return RedirectToAction("AddTrainer"); // Or any other page
                 }
 
                 // If creation failed, show errors
@@ -97,7 +96,7 @@ namespace GestForma.Controllers
                     ModelState.AddModelError(string.Empty, error.Description);
                 }
             }
-
+            
             // If we reach here, something went wrong, so return the view with validation errors
             return View("AddTrainer");
         }
@@ -115,7 +114,7 @@ namespace GestForma.Controllers
         }
         
         [Authorize(Roles = "administrateur")]
-        public async Task<IActionResult> Actions()
+        public async Task<IActionResult> DeleteFormTrainer()
         {
             var users = _userManager.Users.ToList();
             
@@ -142,7 +141,7 @@ namespace GestForma.Controllers
             if (string.IsNullOrEmpty(id))
             {
                 TempData["Error"] = "Invalid ID.";
-                return RedirectToAction(nameof(Actions));
+                return RedirectToAction(nameof(DeleteFormTrainer));
             }
 
             var user = await _userManager.FindByIdAsync(id); 
@@ -150,7 +149,7 @@ namespace GestForma.Controllers
             if (user == null)
             {
                 TempData["Error"] = "User not found.";
-                return RedirectToAction(nameof(Actions));
+                return RedirectToAction(nameof(DeleteFormTrainer));
             }
             _context.Trainers.Remove(trainer);
             var result = await _userManager.DeleteAsync(user);
@@ -167,128 +166,16 @@ namespace GestForma.Controllers
                 }
             }
 
-            return RedirectToAction(nameof(Actions));
+            return RedirectToAction(nameof(DeleteFormTrainer));
         }
 
-        public async Task<IActionResult> EditFormTrainer(string id)
-        {
-            if (string.IsNullOrEmpty(id))
-            {
-                TempData["Error"] = "Invalid ID.";
-                return RedirectToAction(nameof(Actions));
-            }
-
-            var user = await _userManager.FindByIdAsync(id);
-            if (user == null)
-            {
-                TempData["Error"] = "User not found.";
-                return RedirectToAction(nameof(Actions));
-            }
-
-            var trainer = await _context.Trainers.FirstOrDefaultAsync(t => t.Id_user == user.Id);
-            if (trainer == null)
-            {
-                TempData["Error"] = "Trainer details not found.";
-                return RedirectToAction(nameof(Actions));
-            }
-
-            var model = new TrainerRegister
-            {
-                FirstName = user.FirstName,
-                LastName = user.LastName,
-                Email = user.Email,
-                Phone = user.PhoneNumber,
-                Field = trainer.Field
-            };
-
-            return View(model);
-        }
-
-        [HttpPost]
-        [Authorize(Roles = "administrateur")]
-  
-        public async Task<IActionResult> EditTrainer(TrainerRegister model)
-        {
-            if (ModelState.IsValid)
-            {
-                if (model.ProfileImage == null || model.ProfileImage.Length == 0)
-                {
-                    // Add an error message to ModelState
-                    ModelState.AddModelError("ProfileImage", "Please upload a profile image.");
-                    return View("EditFormTrainer", model); // Return to the form with the error message
-                }
-                var user = await _userManager.FindByEmailAsync(model.Email);
-                if (user == null)
-                {
-                    TempData["Error"] = "User not found.";
-                    return RedirectToAction(nameof(Actions));
-                }
-
-                // Update ApplicationUser (identity user) details
-                user.FirstName = model.FirstName;
-                user.LastName = model.LastName;
-                user.PhoneNumber = model.Phone;
-                var updateResult = await _userManager.UpdateAsync(user);
-                if (!updateResult.Succeeded)
-                {
-                    foreach (var error in updateResult.Errors)
-                    {
-                        ModelState.AddModelError("", error.Description);
-                    }
-                    return View("EditFormTrainer", model);  // Return the form with update errors
-                }
-
-                // If a new password is provided, update the password
-                if (!string.IsNullOrEmpty(model.Password))
-                {
-
-                    var result = await _userManager.ChangePasswordAsync(user, user.PasswordHash, model.Password);
-                    if (!result.Succeeded)
-                    {
-                        foreach (var error in result.Errors)
-                        {
-                            ModelState.AddModelError("", error.Description);
-                        }
-                        return View("EditFormTrainer", model);  // Return the form with password change errors
-                    }
-                }
-                var trainer = await _context.Trainers.FirstOrDefaultAsync(t => t.Id_user == user.Id);
-                if (trainer == null)
-                {
-                    TempData["Error"] = "Trainer details not found.";
-                    return RedirectToAction(nameof(Actions));
-                }
-
-                // Handle profile image upload if it exists
-                if (model.ProfileImage != null && model.ProfileImage.Length > 0)
-                {
-                    using (var memoryStream = new MemoryStream())
-                    {
-                        await model.ProfileImage.CopyToAsync(memoryStream);
-                        trainer.FileName = model.ProfileImage.FileName;
-                        trainer.ContentType = model.ProfileImage.ContentType;
-                        trainer.Data = memoryStream.ToArray();
-                    }
-                }
-
-                // Save changes to Trainer entity
-                _context.Trainers.Update(trainer);
-                await _context.SaveChangesAsync();
-
-                TempData["Success"] = "Trainer details updated successfully.";
-                return RedirectToAction(nameof(Actions));  // Redirect to the Trainers list or another page as needed
-            }
-
-            // If we reach here, something went wrong. Return to the edit form with validation errors.
-            TempData["Error"] = "Invalid data submitted.";
-            return View("Trainers");
-
-        }
-        }
-
-
-
-
-
+        
+       
     }
+
+
+
+
+
 }
+
