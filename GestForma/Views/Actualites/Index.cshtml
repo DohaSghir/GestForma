@@ -11,7 +11,7 @@
 <p class="mx-4">
     <form asp-action="Create" method="get" class="d-inline">
         <button type="submit" class="btn btn-info btn-sm ml-xl-4 mx-xl-4">
-            <i class="fa fa-clone"></i> Create New Course
+            <i class="fa fa-clone"></i> Create News
         </button>
     </form>
 </p>
@@ -25,10 +25,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Description)
             </th>
-            <th class="col-sm-3 text-left">
+            <th class="col-sm-3 text-center">
                 image
             </th>
-            
             <th></th>
         </tr>
     </thead>
@@ -41,11 +40,10 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
-            <td class="col-sm-4 text-left">
-                    <img src="/Actualites/GetImage/@Html.DisplayFor(modelItem => item.IdActualite)" alt="@Html.DisplayFor(modelItem => item.FileName)" style="max-width: 200px; max-height: 200px;" />
+            <td class="col-sm-1 text-center">
+                 <img src="/Actualites/GetImage/@Html.DisplayFor(modelItem => item.IdActualite)" alt="@Html.DisplayFor(modelItem => item.FileName)" style="max-width: 200px; max-height: 200px;" />
             </td>
-            
-                <td>
+                    <td class="col-sm-3 text-center">
                     <form asp-action="Edit" asp-route-id="@item.IdActualite" method="get" class="d-inline">
                         <button type="submit" class="btn btn-info btn-sm">
                             <i class="fa fa-edit"></i> Edit

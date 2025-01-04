@@ -40,11 +40,13 @@ namespace GestForma.Controllers
             }
             // Si l'utilisateur n'est ni administrateur ni professeur, alors on récupère les formations disponibles
             var formations = await _context.Formations.ToListAsync();
+            var actualites = await _context.Actualites.ToListAsync();
 
             // Passer la liste des formations à la vue via ViewBag
             ViewBag.Formations = formations;
+            ViewBag.Actualites = actualites;
 
-           
+
             return View();
         }
 
@@ -230,5 +232,7 @@ namespace GestForma.Controllers
         {
             return View();
         }
+
+        
     }
 }

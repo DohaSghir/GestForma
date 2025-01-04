@@ -1,16 +1,14 @@
 ﻿@model GestForma.Models.Actualite
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Create News";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h1>Create</h1>
-
-<h4>Actualite</h4>
+<h1 class="text-center text-dark fw-bold mt-5">Create News</h1>
 <hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="row mx-auto">
+    <div class="col-md-4 mx-auto">
         <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -24,17 +22,23 @@
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label for="file">Image :</label>
+                <label for="file">Image</label>
                 <input type="file" id="file" name="file" class="form-control" />
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+            <div class="row mb-3">
+
+                <div class="col d-grid">
+                    <input type="submit" value="Create" class="w-100 btn btn-lg btn-info " />
+                </div>
+
+                <div class="col d-grid">
+                    <button class="w-100 btn btn-info">
+                        <a asp-action="Index" class="text-light">Back to List</a>
+                    </button>
+                </div>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 

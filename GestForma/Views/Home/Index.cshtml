@@ -1,6 +1,8 @@
 ﻿@{
     var formations = ViewBag.Formations as List<GestForma.Models.Formation>;
+    var actualites = ViewBag.Actualites as List<GestForma.Models.Actualite>;
 }
+
 <!-- Header Start -->
 <div class="jumbotron jumbotron-fluid position-relative overlay-bottom" style="margin-bottom: 90px;">
     <div class="container text-center my-5 py-5">
@@ -11,7 +13,7 @@
             <div class="input-group">
                 <div class="input-group-prepend">
                     <button class="btn btn-outline-light bg-white text-body px-4 dropdown-toggle" type="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
+                    aria-haspopup="true" aria-expanded="false">
                         Courses
                     </button>
                     <div class="dropdown-menu">
@@ -343,7 +345,7 @@
                 </div>
                 <p class="m-0">Our students appreciate the platform's user-friendly interface, seamless course navigation, effective communication between trainers and participants, and its security, all contributing to enhanced learning and skill development.</p>
 
-                </div>
+            </div>
             <div class="col-lg-7">
                 <div class="owl-carousel testimonial-carousel">
                     <div class="bg-white p-5">
@@ -373,7 +375,37 @@
         </div>
     </div>
 </div>
-<!-- Testimonial Start -->
+<!-- Testimonial end -->
+<!-- News start -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="section-title text-center position-relative mb-5">
+            <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">News</h6>
+            <h1 class="display-4">See What's New</h1>
+        </div>
+
+        <div class="owl-carousel testimonial-carousel position-relative" style="padding: 0 30px;">
+            @foreach (var actualite in actualites)
+            {
+                <div class="team-item">
+                    <div class="d-flex align-items-center bg-light p-4">
+                        <!-- Image Section -->
+                        <img src="/Actualites/GetImage/@actualite.IdActualite"
+                             alt="@actualite.FileName"
+                             style="width: 200px; height: auto; object-fit: cover; margin-right: 20px;"
+                             class="img-fluid rounded">
+                        <!-- Text Section -->
+                        <div class="flex-grow-1">
+                            <h5 class="mb-3">@actualite.Titre</h5>
+                            <p class="mb-2">@actualite.Description</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
 <!-- Contact Start -->
 <div class="container-fluid py-5">
     <div class="container py-5">

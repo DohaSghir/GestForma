@@ -7,32 +7,31 @@
 
 <h1>Details</h1>
 
-<div>
-    <h4>Actualite</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Titre)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Titre)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class="col-sm-3 text-left">
-            image
-        </dt>
-        <dd class="col-sm-9 text-left">
-            <img src="/Actualites/GetImage/@Html.DisplayFor(model => model.IdActualite)" alt="@Html.DisplayFor(model => model.FileName)" style="max-width: 200px; max-height: 200px;" />
 
-        </dd>
-    </dl>
+<!-- Team Start -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="owl-carousel team-carousel position-relative" style="padding: 0 30px;">
+            <div class="team-item">
+                <div class="d-flex align-items-center bg-light p-3">
+                    <!-- Image Section -->
+                    <img src="/Actualites/GetImage/@Html.DisplayFor(model => model.IdActualite)"
+                         alt="@Html.DisplayFor(model => model.FileName)"
+                         style="max-width: 150px; max-height: 200px; margin-right: 20px;"
+                         class="img-fluid rounded">
+
+                    <!-- Text Section -->
+                    <div>
+                        <h5 class="mb-3">@Html.DisplayFor(model => model.Titre)</h5>
+                        <p class="mb-2">@Html.DisplayFor(model => model.Description)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.IdActualite">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+
+<div class="d-flex justify-content-center mt-4">
+    <a asp-action="Edit" asp-route-id="@Model?.IdActualite" class="btn btn-primary mx-2">Edit</a>
+    <a asp-action="Index" class="btn btn-secondary mx-2">Back to List</a>
 </div>
