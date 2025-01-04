@@ -23,6 +23,90 @@ namespace GestForma.Controllers
             _context = context;
         }
 
+        public async Task<IActionResult> ParticipantRoleSummary()
+        {
+            // Vérifier si le rôle "participant" existe
+            var roleName = "participant";
+            var role = await _roleManager.FindByNameAsync(roleName);
+
+            if (role != null)
+            {
+                // Obtenir le nombre d'utilisateurs dans ce rôle
+                var usersInRole = await _userManager.GetUsersInRoleAsync(roleName);
+                var userCount = usersInRole.Count();
+
+                // Passer le résultat à la vue
+                ViewBag.RoleName = roleName;
+                ViewBag.UserCount = userCount;
+
+                return View();
+            }
+
+            // Si le rôle "participant" n'existe pas
+            ViewBag.ErrorMessage = "Le rôle 'participant' n'existe pas.";
+            return View();
+      
+    }
+
+
+        public async Task<IActionResult> ParticipantsAgeDistribution()
+        {
+            // Vérifier si le rôle "participant" existe
+            var roleName = "participant";
+            var role = await _roleManager.FindByNameAsync(roleName);
+
+            if (role != null)
+            {
+                // Obtenir le nombre d'utilisateurs dans ce rôle
+                var usersInRole = await _userManager.GetUsersInRoleAsync(roleName);
+                var userCount = usersInRole.Count();
+
+                // Passer le résultat à la vue
+                ViewBag.RoleName = roleName;
+                ViewBag.UserCount = userCount;
+
+               
+            }
+            // Vérifier si le rôle "participant" existe
+           
+
+            if (role != null)
+            {
+                // Obtenir les utilisateurs dans ce rôle
+                var usersInRole = await _userManager.GetUsersInRoleAsync(roleName);
+
+                // Extraire l'âge des utilisateurs
+                var ageGroups = usersInRole
+                    .Where(user => user.Age != null)  // Assurez-vous que la propriété d'âge est dans la base de données, par exemple BirthDate
+                    .GroupBy(user => GetAgeGroup(user.Age))
+                    .Select(group => new
+                    {
+                        AgeGroup = group.Key,
+                        Count = group.Count()
+                    })
+                    .ToList();
+
+                return View(ageGroups);
+            }
+
+            ViewBag.ErrorMessage = "Le rôle 'participant' n'existe pas.";
+            return View();
+        }
+
+        // Fonction pour déterminer le groupe d'âge d'un utilisateur
+        private string GetAgeGroup(int age)
+        {
+            
+            if (age < 18) return "Moins de 18";
+            if (age <= 25) return "18-25";
+            if (age <= 35) return "26-35";
+            if (age <= 45) return "36-45";
+            if (age <= 60) return "46-60";
+            return "60+";
+        }
+    
+
+
         // Action Index
         public async Task<IActionResult> Index()
         {
