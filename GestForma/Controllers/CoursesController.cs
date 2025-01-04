@@ -26,12 +26,23 @@ namespace GestForma.Controllers
                 _webHostEnvironment = webHostEnvironment;
             }
 
-            // GET: Courses
-            public async Task<IActionResult> Index()
+        // GET: Courses
+        public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Formations.Include(f => f.Categorie).Include(f => f.User);
+            
+            var userId = _userManager.GetUserId(User);
+
+            var applicationDbContext = _context.Formations
+                .Where(f => f.ID_User == userId) 
+                .Include(f => f.Categorie)       
+                .Include(f => f.User)           
+                .AsQueryable();
+
+      
             return View(await applicationDbContext.ToListAsync());
         }
+
+      
 
         // GET: Courses/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -222,6 +233,41 @@ namespace GestForma.Controllers
         {
             return _context.Formations.Any(e => e.ID_Formation == id);
         }
+
+
+        public async Task<IActionResult> Courses(string category, string keyword)
+        {
+            // Charger toutes les catégories pour la liste déroulante
+            var categories = await _context.Categories
+                .Select(c => c.Title) // Accéder directement au modèle Category
+                .Distinct()
+                .ToListAsync();
+            ViewBag.Categories = categories;
+
+            // Charger les formations avec leurs catégories et les formateurs
+            var formations = _context.Formations
+                .Include(f => f.Categorie) // Charger la catégorie associée
+                .Include(f => f.User)      // Charger le formateur associé
+                .AsQueryable();
+
+            // Appliquer les filtres si les paramètres sont présents
+            if (!string.IsNullOrEmpty(category))
+            {
+                formations = formations.Where(f => f.Categorie.Title.Equals(category, StringComparison.OrdinalIgnoreCase));
+            }
+
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                formations = formations.Where(f => f.Intitule.Contains(keyword, StringComparison.OrdinalIgnoreCase));
+            }
+
+            // Retourner les formations filtrées à la vue
+            return View(await formations.ToListAsync());
+        }
+
+
+
+
 
     }
 }

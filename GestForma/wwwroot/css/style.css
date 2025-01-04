@@ -9958,3 +9958,63 @@ h6,
 .testimonial-carousel .owl-nav .owl-prev:hover {
   background: #2878EB;
 }
+
+
+
+.title {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.role {
+    font-size: 2rem;
+    color: #555;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.alert {
+    padding: 1rem;
+    margin: 1rem 0;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.user-count {
+    font-size: 1.5rem;
+    color: #333;
+    text-align: center;
+}
+
+
+.card1 {
+    width: 18rem;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.card2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+    .title1 {
+        font-size: 1.2rem;
+        color: #333;
+        margin: 0;
+    }
+
+    .text1 {
+        font-size: 1.5rem;
+        color: #000;
+        margin-top: 10px;
+        text-align: right;
+    }
+
+
+    

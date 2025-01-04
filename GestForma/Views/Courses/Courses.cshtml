@@ -1,0 +1,114 @@
+﻿@model IEnumerable<Formation>
+@{
+    ViewData["Title"] = "Courses";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Courses</h1>
+
+<!-- Section du filtre -->
+<div class="jumbotron jumbotron-fluid page-header position-relative overlay-bottom" style="margin-bottom: 20px;">
+    <div class="container text-center py-5">
+        <div class="mx-auto mb-5" style="width: 100%; max-width: 600px;">
+            <div class="input-group">
+                <!-- Sélecteur de catégorie -->
+                <div class="input-group-prepend">
+                    <select id="categorySelect" class="form-control border-light" style="height:63px; border-radius:none;">
+                        <option value="" selected>All Categories</option>
+                        @foreach (var cat in ViewBag.Categories as List<string>)
+                        {
+                            <option value="@cat">@cat</option>
+                        }
+                    </select>
+                </div>
+
+                <!-- Champ de recherche par mot-clé -->
+                <input type="text" class="form-control border-light" style="padding: 30px 25px;" placeholder="Keyword" id="keywordInput">
+                <div class="input-group-append">
+                    <button class="btn btn-secondary px-4 px-lg-5" id="searchButton">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Affichage des formations -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="row mx-0 justify-content-center">
+            <div class="col-lg-8">
+                <div class="section-title text-center position-relative mb-5">
+                    <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Our Courses</h6>
+                    <h1 class="display-4">Checkout New Releases Of Our Courses</h1>
+                </div>
+            </div>
+
+            <!-- Liste des formations -->
+            <div class="row" id="coursesList">
+                @foreach (var formation in Model)
+                {
+                    <div class="col-lg-4 col-md-6 pb-4 course-item"
+                         data-category="@formation.Categorie.Title"
+                         data-title="@formation.Intitule.ToLower()">
+                        <a class="courses-list-item position-relative d-block overflow-hidden mb-2" href="detail.html">
+
+                            @if (formation.Data != null && formation.Data.Length > 0)
+                            {
+                                <img class="img-fluid"
+                                     src="data:@formation.ContentType;base64,@Convert.ToBase64String(formation.Data)"
+                                     alt="@formation.Intitule" />
+                            }
+                            else
+                            {
+                                <img class="img-fluid"
+                                     src="/img/courses-1.jpg"
+                                     alt="Default Image" />
+                            }
+
+                            <div class="courses-text">
+                                <h4 class="text-center text-white px-3">@formation.Intitule</h4>
+                                <div class="border-top w-100 mt-3">
+                                    <div class="d-flex justify-content-between p-4">
+                                        <span class="text-white">
+                                            <i class="fa fa-user mr-2"></i> @formation.User?.FirstName                                         </span>
+                                        <span class="text-white">
+                                            <i class="fa fa-star mr-2"></i>4.5 <small>(250)</small>
+                                        </span>
+                                        <span>
+                                            <h5 class="card-title">@formation.Cout Dh</h5>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Script pour le filtrage côté client -->
+<script>
+    document.getElementById('searchButton').addEventListener('click', function () {
+        // Récupérer les valeurs de filtre
+        const category = document.getElementById('categorySelect').value.toLowerCase();
+        const keyword = document.getElementById('keywordInput').value.toLowerCase();
+
+        // Obtenez toutes les formations (éléments de la liste)
+        const courses = document.querySelectorAll('.course-item');
+
+        // Filtrer les formations
+        courses.forEach(function (course) {
+            const courseCategory = course.getAttribute('data-category').toLowerCase();
+            const courseTitle = course.getAttribute('data-title').toLowerCase();
+
+            // Vérifier si la catégorie et le mot-clé correspondent
+            const categoryMatches = category ? courseCategory === category : true;
+            const keywordMatches = keyword ? courseTitle.includes(keyword) : true;
+
+            // Afficher ou masquer la formation en fonction des filtres
+            course.style.display = (categoryMatches && keywordMatches) ? 'block' : 'none';
+        });
+    });
+</script>
