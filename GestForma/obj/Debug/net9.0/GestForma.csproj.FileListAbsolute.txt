@@ -1607,3 +1607,4 @@ D:\githubProjects\GestForma\GestForma\obj\Debug\net9.0\GestForma.pdb
 D:\githubProjects\GestForma\GestForma\obj\Debug\net9.0\GestForma.genruntimeconfig.cache
 D:\githubProjects\GestForma\GestForma\obj\Debug\net9.0\ref\GestForma.dll
 C:\Users\Lenovo\Documents\GitHub\GestForma\GestForma\obj\Debug\net9.0\compressed\trk7bvne3d-7uk9ffp96b.gz
+D:\githubProjects\GestForma\GestForma\obj\Debug\net9.0\compressed\trk7bvne3d-7uk9ffp96b.gz
