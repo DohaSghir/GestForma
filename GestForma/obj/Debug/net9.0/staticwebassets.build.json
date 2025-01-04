@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "I1sC0T6R2obwI23LwmZ6UBhlH7Cgg2U7PoFxHU3ofao=",
+  "Hash": "LUqSCXRPO4wO7b06pb7O1S+jVdQKxnLRI9G/eRhGcdg=",
   "Source": "GestForma",
   "BasePath": "_content/GestForma",
   "Mode": "Default",
@@ -3776,12 +3776,12 @@
       "OriginalItemSpec": "C:\\Users\\cltt\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\9.0.0\\staticwebassets\\V5\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Identity": "D:\\githubProjects\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\trk7bvne3d-ao79hwvfg8.gz",
+      "Identity": "D:\\githubProjects\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\trk7bvne3d-7uk9ffp96b.gz",
       "SourceId": "GestForma",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\githubProjects\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/GestForma",
-      "RelativePath": "css/style#[.{fingerprint=ao79hwvfg8}]?.css.gz",
+      "RelativePath": "css/style#[.{fingerprint=7uk9ffp96b}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -3790,8 +3790,8 @@
       "RelatedAsset": "D:\\githubProjects\\GestForma\\GestForma\\wwwroot\\css\\style.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "vo0pkh5m0p",
-      "Integrity": "Qei/nBroQF3YL1xLCScfNNMKrb6Doaaa8YtBKH1T8ec=",
+      "Fingerprint": "vd5mvbrsli",
+      "Integrity": "PQDO9FUayLfYxbOqnS90ZTJfiTeANGHFyo/ot73oEZY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\githubProjects\\GestForma\\GestForma\\wwwroot\\css\\style.css"
@@ -4378,8 +4378,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "ao79hwvfg8",
-      "Integrity": "5o/IDbXf29CGoYGomrxn2P9rPeNZWUly0j5sojXzBkA=",
+      "Fingerprint": "7uk9ffp96b",
+      "Integrity": "v6xhtnoIRTMhnhJ9G1zJbdlFPu96mKD6wREbKlbYBlg=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\style.css"
@@ -8733,13 +8733,13 @@
       ]
     },
     {
-      "Route": "css/style.ao79hwvfg8.css",
-      "AssetFile": "D:\\githubProjects\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\trk7bvne3d-ao79hwvfg8.gz",
+      "Route": "css/style.7uk9ffp96b.css",
+      "AssetFile": "D:\\githubProjects\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\trk7bvne3d-7uk9ffp96b.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000037857278"
+          "Quality": "0.000037598225"
         }
       ],
       "ResponseHeaders": [
@@ -8749,15 +8749,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "26414"
+          "Value": "26596"
         },
         {
           "Name": "ETag",
-          "Value": "\"Qei/nBroQF3YL1xLCScfNNMKrb6Doaaa8YtBKH1T8ec=\""
+          "Value": "\"PQDO9FUayLfYxbOqnS90ZTJfiTeANGHFyo/ot73oEZY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 04 Jan 2025 14:57:22 GMT"
+          "Value": "Sat, 04 Jan 2025 14:58:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8777,13 +8777,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"5o/IDbXf29CGoYGomrxn2P9rPeNZWUly0j5sojXzBkA=\""
+          "Value": "W/\"v6xhtnoIRTMhnhJ9G1zJbdlFPu96mKD6wREbKlbYBlg=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "ao79hwvfg8"
+          "Value": "7uk9ffp96b"
         },
         {
           "Name": "label",
@@ -8791,12 +8791,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-5o/IDbXf29CGoYGomrxn2P9rPeNZWUly0j5sojXzBkA="
+          "Value": "sha256-v6xhtnoIRTMhnhJ9G1zJbdlFPu96mKD6wREbKlbYBlg="
         }
       ]
     },
     {
-      "Route": "css/style.ao79hwvfg8.css",
+      "Route": "css/style.7uk9ffp96b.css",
       "AssetFile": "D:\\githubProjects\\GestForma\\GestForma\\wwwroot\\css\\style.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -8806,7 +8806,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "193788"
+          "Value": "194660"
         },
         {
           "Name": "Content-Type",
@@ -8814,11 +8814,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"5o/IDbXf29CGoYGomrxn2P9rPeNZWUly0j5sojXzBkA=\""
+          "Value": "\"v6xhtnoIRTMhnhJ9G1zJbdlFPu96mKD6wREbKlbYBlg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 04 Jan 2025 14:57:22 GMT"
+          "Value": "Sat, 04 Jan 2025 14:58:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8828,7 +8828,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "ao79hwvfg8"
+          "Value": "7uk9ffp96b"
         },
         {
           "Name": "label",
@@ -8836,13 +8836,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-5o/IDbXf29CGoYGomrxn2P9rPeNZWUly0j5sojXzBkA="
+          "Value": "sha256-v6xhtnoIRTMhnhJ9G1zJbdlFPu96mKD6wREbKlbYBlg="
         }
       ]
     },
     {
-      "Route": "css/style.ao79hwvfg8.css.gz",
-      "AssetFile": "D:\\githubProjects\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\trk7bvne3d-ao79hwvfg8.gz",
+      "Route": "css/style.7uk9ffp96b.css.gz",
+      "AssetFile": "D:\\githubProjects\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\trk7bvne3d-7uk9ffp96b.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -8851,7 +8851,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "26414"
+          "Value": "26596"
         },
         {
           "Name": "Content-Type",
@@ -8859,11 +8859,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Qei/nBroQF3YL1xLCScfNNMKrb6Doaaa8YtBKH1T8ec=\""
+          "Value": "\"PQDO9FUayLfYxbOqnS90ZTJfiTeANGHFyo/ot73oEZY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 04 Jan 2025 14:57:22 GMT"
+          "Value": "Sat, 04 Jan 2025 14:58:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8881,7 +8881,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "ao79hwvfg8"
+          "Value": "7uk9ffp96b"
         },
         {
           "Name": "label",
@@ -8889,18 +8889,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-Qei/nBroQF3YL1xLCScfNNMKrb6Doaaa8YtBKH1T8ec="
+          "Value": "sha256-PQDO9FUayLfYxbOqnS90ZTJfiTeANGHFyo/ot73oEZY="
         }
       ]
     },
     {
       "Route": "css/style.css",
-      "AssetFile": "D:\\githubProjects\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\trk7bvne3d-ao79hwvfg8.gz",
+      "AssetFile": "D:\\githubProjects\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\trk7bvne3d-7uk9ffp96b.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000037857278"
+          "Quality": "0.000037598225"
         }
       ],
       "ResponseHeaders": [
@@ -8910,15 +8910,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "26414"
+          "Value": "26596"
         },
         {
           "Name": "ETag",
-          "Value": "\"Qei/nBroQF3YL1xLCScfNNMKrb6Doaaa8YtBKH1T8ec=\""
+          "Value": "\"PQDO9FUayLfYxbOqnS90ZTJfiTeANGHFyo/ot73oEZY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 04 Jan 2025 14:57:22 GMT"
+          "Value": "Sat, 04 Jan 2025 14:58:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8938,13 +8938,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"5o/IDbXf29CGoYGomrxn2P9rPeNZWUly0j5sojXzBkA=\""
+          "Value": "W/\"v6xhtnoIRTMhnhJ9G1zJbdlFPu96mKD6wREbKlbYBlg=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-5o/IDbXf29CGoYGomrxn2P9rPeNZWUly0j5sojXzBkA="
+          "Value": "sha256-v6xhtnoIRTMhnhJ9G1zJbdlFPu96mKD6wREbKlbYBlg="
         }
       ]
     },
@@ -8959,7 +8959,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "193788"
+          "Value": "194660"
         },
         {
           "Name": "Content-Type",
@@ -8967,11 +8967,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"5o/IDbXf29CGoYGomrxn2P9rPeNZWUly0j5sojXzBkA=\""
+          "Value": "\"v6xhtnoIRTMhnhJ9G1zJbdlFPu96mKD6wREbKlbYBlg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 04 Jan 2025 14:57:22 GMT"
+          "Value": "Sat, 04 Jan 2025 14:58:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8981,13 +8981,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-5o/IDbXf29CGoYGomrxn2P9rPeNZWUly0j5sojXzBkA="
+          "Value": "sha256-v6xhtnoIRTMhnhJ9G1zJbdlFPu96mKD6wREbKlbYBlg="
         }
       ]
     },
     {
       "Route": "css/style.css.gz",
-      "AssetFile": "D:\\githubProjects\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\trk7bvne3d-ao79hwvfg8.gz",
+      "AssetFile": "D:\\githubProjects\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\trk7bvne3d-7uk9ffp96b.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -8996,7 +8996,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "26414"
+          "Value": "26596"
         },
         {
           "Name": "Content-Type",
@@ -9004,11 +9004,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Qei/nBroQF3YL1xLCScfNNMKrb6Doaaa8YtBKH1T8ec=\""
+          "Value": "\"PQDO9FUayLfYxbOqnS90ZTJfiTeANGHFyo/ot73oEZY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 04 Jan 2025 14:57:22 GMT"
+          "Value": "Sat, 04 Jan 2025 14:58:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9026,7 +9026,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Qei/nBroQF3YL1xLCScfNNMKrb6Doaaa8YtBKH1T8ec="
+          "Value": "sha256-PQDO9FUayLfYxbOqnS90ZTJfiTeANGHFyo/ot73oEZY="
         }
       ]
     },
