@@ -1,20 +1,24 @@
 using System.Diagnostics;
 using GestForma.Models;
+using GestForma.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace GestForma.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ApplicationDbContext _context;
         private readonly ILogger<HomeController> _logger;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
 
         // Injection des services UserManager et RoleManager
-        public HomeController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
+        public HomeController(ApplicationDbContext context,UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
         {
+            _context = context;
             _userManager = userManager;
             _roleManager = roleManager;
         }
@@ -176,5 +180,34 @@ namespace GestForma.Controllers
 
             return View(participants);
         }
-    }
+
+        public async Task<IActionResult> NbrPart()
+        {
+            var role = "participant";
+
+            var par = await _userManager.GetUsersInRoleAsync("participant");
+
+            // Nombre d'utilisateurs dans ce rôle
+            var nbrPart = par.Count;
+
+            // Retourner le nombre dans une vue ou une réponse API
+            ViewBag.nbrPart = nbrPart;
+
+            var prof = await _userManager.GetUsersInRoleAsync("professeur");
+
+            // Nombre d'utilisateurs dans ce rôle
+            var nbrprof = prof.Count;
+
+            ViewBag.nbrprof = nbrprof;
+
+            var totalNumberOfFormations = await _context.Formations.CountAsync();
+
+            // Passer le nombre total de formations à la vue
+            ViewBag.TotalNumberOfFormations = totalNumberOfFormations;
+
+            return View();
+        }
+
+      
+}
 }
