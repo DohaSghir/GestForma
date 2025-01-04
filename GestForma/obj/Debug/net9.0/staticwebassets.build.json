@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "YrVMyt7n313HDU8bwk/CxwNNYrEFXMjtZ2a2MthMvig=",
+  "Hash": "8W3G7/J360vQANMzDaAsvM2vz+meQgbYUnQcFP7icg8=",
   "Source": "GestForma",
   "BasePath": "_content/GestForma",
   "Mode": "Default",
@@ -1401,6 +1401,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Doha\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\9.0.0\\staticwebassets\\V5\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Identity": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\0tpyqhd445-6vu4n3jfd9.gz",
+      "SourceId": "GestForma",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/GestForma",
+      "RelativePath": "js/trainer#[.{fingerprint=6vu4n3jfd9}]?.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\js\\trainer.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "klu8ui724f",
+      "Integrity": "6KIM/KoV3CRk4oj9GqVHJ6LX/MWBLiSGttt1wlyTIQU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\js\\trainer.js"
     },
     {
       "Identity": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\14ipv7q33s-bqjiyaj88i.gz",
@@ -4887,6 +4908,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\js\\trainer.js",
+      "SourceId": "GestForma",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\",
+      "BasePath": "_content/GestForma",
+      "RelativePath": "js/trainer#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "6vu4n3jfd9",
+      "Integrity": "vjf6bkGaLka3VRAFYl0eyqXTB0uzNQTtPAScSxa54io=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\trainer.js"
     },
     {
       "Identity": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
@@ -9688,7 +9730,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 03 Jan 2025 11:21:29 GMT"
+          "Value": "Sat, 04 Jan 2025 10:54:27 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9741,7 +9783,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 03 Jan 2025 11:21:29 GMT"
+          "Value": "Sat, 04 Jan 2025 10:54:27 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9778,7 +9820,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 03 Jan 2025 11:21:29 GMT"
+          "Value": "Sat, 04 Jan 2025 10:54:27 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9825,7 +9867,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 03 Jan 2025 11:21:29 GMT"
+          "Value": "Sat, 04 Jan 2025 10:54:27 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9886,7 +9928,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 03 Jan 2025 11:21:29 GMT"
+          "Value": "Sat, 04 Jan 2025 10:54:27 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9931,7 +9973,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 03 Jan 2025 11:21:29 GMT"
+          "Value": "Sat, 04 Jan 2025 10:54:27 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9986,7 +10028,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 03 Jan 2025 11:21:29 GMT"
+          "Value": "Sat, 04 Jan 2025 10:54:27 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -10047,7 +10089,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 03 Jan 2025 11:21:29 GMT"
+          "Value": "Sat, 04 Jan 2025 10:54:27 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -10092,7 +10134,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 03 Jan 2025 11:21:29 GMT"
+          "Value": "Sat, 04 Jan 2025 10:54:27 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -10147,7 +10189,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 03 Jan 2025 11:21:29 GMT"
+          "Value": "Sat, 04 Jan 2025 10:54:27 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -10200,7 +10242,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 03 Jan 2025 11:21:29 GMT"
+          "Value": "Sat, 04 Jan 2025 10:54:27 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -10237,7 +10279,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 03 Jan 2025 11:21:29 GMT"
+          "Value": "Sat, 04 Jan 2025 10:54:27 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21060,6 +21102,304 @@
         {
           "Name": "integrity",
           "Value": "sha256-465WqepNnI4ENLgQJFXrL2gtI20GCfeLK3JAtugOzpA="
+        }
+      ]
+    },
+    {
+      "Route": "js/trainer.6vu4n3jfd9.js",
+      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\0tpyqhd445-6vu4n3jfd9.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001831501832"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "545"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"6KIM/KoV3CRk4oj9GqVHJ6LX/MWBLiSGttt1wlyTIQU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 04 Jan 2025 12:24:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"vjf6bkGaLka3VRAFYl0eyqXTB0uzNQTtPAScSxa54io=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "6vu4n3jfd9"
+        },
+        {
+          "Name": "label",
+          "Value": "js/trainer.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-vjf6bkGaLka3VRAFYl0eyqXTB0uzNQTtPAScSxa54io="
+        }
+      ]
+    },
+    {
+      "Route": "js/trainer.6vu4n3jfd9.js",
+      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\js\\trainer.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1270"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"vjf6bkGaLka3VRAFYl0eyqXTB0uzNQTtPAScSxa54io=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 04 Jan 2025 12:24:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "6vu4n3jfd9"
+        },
+        {
+          "Name": "label",
+          "Value": "js/trainer.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-vjf6bkGaLka3VRAFYl0eyqXTB0uzNQTtPAScSxa54io="
+        }
+      ]
+    },
+    {
+      "Route": "js/trainer.6vu4n3jfd9.js.gz",
+      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\0tpyqhd445-6vu4n3jfd9.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "545"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"6KIM/KoV3CRk4oj9GqVHJ6LX/MWBLiSGttt1wlyTIQU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 04 Jan 2025 12:24:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "6vu4n3jfd9"
+        },
+        {
+          "Name": "label",
+          "Value": "js/trainer.js.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-6KIM/KoV3CRk4oj9GqVHJ6LX/MWBLiSGttt1wlyTIQU="
+        }
+      ]
+    },
+    {
+      "Route": "js/trainer.js",
+      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\0tpyqhd445-6vu4n3jfd9.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001831501832"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "545"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"6KIM/KoV3CRk4oj9GqVHJ6LX/MWBLiSGttt1wlyTIQU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 04 Jan 2025 12:24:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"vjf6bkGaLka3VRAFYl0eyqXTB0uzNQTtPAScSxa54io=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-vjf6bkGaLka3VRAFYl0eyqXTB0uzNQTtPAScSxa54io="
+        }
+      ]
+    },
+    {
+      "Route": "js/trainer.js",
+      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\js\\trainer.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1270"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"vjf6bkGaLka3VRAFYl0eyqXTB0uzNQTtPAScSxa54io=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 04 Jan 2025 12:24:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-vjf6bkGaLka3VRAFYl0eyqXTB0uzNQTtPAScSxa54io="
+        }
+      ]
+    },
+    {
+      "Route": "js/trainer.js.gz",
+      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\0tpyqhd445-6vu4n3jfd9.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "545"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"6KIM/KoV3CRk4oj9GqVHJ6LX/MWBLiSGttt1wlyTIQU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 04 Jan 2025 12:24:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-6KIM/KoV3CRk4oj9GqVHJ6LX/MWBLiSGttt1wlyTIQU="
         }
       ]
     },

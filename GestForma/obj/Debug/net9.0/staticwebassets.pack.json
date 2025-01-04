@@ -109,6 +109,10 @@
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
+      "Id": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\js\\trainer.js",
+      "PackagePath": "staticwebassets\\js\\trainer.js"
+    },
+    {
       "Id": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },

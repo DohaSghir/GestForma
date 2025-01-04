@@ -1,7 +1,9 @@
 ﻿using GestForma.Models;
 using GestForma.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -20,20 +22,20 @@ namespace GestForma.Controllers
             _signInManager = signInManager;
         }
 
+        [Authorize(Roles = "administrateur")]
         public IActionResult AddTrainer()
         {
             return View();
         }
-        public IActionResult Actions()
-        {
-            return View();
-        }
+  
 
+        [Authorize(Roles = "administrateur")]
         public IActionResult Trainers()
         {
             return View();
         }
 
+        [Authorize(Roles = "administrateur")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> RegisterTrainer(TrainerRegister model)
@@ -99,6 +101,7 @@ namespace GestForma.Controllers
             return View("AddTrainer");
         }
 
+        [Authorize(Roles = "administrateur")]
         public async Task<IActionResult> GetImage(int id)
         {
             var trainer = await _context.Trainers.FindAsync(id);
@@ -108,6 +111,62 @@ namespace GestForma.Controllers
             }
 
             return File(trainer.Data, trainer.ContentType);  // Return the image file with the content type
+        }
+        
+        [Authorize(Roles = "administrateur")]
+        public async Task<IActionResult> Actions()
+        {
+            var users = _userManager.Users.ToList();
+            
+            List<List<Object>> trainers = new List<List<Object>>();
+            
+            foreach (var user in users)
+            {
+                if (await _userManager.IsInRoleAsync(user, "professeur"))
+                {
+                    var trainer = await _context.Trainers.FirstOrDefaultAsync(t => t.Id_user == user.Id);
+                    string imageUrl = trainer != null ? Url.Action("GetImage", "Trainers", new { id = trainer.Id }) : null;
+                    trainers.Add(new List<Object> {user.Id, user.LastName,user.FirstName,user.Email,user.PhoneNumber,trainer.Field, imageUrl });
+                }
+            }
+            
+
+            return View(trainers);
+        }
+
+        [Authorize(Roles = "administrateur")]
+        [HttpPost]
+        public async Task<IActionResult> DeleteTrainer(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                TempData["Error"] = "Invalid ID.";
+                return RedirectToAction(nameof(Actions));
+            }
+
+            var user = await _userManager.FindByIdAsync(id); 
+            var trainer = await _context.Trainers.FirstOrDefaultAsync(t => t.Id_user == user.Id);
+            if (user == null)
+            {
+                TempData["Error"] = "User not found.";
+                return RedirectToAction(nameof(Actions));
+            }
+            _context.Trainers.Remove(trainer);
+            var result = await _userManager.DeleteAsync(user);
+            if (result.Succeeded)
+            {
+                TempData["Success"] = $"The user {user.UserName} has been successfully deleted.";
+            }
+            else
+            {
+                TempData["Error"] = "An error occurred while deleting the user.";
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+            }
+
+            return RedirectToAction(nameof(Actions));
         }
 
 

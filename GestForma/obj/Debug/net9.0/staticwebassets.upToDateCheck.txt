@@ -1,5 +1,6 @@
 C:\Users\Doha\source\repos\GestForma\GestForma\wwwroot\lib\jquery-validation\LICENSE.md
 C:\Users\Doha\source\repos\GestForma\GestForma\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js
+C:\Users\Doha\source\repos\GestForma\GestForma\wwwroot\js\trainer.js
 C:\Users\Doha\source\repos\GestForma\GestForma\wwwroot\lib\jquery\dist\jquery.slim.min.js
 C:\Users\Doha\source\repos\GestForma\GestForma\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css.map
 C:\Users\Doha\source\repos\GestForma\GestForma\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map
@@ -101,6 +102,7 @@ wwwroot\img\testimonial-1.jpg
 wwwroot\img\testimonial-2.jpg
 wwwroot\js\main.js
 wwwroot\js\site.js
+wwwroot\js\trainer.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css
 wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
 wwwroot\lib\bootstrap\dist\css\bootstrap.min.css
