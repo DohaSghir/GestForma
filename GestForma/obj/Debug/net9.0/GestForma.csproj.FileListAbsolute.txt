@@ -1077,7 +1077,6 @@ C:\Users\Lenovo\Documents\GitHub\GestForma\GestForma\obj\Debug\net9.0\compressed
 C:\Users\Lenovo\Documents\GitHub\GestForma\GestForma\obj\Debug\net9.0\compressed\v0zgfp0y55-87fc7y1x7t.gz
 C:\Users\Lenovo\Documents\GitHub\GestForma\GestForma\obj\Debug\net9.0\compressed\yfc7ypekbg-mlv21k5csn.gz
 C:\Users\Lenovo\Documents\GitHub\GestForma\GestForma\obj\Debug\net9.0\compressed\hork734w01-b9sayid5wm.gz
-C:\Users\Lenovo\Documents\GitHub\GestForma\GestForma\obj\Debug\net9.0\compressed\trk7bvne3d-ao79hwvfg8.gz
 C:\Users\Lenovo\Documents\GitHub\GestForma\GestForma\obj\Debug\net9.0\compressed\2yvbrhsatb-bm8s7crdtr.gz
 C:\Users\Lenovo\Documents\GitHub\GestForma\GestForma\obj\Debug\net9.0\compressed\s4gm00w3dg-61n19gt1b8.gz
 C:\Users\Lenovo\Documents\GitHub\GestForma\GestForma\obj\Debug\net9.0\compressed\aoftfv4mhe-jmg7wq9owl.gz
@@ -1607,3 +1606,4 @@ D:\githubProjects\GestForma\GestForma\obj\Debug\net9.0\refint\GestForma.dll
 D:\githubProjects\GestForma\GestForma\obj\Debug\net9.0\GestForma.pdb
 D:\githubProjects\GestForma\GestForma\obj\Debug\net9.0\GestForma.genruntimeconfig.cache
 D:\githubProjects\GestForma\GestForma\obj\Debug\net9.0\ref\GestForma.dll
+C:\Users\Lenovo\Documents\GitHub\GestForma\GestForma\obj\Debug\net9.0\compressed\trk7bvne3d-7uk9ffp96b.gz
