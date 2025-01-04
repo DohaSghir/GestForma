@@ -498,8 +498,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>6vu4n3jfd9</Fingerprint>
-      <Integrity>vjf6bkGaLka3VRAFYl0eyqXTB0uzNQTtPAScSxa54io=</Integrity>
+      <Fingerprint>s0bqaxpus4</Fingerprint>
+      <Integrity>TDhSu0tptrEM6i/D1fH1itHTC3d8T93dD2Q+YZnnGdE=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\trainer.js'))</OriginalItemSpec>

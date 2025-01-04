@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "8W3G7/J360vQANMzDaAsvM2vz+meQgbYUnQcFP7icg8=",
+  "Hash": "s2Ko6eo8IWsSF6SLSlx+bBKRvI6RNep5ukR/T0IkiOY=",
   "Source": "GestForma",
   "BasePath": "_content/GestForma",
   "Mode": "Default",
@@ -1403,12 +1403,12 @@
       "OriginalItemSpec": "C:\\Users\\Doha\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\9.0.0\\staticwebassets\\V5\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Identity": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\0tpyqhd445-6vu4n3jfd9.gz",
+      "Identity": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\0tpyqhd445-s0bqaxpus4.gz",
       "SourceId": "GestForma",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/GestForma",
-      "RelativePath": "js/trainer#[.{fingerprint=6vu4n3jfd9}]?.js.gz",
+      "RelativePath": "js/trainer#[.{fingerprint=s0bqaxpus4}]?.js.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -1417,8 +1417,8 @@
       "RelatedAsset": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\js\\trainer.js",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "klu8ui724f",
-      "Integrity": "6KIM/KoV3CRk4oj9GqVHJ6LX/MWBLiSGttt1wlyTIQU=",
+      "Fingerprint": "wpf2ftmoqd",
+      "Integrity": "FB9mX65EGLAmRc6e7Pd7ZKzmlN6hknv9+ShQQ1IXS1M=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\js\\trainer.js"
@@ -4924,8 +4924,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "6vu4n3jfd9",
-      "Integrity": "vjf6bkGaLka3VRAFYl0eyqXTB0uzNQTtPAScSxa54io=",
+      "Fingerprint": "s0bqaxpus4",
+      "Integrity": "TDhSu0tptrEM6i/D1fH1itHTC3d8T93dD2Q+YZnnGdE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\trainer.js"
@@ -21106,13 +21106,13 @@
       ]
     },
     {
-      "Route": "js/trainer.6vu4n3jfd9.js",
-      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\0tpyqhd445-6vu4n3jfd9.gz",
+      "Route": "js/trainer.js",
+      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\0tpyqhd445-s0bqaxpus4.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001831501832"
+          "Quality": "0.001207729469"
         }
       ],
       "ResponseHeaders": [
@@ -21122,19 +21122,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "545"
+          "Value": "827"
         },
         {
           "Name": "ETag",
-          "Value": "\"6KIM/KoV3CRk4oj9GqVHJ6LX/MWBLiSGttt1wlyTIQU=\""
+          "Value": "\"FB9mX65EGLAmRc6e7Pd7ZKzmlN6hknv9+ShQQ1IXS1M=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 04 Jan 2025 12:24:10 GMT"
+          "Value": "Sat, 04 Jan 2025 14:40:11 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
+          "Value": "no-cache"
         },
         {
           "Name": "Content-Encoding",
@@ -21150,26 +21150,18 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"vjf6bkGaLka3VRAFYl0eyqXTB0uzNQTtPAScSxa54io=\""
+          "Value": "W/\"TDhSu0tptrEM6i/D1fH1itHTC3d8T93dD2Q+YZnnGdE=\""
         }
       ],
       "EndpointProperties": [
         {
-          "Name": "fingerprint",
-          "Value": "6vu4n3jfd9"
-        },
-        {
-          "Name": "label",
-          "Value": "js/trainer.js"
-        },
-        {
           "Name": "integrity",
-          "Value": "sha256-vjf6bkGaLka3VRAFYl0eyqXTB0uzNQTtPAScSxa54io="
+          "Value": "sha256-TDhSu0tptrEM6i/D1fH1itHTC3d8T93dD2Q+YZnnGdE="
         }
       ]
     },
     {
-      "Route": "js/trainer.6vu4n3jfd9.js",
+      "Route": "js/trainer.js",
       "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\js\\trainer.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -21179,7 +21171,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1270"
+          "Value": "2257"
         },
         {
           "Name": "Content-Type",
@@ -21187,11 +21179,156 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"vjf6bkGaLka3VRAFYl0eyqXTB0uzNQTtPAScSxa54io=\""
+          "Value": "\"TDhSu0tptrEM6i/D1fH1itHTC3d8T93dD2Q+YZnnGdE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 04 Jan 2025 12:24:10 GMT"
+          "Value": "Sat, 04 Jan 2025 14:40:11 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-TDhSu0tptrEM6i/D1fH1itHTC3d8T93dD2Q+YZnnGdE="
+        }
+      ]
+    },
+    {
+      "Route": "js/trainer.js.gz",
+      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\0tpyqhd445-s0bqaxpus4.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "827"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FB9mX65EGLAmRc6e7Pd7ZKzmlN6hknv9+ShQQ1IXS1M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 04 Jan 2025 14:40:11 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-FB9mX65EGLAmRc6e7Pd7ZKzmlN6hknv9+ShQQ1IXS1M="
+        }
+      ]
+    },
+    {
+      "Route": "js/trainer.s0bqaxpus4.js",
+      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\0tpyqhd445-s0bqaxpus4.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001207729469"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "827"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FB9mX65EGLAmRc6e7Pd7ZKzmlN6hknv9+ShQQ1IXS1M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 04 Jan 2025 14:40:11 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"TDhSu0tptrEM6i/D1fH1itHTC3d8T93dD2Q+YZnnGdE=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "s0bqaxpus4"
+        },
+        {
+          "Name": "label",
+          "Value": "js/trainer.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-TDhSu0tptrEM6i/D1fH1itHTC3d8T93dD2Q+YZnnGdE="
+        }
+      ]
+    },
+    {
+      "Route": "js/trainer.s0bqaxpus4.js",
+      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\js\\trainer.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2257"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"TDhSu0tptrEM6i/D1fH1itHTC3d8T93dD2Q+YZnnGdE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 04 Jan 2025 14:40:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21201,7 +21338,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "6vu4n3jfd9"
+          "Value": "s0bqaxpus4"
         },
         {
           "Name": "label",
@@ -21209,13 +21346,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-vjf6bkGaLka3VRAFYl0eyqXTB0uzNQTtPAScSxa54io="
+          "Value": "sha256-TDhSu0tptrEM6i/D1fH1itHTC3d8T93dD2Q+YZnnGdE="
         }
       ]
     },
     {
-      "Route": "js/trainer.6vu4n3jfd9.js.gz",
-      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\0tpyqhd445-6vu4n3jfd9.gz",
+      "Route": "js/trainer.s0bqaxpus4.js.gz",
+      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\0tpyqhd445-s0bqaxpus4.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -21224,7 +21361,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "545"
+          "Value": "827"
         },
         {
           "Name": "Content-Type",
@@ -21232,11 +21369,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"6KIM/KoV3CRk4oj9GqVHJ6LX/MWBLiSGttt1wlyTIQU=\""
+          "Value": "\"FB9mX65EGLAmRc6e7Pd7ZKzmlN6hknv9+ShQQ1IXS1M=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 04 Jan 2025 12:24:10 GMT"
+          "Value": "Sat, 04 Jan 2025 14:40:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21254,7 +21391,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "6vu4n3jfd9"
+          "Value": "s0bqaxpus4"
         },
         {
           "Name": "label",
@@ -21262,144 +21399,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-6KIM/KoV3CRk4oj9GqVHJ6LX/MWBLiSGttt1wlyTIQU="
-        }
-      ]
-    },
-    {
-      "Route": "js/trainer.js",
-      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\0tpyqhd445-6vu4n3jfd9.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.001831501832"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "545"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"6KIM/KoV3CRk4oj9GqVHJ6LX/MWBLiSGttt1wlyTIQU=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 04 Jan 2025 12:24:10 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"vjf6bkGaLka3VRAFYl0eyqXTB0uzNQTtPAScSxa54io=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-vjf6bkGaLka3VRAFYl0eyqXTB0uzNQTtPAScSxa54io="
-        }
-      ]
-    },
-    {
-      "Route": "js/trainer.js",
-      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\js\\trainer.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1270"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"vjf6bkGaLka3VRAFYl0eyqXTB0uzNQTtPAScSxa54io=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 04 Jan 2025 12:24:10 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-vjf6bkGaLka3VRAFYl0eyqXTB0uzNQTtPAScSxa54io="
-        }
-      ]
-    },
-    {
-      "Route": "js/trainer.js.gz",
-      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\0tpyqhd445-6vu4n3jfd9.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "545"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"6KIM/KoV3CRk4oj9GqVHJ6LX/MWBLiSGttt1wlyTIQU=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 04 Jan 2025 12:24:10 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-6KIM/KoV3CRk4oj9GqVHJ6LX/MWBLiSGttt1wlyTIQU="
+          "Value": "sha256-FB9mX65EGLAmRc6e7Pd7ZKzmlN6hknv9+ShQQ1IXS1M="
         }
       ]
     },

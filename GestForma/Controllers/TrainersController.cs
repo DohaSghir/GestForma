@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Globalization;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -168,6 +169,125 @@ namespace GestForma.Controllers
 
             return RedirectToAction(nameof(Actions));
         }
+
+        public async Task<IActionResult> EditFormTrainer(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                TempData["Error"] = "Invalid ID.";
+                return RedirectToAction(nameof(Actions));
+            }
+
+            var user = await _userManager.FindByIdAsync(id);
+            if (user == null)
+            {
+                TempData["Error"] = "User not found.";
+                return RedirectToAction(nameof(Actions));
+            }
+
+            var trainer = await _context.Trainers.FirstOrDefaultAsync(t => t.Id_user == user.Id);
+            if (trainer == null)
+            {
+                TempData["Error"] = "Trainer details not found.";
+                return RedirectToAction(nameof(Actions));
+            }
+
+            var model = new TrainerRegister
+            {
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email,
+                Phone = user.PhoneNumber,
+                Field = trainer.Field
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "administrateur")]
+  
+        public async Task<IActionResult> EditTrainer(TrainerRegister model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (model.ProfileImage == null || model.ProfileImage.Length == 0)
+                {
+                    // Add an error message to ModelState
+                    ModelState.AddModelError("ProfileImage", "Please upload a profile image.");
+                    return View("EditFormTrainer", model); // Return to the form with the error message
+                }
+                var user = await _userManager.FindByEmailAsync(model.Email);
+                if (user == null)
+                {
+                    TempData["Error"] = "User not found.";
+                    return RedirectToAction(nameof(Actions));
+                }
+
+                // Update ApplicationUser (identity user) details
+                user.FirstName = model.FirstName;
+                user.LastName = model.LastName;
+                user.PhoneNumber = model.Phone;
+                var updateResult = await _userManager.UpdateAsync(user);
+                if (!updateResult.Succeeded)
+                {
+                    foreach (var error in updateResult.Errors)
+                    {
+                        ModelState.AddModelError("", error.Description);
+                    }
+                    return View("EditFormTrainer", model);  // Return the form with update errors
+                }
+
+                // If a new password is provided, update the password
+                if (!string.IsNullOrEmpty(model.Password))
+                {
+
+                    var result = await _userManager.ChangePasswordAsync(user, user.PasswordHash, model.Password);
+                    if (!result.Succeeded)
+                    {
+                        foreach (var error in result.Errors)
+                        {
+                            ModelState.AddModelError("", error.Description);
+                        }
+                        return View("EditFormTrainer", model);  // Return the form with password change errors
+                    }
+                }
+                var trainer = await _context.Trainers.FirstOrDefaultAsync(t => t.Id_user == user.Id);
+                if (trainer == null)
+                {
+                    TempData["Error"] = "Trainer details not found.";
+                    return RedirectToAction(nameof(Actions));
+                }
+
+                // Handle profile image upload if it exists
+                if (model.ProfileImage != null && model.ProfileImage.Length > 0)
+                {
+                    using (var memoryStream = new MemoryStream())
+                    {
+                        await model.ProfileImage.CopyToAsync(memoryStream);
+                        trainer.FileName = model.ProfileImage.FileName;
+                        trainer.ContentType = model.ProfileImage.ContentType;
+                        trainer.Data = memoryStream.ToArray();
+                    }
+                }
+
+                // Save changes to Trainer entity
+                _context.Trainers.Update(trainer);
+                await _context.SaveChangesAsync();
+
+                TempData["Success"] = "Trainer details updated successfully.";
+                return RedirectToAction(nameof(Actions));  // Redirect to the Trainers list or another page as needed
+            }
+
+            // If we reach here, something went wrong. Return to the edit form with validation errors.
+            TempData["Error"] = "Invalid data submitted.";
+            return View("Trainers");
+
+        }
+        }
+
+
+
 
 
     }
