@@ -9975,14 +9975,7 @@ h6,
     text-align: center;
 }
 
-.alert {
-    padding: 1rem;
-    margin: 1rem 0;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    background-color: #f8d7da;
-    color: #721c24;
-}
+
 
 .user-count {
     font-size: 1.5rem;
