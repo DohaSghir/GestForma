@@ -19,7 +19,15 @@
     <link rel="stylesheet" href="~/css/trainers.css">
 </head>
 <body>
-
+    <!-- Affichage des messages de confirmation/erreur -->
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success mt-3 text-center">@TempData["Success"]</div>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger mt-3 text-center">@TempData["Error"]</div>
+    }
 <!-- Header Start -->
 <div class="jumbotron jumbotron-fluid position-relative overlay-bottom" style="margin-bottom: 90px;">
     <div class="container text-center my-5 py-5">
@@ -167,9 +175,18 @@
                             <span class="text-white"><i class="fa fa-star mr-2"></i>4.5 <small>(250)</small></span>
                         </div>
                     </div>
-                    <div class="w-100 bg-white text-center p-4">
-                        <a class="btn btn-primary" href="detail.html">Course Detail</a>
-                    </div>
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("participant"))
+                        {
+                            <div class="w-100 bg-white text-center p-4">
+                                <form asp-controller="Inscriptions" asp-action="CourseRegistration" method="post">
+                                    <!-- Add hidden inputs to pass data -->
+                                    <input type="hidden" name="CourseId" value="@formation.ID_Formation" />
+                                    <input type="hidden" name="ParticipantId" value="@User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value" />
+                                    <button class="btn btn-primary">Registration</button>
+                                </form>
+
+                            </div>
+                        }
                 </div>
 
 
@@ -180,51 +197,7 @@
     </div>
 
    
-    <div class="row justify-content-center bg-image mx-0 mb-5">
-        <div class="col-lg-6 py-5">
-            <div class="bg-white p-5 my-5">
-                <h1 class="text-center mb-4">Sign Up For New Students</h1>
-                <form>
-                    <div class="form-row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control bg-light border-0" placeholder="Your Name" style="padding: 30px 20px;">
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <input type="email" class="form-control bg-light border-0" placeholder="Your Email" style="padding: 30px 20px;">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <select class="custom-select bg-light border-0 px-3" style="height: 60px;">
-                                    <option selected>Select A course</option>
-                                    @if (formations != null)
-                                    {
-                                        foreach (var formation in formations)
-                                        {
-                                            <option value="@formation.ID_Formation">@formation.Intitule</option>
-                                        }
-                                    }
-                                    else
-                                    {
-                                        <option value="">Aucune formation disponible</option>
-                                    }
-
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <button class="btn btn-primary btn-block" type="submit" style="height: 60px;">Sign Up Now</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+    
 </div>
 <!-- Courses End -->
 
@@ -302,15 +275,7 @@
                         </form>
                     </div>
 
-                    <!-- Affichage des messages de confirmation/erreur -->
-                    @if (TempData["Success"] != null)
-                    {
-                        <div class="alert alert-success mt-3">@TempData["Success"]</div>
-                    }
-                    @if (TempData["Error"] != null)
-                    {
-                        <div class="alert alert-danger mt-3">@TempData["Error"]</div>
-                    }
+                    
 
                     <script>
                         // Fonction JavaScript pour afficher/masquer le formulaire de commentaire
