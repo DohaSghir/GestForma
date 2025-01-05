@@ -10,18 +10,19 @@ namespace GestForma.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ApplicationDbContext _context;
         private readonly ILogger<HomeController> _logger;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly ApplicationDbContext _context;
 
         // Injection des services UserManager et RoleManager
-        public HomeController(ApplicationDbContext context,UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
+        public HomeController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, ApplicationDbContext context)
         {
-            _context = context;
             _userManager = userManager;
             _roleManager = roleManager;
+            _context = context;
         }
+
 
         public async Task<IActionResult> GetImage(int id)
         {
@@ -33,8 +34,9 @@ namespace GestForma.Controllers
 
             return File(trainer.Data, trainer.ContentType);  // Return the image file with the content type
         }
+
         // Action Index
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             if (User.Identity.IsAuthenticated)
             {
@@ -71,6 +73,7 @@ namespace GestForma.Controllers
 
 
             return View(trainers);
+
         }
 
         // Action Privacy
