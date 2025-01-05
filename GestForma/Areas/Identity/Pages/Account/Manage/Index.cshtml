@@ -4,22 +4,7 @@
     ViewData["Title"] = "Profile";
     ViewData["ActivePage"] = ManageNavPages.Index;
 
-    if (User.Identity.IsAuthenticated)
-    {
-        
-        if (User.IsInRole("professeur"))
-        {
-            Layout = "~/Views/Shared/_LayoutFormateur.cshtml";
-        }
-        else if (User.IsInRole("administrateur"))
-        {
-            Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
-        }
-        else
-        {
-            Layout = "~/Views/Shared/_Layout.cshtml";
-        }
-    }
+    
  
 }
 
