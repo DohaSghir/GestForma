@@ -86,14 +86,8 @@
                     <a asp-controller="Home" asp-action="AdminDashboard" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "AdminDashboard" ? "active" : "")">Payment</a>
                     <a asp-controller="Home" asp-action="AdminDashboard" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "AdminDashboard" ? "active" : "")">Certificates</a>
                     <a asp-controller="Actualites" asp-action="Index" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "AdminDashboard" ? "active" : "")">News</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Statistics</a>
-                        <div class="dropdown-menu m-0">
-                            <a asp-controller="Home" asp-action="Participants" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "Participants" ? "active" : "")">Participants</a>
-                            <a asp-controller="Home" asp-action="Formations" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "Formations" ? "active" : "")">Courses</a>
-                            <a asp-controller="Home" asp-action="FormateursActifs" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "FormateursActifs" ? "active" : "")">Active Trainers</a>
-                        </div>
-                    </div>
+                    <a asp-controller="Home" asp-action="Statistic" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Statistic" ? "active" : "")">Statistics</a>
+
                 </div>
                 <partial name="_LoginPartial" />
             </div>
