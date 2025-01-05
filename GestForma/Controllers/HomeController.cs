@@ -48,9 +48,32 @@ namespace GestForma.Controllers
             ViewBag.Actualites = actualites;
             ViewBag.Commentaires = commentaires;
 
+            var users = _userManager.Users.ToList();
+
+            List<List<Object>> trainers = new List<List<Object>>();
+
+            foreach (var user in users)
+            {
+                if (await _userManager.IsInRoleAsync(user, "professeur"))
+                {
+                    var trainer = await _context.Trainers.FirstOrDefaultAsync(t => t.Id_user == user.Id);
+                    string imageUrl = trainer != null ? Url.Action("GetImage", "Home", new { id = trainer.Id }) : null;
+                    trainers.Add(new List<Object> { user.Id, user.LastName, user.FirstName, user.Email, user.PhoneNumber, trainer.Field, imageUrl });
+                }
+            }
 
 
-            return View();
+            return View(trainers);
+        }
+        public async Task<IActionResult> GetImage(int id)
+        {
+            var trainer = await _context.Trainers.FindAsync(id);
+            if (trainer == null)
+            {
+                return NotFound("Trainer not found.");
+            }
+
+            return File(trainer.Data, trainer.ContentType);  // Return the image file with the content type
         }
 
         // Action Privacy
