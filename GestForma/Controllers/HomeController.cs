@@ -10,34 +10,89 @@ namespace GestForma.Controllers
 {
     public class HomeController : Controller
     {
+        private const string RoleProfesseur = "professeur";
+        private readonly ApplicationDbContext _context;
         private readonly ILogger<HomeController> _logger;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
-        private readonly ApplicationDbContext _context;
 
         // Injection des services UserManager et RoleManager
-        public HomeController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, ApplicationDbContext context)
+        public HomeController(ApplicationDbContext context,UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
         {
+            _context = context;
             _userManager = userManager;
             _roleManager = roleManager;
-            _context = context;
-        }
-
-
-        public async Task<IActionResult> GetImage(int id)
-        {
-            var trainer = await _context.Trainers.FindAsync(id);
-            if (trainer == null)
-            {
-                return NotFound("Trainer not found.");
-            }
-
-            return File(trainer.Data, trainer.ContentType);  // Return the image file with the content type
         }
 
         // Action Index
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> IndexAsync()
         {
+          
+            // Charger les formations avec leurs catégories et les formateurs
+            var formations = _context.Formations
+                .Include(f => f.Categorie) // Charger la catégorie associée
+                .Include(f => f.User)      // Charger le formateur associé
+                .AsQueryable();
+
+            var par = await _userManager.GetUsersInRoleAsync("participant");
+
+            var nbrPart = par.Count;
+
+            ViewBag.nbrPart = nbrPart;
+
+            var prof = await _userManager.GetUsersInRoleAsync("professeur");
+
+            var nbrprof = prof.Count;
+
+            ViewBag.nbrprof = nbrprof;
+
+
+            var inv = await _userManager.GetUsersInRoleAsync("invité");
+
+
+            var nbrinv = inv.Count;
+
+            ViewBag.nbrinv = nbrinv;
+
+            var nbrform = await _context.Formations.CountAsync();
+            ViewBag.nbrform = nbrform;
+            var nbrcat = await _context.Categories.CountAsync();
+            ViewBag.nbrcat = nbrcat;
+
+            var formations1 = await _context.Formations.ToListAsync();
+            ViewBag.formations1 = formations1;
+
+
+
+            // Récupérer l'ID du rôle "Professeur"
+            var role = await _context.Roles.FirstOrDefaultAsync(r => r.Name == RoleProfesseur);
+
+            /*  var trainer = await _context.Users
+               .Where(u => _context.UserRoles
+                   .Any(ur => ur.UserId == u.Id && ur.RoleId == role.Id))
+               .ToListAsync();
+
+           ViewBag.trainers = trainer;*/
+
+            var trainers = await (from user in _context.Users
+                                  join trainer in _context.Trainers
+                                  on user.Id equals trainer.Id_user
+                                  where _context.UserRoles.Any(ur => ur.UserId == user.Id && ur.RoleId == role.Id)
+                                  select new
+                                  {
+                                      user.UserName,
+                                      user.Email,
+                                      user.FirstName,
+                                      user.LastName,
+                                      trainer.Data,
+                                      trainer.ContentType,
+                                      trainer.Field
+                                  }).ToListAsync();
+
+            ViewBag.Trainers = trainers;
+
+
+
             if (User.Identity.IsAuthenticated)
             {
                 if (User.IsInRole("administrateur"))
@@ -50,30 +105,7 @@ namespace GestForma.Controllers
                     return RedirectToAction("FormateurDashboard");
                 }
             }
-            // Si l'utilisateur n'est ni administrateur ni professeur, alors on récupère les formations disponibles
-            var formations = await _context.Formations.ToListAsync();
-
-            // Passer la liste des formations à la vue via ViewBag
-            ViewBag.Formations = formations;
-            //list of trainer
-
-            var users = _userManager.Users.ToList();
-
-            List<List<Object>> trainers = new List<List<Object>>();
-
-            foreach (var user in users)
-            {
-                if (await _userManager.IsInRoleAsync(user, "professeur"))
-                {
-                    var trainer = await _context.Trainers.FirstOrDefaultAsync(t => t.Id_user == user.Id);
-                    string imageUrl = trainer != null ? Url.Action("GetImage", "Home", new { id = trainer.Id }) : null;
-                    trainers.Add(new List<Object> { user.Id, user.LastName, user.FirstName, user.Email, user.PhoneNumber, trainer.Field, imageUrl });
-                }
-            }
-
-
-            return View(trainers);
-
+            return View(await formations.ToListAsync());
         }
 
         // Action Privacy
