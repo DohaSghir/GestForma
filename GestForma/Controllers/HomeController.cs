@@ -10,6 +10,7 @@ namespace GestForma.Controllers
 {
     public class HomeController : Controller
     {
+        private const string RoleProfesseur = "professeur";
         private readonly ApplicationDbContext _context;
         private readonly ILogger<HomeController> _logger;
         private readonly UserManager<ApplicationUser> _userManager;
@@ -60,8 +61,19 @@ namespace GestForma.Controllers
 
             var formations1 = await _context.Formations.ToListAsync();
             ViewBag.formations1 = formations1;
-            
-            
+
+
+
+            // Récupérer l'ID du rôle "Professeur"
+            var role = await _context.Roles.FirstOrDefaultAsync(r => r.Name == RoleProfesseur);
+
+               var trainer = await _context.Users
+                .Where(u => _context.UserRoles
+                    .Any(ur => ur.UserId == u.Id && ur.RoleId == role.Id))
+                .ToListAsync();
+
+            ViewBag.trainers = trainer;
+
             if (User.Identity.IsAuthenticated)
             {
                 if (User.IsInRole("administrateur"))
