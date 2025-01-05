@@ -6,7 +6,7 @@
 
     if (User.Identity.IsAuthenticated)
     {
-        // Si l'utilisateur est authentifié
+        
         if (User.IsInRole("professeur"))
         {
             Layout = "~/Views/Shared/_LayoutFormateur.cshtml";
@@ -17,15 +17,10 @@
         }
         else
         {
-            // Layout par défaut pour les autres rôles authentifiés
             Layout = "~/Views/Shared/_Layout.cshtml";
         }
     }
-    else
-    {
-        // Si l'utilisateur n'est pas authentifié
-        Layout = "~/Views/Shared/_Layout.cshtml"; // Exemple : un layout pour les utilisateurs non connectés
-    }
+ 
 }
 
 
