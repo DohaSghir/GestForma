@@ -1,7 +1,19 @@
 ﻿@{
-    if (ViewData.TryGetValue("ParentLayout", out var parentLayout) && parentLayout != null)
+    if (User.Identity.IsAuthenticated)
     {
-        Layout = parentLayout.ToString();
+
+        if (User.IsInRole("professeur"))
+        {
+            Layout = "~/Views/Shared/_LayoutFormateur.cshtml";
+        }
+        else if (User.IsInRole("administrateur"))
+        {
+            Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+        }
+        else
+        {
+            Layout = "~/Views/Shared/_Layout.cshtml";
+        }
     }
     else
     {
