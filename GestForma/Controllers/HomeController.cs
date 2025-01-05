@@ -38,7 +38,29 @@ namespace GestForma.Controllers
                     return RedirectToAction("FormateurDashboard");
                 }
             }
-            return View();
+            // Si l'utilisateur n'est ni administrateur ni professeur, alors on récupère les formations disponibles
+            var formations = await _context.Formations.ToListAsync();
+
+            // Passer la liste des formations à la vue via ViewBag
+            ViewBag.Formations = formations;
+            //list of trainer
+
+            var users = _userManager.Users.ToList();
+
+            List<List<Object>> trainers = new List<List<Object>>();
+
+            foreach (var user in users)
+            {
+                if (await _userManager.IsInRoleAsync(user, "professeur"))
+                {
+                    var trainer = await _context.Trainers.FirstOrDefaultAsync(t => t.Id_user == user.Id);
+                    string imageUrl = trainer != null ? Url.Action("GetImage", "Home", new { id = trainer.Id }) : null;
+                    trainers.Add(new List<Object> { user.Id, user.LastName, user.FirstName, user.Email, user.PhoneNumber, trainer.Field, imageUrl });
+                }
+            }
+
+
+            return View(trainers);
         }
 
         // Action Privacy

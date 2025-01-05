@@ -1607,3 +1607,4 @@ D:\githubProjects\GestForma\GestForma\obj\Debug\net9.0\GestForma.genruntimeconfi
 D:\githubProjects\GestForma\GestForma\obj\Debug\net9.0\ref\GestForma.dll
 C:\Users\Lenovo\Documents\GitHub\GestForma\GestForma\obj\Debug\net9.0\compressed\trk7bvne3d-7uk9ffp96b.gz
 D:\githubProjects\GestForma\GestForma\obj\Debug\net9.0\compressed\trk7bvne3d-7uk9ffp96b.gz
+C:\Users\Doha\source\repos\GestForma\GestForma\obj\Debug\net9.0\GestForma.MvcApplicationPartsAssemblyInfo.cs
