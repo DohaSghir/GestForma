@@ -112,24 +112,35 @@ namespace GestForma.Controllers
 
             return File(trainer.Data, trainer.ContentType);  // Return the image file with the content type
         }
-        
+
         [Authorize(Roles = "administrateur")]
         public async Task<IActionResult> DeleteFormTrainer()
         {
             var users = _userManager.Users.ToList();
-            
             List<List<Object>> trainers = new List<List<Object>>();
-            
+
             foreach (var user in users)
             {
                 if (await _userManager.IsInRoleAsync(user, "professeur"))
                 {
                     var trainer = await _context.Trainers.FirstOrDefaultAsync(t => t.Id_user == user.Id);
+
+                    // Gérer les cas où le formateur n'existe pas
+                    string field = trainer != null ? trainer.Field : "Not Assigned";
                     string imageUrl = trainer != null ? Url.Action("GetImage", "Trainers", new { id = trainer.Id }) : null;
-                    trainers.Add(new List<Object> {user.Id, user.LastName,user.FirstName,user.Email,user.PhoneNumber,trainer.Field, imageUrl });
+
+                    trainers.Add(new List<Object>
+            {
+                user.Id,
+                user.LastName,
+                user.FirstName,
+                user.Email,
+                user.PhoneNumber,
+                field,
+                imageUrl
+            });
                 }
             }
-            
 
             return View(trainers);
         }
@@ -144,14 +155,27 @@ namespace GestForma.Controllers
                 return RedirectToAction(nameof(DeleteFormTrainer));
             }
 
-            var user = await _userManager.FindByIdAsync(id); 
-            var trainer = await _context.Trainers.FirstOrDefaultAsync(t => t.Id_user == user.Id);
+            // Récupérer l'utilisateur
+            var user = await _userManager.FindByIdAsync(id);
             if (user == null)
             {
                 TempData["Error"] = "User not found.";
                 return RedirectToAction(nameof(DeleteFormTrainer));
             }
-            _context.Trainers.Remove(trainer);
+
+            var formations = _context.Formations.Where(f => f.ID_User == user.Id);
+            _context.Formations.RemoveRange(formations);
+
+            // Récupérer le formateur associé
+            var trainer = await _context.Trainers.FirstOrDefaultAsync(t => t.Id_user == user.Id);
+
+            // Supprimer le formateur s'il existe
+            if (trainer != null)
+            {
+                _context.Trainers.Remove(trainer);
+            }
+
+            // Supprimer l'utilisateur
             var result = await _userManager.DeleteAsync(user);
             if (result.Succeeded)
             {
@@ -166,11 +190,19 @@ namespace GestForma.Controllers
                 }
             }
 
+            // Sauvegarder les changements dans la base de données
+            if (trainer != null)
+            {
+                await _context.SaveChangesAsync();
+            }
+
             return RedirectToAction(nameof(DeleteFormTrainer));
         }
 
-        
-       
+
+
+
+
     }
 
 
