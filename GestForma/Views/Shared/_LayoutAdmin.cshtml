@@ -80,7 +80,8 @@
                             <a asp-controller="Home" asp-action="GetUsersWithRoleP" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "GetUsersWithRoleP" ? "active" : "")">Participants</a>
 
                             <a asp-controller="Trainers" asp-action="Trainers" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "Trainers" ? "active" : "")" >Trainers </a>
-                            
+                            <a asp-controller="Categories" asp-action="Index" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "Trainers" ? "active" : "")">Categories </a>
+
                         </div>
                     </div>
                     <a asp-controller="Home" asp-action="AdminDashboard" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "AdminDashboard" ? "active" : "")">Payment</a>
