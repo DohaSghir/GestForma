@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "D:\\githubProjects\\GestForma\\GestForma\\GestForma.csproj": {}
   },
   "projects": {
@@ -12,12 +13,29 @@
         "projectPath": "D:\\githubProjects\\GestForma\\GestForma\\GestForma.csproj",
         "packagesPath": "C:\\Users\\cltt\\.nuget\\packages\\",
         "outputPath": "D:\\githubProjects\\GestForma\\GestForma\\obj\\",
+=======
+    "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\GestForma.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\GestForma.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\GestForma.csproj",
+        "projectName": "GestForma",
+        "projectPath": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\GestForma.csproj",
+        "packagesPath": "C:\\Users\\Doha\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\obj\\",
+>>>>>>> 53394acf720ed488730f97580acb3a55aa2901fa
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
+<<<<<<< HEAD
           "C:\\Users\\cltt\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+          "C:\\Users\\Doha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 53394acf720ed488730f97580acb3a55aa2901fa
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
