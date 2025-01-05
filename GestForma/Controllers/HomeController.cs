@@ -10,21 +10,33 @@ namespace GestForma.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ApplicationDbContext _context;
         private readonly ILogger<HomeController> _logger;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly ApplicationDbContext _context;
 
         // Injection des services UserManager et RoleManager
-        public HomeController(ApplicationDbContext context,UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
+        public HomeController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, ApplicationDbContext context)
         {
-            _context = context;
             _userManager = userManager;
             _roleManager = roleManager;
+            _context = context;
+        }
+
+
+        public async Task<IActionResult> GetImage(int id)
+        {
+            var trainer = await _context.Trainers.FindAsync(id);
+            if (trainer == null)
+            {
+                return NotFound("Trainer not found.");
+            }
+
+            return File(trainer.Data, trainer.ContentType);  // Return the image file with the content type
         }
 
         // Action Index
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             if (User.Identity.IsAuthenticated)
             {
@@ -38,7 +50,30 @@ namespace GestForma.Controllers
                     return RedirectToAction("FormateurDashboard");
                 }
             }
-            return View();
+            // Si l'utilisateur n'est ni administrateur ni professeur, alors on récupère les formations disponibles
+            var formations = await _context.Formations.ToListAsync();
+
+            // Passer la liste des formations à la vue via ViewBag
+            ViewBag.Formations = formations;
+            //list of trainer
+
+            var users = _userManager.Users.ToList();
+
+            List<List<Object>> trainers = new List<List<Object>>();
+
+            foreach (var user in users)
+            {
+                if (await _userManager.IsInRoleAsync(user, "professeur"))
+                {
+                    var trainer = await _context.Trainers.FirstOrDefaultAsync(t => t.Id_user == user.Id);
+                    string imageUrl = trainer != null ? Url.Action("GetImage", "Home", new { id = trainer.Id }) : null;
+                    trainers.Add(new List<Object> { user.Id, user.LastName, user.FirstName, user.Email, user.PhoneNumber, trainer.Field, imageUrl });
+                }
+            }
+
+
+            return View(trainers);
+
         }
 
         // Action Privacy
