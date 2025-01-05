@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktP/kmW0RnD8PytE+VVtIaxVXMz+IbhmQZcsK6aon" crossorigin="anonymous">
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -133,10 +134,23 @@
     <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
 
    
+    <!-- Bootstrap Bundle avec Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-QFQN0qzzU8rEj3mP5Xc8lvNH7TxwRW1rhPC0Rn9KrBXB8T6m9KKM3zZ6OWlaBg0i" crossorigin="anonymous"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
     <!-- Template Javascript -->
     <script src="../js/main.js"></script>
+    <script>
+               document.addEventListener('DOMContentLoaded', () => {
+            const toastElement = document.querySelector('.toast');
+            const bsToast = new bootstrap.Toast(toastElement, {
+                autohide: true, // Désactiver la fermeture automatique
+                delay: 10000 // Définir un délai de 10 secondes si autohide est activé
+            });
+            bsToast.show();
+        });
+
+    </script>
 </body>
 
 </html>
