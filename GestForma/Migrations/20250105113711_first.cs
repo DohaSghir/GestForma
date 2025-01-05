@@ -89,19 +89,6 @@ namespace GestForma.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "CommentairesEntiers",
-                columns: table => new
-                {
-                    IdCommentaire = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ContenuCommentaire = table.Column<string>(type: "nvarchar(2000)", maxLength: 2000, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CommentairesEntiers", x => x.IdCommentaire);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "StatistiqueGlobales",
                 columns: table => new
                 {
@@ -221,6 +208,25 @@ namespace GestForma.Migrations
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CommentairesEntiers",
+                columns: table => new
+                {
+                    IdCommentaire = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ContenuCommentaire = table.Column<string>(type: "nvarchar(2000)", maxLength: 2000, nullable: false),
+                    Id_User = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CommentairesEntiers", x => x.IdCommentaire);
+                    table.ForeignKey(
+                        name: "FK_CommentairesEntiers_AspNetUsers_Id_User",
+                        column: x => x.Id_User,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -389,10 +395,10 @@ namespace GestForma.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "3b979c37-2ecd-463f-b66b-dbadd0d18585", null, "administrateur", "administrateur" },
-                    { "a962545d-e2b0-42bd-89c9-2d5a4dafe157", null, "professeur", "professeur" },
-                    { "ad1b1f5e-99c8-40a7-bfd4-399ca48f603c", null, "invité", "invité" },
-                    { "c8c2fa10-7bbf-42b8-98c4-7a1183600d94", null, "participant", "participant" }
+                    { "49c4f441-1421-4c0d-9bbb-0681c09b6960", null, "professeur", "professeur" },
+                    { "69e67237-f651-4292-9588-7c9d46434e22", null, "administrateur", "administrateur" },
+                    { "be4e226f-e8b5-45af-be86-0e1af72d3f80", null, "participant", "participant" },
+                    { "d6a72a9c-1479-4033-b646-21de847932e4", null, "invité", "invité" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -443,6 +449,11 @@ namespace GestForma.Migrations
                 name: "IX_CommentairesDeFormations_ID_User",
                 table: "CommentairesDeFormations",
                 column: "ID_User");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CommentairesEntiers_Id_User",
+                table: "CommentairesEntiers",
+                column: "Id_User");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Formations_Id_Categorie",

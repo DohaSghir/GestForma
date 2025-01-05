@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GestForma.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250104134421_first")]
+    [Migration("20250105113711_first")]
     partial class first
     {
         /// <inheritdoc />
@@ -206,7 +206,12 @@ namespace GestForma.Migrations
                         .HasMaxLength(2000)
                         .HasColumnType("nvarchar(2000)");
 
+                    b.Property<string>("Id_User")
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("IdCommentaire");
+
+                    b.HasIndex("Id_User");
 
                     b.ToTable("CommentairesEntiers");
                 });
@@ -444,25 +449,25 @@ namespace GestForma.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "3b979c37-2ecd-463f-b66b-dbadd0d18585",
+                            Id = "69e67237-f651-4292-9588-7c9d46434e22",
                             Name = "administrateur",
                             NormalizedName = "administrateur"
                         },
                         new
                         {
-                            Id = "a962545d-e2b0-42bd-89c9-2d5a4dafe157",
+                            Id = "49c4f441-1421-4c0d-9bbb-0681c09b6960",
                             Name = "professeur",
                             NormalizedName = "professeur"
                         },
                         new
                         {
-                            Id = "c8c2fa10-7bbf-42b8-98c4-7a1183600d94",
+                            Id = "be4e226f-e8b5-45af-be86-0e1af72d3f80",
                             Name = "participant",
                             NormalizedName = "participant"
                         },
                         new
                         {
-                            Id = "ad1b1f5e-99c8-40a7-bfd4-399ca48f603c",
+                            Id = "d6a72a9c-1479-4033-b646-21de847932e4",
                             Name = "invité",
                             NormalizedName = "invité"
                         });
@@ -593,6 +598,15 @@ namespace GestForma.Migrations
                         .IsRequired();
 
                     b.Navigation("Formation");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("GestForma.Models.CommentairesEntiers", b =>
+                {
+                    b.HasOne("GestForma.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("Id_User");
 
                     b.Navigation("User");
                 });

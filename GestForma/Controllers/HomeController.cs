@@ -41,10 +41,13 @@ namespace GestForma.Controllers
             // Si l'utilisateur n'est ni administrateur ni professeur, alors on récupère les formations disponibles
             var formations = await _context.Formations.ToListAsync();
             var actualites = await _context.Actualites.ToListAsync();
+            var commentaires = await _context.CommentairesEntiers.Include(c => c.User).ToListAsync();
 
             // Passer la liste des formations à la vue via ViewBag
             ViewBag.Formations = formations;
             ViewBag.Actualites = actualites;
+            ViewBag.Commentaires = commentaires;
+
 
 
             return View();
@@ -233,6 +236,42 @@ namespace GestForma.Controllers
             return View();
         }
 
-        
+        [Authorize(Roles = "participant")]
+        [HttpPost]
+        public async Task<IActionResult> AjouterCommentaire(string ContenuCommentaire)
+        {
+            // Vérifier que le contenu du commentaire n'est pas vide
+            if (string.IsNullOrWhiteSpace(ContenuCommentaire))
+            {
+                TempData["Error"] = "Le commentaire ne peut pas être vide.";
+                return RedirectToAction("Index"); // Redirige vers la page actuelle
+            }
+
+            // Obtenir l'utilisateur actuel
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                TempData["Error"] = "Vous devez être connecté pour ajouter un commentaire.";
+                return RedirectToAction("Index");
+            }
+
+            // Créer un nouveau commentaire
+            var commentaire = new CommentairesEntiers
+            {
+                ContenuCommentaire = ContenuCommentaire,
+                Id_User = user.Id,
+                
+            };
+
+            // Ajouter le commentaire à la base de données
+            _context.CommentairesEntiers.Add(commentaire);
+            await _context.SaveChangesAsync();
+
+            // Message de succès
+            TempData["Success"] = "Votre commentaire a été ajouté avec succès.";
+            return RedirectToAction("Index"); // Redirige vers la page actuelle
+        }
+
+
     }
 }
