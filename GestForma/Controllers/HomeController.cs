@@ -57,6 +57,11 @@ namespace GestForma.Controllers
             ViewBag.nbrform = nbrform;
             var nbrcat = await _context.Categories.CountAsync();
             ViewBag.nbrcat = nbrcat;
+
+            var formations1 = await _context.Formations.ToListAsync();
+            ViewBag.formations1 = formations1;
+            
+            
             if (User.Identity.IsAuthenticated)
             {
                 if (User.IsInRole("administrateur"))

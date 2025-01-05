@@ -1,7 +1,9 @@
 ﻿@model IEnumerable<Formation>
 
 
-
+@{
+    var formations = ViewBag.Formations1 as List<GestForma.Models.Formation>;
+}
 
 <!-- Header Start -->
 <div class="jumbotron jumbotron-fluid position-relative overlay-bottom" style="margin-bottom: 90px;">
@@ -259,7 +261,7 @@
                             <div class="form-group">
                                 <select class="custom-select bg-light border-0 px-3" style="height: 60px;">
                                     <option selected>Select A course</option>
-                                  @* @if (formations != null)
+                                  @if (formations != null)
                                     {
                                         foreach (var formation in formations)
                                         {
@@ -270,7 +272,7 @@
                                     {
                                         <option value="">Aucune formation disponible</option>
                                     }
-                                    *@
+                                    
                                 </select>
                             </div>
                         </div>
