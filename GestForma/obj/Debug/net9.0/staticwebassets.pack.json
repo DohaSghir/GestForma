@@ -17,10 +17,6 @@
       "PackagePath": "staticwebassets\\css\\style.min.css"
     },
     {
-      "Id": "D:\\githubProjects\\GestForma\\GestForma\\wwwroot\\css\\trainers.css",
-      "PackagePath": "staticwebassets\\css\\trainers.css"
-    },
-    {
       "Id": "D:\\githubProjects\\GestForma\\GestForma\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
@@ -111,10 +107,6 @@
     {
       "Id": "D:\\githubProjects\\GestForma\\GestForma\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
-    },
-    {
-      "Id": "D:\\githubProjects\\GestForma\\GestForma\\wwwroot\\js\\trainer.js",
-      "PackagePath": "staticwebassets\\js\\trainer.js"
     },
     {
       "Id": "D:\\githubProjects\\GestForma\\GestForma\\wwwroot\\lib\\bootstrap\\LICENSE",

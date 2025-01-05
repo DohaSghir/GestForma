@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "AZKKhLQP3eTP0Ma57Ryg+5/TR2/GIYE3d+ijaUwcVwU=",
+  "Hash": "43j08z/GYIJAOUTew5sQtMcIApQDqcIljZt0++BxaAA=",
   "Source": "GestForma",
   "BasePath": "_content/GestForma",
   "Mode": "Default",
@@ -1403,27 +1403,6 @@
       "OriginalItemSpec": "C:\\Users\\cltt\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\9.0.0\\staticwebassets\\V5\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Identity": "D:\\githubProjects\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\0tpyqhd445-s0bqaxpus4.gz",
-      "SourceId": "GestForma",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\githubProjects\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\",
-      "BasePath": "_content/GestForma",
-      "RelativePath": "js/trainer#[.{fingerprint=s0bqaxpus4}]?.js.gz",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "D:\\githubProjects\\GestForma\\GestForma\\wwwroot\\js\\trainer.js",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "Fingerprint": "wpf2ftmoqd",
-      "Integrity": "FB9mX65EGLAmRc6e7Pd7ZKzmlN6hknv9+ShQQ1IXS1M=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\githubProjects\\GestForma\\GestForma\\wwwroot\\js\\trainer.js"
-    },
-    {
       "Identity": "D:\\githubProjects\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\14ipv7q33s-bqjiyaj88i.gz",
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
@@ -2220,27 +2199,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\cltt\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\9.0.0\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
-    },
-    {
-      "Identity": "D:\\githubProjects\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\bhw52e9owe-5gg35ioea8.gz",
-      "SourceId": "GestForma",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\githubProjects\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\",
-      "BasePath": "_content/GestForma",
-      "RelativePath": "css/trainers#[.{fingerprint=5gg35ioea8}]?.css.gz",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "D:\\githubProjects\\GestForma\\GestForma\\wwwroot\\css\\trainers.css",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "Fingerprint": "8cemrlbg1a",
-      "Integrity": "GBEGRjvYWVkdWOoT8c3LU8dq2ckKCtolzqABCRqN+pg=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\githubProjects\\GestForma\\GestForma\\wwwroot\\css\\trainers.css"
     },
     {
       "Identity": "D:\\githubProjects\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\bww8ud00yd-ausgxo2sd3.gz",
@@ -3818,12 +3776,12 @@
       "OriginalItemSpec": "C:\\Users\\cltt\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\9.0.0\\staticwebassets\\V5\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Identity": "D:\\githubProjects\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\trk7bvne3d-q9jdjws5rb.gz",
+      "Identity": "D:\\githubProjects\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\trk7bvne3d-ao79hwvfg8.gz",
       "SourceId": "GestForma",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\githubProjects\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/GestForma",
-      "RelativePath": "css/style#[.{fingerprint=q9jdjws5rb}]?.css.gz",
+      "RelativePath": "css/style#[.{fingerprint=ao79hwvfg8}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -3832,8 +3790,8 @@
       "RelatedAsset": "D:\\githubProjects\\GestForma\\GestForma\\wwwroot\\css\\style.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "l02l4nlvb0",
-      "Integrity": "dU17qyQhL4wVoMIAQLxmq+PBRhhVlEfoczdBNB+ant4=",
+      "Fingerprint": "vo0pkh5m0p",
+      "Integrity": "Qei/nBroQF3YL1xLCScfNNMKrb6Doaaa8YtBKH1T8ec=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\githubProjects\\GestForma\\GestForma\\wwwroot\\css\\style.css"
@@ -4420,8 +4378,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "q9jdjws5rb",
-      "Integrity": "zhXplWfLN+AvuoDJY2FiSLaYSpT+2QTzMg9dh8rlaA8=",
+      "Fingerprint": "ao79hwvfg8",
+      "Integrity": "5o/IDbXf29CGoYGomrxn2P9rPeNZWUly0j5sojXzBkA=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\style.css"
@@ -4446,27 +4404,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\style.min.css"
-    },
-    {
-      "Identity": "D:\\githubProjects\\GestForma\\GestForma\\wwwroot\\css\\trainers.css",
-      "SourceId": "GestForma",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\githubProjects\\GestForma\\GestForma\\wwwroot\\",
-      "BasePath": "_content/GestForma",
-      "RelativePath": "css/trainers#[.{fingerprint}]?.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "5gg35ioea8",
-      "Integrity": "BSP9av1/QjB+ru1YjwgUW7QS+fLZ3ppU+3AK1zSIgiA=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\trainers.css"
     },
     {
       "Identity": "D:\\githubProjects\\GestForma\\GestForma\\wwwroot\\favicon.ico",
@@ -4950,27 +4887,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
-    },
-    {
-      "Identity": "D:\\githubProjects\\GestForma\\GestForma\\wwwroot\\js\\trainer.js",
-      "SourceId": "GestForma",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\githubProjects\\GestForma\\GestForma\\wwwroot\\",
-      "BasePath": "_content/GestForma",
-      "RelativePath": "js/trainer#[.{fingerprint}]?.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "s0bqaxpus4",
-      "Integrity": "TDhSu0tptrEM6i/D1fH1itHTC3d8T93dD2Q+YZnnGdE=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\trainer.js"
     },
     {
       "Identity": "D:\\githubProjects\\GestForma\\GestForma\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
@@ -8817,13 +8733,13 @@
       ]
     },
     {
-      "Route": "css/style.css",
-      "AssetFile": "D:\\githubProjects\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\trk7bvne3d-q9jdjws5rb.gz",
+      "Route": "css/style.ao79hwvfg8.css",
+      "AssetFile": "D:\\githubProjects\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\trk7bvne3d-ao79hwvfg8.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000037652020"
+          "Quality": "0.000037857278"
         }
       ],
       "ResponseHeaders": [
@@ -8833,15 +8749,176 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "26558"
+          "Value": "26414"
         },
         {
           "Name": "ETag",
-          "Value": "\"dU17qyQhL4wVoMIAQLxmq+PBRhhVlEfoczdBNB+ant4=\""
+          "Value": "\"Qei/nBroQF3YL1xLCScfNNMKrb6Doaaa8YtBKH1T8ec=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 18:26:25 GMT"
+          "Value": "Sat, 04 Jan 2025 20:41:11 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"5o/IDbXf29CGoYGomrxn2P9rPeNZWUly0j5sojXzBkA=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ao79hwvfg8"
+        },
+        {
+          "Name": "label",
+          "Value": "css/style.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-5o/IDbXf29CGoYGomrxn2P9rPeNZWUly0j5sojXzBkA="
+        }
+      ]
+    },
+    {
+      "Route": "css/style.ao79hwvfg8.css",
+      "AssetFile": "D:\\githubProjects\\GestForma\\GestForma\\wwwroot\\css\\style.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "193788"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5o/IDbXf29CGoYGomrxn2P9rPeNZWUly0j5sojXzBkA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 04 Jan 2025 20:41:11 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ao79hwvfg8"
+        },
+        {
+          "Name": "label",
+          "Value": "css/style.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-5o/IDbXf29CGoYGomrxn2P9rPeNZWUly0j5sojXzBkA="
+        }
+      ]
+    },
+    {
+      "Route": "css/style.ao79hwvfg8.css.gz",
+      "AssetFile": "D:\\githubProjects\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\trk7bvne3d-ao79hwvfg8.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "26414"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Qei/nBroQF3YL1xLCScfNNMKrb6Doaaa8YtBKH1T8ec=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 04 Jan 2025 20:41:11 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ao79hwvfg8"
+        },
+        {
+          "Name": "label",
+          "Value": "css/style.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Qei/nBroQF3YL1xLCScfNNMKrb6Doaaa8YtBKH1T8ec="
+        }
+      ]
+    },
+    {
+      "Route": "css/style.css",
+      "AssetFile": "D:\\githubProjects\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\trk7bvne3d-ao79hwvfg8.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000037857278"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "26414"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Qei/nBroQF3YL1xLCScfNNMKrb6Doaaa8YtBKH1T8ec=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 04 Jan 2025 20:41:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8861,13 +8938,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"zhXplWfLN+AvuoDJY2FiSLaYSpT+2QTzMg9dh8rlaA8=\""
+          "Value": "W/\"5o/IDbXf29CGoYGomrxn2P9rPeNZWUly0j5sojXzBkA=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-zhXplWfLN+AvuoDJY2FiSLaYSpT+2QTzMg9dh8rlaA8="
+          "Value": "sha256-5o/IDbXf29CGoYGomrxn2P9rPeNZWUly0j5sojXzBkA="
         }
       ]
     },
@@ -8882,7 +8959,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "194494"
+          "Value": "193788"
         },
         {
           "Name": "Content-Type",
@@ -8890,11 +8967,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"zhXplWfLN+AvuoDJY2FiSLaYSpT+2QTzMg9dh8rlaA8=\""
+          "Value": "\"5o/IDbXf29CGoYGomrxn2P9rPeNZWUly0j5sojXzBkA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 18:26:25 GMT"
+          "Value": "Sat, 04 Jan 2025 20:41:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8904,13 +8981,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-zhXplWfLN+AvuoDJY2FiSLaYSpT+2QTzMg9dh8rlaA8="
+          "Value": "sha256-5o/IDbXf29CGoYGomrxn2P9rPeNZWUly0j5sojXzBkA="
         }
       ]
     },
     {
       "Route": "css/style.css.gz",
-      "AssetFile": "D:\\githubProjects\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\trk7bvne3d-q9jdjws5rb.gz",
+      "AssetFile": "D:\\githubProjects\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\trk7bvne3d-ao79hwvfg8.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -8919,7 +8996,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "26558"
+          "Value": "26414"
         },
         {
           "Name": "Content-Type",
@@ -8927,11 +9004,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"dU17qyQhL4wVoMIAQLxmq+PBRhhVlEfoczdBNB+ant4=\""
+          "Value": "\"Qei/nBroQF3YL1xLCScfNNMKrb6Doaaa8YtBKH1T8ec=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 18:26:25 GMT"
+          "Value": "Sat, 04 Jan 2025 20:41:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8949,7 +9026,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-dU17qyQhL4wVoMIAQLxmq+PBRhhVlEfoczdBNB+ant4="
+          "Value": "sha256-Qei/nBroQF3YL1xLCScfNNMKrb6Doaaa8YtBKH1T8ec="
         }
       ]
     },
@@ -9248,465 +9325,6 @@
         {
           "Name": "integrity",
           "Value": "sha256-huPEWlgS2sFj1lW+mcPB9JgqIsNg5kgRfSGnKjoniCk="
-        }
-      ]
-    },
-    {
-      "Route": "css/style.q9jdjws5rb.css",
-      "AssetFile": "D:\\githubProjects\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\trk7bvne3d-q9jdjws5rb.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000037652020"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "26558"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"dU17qyQhL4wVoMIAQLxmq+PBRhhVlEfoczdBNB+ant4=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 18:26:25 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"zhXplWfLN+AvuoDJY2FiSLaYSpT+2QTzMg9dh8rlaA8=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "q9jdjws5rb"
-        },
-        {
-          "Name": "label",
-          "Value": "css/style.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-zhXplWfLN+AvuoDJY2FiSLaYSpT+2QTzMg9dh8rlaA8="
-        }
-      ]
-    },
-    {
-      "Route": "css/style.q9jdjws5rb.css",
-      "AssetFile": "D:\\githubProjects\\GestForma\\GestForma\\wwwroot\\css\\style.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "194494"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"zhXplWfLN+AvuoDJY2FiSLaYSpT+2QTzMg9dh8rlaA8=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 18:26:25 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "q9jdjws5rb"
-        },
-        {
-          "Name": "label",
-          "Value": "css/style.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-zhXplWfLN+AvuoDJY2FiSLaYSpT+2QTzMg9dh8rlaA8="
-        }
-      ]
-    },
-    {
-      "Route": "css/style.q9jdjws5rb.css.gz",
-      "AssetFile": "D:\\githubProjects\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\trk7bvne3d-q9jdjws5rb.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "26558"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"dU17qyQhL4wVoMIAQLxmq+PBRhhVlEfoczdBNB+ant4=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 18:26:25 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "q9jdjws5rb"
-        },
-        {
-          "Name": "label",
-          "Value": "css/style.css.gz"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-dU17qyQhL4wVoMIAQLxmq+PBRhhVlEfoczdBNB+ant4="
-        }
-      ]
-    },
-    {
-      "Route": "css/trainers.5gg35ioea8.css",
-      "AssetFile": "D:\\githubProjects\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\bhw52e9owe-5gg35ioea8.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.003649635036"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "273"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"GBEGRjvYWVkdWOoT8c3LU8dq2ckKCtolzqABCRqN+pg=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 16:44:56 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"BSP9av1/QjB+ru1YjwgUW7QS+fLZ3ppU+3AK1zSIgiA=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "5gg35ioea8"
-        },
-        {
-          "Name": "label",
-          "Value": "css/trainers.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-BSP9av1/QjB+ru1YjwgUW7QS+fLZ3ppU+3AK1zSIgiA="
-        }
-      ]
-    },
-    {
-      "Route": "css/trainers.5gg35ioea8.css",
-      "AssetFile": "D:\\githubProjects\\GestForma\\GestForma\\wwwroot\\css\\trainers.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "464"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"BSP9av1/QjB+ru1YjwgUW7QS+fLZ3ppU+3AK1zSIgiA=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 16:44:56 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "5gg35ioea8"
-        },
-        {
-          "Name": "label",
-          "Value": "css/trainers.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-BSP9av1/QjB+ru1YjwgUW7QS+fLZ3ppU+3AK1zSIgiA="
-        }
-      ]
-    },
-    {
-      "Route": "css/trainers.5gg35ioea8.css.gz",
-      "AssetFile": "D:\\githubProjects\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\bhw52e9owe-5gg35ioea8.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "273"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"GBEGRjvYWVkdWOoT8c3LU8dq2ckKCtolzqABCRqN+pg=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 16:44:56 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "5gg35ioea8"
-        },
-        {
-          "Name": "label",
-          "Value": "css/trainers.css.gz"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-GBEGRjvYWVkdWOoT8c3LU8dq2ckKCtolzqABCRqN+pg="
-        }
-      ]
-    },
-    {
-      "Route": "css/trainers.css",
-      "AssetFile": "D:\\githubProjects\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\bhw52e9owe-5gg35ioea8.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.003649635036"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "273"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"GBEGRjvYWVkdWOoT8c3LU8dq2ckKCtolzqABCRqN+pg=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 16:44:56 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"BSP9av1/QjB+ru1YjwgUW7QS+fLZ3ppU+3AK1zSIgiA=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-BSP9av1/QjB+ru1YjwgUW7QS+fLZ3ppU+3AK1zSIgiA="
-        }
-      ]
-    },
-    {
-      "Route": "css/trainers.css",
-      "AssetFile": "D:\\githubProjects\\GestForma\\GestForma\\wwwroot\\css\\trainers.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "464"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"BSP9av1/QjB+ru1YjwgUW7QS+fLZ3ppU+3AK1zSIgiA=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 16:44:56 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-BSP9av1/QjB+ru1YjwgUW7QS+fLZ3ppU+3AK1zSIgiA="
-        }
-      ]
-    },
-    {
-      "Route": "css/trainers.css.gz",
-      "AssetFile": "D:\\githubProjects\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\bhw52e9owe-5gg35ioea8.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "273"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"GBEGRjvYWVkdWOoT8c3LU8dq2ckKCtolzqABCRqN+pg=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 16:44:56 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-GBEGRjvYWVkdWOoT8c3LU8dq2ckKCtolzqABCRqN+pg="
         }
       ]
     },
@@ -21442,304 +21060,6 @@
         {
           "Name": "integrity",
           "Value": "sha256-465WqepNnI4ENLgQJFXrL2gtI20GCfeLK3JAtugOzpA="
-        }
-      ]
-    },
-    {
-      "Route": "js/trainer.js",
-      "AssetFile": "D:\\githubProjects\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\0tpyqhd445-s0bqaxpus4.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.001207729469"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "827"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"FB9mX65EGLAmRc6e7Pd7ZKzmlN6hknv9+ShQQ1IXS1M=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 16:44:56 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"TDhSu0tptrEM6i/D1fH1itHTC3d8T93dD2Q+YZnnGdE=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-TDhSu0tptrEM6i/D1fH1itHTC3d8T93dD2Q+YZnnGdE="
-        }
-      ]
-    },
-    {
-      "Route": "js/trainer.js",
-      "AssetFile": "D:\\githubProjects\\GestForma\\GestForma\\wwwroot\\js\\trainer.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "2257"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"TDhSu0tptrEM6i/D1fH1itHTC3d8T93dD2Q+YZnnGdE=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 16:44:56 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-TDhSu0tptrEM6i/D1fH1itHTC3d8T93dD2Q+YZnnGdE="
-        }
-      ]
-    },
-    {
-      "Route": "js/trainer.js.gz",
-      "AssetFile": "D:\\githubProjects\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\0tpyqhd445-s0bqaxpus4.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "827"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"FB9mX65EGLAmRc6e7Pd7ZKzmlN6hknv9+ShQQ1IXS1M=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 16:44:56 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-FB9mX65EGLAmRc6e7Pd7ZKzmlN6hknv9+ShQQ1IXS1M="
-        }
-      ]
-    },
-    {
-      "Route": "js/trainer.s0bqaxpus4.js",
-      "AssetFile": "D:\\githubProjects\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\0tpyqhd445-s0bqaxpus4.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.001207729469"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "827"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"FB9mX65EGLAmRc6e7Pd7ZKzmlN6hknv9+ShQQ1IXS1M=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 16:44:56 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"TDhSu0tptrEM6i/D1fH1itHTC3d8T93dD2Q+YZnnGdE=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "s0bqaxpus4"
-        },
-        {
-          "Name": "label",
-          "Value": "js/trainer.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-TDhSu0tptrEM6i/D1fH1itHTC3d8T93dD2Q+YZnnGdE="
-        }
-      ]
-    },
-    {
-      "Route": "js/trainer.s0bqaxpus4.js",
-      "AssetFile": "D:\\githubProjects\\GestForma\\GestForma\\wwwroot\\js\\trainer.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "2257"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"TDhSu0tptrEM6i/D1fH1itHTC3d8T93dD2Q+YZnnGdE=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 16:44:56 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "s0bqaxpus4"
-        },
-        {
-          "Name": "label",
-          "Value": "js/trainer.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-TDhSu0tptrEM6i/D1fH1itHTC3d8T93dD2Q+YZnnGdE="
-        }
-      ]
-    },
-    {
-      "Route": "js/trainer.s0bqaxpus4.js.gz",
-      "AssetFile": "D:\\githubProjects\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\0tpyqhd445-s0bqaxpus4.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "827"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"FB9mX65EGLAmRc6e7Pd7ZKzmlN6hknv9+ShQQ1IXS1M=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 16:44:56 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "s0bqaxpus4"
-        },
-        {
-          "Name": "label",
-          "Value": "js/trainer.js.gz"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-FB9mX65EGLAmRc6e7Pd7ZKzmlN6hknv9+ShQQ1IXS1M="
         }
       ]
     },

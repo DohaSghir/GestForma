@@ -1,10 +1,7 @@
-﻿@model IEnumerable<Formation>
-
-
-
-@{
-    var formations = ViewBag.Formations1 as List<GestForma.Models.Formation>;
-    var trainers = ViewBag.Trainers;
+﻿@{
+    var formations = ViewBag.Formations as List<GestForma.Models.Formation>;
+    var actualites = ViewBag.Actualites as List<GestForma.Models.Actualite>;
+    var commentaires = ViewBag.Commentaires as List<GestForma.Models.CommentairesEntiers>;
 }
 
 <!-- Header Start -->
@@ -14,14 +11,26 @@
         <p class="fs-5 text-white mb-4 pb-2">Explore professional courses in diverse fields like Development, Marketing, and Management. Designed by industry experts, our training programs combine flexibility and quality to help you achieve your goals.</p>
 
         <div class="mx-auto mb-5" style="width: 100%; max-width: 600px;">
-
-
-            <button class="btn btn-secondary  px-4 px-lg-5" style="padding: 30px 25px;">Search Courses </button>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <button class="btn btn-outline-light bg-white text-body px-4 dropdown-toggle" type="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                        Courses
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Courses 1</a>
+                        <a class="dropdown-item" href="#">Courses 2</a>
+                        <a class="dropdown-item" href="#">Courses 3</a>
+                    </div>
                 </div>
-            
+                <input type="text" class="form-control border-light" style="padding: 30px 25px;" placeholder="Keyword">
+                <div class="input-group-append">
+                    <button class="btn btn-secondary px-4 px-lg-5">Search</button>
+                </div>
+            </div>
         </div>
     </div>
-
+</div>
 <!-- Header End -->
 <!-- About Start -->
 <div class="container-fluid py-5">
@@ -42,25 +51,25 @@
                 <div class="row pt-3 mx-0">
                     <div class="col-3 px-0">
                         <div class="bg-success text-center p-4">
-                            <h1 class="text-white" data-toggle="counter-up">@ViewBag.nbrcat</h1>
+                            <h1 class="text-white" data-toggle="counter-up">123</h1>
                             <h6 class="text-uppercase text-white">Available<span class="d-block">Subjects</span></h6>
                         </div>
                     </div>
                     <div class="col-3 px-0">
                         <div class="bg-primary text-center p-4">
-                            <h1 class="text-white" data-toggle="counter-up">@ViewBag.nbrform</h1>
+                            <h1 class="text-white" data-toggle="counter-up">1234</h1>
                             <h6 class="text-uppercase text-white">Online<span class="d-block">Courses</span></h6>
                         </div>
                     </div>
                     <div class="col-3 px-0">
                         <div class="bg-secondary text-center p-4">
-                            <h1 class="text-white" data-toggle="counter-up">@ViewBag.nbrprof</h1>
+                            <h1 class="text-white" data-toggle="counter-up">123</h1>
                             <h6 class="text-uppercase text-white">Skilled<span class="d-block">Instructors</span></h6>
                         </div>
                     </div>
                     <div class="col-3 px-0">
                         <div class="bg-warning text-center p-4">
-                            <h1 class="text-white" data-toggle="counter-up">@ViewBag.nbrPart</h1>
+                            <h1 class="text-white" data-toggle="counter-up">1234</h1>
                             <h6 class="text-uppercase text-white">Happy<span class="d-block">Students</span></h6>
                         </div>
                     </div>
@@ -117,6 +126,7 @@
     </div>
 </div>
 <!-- Feature Start -->
+<!-- Courses Start -->
 <div class="container-fluid px-0 py-5">
     <div class="row mx-0 justify-content-center pt-5">
         <div class="col-lg-6">
@@ -127,46 +137,97 @@
         </div>
     </div>
     <div class="owl-carousel courses-carousel">
-        @foreach (var formation in Model)
-        {
-            <div class="courses-item position-relative">
-
-                @if (formation.Data != null && formation.Data.Length > 0)
-                {
-                    <img class="img-fluid"
-                         src="data:@formation.ContentType;base64,@Convert.ToBase64String(formation.Data)"
-                         alt="@formation.Intitule" />
-                }
-                else
-                {
-                    <img class="img-fluid"
-                         src="/img/courses-1.jpg"
-                         alt="Default Image" />
-                }
-
-                <div class="courses-text">
-                    <h4 class="text-center text-white px-3">@formation.Intitule</h4>
-                    <div class="border-top w-100 mt-3">
-                        <div class="d-flex justify-content-between p-4">
-                            <span class="text-white"><i class="fa fa-user mr-2"></i>@formation.User?.FirstName</span>
-                            <span class="text-white"><i class="fa fa-star mr-2"></i>4.5 <small>(250)</small></span>
-                        </div>
-                    </div>
-                    <div class="w-100 bg-white text-center p-4">
-                        <a class="btn btn-primary" href="detail.html">Course Detail</a>
+        <div class="courses-item position-relative">
+            <img class="img-fluid" src="../img/courses-1.jpg" alt="">
+            <div class="courses-text">
+                <h4 class="text-center text-white px-3">Web design & development courses for beginners</h4>
+                <div class="border-top w-100 mt-3">
+                    <div class="d-flex justify-content-between p-4">
+                        <span class="text-white"><i class="fa fa-user mr-2"></i>Jhon Doe</span>
+                        <span class="text-white"><i class="fa fa-star mr-2"></i>4.5 <small>(250)</small></span>
                     </div>
                 </div>
-
-
-
+                <div class="w-100 bg-white text-center p-4">
+                    <a class="btn btn-primary" href="detail.html">Course Detail</a>
+                </div>
             </div>
-
-        }
+        </div>
+        <div class="courses-item position-relative">
+            <img class="img-fluid" src="../img/courses-2.jpg" alt="">
+            <div class="courses-text">
+                <h4 class="text-center text-white px-3">Web design & development courses for beginners</h4>
+                <div class="border-top w-100 mt-3">
+                    <div class="d-flex justify-content-between p-4">
+                        <span class="text-white"><i class="fa fa-user mr-2"></i>Jhon Doe</span>
+                        <span class="text-white"><i class="fa fa-star mr-2"></i>4.5 <small>(250)</small></span>
+                    </div>
+                </div>
+                <div class="w-100 bg-white text-center p-4">
+                    <a class="btn btn-primary" href="detail.html">Course Detail</a>
+                </div>
+            </div>
+        </div>
+        <div class="courses-item position-relative">
+            <img class="img-fluid" src="../img/courses-3.jpg" alt="">
+            <div class="courses-text">
+                <h4 class="text-center text-white px-3">Web design & development courses for beginners</h4>
+                <div class="border-top w-100 mt-3">
+                    <div class="d-flex justify-content-between p-4">
+                        <span class="text-white"><i class="fa fa-user mr-2"></i>Jhon Doe</span>
+                        <span class="text-white"><i class="fa fa-star mr-2"></i>4.5 <small>(250)</small></span>
+                    </div>
+                </div>
+                <div class="w-100 bg-white text-center p-4">
+                    <a class="btn btn-primary" href="detail.html">Course Detail</a>
+                </div>
+            </div>
+        </div>
+        <div class="courses-item position-relative">
+            <img class="img-fluid" src="../img/courses-4.jpg" alt="">
+            <div class="courses-text">
+                <h4 class="text-center text-white px-3">Web design & development courses for beginners</h4>
+                <div class="border-top w-100 mt-3">
+                    <div class="d-flex justify-content-between p-4">
+                        <span class="text-white"><i class="fa fa-user mr-2"></i>Jhon Doe</span>
+                        <span class="text-white"><i class="fa fa-star mr-2"></i>4.5 <small>(250)</small></span>
+                    </div>
+                </div>
+                <div class="w-100 bg-white text-center p-4">
+                    <a class="btn btn-primary" href="detail.html">Course Detail</a>
+                </div>
+            </div>
+        </div>
+        <div class="courses-item position-relative">
+            <img class="img-fluid" src="../img/courses-5.jpg" alt="">
+            <div class="courses-text">
+                <h4 class="text-center text-white px-3">Web design & development courses for beginners</h4>
+                <div class="border-top w-100 mt-3">
+                    <div class="d-flex justify-content-between p-4">
+                        <span class="text-white"><i class="fa fa-user mr-2"></i>Jhon Doe</span>
+                        <span class="text-white"><i class="fa fa-star mr-2"></i>4.5 <small>(250)</small></span>
+                    </div>
+                </div>
+                <div class="w-100 bg-white text-center p-4">
+                    <a class="btn btn-primary" href="detail.html">Course Detail</a>
+                </div>
+            </div>
+        </div>
+        <div class="courses-item position-relative">
+            <img class="img-fluid" src="../img/courses-6.jpg" alt="">
+            <div class="courses-text">
+                <h4 class="text-center text-white px-3">Web design & development courses for beginners</h4>
+                <div class="border-top w-100 mt-3">
+                    <div class="d-flex justify-content-between p-4">
+                        <span class="text-white"><i class="fa fa-user mr-2"></i>Jhon Doe</span>
+                        <span class="text-white"><i class="fa fa-star mr-2"></i>4.5 <small>(250)</small></span>
+                    </div>
+                </div>
+                <div class="w-100 bg-white text-center p-4">
+                    <a class="btn btn-primary" href="detail.html">Course Detail</a>
+                </div>
+            </div>
+        </div>
     </div>
-
-<!-- Courses Start -->
-
-
     <div class="row justify-content-center bg-image mx-0 mb-5">
         <div class="col-lg-6 py-5">
             <div class="bg-white p-5 my-5">
@@ -189,18 +250,10 @@
                             <div class="form-group">
                                 <select class="custom-select bg-light border-0 px-3" style="height: 60px;">
                                     <option selected>Select A course</option>
-                                  @if (formations != null)
+                                    @foreach (var formation in formations)
                                     {
-                                        foreach (var formation in formations)
-                                        {
-                                            <option value="@formation.ID_Formation">@formation.Intitule</option>
-                                        }
+                                        <option value="@formation.ID_Formation">@formation.Intitule</option>
                                     }
-                                    else
-                                    {
-                                        <option value="">Aucune formation disponible</option>
-                                    }
-                                    
                                 </select>
                             </div>
                         </div>
@@ -214,10 +267,7 @@
     </div>
 </div>
 <!-- Courses End -->
-
-
 <!-- Team Start -->
-
 <div class="container-fluid py-5">
     <div class="container py-5">
         <div class="section-title text-center position-relative mb-5">
@@ -225,39 +275,65 @@
             <h1 class="display-4">Meet Our Instructors</h1>
         </div>
         <div class="owl-carousel team-carousel position-relative" style="padding: 0 30px;">
-            @if (trainers != null)
-            {
-                @foreach (var trainer in trainers)
-                {
-                    <div class="team-item">
-
-
-                        <img class="img-fluid"
-                             src="data:@trainer.ContentType;base64,@Convert.ToBase64String(trainer.Data)" />
-                        <div class="bg-light text-center p-4">
-                            <h5 class="mb-3">@trainer.FirstName @trainer.LastName</h5>
-                            <p class="mb-2">@trainer.Field</p>
-                            <div class="d-flex justify-content-center">
-                                <a class="mx-1 p-1" href="#"><i class="fab fa-twitter"></i></a>
-                                <a class="mx-1 p-1" href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a class="mx-1 p-1" href="#"><i class="fab fa-linkedin-in"></i></a>
-                                <a class="mx-1 p-1" href="#"><i class="fab fa-instagram"></i></a>
-                                <a class="mx-1 p-1" href="#"><i class="fab fa-youtube"></i></a>
-                            </div>
-                        </div>
+            <div class="team-item">
+                <img class="img-fluid w-100" src="../img/team-1.jpg" alt="">
+                <div class="bg-light text-center p-4">
+                    <h5 class="mb-3">Instructor Name</h5>
+                    <p class="mb-2">Web Design & Development</p>
+                    <div class="d-flex justify-content-center">
+                        <a class="mx-1 p-1" href="#"><i class="fab fa-twitter"></i></a>
+                        <a class="mx-1 p-1" href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a class="mx-1 p-1" href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="mx-1 p-1" href="#"><i class="fab fa-instagram"></i></a>
+                        <a class="mx-1 p-1" href="#"><i class="fab fa-youtube"></i></a>
                     </div>
-                }
-            }
-            else
-            {
-                <p>Aucun formateur trouvé.</p>
-            }
-
-
+                </div>
+            </div>
+            <div class="team-item">
+                <img class="img-fluid w-100" src="../img/team-2.jpg" alt="">
+                <div class="bg-light text-center p-4">
+                    <h5 class="mb-3">Instructor Name</h5>
+                    <p class="mb-2">Web Design & Development</p>
+                    <div class="d-flex justify-content-center">
+                        <a class="mx-1 p-1" href="#"><i class="fab fa-twitter"></i></a>
+                        <a class="mx-1 p-1" href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a class="mx-1 p-1" href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="mx-1 p-1" href="#"><i class="fab fa-instagram"></i></a>
+                        <a class="mx-1 p-1" href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="team-item">
+                <img class="img-fluid w-100" src="../img/team-3.jpg" alt="">
+                <div class="bg-light text-center p-4">
+                    <h5 class="mb-3">Instructor Name</h5>
+                    <p class="mb-2">Web Design & Development</p>
+                    <div class="d-flex justify-content-center">
+                        <a class="mx-1 p-1" href="#"><i class="fab fa-twitter"></i></a>
+                        <a class="mx-1 p-1" href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a class="mx-1 p-1" href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="mx-1 p-1" href="#"><i class="fab fa-instagram"></i></a>
+                        <a class="mx-1 p-1" href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="team-item">
+                <img class="img-fluid w-100" src="../img/team-4.jpg" alt="">
+                <div class="bg-light text-center p-4">
+                    <h5 class="mb-3">Instructor Name</h5>
+                    <p class="mb-2">Web Design & Development</p>
+                    <div class="d-flex justify-content-center">
+                        <a class="mx-1 p-1" href="#"><i class="fab fa-twitter"></i></a>
+                        <a class="mx-1 p-1" href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a class="mx-1 p-1" href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="mx-1 p-1" href="#"><i class="fab fa-instagram"></i></a>
+                        <a class="mx-1 p-1" href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-
 <!-- Team End -->
 <!-- Testimonial Start -->
 <div class="container-fluid bg-image py-5" style="margin: 90px 0;">
@@ -268,39 +344,91 @@
                     <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Testimonial</h6>
                     <h1 class="display-4">What Say Our Students</h1>
                 </div>
-                <p class="m-0">Our students appreciate the platform's user-friendly interface, seamless course navigation, effective communication between trainers and participants, and its security, all contributing to enhanced learning and skill development.</p>
+                @if (User.Identity.IsAuthenticated && User.IsInRole("participant"))
+                {
+                    <!-- Bouton pour afficher le formulaire de commentaire -->
+                    <button class="btn btn-primary mt-3" id="commentButton" onclick="toggleCommentForm()">Leave a Comment</button>
 
-                </div>
-            <div class="col-lg-7">
+                    <!-- Formulaire de commentaire (masqué par défaut) -->
+                    <div id="commentForm" class="mt-4" style="display: none;">
+                        <form asp-controller="Home" asp-action="AjouterCommentaire" method="post">
+                            <div class="form-group">
+                                <label for="comment">Your Comment:</label>
+                                <textarea class="form-control" id="comment" name="ContenuCommentaire" rows="4" placeholder="Enter your comment here..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-success">Submit Comment</button>
+                        </form>
+                    </div>
+
+                    <!-- Affichage des messages de confirmation/erreur -->
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="alert alert-success mt-3">@TempData["Success"]</div>
+                    }
+                    @if (TempData["Error"] != null)
+                    {
+                        <div class="alert alert-danger mt-3">@TempData["Error"]</div>
+                    }
+
+                    <script>
+                        // Fonction JavaScript pour afficher/masquer le formulaire de commentaire
+                        function toggleCommentForm() {
+                        const form = document.getElementById('commentForm');
+                        form.style.display = form.style.display === 'none' ? 'block' : 'none';
+                        }
+                    </script>
+
+                }
+            </div><div class="col-lg-7">
                 <div class="owl-carousel testimonial-carousel">
-                    <div class="bg-white p-5">
-                        <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                        <p>Sed et elitr ipsum labore dolor diam, ipsum duo vero sed sit est est ipsum eos clita est ipsum. Est nonumy tempor at kasd. Sed at dolor duo ut dolor, et justo erat dolor magna sed stet amet elitr duo lorem</p>
-                        <div class="d-flex flex-shrink-0 align-items-center mt-4">
-                            <img class="img-fluid mr-4" src="img/testimonial-2.jpg" alt="">
-                            <div>
-                                <h5>Student Name</h5>
-                                <span>Web Design</span>
+                    @foreach (var commentaire in commentaires) 
+                    { 
+                        <div class="bg-white p-5"> 
+                             <i class="fa fa-3x fa-quote-left text-primary mb-4"></i> 
+                             <p>@commentaire.ContenuCommentaire</p>
+                             <div class="d-flex flex-shrink-0 align-items-center mt-4"> 
+                                 <div> 
+                                   <h5>@commentaire.User.FirstName @commentaire.User.LastName</h5> 
+                                </div> 
                             </div>
-                        </div>
-                    </div>
-                    <div class="bg-white p-5">
-                        <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                        <p>Sed et elitr ipsum labore dolor diam, ipsum duo vero sed sit est est ipsum eos clita est ipsum. Est nonumy tempor at kasd. Sed at dolor duo ut dolor, et justo erat dolor magna sed stet amet elitr duo lorem</p>
-                        <div class="d-flex flex-shrink-0 align-items-center mt-4">
-                            <img class="img-fluid mr-4" src="img/testimonial-1.jpg" alt="">
-                            <div>
-                                <h5>Student Name</h5>
-                                <span>Web Design</span>
-                            </div>
-                        </div>
-                    </div>
+                         </div> 
+                    }
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- Testimonial Start -->
+<!-- Testimonial end -->
+<!-- News start -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="section-title text-center position-relative mb-5">
+            <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">News</h6>
+            <h1 class="display-4">See What's New</h1>
+        </div>
+
+        <div class="owl-carousel testimonial-carousel position-relative" style="padding: 0 30px;">
+            @foreach (var actualite in actualites)
+            {
+                <div class="team-item">
+                    <div class="d-flex align-items-center bg-light p-4">
+                        <!-- Image Section -->
+                        <img src="/Actualites/GetImage/@actualite.IdActualite"
+                             alt="@actualite.FileName"
+                             style="width: 200px; height: auto; object-fit: cover; margin-right: 20px;"
+                             class="img-fluid rounded">
+                        <!-- Text Section -->
+                        <div class="flex-grow-1">
+                            <h5 class="mb-3">@actualite.Titre</h5>
+                            <p class="mb-2">@actualite.Description</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
 <!-- Contact Start -->
 <div class="container-fluid py-5">
     <div class="container py-5">
