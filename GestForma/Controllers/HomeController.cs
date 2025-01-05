@@ -67,12 +67,31 @@ namespace GestForma.Controllers
             // Récupérer l'ID du rôle "Professeur"
             var role = await _context.Roles.FirstOrDefaultAsync(r => r.Name == RoleProfesseur);
 
-               var trainer = await _context.Users
-                .Where(u => _context.UserRoles
-                    .Any(ur => ur.UserId == u.Id && ur.RoleId == role.Id))
-                .ToListAsync();
+            /*  var trainer = await _context.Users
+               .Where(u => _context.UserRoles
+                   .Any(ur => ur.UserId == u.Id && ur.RoleId == role.Id))
+               .ToListAsync();
 
-            ViewBag.trainers = trainer;
+           ViewBag.trainers = trainer;*/
+
+            var trainers = await (from user in _context.Users
+                                  join trainer in _context.Trainers
+                                  on user.Id equals trainer.Id_user
+                                  where _context.UserRoles.Any(ur => ur.UserId == user.Id && ur.RoleId == role.Id)
+                                  select new
+                                  {
+                                      user.UserName,
+                                      user.Email,
+                                      user.FirstName,
+                                      user.LastName,
+                                      trainer.Data,
+                                      trainer.ContentType,
+                                      trainer.Field
+                                  }).ToListAsync();
+
+            ViewBag.Trainers = trainers;
+
+
 
             if (User.Identity.IsAuthenticated)
             {
