@@ -23,6 +23,16 @@ namespace GestForma.Controllers
             _roleManager = roleManager;
         }
 
+        public async Task<IActionResult> GetImage(int id)
+        {
+            var trainer = await _context.Trainers.FindAsync(id);
+            if (trainer == null)
+            {
+                return NotFound("Trainer not found.");
+            }
+
+            return File(trainer.Data, trainer.ContentType);  // Return the image file with the content type
+        }
         // Action Index
         public IActionResult Index()
         {
