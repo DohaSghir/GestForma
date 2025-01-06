@@ -51,6 +51,36 @@ namespace GestForma.Controllers
             return RedirectToAction("Index","Home");
         }
 
+        public async Task<IActionResult> CourseRegister(int CourseId, string ParticipantId)
+        {
+            // Validate inputs
+            if (string.IsNullOrEmpty(ParticipantId) || CourseId <= 0)
+            {
+                // Return an error view or redirect to a page with an error message
+                return BadRequest("Invalid CourseId or ParticipantId.");
+            }
+
+            var result = await _context.Inscriptions.FirstOrDefaultAsync(element => element.ID_Formation == CourseId);
+            if (result != null && !result.Certificat)
+            {
+                TempData["Error"] = "You are already registered for this course and have not yet received a certificate. After receiving the certificate, you can register for this course again if you wish.";
+                return RedirectToAction("Courses", "Courses");
+            }
+            // Create a new inscription
+            var newInscription = new Inscription
+            {
+                ID_User = ParticipantId,
+                ID_Formation = CourseId
+            };
+
+            // Add to the database and save changes
+            _context.Add(newInscription);
+            await _context.SaveChangesAsync();
+            TempData["Success"] = "Registration confirmed. Please visit the center to complete the payment for this course.";
+            // Redirect to the index page or a confirmation view
+            return RedirectToAction("Courses", "Courses");
+        }
+
         public async Task<IActionResult> CoursePaid(int id)
         {
             // Fetch the inscription asynchronously and ensure it's found
