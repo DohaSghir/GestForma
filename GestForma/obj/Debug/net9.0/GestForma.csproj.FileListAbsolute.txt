@@ -504,7 +504,6 @@ C:\Users\HP\Documents\GestForma\GestForma\obj\Debug\net9.0\scopedcss\Views\Share
 C:\Users\HP\Documents\GestForma\GestForma\obj\Debug\net9.0\scopedcss\bundle\GestForma.styles.css
 C:\Users\HP\Documents\GestForma\GestForma\obj\Debug\net9.0\scopedcss\projectbundle\GestForma.bundle.scp.css
 C:\Users\HP\Documents\GestForma\GestForma\obj\Debug\net9.0\compressed\hork734w01-b9sayid5wm.gz
-C:\Users\HP\Documents\GestForma\GestForma\obj\Debug\net9.0\compressed\trk7bvne3d-ao79hwvfg8.gz
 C:\Users\HP\Documents\GestForma\GestForma\obj\Debug\net9.0\compressed\2yvbrhsatb-bm8s7crdtr.gz
 C:\Users\HP\Documents\GestForma\GestForma\obj\Debug\net9.0\compressed\s4gm00w3dg-61n19gt1b8.gz
 C:\Users\HP\Documents\GestForma\GestForma\obj\Debug\net9.0\compressed\aoftfv4mhe-jmg7wq9owl.gz
@@ -1748,3 +1747,6 @@ D:\githubProjects\GestForma\GestForma\obj\Debug\net9.0\compressed\trk7bvne3d-q9j
 D:\githubProjects\GestForma\GestForma\obj\Debug\net9.0\compressed\bhw52e9owe-5gg35ioea8.gz
 D:\githubProjects\GestForma\GestForma\obj\Debug\net9.0\compressed\0tpyqhd445-s0bqaxpus4.gz
 C:\Users\Lenovo\Documents\GitHub\GestForma\GestForma\obj\Debug\net9.0\compressed\trk7bvne3d-pycj3gmsb0.gz
+C:\Users\HP\Documents\GestForma\GestForma\obj\Debug\net9.0\compressed\trk7bvne3d-pycj3gmsb0.gz
+C:\Users\HP\Documents\GestForma\GestForma\obj\Debug\net9.0\compressed\bhw52e9owe-5gg35ioea8.gz
+C:\Users\HP\Documents\GestForma\GestForma\obj\Debug\net9.0\compressed\0tpyqhd445-s0bqaxpus4.gz
