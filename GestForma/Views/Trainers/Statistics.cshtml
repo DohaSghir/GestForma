@@ -75,7 +75,7 @@
                     tooltip: {
                     callbacks: {
                     label: function(tooltipItem) {
-                    return tooltipItem.label + ': ' + tooltipItem.raw + ' utilisateurs';
+                    return tooltipItem.label + ': ' + tooltipItem.raw + ' participants';
                     }
                     }
                     }
@@ -141,7 +141,7 @@
                                 tooltip: {
                                     callbacks: {
                                         label: function(tooltipItem) {
-                                            return tooltipItem.label + ': ' + tooltipItem.raw + ' utilisateurs';
+                                            return tooltipItem.label + ': ' + tooltipItem.raw + ' participants';
                                         }
                                     }
                                 }
@@ -173,7 +173,9 @@
         </div>
 </div>
 </div>
+
 @foreach (var element in ViewBag.formationsStatistics){
+    <div id="@element.formationName">
     <div class="container py-5">
         <div style="padding: 0 10px;">
 
@@ -247,7 +249,7 @@
                                     tooltip: {
                                         callbacks: {
                                             label: function(tooltipItem) {
-                                                return tooltipItem.label + ': ' + tooltipItem.raw + ' utilisateurs';
+                                                return tooltipItem.label + ': ' + tooltipItem.raw + ' participants';
                                             }
                                         }
                                     }
@@ -274,9 +276,10 @@
                 }
                 else
                 {
-                    <div class="alert alert-warning">Aucun participant trouvé pour ce rôle.</div>
+                    <div class="alert alert-warning">No recods</div>
                 }
             </div>
         </div>
+    </div>
     </div>
 }
