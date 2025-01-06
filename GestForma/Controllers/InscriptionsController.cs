@@ -55,7 +55,7 @@ namespace GestForma.Controllers
         {
             var inscriptionsFini = await _context.Inscriptions
                                           .Include(i => i.Formation)
-                                          .Where(i => i.ID_User == _userManager.GetUserId(User) && i.Fin == true && i.Certificat == true)
+                                          .Where(i => i.ID_User == _userManager.GetUserId(User) && i.Fin == true && i.Certificat == true && i.Paiement==true)
                                          .ToListAsync();
 
             var inscriptionsnonFini = await _context.Inscriptions
@@ -67,7 +67,9 @@ namespace GestForma.Controllers
                                               .Include(i => i.Formation)
                                               .Where(i => i.ID_User == _userManager.GetUserId(User) && i.Paiement == false)
                                              .ToListAsync();
+
             //i.ID_User == _userManager.GetUserId(User) &&
+
             ViewData["inscriptionsFini"] = inscriptionsFini;
             ViewData["inscriptionsnonFini"] = inscriptionsnonFini;
             ViewData["inscriptionsNonPayes"] = inscriptionsNonPayes;

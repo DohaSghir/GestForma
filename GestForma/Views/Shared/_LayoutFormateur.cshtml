@@ -77,6 +77,8 @@
                     <a asp-controller="Trainers" asp-action="Statistics" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Statistics" ? "active" : "")">Statistics</a>
                     <a asp-controller="Home" asp-action="FormateurDashboard" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "FormateurDashboard" ? "active" : "")">Activities</a>
                     <a asp-controller="Home" asp-action="Contact" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Contact" ? "active" : "")">Contact</a>
+               
+
                 </div>
                 <!-- Align the logout button to the right -->
                 <partial name="_LoginPartial" />
