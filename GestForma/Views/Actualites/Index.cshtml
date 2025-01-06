@@ -6,7 +6,12 @@
 }
 
 <h1 class="text-center text-dark fw-bold mt-5">News</h1>
-
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success text-center">
+        @TempData["SuccessMessage"]
+    </div>
+}
 
 <p class="mx-4">
     <form asp-action="Create" method="get" class="d-inline">
