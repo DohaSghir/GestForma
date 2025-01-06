@@ -312,6 +312,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQYXJ0aWNpcGFudHNBZ2VEaXN0cmlidXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/githubProjects/GestForma/GestForma/Views/Home/Payement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQYXllbWVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/githubProjects/GestForma/GestForma/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -322,6 +326,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/githubProjects/GestForma/GestForma/Views/Home/Testimonial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxUZXN0aW1vbmlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/githubProjects/GestForma/GestForma/Views/Inscriptions/Liste.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zY3JpcHRpb25zXExpc3RlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/githubProjects/GestForma/GestForma/Views/Shared/Error.cshtml]
@@ -362,6 +370,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/githubProjects/GestForma/GestForma/Views/Trainers/GetImage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhaW5lcnNcR2V0SW1hZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/githubProjects/GestForma/GestForma/Views/Trainers/Statistics.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhaW5lcnNcU3RhdGlzdGljcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/githubProjects/GestForma/GestForma/Views/Trainers/Trainers.cshtml]

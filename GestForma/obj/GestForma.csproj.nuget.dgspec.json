@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Lenovo\\Documents\\GitHub\\GestForma\\GestForma\\GestForma.csproj": {}
+    "D:\\githubProjects\\GestForma\\GestForma\\GestForma.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Lenovo\\Documents\\GitHub\\GestForma\\GestForma\\GestForma.csproj": {
+    "D:\\githubProjects\\GestForma\\GestForma\\GestForma.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\GitHub\\GestForma\\GestForma\\GestForma.csproj",
+        "projectUniqueName": "D:\\githubProjects\\GestForma\\GestForma\\GestForma.csproj",
         "projectName": "GestForma",
-        "projectPath": "C:\\Users\\Lenovo\\Documents\\GitHub\\GestForma\\GestForma\\GestForma.csproj",
-        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lenovo\\Documents\\GitHub\\GestForma\\GestForma\\obj\\",
+        "projectPath": "D:\\githubProjects\\GestForma\\GestForma\\GestForma.csproj",
+        "packagesPath": "C:\\Users\\cltt\\.nuget\\packages\\",
+        "outputPath": "D:\\githubProjects\\GestForma\\GestForma\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\cltt\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -56,6 +56,10 @@
               "version": "[9.0.0, )"
             },
             "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[9.0.0, )"
             },

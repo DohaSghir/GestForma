@@ -266,7 +266,7 @@ namespace GestForma.Migrations
                     ID_User = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     FileName = table.Column<string>(type: "nvarchar(2955)", maxLength: 2955, nullable: true),
                     ContentType = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
-                    Size = table.Column<long>(type: "bigint", nullable: false),
+                    Size = table.Column<long>(type: "bigint", nullable: true),
                     Data = table.Column<byte[]>(type: "varbinary(max)", nullable: true)
                 },
                 constraints: table =>
@@ -395,10 +395,10 @@ namespace GestForma.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "49c4f441-1421-4c0d-9bbb-0681c09b6960", null, "professeur", "professeur" },
-                    { "69e67237-f651-4292-9588-7c9d46434e22", null, "administrateur", "administrateur" },
-                    { "be4e226f-e8b5-45af-be86-0e1af72d3f80", null, "participant", "participant" },
-                    { "d6a72a9c-1479-4033-b646-21de847932e4", null, "invité", "invité" }
+                    { "3e1d3f8f-e978-4762-8086-ab5db372a5d0", null, "participant", "participant" },
+                    { "a9c2840b-d197-4f70-ac0d-b21e37d459ff", null, "professeur", "professeur" },
+                    { "ac7222f5-b3ca-4ec7-b016-b11d48604127", null, "invité", "invité" },
+                    { "db9ad511-8206-453e-a13f-907980177b72", null, "administrateur", "administrateur" }
                 });
 
             migrationBuilder.CreateIndex(

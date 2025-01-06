@@ -47,7 +47,7 @@ namespace GestForma.Models
         public string? ContentType { get; set; } // Type MIME (ex. "image/png", "image/jpeg")
 
         
-        public long Size { get; set; } // Taille de l'image en octets
+        public long? Size { get; set; } // Taille de l'image en octets
 
         
         public byte[]? Data { get; set; } // Contenu binaire de l'image

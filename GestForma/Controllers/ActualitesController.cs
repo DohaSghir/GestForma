@@ -107,23 +107,41 @@ namespace GestForma.Controllers
                 return NotFound();
             }
 
+            ModelState.Remove("file"); // Supprime la validation du fichier
+
             if (ModelState.IsValid)
             {
                 try
                 {
+                    // Récupérer l'actualité existante
+                    var existingActualite = await _context.Actualites
+                        .FirstOrDefaultAsync(a => a.IdActualite == id);
+
+                    if (existingActualite == null)
+                    {
+                        return NotFound();
+                    }
+
+                    // Mettre à jour les propriétés de base
+                    existingActualite.Titre = actualite.Titre;
+                    existingActualite.Description = actualite.Description;
+
+                    // Gérer le nouveau fichier s'il existe
                     if (file != null && file.Length > 0)
                     {
                         using (var memoryStream = new MemoryStream())
                         {
                             await file.CopyToAsync(memoryStream);
-                            actualite.FileName = file.FileName;
-                            actualite.ContentType = file.ContentType;
-                            actualite.Size = file.Length;
-                            actualite.Data = memoryStream.ToArray();
+                            existingActualite.FileName = file.FileName;
+                            existingActualite.ContentType = file.ContentType;
+                            existingActualite.Size = file.Length;
+                            existingActualite.Data = memoryStream.ToArray();
                         }
                     }
-                    _context.Update(actualite);
+                    // Si pas de nouveau fichier, les propriétés du fichier existant sont conservées automatiquement
+
                     await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -136,7 +154,6 @@ namespace GestForma.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
             }
             return View(actualite);
         }

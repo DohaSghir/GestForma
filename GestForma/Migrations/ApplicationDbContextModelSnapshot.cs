@@ -253,7 +253,7 @@ namespace GestForma.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
-                    b.Property<long>("Size")
+                    b.Property<long?>("Size")
                         .HasColumnType("bigint");
 
                     b.HasKey("ID_Formation");
@@ -446,25 +446,25 @@ namespace GestForma.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "69e67237-f651-4292-9588-7c9d46434e22",
+                            Id = "db9ad511-8206-453e-a13f-907980177b72",
                             Name = "administrateur",
                             NormalizedName = "administrateur"
                         },
                         new
                         {
-                            Id = "49c4f441-1421-4c0d-9bbb-0681c09b6960",
+                            Id = "a9c2840b-d197-4f70-ac0d-b21e37d459ff",
                             Name = "professeur",
                             NormalizedName = "professeur"
                         },
                         new
                         {
-                            Id = "be4e226f-e8b5-45af-be86-0e1af72d3f80",
+                            Id = "3e1d3f8f-e978-4762-8086-ab5db372a5d0",
                             Name = "participant",
                             NormalizedName = "participant"
                         },
                         new
                         {
-                            Id = "d6a72a9c-1479-4033-b646-21de847932e4",
+                            Id = "ac7222f5-b3ca-4ec7-b016-b11d48604127",
                             Name = "invité",
                             NormalizedName = "invité"
                         });

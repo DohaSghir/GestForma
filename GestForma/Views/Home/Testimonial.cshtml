@@ -1,4 +1,5 @@
-﻿<!-- Header Start -->
+﻿
+<!-- Header Start -->
 <div class="jumbotron jumbotron-fluid page-header position-relative overlay-bottom" style="margin-bottom: 20px;">
     <div class="container text-center py-4">
         <h1 class="text-white display-1">Testimonial</h1>
@@ -15,36 +16,50 @@
                     <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Testimonial</h6>
                     <h1 class="display-4">What Say Our Students</h1>
                 </div>
-                <p class="m-0">Our students appreciate the platform's user-friendly interface, seamless course navigation, effective communication between trainers and participants, and its security, all contributing to enhanced learning and skill development.</p>
+                @if (User.Identity.IsAuthenticated && User.IsInRole("participant"))
+                {
+                    <!-- Bouton pour afficher le formulaire de commentaire -->
+                    <button class="btn btn-primary mt-3" id="commentButton" onclick="toggleCommentForm()">Leave a Comment</button>
 
-            </div>
-            <div class="col-lg-7">
+                    <!-- Formulaire de commentaire (masqué par défaut) -->
+                    <div id="commentForm" class="mt-4" style="display: none;">
+                        <form asp-controller="Home" asp-action="AjouterCommentaire" method="post">
+                            <div class="form-group">
+                                <label for="comment">Your Comment:</label>
+                                <textarea class="form-control" id="comment" name="ContenuCommentaire" rows="4" placeholder="Enter your comment here..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-success">Submit Comment</button>
+                        </form>
+                    </div>
+
+
+
+                    <script>
+                        // Fonction JavaScript pour afficher/masquer le formulaire de commentaire
+                        function toggleCommentForm() {
+                        const form = document.getElementById('commentForm');
+                        form.style.display = form.style.display === 'none' ? 'block' : 'none';
+                        }
+                    </script>
+
+                }
+            </div><div class="col-lg-7">
                 <div class="owl-carousel testimonial-carousel">
-                    <div class="bg-white p-5">
-                        <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                        <p>Sed et elitr ipsum labore dolor diam, ipsum duo vero sed sit est est ipsum eos clita est ipsum. Est nonumy tempor at kasd. Sed at dolor duo ut dolor, et justo erat dolor magna sed stet amet elitr duo lorem</p>
-                        <div class="d-flex flex-shrink-0 align-items-center mt-4">
-                            <img class="img-fluid mr-4" src="../img/testimonial-2.jpg" alt="">
-                            <div>
-                                <h5>Student Name</h5>
-                                <span>Web Design</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-white p-5">
-                        <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                        <p>Sed et elitr ipsum labore dolor diam, ipsum duo vero sed sit est est ipsum eos clita est ipsum. Est nonumy tempor at kasd. Sed at dolor duo ut dolor, et justo erat dolor magna sed stet amet elitr duo lorem</p>
-                        <div class="d-flex flex-shrink-0 align-items-center mt-4">
-                            <img class="img-fluid mr-4" src="../img/testimonial-1.jpg" alt="">
-                            <div>
-                                <h5>Student Name</h5>
-                                <span>Web Design</span>
-                            </div>
-                        </div>
-                    </div>
+                    @* @foreach (var commentaire in commentaires) *@
+                    @* { *@
+                    @*     <div class="bg-white p-5"> *@
+                    @*         <i class="fa fa-3x fa-quote-left text-primary mb-4"></i> *@
+                    @*         <p>@commentaire.ContenuCommentaire</p> *@
+                    @*         <div class="d-flex flex-shrink-0 align-items-center mt-4"> *@
+                    @*             <div> *@
+                    @*                 <h5>@commentaire.User.FirstName @commentaire.User.LastName</h5> *@
+                    @*             </div> *@
+                    @*         </div> *@
+                    @*     </div> *@
+                    @* } *@
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- Testimonial Start -->
+<!-- Testimonial end -->
