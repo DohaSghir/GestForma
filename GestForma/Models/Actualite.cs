@@ -11,23 +11,22 @@ namespace GestForma.Models
 
         [Required]
         [MaxLength(100)]
-        public string Titre { get; set; }
+        public string? Titre { get; set; }
         [Required]
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
-        [Required]
+        
         [MaxLength(255)]
-        public string FileName { get; set; } // Nom de l'image
+        public string? FileName { get; set; } // Nom de l'image
 
-        [Required]
+        
         [MaxLength(50)]
-        public string ContentType { get; set; } // Type MIME (ex. "image/png", "image/jpeg")
+        public string? ContentType { get; set; } // Type MIME (ex. "image/png", "image/jpeg")
 
-        [Required]
-        public long Size { get; set; } // Taille de l'image en octets
+        
+        public long? Size { get; set; } // Taille de l'image en octets
 
-        [Required]
-        public byte[] Data { get; set; } // Contenu binaire de l'image
+        public byte[]? Data { get; set; } // Contenu binaire de l'image
 
     }
 }

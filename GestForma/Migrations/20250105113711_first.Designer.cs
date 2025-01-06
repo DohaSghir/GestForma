@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GestForma.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250103143527_First")]
-    partial class First
+    [Migration("20250105113711_first")]
+    partial class first
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -34,12 +34,10 @@ namespace GestForma.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdActualite"));
 
                     b.Property<string>("ContentType")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<byte[]>("Data")
-                        .IsRequired()
                         .HasColumnType("varbinary(max)");
 
                     b.Property<string>("Description")
@@ -47,11 +45,10 @@ namespace GestForma.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FileName")
-                        .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
-                    b.Property<long>("Size")
+                    b.Property<long?>("Size")
                         .HasColumnType("bigint");
 
                     b.Property<string>("Titre")
@@ -209,7 +206,12 @@ namespace GestForma.Migrations
                         .HasMaxLength(2000)
                         .HasColumnType("nvarchar(2000)");
 
+                    b.Property<string>("Id_User")
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("IdCommentaire");
+
+                    b.HasIndex("Id_User");
 
                     b.ToTable("CommentairesEntiers");
                 });
@@ -223,15 +225,13 @@ namespace GestForma.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID_Formation"));
 
                     b.Property<string>("ContentType")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<float>("Cout")
                         .HasColumnType("real");
 
                     b.Property<byte[]>("Data")
-                        .IsRequired()
                         .HasColumnType("varbinary(max)");
 
                     b.Property<string>("Description")
@@ -242,15 +242,13 @@ namespace GestForma.Migrations
                         .HasColumnType("real");
 
                     b.Property<string>("FileName")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasMaxLength(2955)
+                        .HasColumnType("nvarchar(2955)");
 
                     b.Property<string>("ID_User")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("Id_Categorie")
-                        .HasMaxLength(100)
+                    b.Property<int?>("Id_Categorie")
                         .HasColumnType("int");
 
                     b.Property<string>("Intitule")
@@ -451,25 +449,25 @@ namespace GestForma.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "8e528a18-ae8d-4558-970f-21b3d1ea4e0d",
+                            Id = "69e67237-f651-4292-9588-7c9d46434e22",
                             Name = "administrateur",
                             NormalizedName = "administrateur"
                         },
                         new
                         {
-                            Id = "b4ca9b4b-725d-4349-8752-f0495126c681",
+                            Id = "49c4f441-1421-4c0d-9bbb-0681c09b6960",
                             Name = "professeur",
                             NormalizedName = "professeur"
                         },
                         new
                         {
-                            Id = "de8584dd-d1b7-4231-b4b4-6ce0323242fc",
+                            Id = "be4e226f-e8b5-45af-be86-0e1af72d3f80",
                             Name = "participant",
                             NormalizedName = "participant"
                         },
                         new
                         {
-                            Id = "1970c941-7b00-442a-9f1f-4cb3f7c3829a",
+                            Id = "d6a72a9c-1479-4033-b646-21de847932e4",
                             Name = "invité",
                             NormalizedName = "invité"
                         });
@@ -604,6 +602,15 @@ namespace GestForma.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("GestForma.Models.CommentairesEntiers", b =>
+                {
+                    b.HasOne("GestForma.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("Id_User");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("GestForma.Models.Formation", b =>
                 {
                     b.HasOne("GestForma.Models.ApplicationUser", "User")
@@ -612,9 +619,7 @@ namespace GestForma.Migrations
 
                     b.HasOne("GestForma.Models.Category", "Categorie")
                         .WithMany()
-                        .HasForeignKey("Id_Categorie")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("Id_Categorie");
 
                     b.Navigation("Categorie");
 

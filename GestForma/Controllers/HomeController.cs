@@ -24,6 +24,7 @@ namespace GestForma.Controllers
         }
 
         // Action Index
+        /*
         public async Task<IActionResult> Index()
         {
             if (User.Identity.IsAuthenticated)
@@ -40,12 +41,127 @@ namespace GestForma.Controllers
             }
             // Si l'utilisateur n'est ni administrateur ni professeur, alors on récupère les formations disponibles
             var formations = await _context.Formations.ToListAsync();
+            var actualites = await _context.Actualites.ToListAsync();
+            var commentaires = await _context.CommentairesEntiers.Include(c => c.User).ToListAsync();
 
             // Passer la liste des formations à la vue via ViewBag
             ViewBag.Formations = formations;
+            ViewBag.Actualites = actualites;
+            ViewBag.Commentaires = commentaires;
 
-           
-            return View();
+            var users = _userManager.Users.ToList();
+
+            List<List<Object>> trainers = new List<List<Object>>();
+
+            foreach (var user in users)
+            {
+                if (await _userManager.IsInRoleAsync(user, "professeur"))
+                {
+                    var trainer = await _context.Trainers.FirstOrDefaultAsync(t => t.Id_user == user.Id);
+                    string imageUrl = trainer != null ? Url.Action("GetImage", "Home", new { id = trainer.Id }) : null;
+                    trainers.Add(new List<Object> { user.Id, user.LastName, user.FirstName, user.Email, user.PhoneNumber, trainer.Field, imageUrl });
+                }
+            }
+
+
+            return View(trainers);
+        }
+        */
+        public async Task<IActionResult> Index()
+        {
+
+            // Charger les formations avec leurs catégories et les formateurs
+            var formations = _context.Formations
+                .Include(f => f.Categorie) // Charger la catégorie associée
+                .Include(f => f.User)      // Charger le formateur associé
+                .AsQueryable();
+
+            var par = await _userManager.GetUsersInRoleAsync("participant");
+
+            var nbrPart = par.Count;
+
+            ViewBag.nbrPart = nbrPart;
+
+            var prof = await _userManager.GetUsersInRoleAsync("professeur");
+
+            var nbrprof = prof.Count;
+
+            ViewBag.nbrprof = nbrprof;
+
+
+            var inv = await _userManager.GetUsersInRoleAsync("invité");
+
+
+            var nbrinv = inv.Count;
+
+            ViewBag.nbrinv = nbrinv;
+
+            var nbrform = await _context.Formations.CountAsync();
+            ViewBag.nbrform = nbrform;
+            var nbrcat = await _context.Categories.CountAsync();
+            ViewBag.nbrcat = nbrcat;
+
+            var formations1 = await _context.Formations.ToListAsync();
+            ViewBag.formations1 = formations1;
+
+            var actualites = await _context.Actualites.ToListAsync();
+            var commentaires = await _context.CommentairesEntiers.Include(c => c.User).ToListAsync();
+
+            ViewBag.Actualites = actualites;
+            ViewBag.Commentaires = commentaires;
+            // Récupérer l'ID du rôle "Professeur"
+            var role = await _context.Roles.FirstOrDefaultAsync(r => r.Name == "professeur");
+
+            /*  var trainer = await _context.Users
+               .Where(u => _context.UserRoles
+                   .Any(ur => ur.UserId == u.Id && ur.RoleId == role.Id))
+               .ToListAsync();
+
+           ViewBag.trainers = trainer;*/
+
+            var trainers = await (from user in _context.Users
+                                  join trainer in _context.Trainers
+                                  on user.Id equals trainer.Id_user
+                                  where _context.UserRoles.Any(ur => ur.UserId == user.Id && ur.RoleId == role.Id)
+                                  select new
+                                  {
+                                      user.UserName,
+                                      user.Email,
+                                      user.FirstName,
+                                      user.LastName,
+                                      trainer.Data,
+                                      trainer.ContentType,
+                                      trainer.Field
+                                  }).ToListAsync();
+
+            ViewBag.Trainers = trainers;
+
+
+
+            if (User.Identity.IsAuthenticated)
+            {
+                if (User.IsInRole("administrateur"))
+                {
+                    return RedirectToAction("AdminDashboard");
+                }
+
+                if (User.IsInRole("professeur"))
+                {
+                    return RedirectToAction("FormateurDashboard");
+                }
+            }
+            return View(await formations.ToListAsync());
+        }
+
+        public async Task<IActionResult> GetImage(int id)
+        {
+            var trainer = await _context.Trainers.FindAsync(id);
+            if (trainer == null)
+            {
+                return NotFound("Trainer not found.");
+            }
+
+            return File(trainer.Data, trainer.ContentType);  // Return the image file with the content type
         }
 
         // Action Privacy
@@ -57,6 +173,16 @@ namespace GestForma.Controllers
         public IActionResult Courses()
         {
             return View();
+        }
+        
+        public async Task<IActionResult> Payement()
+        {
+            var unpaidInscriptions = await _context.Inscriptions
+        .Include(i => i.User)   // Make sure User is included in the query
+        .Include(i => i.Formation)  // Make sure Formation is included in the query
+        .Where(element => element.Paiement == false)
+        .ToListAsync();
+            return View(unpaidInscriptions);
         }
 
         // Action Error
@@ -230,5 +356,115 @@ namespace GestForma.Controllers
         {
             return View();
         }
+
+        [Authorize(Roles = "participant")]
+        [HttpPost]
+        public async Task<IActionResult> AjouterCommentaire(string ContenuCommentaire)
+        {
+            // Vérifier que le contenu du commentaire n'est pas vide
+            if (string.IsNullOrWhiteSpace(ContenuCommentaire))
+            {
+                TempData["Error"] = "Le commentaire ne peut pas être vide.";
+                return RedirectToAction("Index"); // Redirige vers la page actuelle
+            }
+
+            // Obtenir l'utilisateur actuel
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                TempData["Error"] = "Vous devez être connecté pour ajouter un commentaire.";
+                return RedirectToAction("Index");
+            }
+
+            // Créer un nouveau commentaire
+            var commentaire = new CommentairesEntiers
+            {
+                ContenuCommentaire = ContenuCommentaire,
+                Id_User = user.Id,
+                
+            };
+
+            // Ajouter le commentaire à la base de données
+            _context.CommentairesEntiers.Add(commentaire);
+            await _context.SaveChangesAsync();
+
+            // Message de succès
+            TempData["Success"] = "Votre commentaire a été ajouté avec succès.";
+            return RedirectToAction("Index"); // Redirige vers la page actuelle
+        }
+
+
+
+
+
+    
+
+    public async Task<IActionResult> Statistic()
+        {
+
+
+            var par = await _userManager.GetUsersInRoleAsync("participant");
+
+            var nbrPart = par.Count;
+
+            ViewBag.nbrPart = nbrPart;
+
+            var prof = await _userManager.GetUsersInRoleAsync("professeur");
+
+            var nbrprof = prof.Count;
+
+            ViewBag.nbrprof = nbrprof;
+
+
+            var inv = await _userManager.GetUsersInRoleAsync("invité");
+
+
+            var nbrinv = inv.Count;
+
+            ViewBag.nbrinv = nbrinv;
+
+            var totalNumberOfFormations = await _context.Formations.CountAsync();
+
+
+            ViewBag.TotalNumberOfFormations = totalNumberOfFormations;
+
+            var role = await _roleManager.FindByNameAsync("participant");
+
+            if (role != null)
+            {
+                // Obtenir les utilisateurs dans ce rôle
+                var usersInRole = await _userManager.GetUsersInRoleAsync("participant");
+
+                // Extraire l'âge des utilisateurs
+                var ageGroups = usersInRole
+                    .Where(user => user.Age != null)  // Assurez-vous que la propriété d'âge est dans la base de données, par exemple BirthDate
+                    .GroupBy(user => GetAgeGroup(user.Age))
+                    .Select(group => new
+                    {
+                        AgeGroup = group.Key,
+                        Count = group.Count()
+                    })
+                    .ToList();
+
+                return View(ageGroups);
+            }
+
+            ViewBag.ErrorMessage = "Le rôle 'participant' n'existe pas.";
+            return View();
+        }
+
+
+        private string GetAgeGroup(int age)
+        {
+
+            if (age < 18) return "Moins de 18";
+            if (age <= 25) return "18-25";
+            if (age <= 35) return "26-35";
+            if (age <= 45) return "36-45";
+            if (age <= 60) return "46-60";
+            return "60+";
+        }
+
+
     }
 }

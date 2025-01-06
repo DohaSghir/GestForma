@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktP/kmW0RnD8PytE+VVtIaxVXMz+IbhmQZcsK6aon" crossorigin="anonymous">
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -79,20 +80,16 @@
                             <a asp-controller="Home" asp-action="GetUsersWithRole" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "GetUsersWithRole" ? "active" : "")">Guests</a>
                             <a asp-controller="Home" asp-action="GetUsersWithRoleP" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "GetUsersWithRoleP" ? "active" : "")">Participants</a>
 
-                            <a asp-controller="Home" asp-action="Formations" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "Formations" ? "active" : "")" >Trainers </a>
-                            
+                            <a asp-controller="Trainers" asp-action="Trainers" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "Trainers" ? "active" : "")" >Trainers </a>
+                            <a asp-controller="Categories" asp-action="Index" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "Trainers" ? "active" : "")">Categories </a>
+
                         </div>
                     </div>
-                    <a asp-controller="Home" asp-action="AdminDashboard" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "AdminDashboard" ? "active" : "")">Payment</a>
+                    <a asp-controller="Home" asp-action="Payement" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Payement" ? "active" : "")">Payment</a>
                     <a asp-controller="Home" asp-action="AdminDashboard" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "AdminDashboard" ? "active" : "")">Certificates</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Statistics</a>
-                        <div class="dropdown-menu m-0">
-                            <a asp-controller="Home" asp-action="Participants" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "Participants" ? "active" : "")">Participants</a>
-                            <a asp-controller="Home" asp-action="Formations" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "Formations" ? "active" : "")">Courses</a>
-                            <a asp-controller="Home" asp-action="FormateursActifs" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "FormateursActifs" ? "active" : "")">Active Trainers</a>
-                        </div>
-                    </div>
+                    <a asp-controller="Actualites" asp-action="Index" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "AdminDashboard" ? "active" : "")">News</a>
+                    <a asp-controller="Home" asp-action="Statistic" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Statistic" ? "active" : "")">Statistics</a>
+
                 </div>
                 <partial name="_LoginPartial" />
             </div>
@@ -137,10 +134,23 @@
     <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
 
    
+    <!-- Bootstrap Bundle avec Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-QFQN0qzzU8rEj3mP5Xc8lvNH7TxwRW1rhPC0Rn9KrBXB8T6m9KKM3zZ6OWlaBg0i" crossorigin="anonymous"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
     <!-- Template Javascript -->
     <script src="../js/main.js"></script>
+    <script>
+               document.addEventListener('DOMContentLoaded', () => {
+            const toastElement = document.querySelector('.toast');
+            const bsToast = new bootstrap.Toast(toastElement, {
+                autohide: true, // Désactiver la fermeture automatique
+                delay: 10000 // Définir un délai de 10 secondes si autohide est activé
+            });
+            bsToast.show();
+        });
+
+    </script>
 </body>
 
 </html>

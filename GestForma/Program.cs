@@ -42,7 +42,7 @@ if (!app.Environment.IsDevelopment())
 
         if (user != null)
         {
-            // V�rifiez si l'utilisateur a le r�le "invit�"
+            // RoleProfesseur�rifiez si l'utilisateur a le r�le "invit�"
             if (await userManager.IsInRoleAsync(user, "invit�"))
             {
                 await signInManager.SignOutAsync(); // D�connectez l'utilisateur
@@ -50,7 +50,7 @@ if (!app.Environment.IsDevelopment())
                 return;
             }
 
-            // V�rifiez si l'utilisateur a le r�le "participant"
+            // RoleProfesseur�rifiez si l'utilisateur a le r�le "participant"
            
         }
     }
