@@ -89,6 +89,7 @@ namespace GestForma.Controllers
 
             if (ModelState.IsValid)
             {
+
                 if (file != null && file.Length > 0)
                 {
                     using (var memoryStream = new MemoryStream())
@@ -143,33 +144,55 @@ namespace GestForma.Controllers
         // POST: Courses/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Courses/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id,IFormFile file, [Bind("ID_Formation,Intitule,Description,Id_Categorie,Duree,Cout")] Formation formation)
+        public async Task<IActionResult> Edit(int id, IFormFile file, [Bind("ID_Formation,Intitule,Description,Id_Categorie,Duree,Cout,FileName,ContentType,Size,Data")] Formation formation)
         {
             if (id != formation.ID_Formation)
             {
                 return NotFound();
             }
-            if (file != null && file.Length > 0)
-                    {
-                        using (var memoryStream = new MemoryStream())
-                        {
-                            await file.CopyToAsync(memoryStream);
-                            formation.FileName = file.FileName;
-                            formation.ContentType = file.ContentType;
-                            formation.Size = file.Length;
-                            formation.Data = memoryStream.ToArray();
-                        }
-                    }
+
+            ModelState.Remove("file"); // Supprime la validation du fichier
 
             if (ModelState.IsValid)
             {
                 try
                 {
-                    
-                    _context.Update(formation);
+                    // Récupérer la formation existante en mode tracking
+                    var existingFormation = await _context.Formations
+                        .FirstOrDefaultAsync(f => f.ID_Formation == id);
+
+                    if (existingFormation == null)
+                    {
+                        return NotFound();
+                    }
+
+                    // Mettre à jour les propriétés de base
+                    existingFormation.Intitule = formation.Intitule;
+                    existingFormation.Description = formation.Description;
+                    existingFormation.Id_Categorie = formation.Id_Categorie;
+                    existingFormation.Duree = formation.Duree;
+                    existingFormation.Cout = formation.Cout;
+
+                    // Gérer le fichier
+                    if (file != null)
+                    {
+                        using (var memoryStream = new MemoryStream())
+                        {
+                            await file.CopyToAsync(memoryStream);
+                            existingFormation.FileName = file.FileName;
+                            existingFormation.ContentType = file.ContentType;
+                            existingFormation.Size = file.Length;
+                            existingFormation.Data = memoryStream.ToArray();
+                        }
+                    }
+                    // Si pas de nouveau fichier, on garde l'ancien
+                    // Pas besoin de code ici car on ne modifie pas les propriétés du fichier
+
                     await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -182,13 +205,9 @@ namespace GestForma.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
             }
-            foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
-            {
-                Console.WriteLine($"Validation error: {error.ErrorMessage}");
-                ModelState.AddModelError("", error.ErrorMessage);
-            }
+
+            // En cas d'erreur
             ViewData["Id_Categorie"] = new SelectList(_context.Categories, "Id", "Title", formation.Id_Categorie);
             return View(formation);
         }

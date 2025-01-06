@@ -364,7 +364,7 @@ namespace GestForma.Controllers
             // Vérifier que le contenu du commentaire n'est pas vide
             if (string.IsNullOrWhiteSpace(ContenuCommentaire))
             {
-                TempData["Error"] = "Le commentaire ne peut pas être vide.";
+                TempData["Error"] = "The comment cannot be empty.";
                 return RedirectToAction("Index"); // Redirige vers la page actuelle
             }
 
@@ -372,7 +372,7 @@ namespace GestForma.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                TempData["Error"] = "Vous devez être connecté pour ajouter un commentaire.";
+                TempData["Error"] = "You must be logged in to add a comment.";
                 return RedirectToAction("Index");
             }
 
@@ -389,7 +389,7 @@ namespace GestForma.Controllers
             await _context.SaveChangesAsync();
 
             // Message de succès
-            TempData["Success"] = "Votre commentaire a été ajouté avec succès.";
+            TempData["Success"] = "Your comment has been successfully added.";
             return RedirectToAction("Index"); // Redirige vers la page actuelle
         }
 
