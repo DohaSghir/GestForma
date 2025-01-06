@@ -74,6 +74,7 @@
             <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav mx-auto py-0">
                     <a asp-controller="Courses" asp-action="Index" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "active" : "")">Courses</a>
+                    <a asp-controller="Trainers" asp-action="Statistics" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Statistics" ? "active" : "")">Statistics</a>
                     <a asp-controller="Home" asp-action="FormateurDashboard" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "FormateurDashboard" ? "active" : "")">Activities</a>
                     <a asp-controller="Home" asp-action="Contact" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Contact" ? "active" : "")">Contact</a>
                 </div>
