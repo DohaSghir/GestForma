@@ -75,6 +75,13 @@ namespace GestForma.Controllers
             ViewData["inscriptionsnonFini"] = inscriptionsnonFini;
             ViewData["inscriptionsNonPayes"] = inscriptionsNonPayes;
 
+            var userRatings = await _context.Rates
+                                    .Where(r => r.ID_User == _userManager.GetUserId(User))
+                                    .ToDictionaryAsync(r => r.ID_Formation, r => (int)r.ContenuRate);
+
+            ViewData["inscriptionsFini"] = inscriptionsFini;
+            ViewData["Ratings"] = userRatings;
+
             return View(); 
         }
 

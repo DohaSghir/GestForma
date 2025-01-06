@@ -234,22 +234,23 @@ namespace GestForma.Controllers
         }
 
 
+
         public async Task<IActionResult> Courses(string category, string keyword)
         {
-            // Charger toutes les catégories pour la liste déroulante
+            // Load all categories for the dropdown list
             var categories = await _context.Categories
-                .Select(c => c.Title) // Accéder directement au modèle Category
+                .Select(c => c.Title)
                 .Distinct()
                 .ToListAsync();
             ViewBag.Categories = categories;
 
-            // Charger les formations avec leurs catégories et les formateurs
+            // Load courses with their categories and instructors
             var formations = _context.Formations
-                .Include(f => f.Categorie) // Charger la catégorie associée
-                .Include(f => f.User)      // Charger le formateur associé
+                .Include(f => f.Categorie)
+                .Include(f => f.User)
                 .AsQueryable();
 
-            // Appliquer les filtres si les paramètres sont présents
+            // Apply filters if parameters are present
             if (!string.IsNullOrEmpty(category))
             {
                 formations = formations.Where(f => f.Categorie.Title.Equals(category, StringComparison.OrdinalIgnoreCase));
@@ -260,13 +261,32 @@ namespace GestForma.Controllers
                 formations = formations.Where(f => f.Intitule.Contains(keyword, StringComparison.OrdinalIgnoreCase));
             }
 
-            // Retourner les formations filtrées à la vue
-            return View(await formations.ToListAsync());
+            var averageRates = await _context.Rates
+                .GroupBy(r => r.ID_Formation)
+                .Select(g => new
+                {
+                    ID_Formation = g.Key,
+                    AverageRate = g.Average(r => r.ContenuRate),
+                    TotalVotes = g.Count()
+                })
+                .ToDictionaryAsync(x => x.ID_Formation, x => new { x.AverageRate, x.TotalVotes });
+
+            var model = await formations.Select(f => new
+            {
+                ID_Formation = f.ID_Formation,
+                Intitule = f.Intitule ?? "No Title Available",
+                Duree = f.Duree,
+                Cout = f.Cout,
+                CategorieTitle = f.Categorie.Title ?? "Uncategorized",
+                FormateurName = f.User.FirstName ?? "No Instructor Assigned",
+                AverageRate = averageRates.ContainsKey(f.ID_Formation) ? averageRates[f.ID_Formation].AverageRate : 0,
+                Data = f.Data, // Include Data property
+                ContentType = f.ContentType // Include ContentType property if needed
+            }).ToListAsync();
+
+            // Return the filtered courses to the view
+            return View(model);
         }
-
-
-
-
 
     }
 }
