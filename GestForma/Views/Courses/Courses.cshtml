@@ -64,7 +64,7 @@
                                 <div class="border-top w-100 mt-3">
                                     <div class="d-flex justify-content-between p-4">
                                         <span class="text-white"><i class="fa fa-user mr-2"></i> @formation.FormateurName</span>
-                                        <span class="text-white"><i class="fa fa-star mr-2"></i> @(formation.AverageRate.ToString("F1") + " / 5" ?? "No Ratings")</span>
+                                        <span class="text-white"><i class="fa fa-star mr-2"></i> @(formation.AverageRate.ToString("F1") ?? "No Ratings")</span>
                                         <span><h5 class="card-title">@formation.Cout Dh</h5></span>
                                     </div>
                                 </div>
