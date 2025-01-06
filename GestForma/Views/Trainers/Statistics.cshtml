@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Statistic";
+    Layout = "~/Views/Shared/_LayoutFormateur.cshtml";
+
+    // Get data from ViewBag
+    var nbrInscriTotal = ViewBag.nbrInscriTotal as int?;
+    var inscriptionsByFormation = ViewBag.inscriptionsByFormation as List<GestForma.Models.FormaInscriVM>;
+}
+
+<p>Number of total inscriptions: @nbrInscriTotal</p>
+
+@foreach (var ele in inscriptionsByFormation)
+{
+    <p>Course name: @ele.FormationName</p>
+    <p>Number of inscriptions: @ele.Count</p>
+}
