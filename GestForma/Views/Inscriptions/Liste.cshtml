@@ -40,7 +40,21 @@
                     <td>@inscription.Formation.Intitule</td>
                     <td>@inscription.Formation.Duree</td>
                     <td>@inscription.Formation.Cout</td>
-                    <td></td>
+                        <td>
+                            <div class="rating" data-formation-id="@inscription.Formation.ID_Formation" data-user-id="@User.Identity.Name">
+                                <span class="star" data-value="1">&#9733;</span>  <!-- Star icon -->
+                                <span class="star" data-value="2">&#9733;</span>
+                                <span class="star" data-value="3">&#9733;</span>
+                                <span class="star" data-value="4">&#9733;</span>
+                                <span class="star" data-value="5">&#9733;</span>
+                            </div>
+                            <form id="ratingForm" method="post" action="@Url.Action("SaveRating")">
+                                <input type="hidden" id="userId" name="UserId" />
+                                <input type="hidden" id="formationId" name="FormationId" />
+                                <input type="hidden" id="rateValue" name="RateValue" />
+                            </form>
+
+                        </td>
                 </tr>
             }
         }
@@ -131,3 +145,48 @@
     </tbody>
      </table>
 </div>
+
+<script>
+      document.querySelectorAll('.star').forEach(function(star) {
+        star.addEventListener('click', function() {
+            var rating = this.getAttribute('data-value');
+            var formationId = this.closest('.rating').getAttribute('data-formation-id');
+            var userId = this.closest('.rating').getAttribute('data-user-id');
+
+            // Mise à jour des champs cachés dans le formulaire
+            document.getElementById('formationId').value = formationId;
+            document.getElementById('rateValue').value = rating;
+            document.getElementById('userId').value = userId;
+
+            // Soumettre le formulaire pour enregistrer la note
+            document.getElementById('ratingForm').submit();
+        });
+
+        // Optional: To handle hover effects
+        star.addEventListener('mouseover', function() {
+            var rating = this.getAttribute('data-value');
+            updateStars(rating, true);
+        });
+
+        star.addEventListener('mouseout', function() {
+            var rating = document.getElementById('rateValue').value;
+            updateStars(rating, false);
+        });
+    });
+
+    function updateStars(rating, hover = false) {
+        document.querySelectorAll('.star').forEach(function(star) {
+            var value = star.getAttribute('data-value');
+            if (hover) {
+                star.style.color = value <= rating ? 'gold' : '#d3d3d3';
+            } else {
+                if (value <= rating) {
+                    star.style.color = 'gold';
+                } else {
+                    star.style.color = '#d3d3d3';
+                }
+            }
+        });
+    }
+
+</script>

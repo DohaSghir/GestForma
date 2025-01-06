@@ -10024,4 +10024,30 @@ h6,
 }
 
 
+
+.rating {
+    direction: rtl; /* Affiche les étoiles de droite à gauche */
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.star {
+    font-size: 30px; /* Taille des étoiles */
+    color: #d3d3d3; /* Couleur par défaut des étoiles */
+    margin: 0 5px;
+    transition: color 0.3s ease;
+}
+
+    .star:hover,
+    .star:hover ~ .star {
+        color: gold; /* Change la couleur des étoiles au survol */
+    }
+
+    .star.selected {
+        color: gold; /* Change la couleur des étoiles sélectionnées */
+    }
+
+
+
     

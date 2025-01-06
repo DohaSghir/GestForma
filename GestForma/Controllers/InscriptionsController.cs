@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic;
+using System.Security.Claims;
 
 namespace GestForma.Controllers
 {
@@ -76,6 +77,58 @@ namespace GestForma.Controllers
 
             return View(); 
         }
+
+
+
+        public async Task<IActionResult> SaveRating(int formationId, float rateValue)
+        {
+            // Obtenir le userId de l'utilisateur connecté
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            // Vérifier si l'utilisateur est authentifié
+            if (string.IsNullOrEmpty(userId))
+            {
+                // Gérer le cas où l'utilisateur n'est pas authentifié
+                return BadRequest("User is not authenticated.");
+            }
+
+            // Vérifier si l'utilisateur existe dans la table AspNetUsers
+            var userExists = await _context.Users.AnyAsync(u => u.Id == userId);
+            if (!userExists)
+            {
+                // Gérer le cas où l'utilisateur n'existe pas
+                return BadRequest("User does not exist.");
+            }
+
+            // Vérifier si l'évaluation existe déjà pour cette formation et cet utilisateur
+            var existingRating = await _context.Rates
+                                               .FirstOrDefaultAsync(r => r.ID_User == userId && r.ID_Formation == formationId);
+
+            if (existingRating != null)
+            {
+                // Mettre à jour l'évaluation existante
+                existingRating.ContenuRate = rateValue;
+                _context.Rates.Update(existingRating);
+            }
+            else
+            {
+                // Ajouter une nouvelle évaluation
+                var rate = new Rate
+                {
+                    ID_User = userId,
+                    ID_Formation = formationId,
+                    ContenuRate = rateValue
+                };
+                await _context.Rates.AddAsync(rate);
+            }
+
+            // Sauvegarder dans la base de données
+            await _context.SaveChangesAsync();
+
+            // Rediriger vers la page Liste après l'enregistrement
+            return RedirectToAction("Liste");
+        }
+
 
 
 

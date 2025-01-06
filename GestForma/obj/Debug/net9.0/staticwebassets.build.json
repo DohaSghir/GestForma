@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "i1TP/1YNVJAwaxx0AcV98vs1hUCxQNXoom5PupY+97M=",
+  "Hash": "XK7Q31RJW9e43yNsnrzDiDUMkUg+9wqHwPvobc0ihKw=",
   "Source": "GestForma",
   "BasePath": "_content/GestForma",
   "Mode": "Default",
@@ -3818,12 +3818,12 @@
       "OriginalItemSpec": "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\9.0.0\\staticwebassets\\V5\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Identity": "C:\\Users\\Lenovo\\Documents\\GitHub\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\trk7bvne3d-pycj3gmsb0.gz",
+      "Identity": "C:\\Users\\Lenovo\\Documents\\GitHub\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\trk7bvne3d-5x39f9ocph.gz",
       "SourceId": "GestForma",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Lenovo\\Documents\\GitHub\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/GestForma",
-      "RelativePath": "css/style#[.{fingerprint=pycj3gmsb0}]?.css.gz",
+      "RelativePath": "css/style#[.{fingerprint=5x39f9ocph}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -3832,8 +3832,8 @@
       "RelatedAsset": "C:\\Users\\Lenovo\\Documents\\GitHub\\GestForma\\GestForma\\wwwroot\\css\\style.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "r3hopsv362",
-      "Integrity": "aTqI+GWi5L2dm5VjPLsTbgX2u1opgqqcWjqi7vKz70E=",
+      "Fingerprint": "805i3pmdc6",
+      "Integrity": "2HCsZ0QJ5go8Vxn7Jkw6Wd3ZnPIds8v/5E7S430ZnTY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Lenovo\\Documents\\GitHub\\GestForma\\GestForma\\wwwroot\\css\\style.css"
@@ -4420,8 +4420,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "pycj3gmsb0",
-      "Integrity": "YUvKGo1UBUYArfIQyFPeZ/nw4fvC1jGx0EpkyPY0DXs=",
+      "Fingerprint": "5x39f9ocph",
+      "Integrity": "59CHPNXLjnbPw2vDElZxX94fRtvZY7aH7zTLVwTiU7k=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\style.css"
@@ -8817,13 +8817,13 @@
       ]
     },
     {
-      "Route": "css/style.css",
-      "AssetFile": "C:\\Users\\Lenovo\\Documents\\GitHub\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\trk7bvne3d-pycj3gmsb0.gz",
+      "Route": "css/style.5x39f9ocph.css",
+      "AssetFile": "C:\\Users\\Lenovo\\Documents\\GitHub\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\trk7bvne3d-5x39f9ocph.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000037348273"
+          "Quality": "0.000037097492"
         }
       ],
       "ResponseHeaders": [
@@ -8833,15 +8833,176 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "26774"
+          "Value": "26955"
         },
         {
           "Name": "ETag",
-          "Value": "\"aTqI+GWi5L2dm5VjPLsTbgX2u1opgqqcWjqi7vKz70E=\""
+          "Value": "\"2HCsZ0QJ5go8Vxn7Jkw6Wd3ZnPIds8v/5E7S430ZnTY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 06 Jan 2025 12:50:14 GMT"
+          "Value": "Mon, 06 Jan 2025 14:23:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"59CHPNXLjnbPw2vDElZxX94fRtvZY7aH7zTLVwTiU7k=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "5x39f9ocph"
+        },
+        {
+          "Name": "label",
+          "Value": "css/style.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-59CHPNXLjnbPw2vDElZxX94fRtvZY7aH7zTLVwTiU7k="
+        }
+      ]
+    },
+    {
+      "Route": "css/style.5x39f9ocph.css",
+      "AssetFile": "C:\\Users\\Lenovo\\Documents\\GitHub\\GestForma\\GestForma\\wwwroot\\css\\style.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "195597"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"59CHPNXLjnbPw2vDElZxX94fRtvZY7aH7zTLVwTiU7k=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 06 Jan 2025 14:23:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "5x39f9ocph"
+        },
+        {
+          "Name": "label",
+          "Value": "css/style.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-59CHPNXLjnbPw2vDElZxX94fRtvZY7aH7zTLVwTiU7k="
+        }
+      ]
+    },
+    {
+      "Route": "css/style.5x39f9ocph.css.gz",
+      "AssetFile": "C:\\Users\\Lenovo\\Documents\\GitHub\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\trk7bvne3d-5x39f9ocph.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "26955"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2HCsZ0QJ5go8Vxn7Jkw6Wd3ZnPIds8v/5E7S430ZnTY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 06 Jan 2025 14:23:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "5x39f9ocph"
+        },
+        {
+          "Name": "label",
+          "Value": "css/style.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2HCsZ0QJ5go8Vxn7Jkw6Wd3ZnPIds8v/5E7S430ZnTY="
+        }
+      ]
+    },
+    {
+      "Route": "css/style.css",
+      "AssetFile": "C:\\Users\\Lenovo\\Documents\\GitHub\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\trk7bvne3d-5x39f9ocph.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000037097492"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "26955"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2HCsZ0QJ5go8Vxn7Jkw6Wd3ZnPIds8v/5E7S430ZnTY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 06 Jan 2025 14:23:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8861,13 +9022,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"YUvKGo1UBUYArfIQyFPeZ/nw4fvC1jGx0EpkyPY0DXs=\""
+          "Value": "W/\"59CHPNXLjnbPw2vDElZxX94fRtvZY7aH7zTLVwTiU7k=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-YUvKGo1UBUYArfIQyFPeZ/nw4fvC1jGx0EpkyPY0DXs="
+          "Value": "sha256-59CHPNXLjnbPw2vDElZxX94fRtvZY7aH7zTLVwTiU7k="
         }
       ]
     },
@@ -8882,7 +9043,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "195039"
+          "Value": "195597"
         },
         {
           "Name": "Content-Type",
@@ -8890,11 +9051,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"YUvKGo1UBUYArfIQyFPeZ/nw4fvC1jGx0EpkyPY0DXs=\""
+          "Value": "\"59CHPNXLjnbPw2vDElZxX94fRtvZY7aH7zTLVwTiU7k=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 06 Jan 2025 12:50:14 GMT"
+          "Value": "Mon, 06 Jan 2025 14:23:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8904,13 +9065,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-YUvKGo1UBUYArfIQyFPeZ/nw4fvC1jGx0EpkyPY0DXs="
+          "Value": "sha256-59CHPNXLjnbPw2vDElZxX94fRtvZY7aH7zTLVwTiU7k="
         }
       ]
     },
     {
       "Route": "css/style.css.gz",
-      "AssetFile": "C:\\Users\\Lenovo\\Documents\\GitHub\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\trk7bvne3d-pycj3gmsb0.gz",
+      "AssetFile": "C:\\Users\\Lenovo\\Documents\\GitHub\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\trk7bvne3d-5x39f9ocph.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -8919,7 +9080,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "26774"
+          "Value": "26955"
         },
         {
           "Name": "Content-Type",
@@ -8927,11 +9088,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"aTqI+GWi5L2dm5VjPLsTbgX2u1opgqqcWjqi7vKz70E=\""
+          "Value": "\"2HCsZ0QJ5go8Vxn7Jkw6Wd3ZnPIds8v/5E7S430ZnTY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 06 Jan 2025 12:50:14 GMT"
+          "Value": "Mon, 06 Jan 2025 14:23:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8949,7 +9110,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-aTqI+GWi5L2dm5VjPLsTbgX2u1opgqqcWjqi7vKz70E="
+          "Value": "sha256-2HCsZ0QJ5go8Vxn7Jkw6Wd3ZnPIds8v/5E7S430ZnTY="
         }
       ]
     },
@@ -9248,167 +9409,6 @@
         {
           "Name": "integrity",
           "Value": "sha256-huPEWlgS2sFj1lW+mcPB9JgqIsNg5kgRfSGnKjoniCk="
-        }
-      ]
-    },
-    {
-      "Route": "css/style.pycj3gmsb0.css",
-      "AssetFile": "C:\\Users\\Lenovo\\Documents\\GitHub\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\trk7bvne3d-pycj3gmsb0.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000037348273"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "26774"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"aTqI+GWi5L2dm5VjPLsTbgX2u1opgqqcWjqi7vKz70E=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 06 Jan 2025 12:50:14 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"YUvKGo1UBUYArfIQyFPeZ/nw4fvC1jGx0EpkyPY0DXs=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "pycj3gmsb0"
-        },
-        {
-          "Name": "label",
-          "Value": "css/style.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-YUvKGo1UBUYArfIQyFPeZ/nw4fvC1jGx0EpkyPY0DXs="
-        }
-      ]
-    },
-    {
-      "Route": "css/style.pycj3gmsb0.css",
-      "AssetFile": "C:\\Users\\Lenovo\\Documents\\GitHub\\GestForma\\GestForma\\wwwroot\\css\\style.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "195039"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"YUvKGo1UBUYArfIQyFPeZ/nw4fvC1jGx0EpkyPY0DXs=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 06 Jan 2025 12:50:14 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "pycj3gmsb0"
-        },
-        {
-          "Name": "label",
-          "Value": "css/style.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-YUvKGo1UBUYArfIQyFPeZ/nw4fvC1jGx0EpkyPY0DXs="
-        }
-      ]
-    },
-    {
-      "Route": "css/style.pycj3gmsb0.css.gz",
-      "AssetFile": "C:\\Users\\Lenovo\\Documents\\GitHub\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\trk7bvne3d-pycj3gmsb0.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "26774"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"aTqI+GWi5L2dm5VjPLsTbgX2u1opgqqcWjqi7vKz70E=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 06 Jan 2025 12:50:14 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "pycj3gmsb0"
-        },
-        {
-          "Name": "label",
-          "Value": "css/style.css.gz"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-aTqI+GWi5L2dm5VjPLsTbgX2u1opgqqcWjqi7vKz70E="
         }
       ]
     },
