@@ -51,5 +51,29 @@ namespace GestForma.Controllers
             return RedirectToAction("Index","Home");
         }
 
+        public async Task<IActionResult> CoursePaid(int id)
+        {
+            // Fetch the inscription asynchronously and ensure it's found
+            var inscription = await _context.Inscriptions.FindAsync(id);
+
+            if (inscription == null)
+            {
+                // Handle the case when the inscription is not found, e.g., show an error message
+                TempData["Error"] = "Inscription not found!";
+                return RedirectToAction("Payement", "Home");
+            }
+
+            // Mark the course as paid (or certified)
+            inscription.Paiement = true;
+
+            // Save changes asynchronously
+            _context.Update(inscription);
+            await _context.SaveChangesAsync();
+            TempData["Success"] = "The payment has been successfully marked as completed.";
+            // Redirect to the Payement action after the update
+            return RedirectToAction("Payement", "Home");
+        }
+
+
     }
 }
