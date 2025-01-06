@@ -197,19 +197,85 @@ namespace GestForma.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        // Actions Dashboard Admin et Formateur
-        [Authorize(Roles = "administrateur")]
-        public IActionResult AdminDashboard()
+        // Actions Dashboard Admin 
+        public IActionResult AdminDashboard(string search)
         {
-            ViewData["Layout"] = "_LayoutAdmin";
-            return View();
+            // Récupérer les inscriptions qui ne sont pas certifiées et qui n'ont pas la fin de formation
+            var inscriptions = _context.Inscriptions
+                .Include(i => i.User) // Inclure les données de l'utilisateur
+                .Include(i => i.Formation) // Inclure les données de la formation
+                .ThenInclude(f => f.Categorie) // Inclure les données de la catégorie
+                .Where(i => i.Fin && i.Certificat == false)  // Exclure les inscriptions dont la formation est marquée comme finie
+                .AsQueryable();
+
+            // Si une recherche est effectuée, filtrer par nom de formation
+            if (!string.IsNullOrEmpty(search))
+            {
+                inscriptions = inscriptions.Where(i => i.Formation.Intitule.Contains(search));
+            }
+
+            // Passer la liste filtrée à la vue
+            return View(inscriptions.ToList());
         }
 
-        [Authorize(Roles = "professeur")]
-        public IActionResult FormateurDashboard()
+        // marquer la certificat pour chaque participant
+        [HttpPost]
+        public IActionResult MarkAsCertified(int inscriptionId)
         {
-            ViewData["Layout"] = "_LayoutFormateur";
-            return View();
+            // Récupérer l'inscription par son ID
+            var inscription = _context.Inscriptions.FirstOrDefault(i => i.ID_Inscription == inscriptionId);
+
+            if (inscription != null)
+            {
+                // Marquer l'inscription comme certifiée
+                inscription.Certificat = true;
+
+                // Sauvegarder les modifications
+                _context.SaveChanges();
+            }
+
+            // Rediriger vers la page d'administration
+            return RedirectToAction("AdminDashboard");
+        }
+
+
+
+        // Actions Dashboard Professeur
+        [Authorize(Roles = "professeur")]
+        public IActionResult FormateurDashboard(string search)
+        {
+            // Récupérer toutes les inscriptions sauf celles certifiées
+            var inscriptions = _context.Inscriptions
+                .Include(i => i.User) // Inclure les données de l'utilisateur
+                .Include(i => i.Formation) // Inclure les données de la formation
+                .ThenInclude(f => f.Categorie) // Inclure les données de la catégorie
+                .Where(i => !i.Fin && i.Paiement == true)
+                .AsQueryable();
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                // Filtrer par nom du cours
+                inscriptions = inscriptions.Where(i => i.Formation.Intitule.Contains(search));
+            }
+
+            // Passer les données à la vue
+            return View(inscriptions.ToList());
+
+
+        }
+
+        //marquer la fin de Formation par le formateur
+        [HttpPost]
+        public IActionResult MarkAsComplete(int inscriptionId)
+        {
+            var inscription = _context.Inscriptions.FirstOrDefault(i => i.ID_Inscription == inscriptionId);
+            if (inscription != null)
+            {
+                inscription.Fin = true;
+                _context.SaveChanges();
+            }
+
+            return RedirectToAction("FormateurDashboard");
         }
 
         // Action pour r�cup�rer les utilisateurs ayant le r�le "invit�"
