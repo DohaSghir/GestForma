@@ -4,7 +4,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Courses</h1>
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success mt-3 text-center">@TempData["Success"]</div>
+}
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger mt-3 text-center">@TempData["Error"]</div>
+}
 
 <!-- Section du filtre -->
 <div class="jumbotron jumbotron-fluid page-header position-relative overlay-bottom" style="margin-bottom: 20px;">
@@ -50,7 +57,7 @@
                     <div class="col-lg-4 col-md-6 pb-4 course-item"
                          data-category="@formation.Categorie.Title"
                          data-title="@formation.Intitule.ToLower()">
-                        <a class="courses-list-item position-relative d-block overflow-hidden mb-2" href="detail.html">
+                        <div class="courses-list-item position-relative d-block overflow-hidden">
 
                             @if (formation.Data != null && formation.Data.Length > 0)
                             {
@@ -79,9 +86,26 @@
                                         </span>
                                     </div>
                                 </div>
+
                             </div>
-                        </a>
+
+                        </div>
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("participant"))
+                        {
+                            <div class="w-100 bg-white text-center p-4 mb-2 mt-n1">
+                                <form asp-controller="Inscriptions" asp-action="CourseRegister" method="post" class="w-100">
+                                    <!-- Add hidden inputs to pass data -->
+                                    <input type="hidden" name="CourseId" value="@formation.ID_Formation" />
+                                    <input type="hidden" name="ParticipantId" value="@User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value" />
+                                    <button class="btn btn-primary w-75">Registration</button>
+                                </form>
+
+                            </div>
+                        }
                     </div>
+                    
+                        
+                
                 }
             </div>
         </div>
