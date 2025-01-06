@@ -13,7 +13,7 @@
 
     </div>
 </div>
-<div class="container">
+<div class="container mb-5">
     <div class="row justify-content-center">
         <div class="col-auto mr-5">
             <div class="row">
@@ -173,9 +173,15 @@
         </div>
 </div>
 </div>
-
+<!-- Search Bar -->
+<div class="d-flex justify-content-center align-items-center mt-3 bg-primary p-4">
+    <div class="mb-3 w-25 h2">
+        <input type="text" id="searchformation" class="form-control" placeholder="Search by Course name" style="font-size:1.3rem"/>
+    </div>
+</div>
+<div class="formations">
 @foreach (var element in ViewBag.formationsStatistics){
-    <div id="@element.formationName">
+        <div id="@element.formationName" class="formation-item">
     <div class="container py-5">
         <div style="padding: 0 10px;">
 
@@ -283,3 +289,33 @@
     </div>
     </div>
 }
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+           $(document).ready(function () {
+        $("#searchformation").on("keyup", function () {
+            var searchValue = $(this).val().toLowerCase();  // Get the search value and convert to lowercase
+
+            // Loop through each div with class 'formation-item'
+            $(".formation-item").each(function () {
+                var formationId = $(this).attr("id").toLowerCase();  // Get the 'id' attribute of the item
+
+                // Toggle visibility based on whether the formation item's id contains the search term
+                if (formationId.indexOf(searchValue) !== -1 && searchValue.trim() !== "") {
+                    $(this).show();  // Show the item if the id matches the search term
+                } else {
+                    $(this).hide();  // Hide the item if the id does not match or if searchValue is empty
+                }
+            });
+        });
+
+        // Optionally, hide all items initially if there's no search term on page load
+        if ($("#searchformation").val().trim() === "") {
+            $(".formation-item").hide();  // Hide all items initially if the search box is empty on load
+        }
+    });
+
+
+
+</script>
