@@ -174,6 +174,16 @@ namespace GestForma.Controllers
         {
             return View();
         }
+        
+        public async Task<IActionResult> Payement()
+        {
+            var unpaidInscriptions = await _context.Inscriptions
+        .Include(i => i.User)   // Make sure User is included in the query
+        .Include(i => i.Formation)  // Make sure Formation is included in the query
+        .Where(element => element.Paiement == false)
+        .ToListAsync();
+            return View(unpaidInscriptions);
+        }
 
         // Action Error
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
