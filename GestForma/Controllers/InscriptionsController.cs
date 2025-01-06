@@ -51,5 +51,31 @@ namespace GestForma.Controllers
             return RedirectToAction("Index","Home");
         }
 
+        public async Task<IActionResult> Liste()
+        {
+            var inscriptionsFini = await _context.Inscriptions
+                                          .Include(i => i.Formation)
+                                          .Where(i => i.ID_User == _userManager.GetUserId(User) && i.Fin == true && i.Certificat == true)
+                                         .ToListAsync();
+
+            var inscriptionsnonFini = await _context.Inscriptions
+                                              .Include(i => i.Formation)
+                                              .Where(i => i.ID_User == _userManager.GetUserId(User) && i.Fin == false)
+                                             .ToListAsync();
+
+            var inscriptionsNonPayes = await _context.Inscriptions
+                                              .Include(i => i.Formation)
+                                              .Where(i => i.ID_User == _userManager.GetUserId(User) && i.Paiement == false)
+                                             .ToListAsync();
+            //i.ID_User == _userManager.GetUserId(User) &&
+            ViewData["inscriptionsFini"] = inscriptionsFini;
+            ViewData["inscriptionsnonFini"] = inscriptionsnonFini;
+            ViewData["inscriptionsNonPayes"] = inscriptionsNonPayes;
+
+            return View(); 
+        }
+
+
+
     }
 }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "FrLvGnAzaTkf1bTp2U/E4ArFOnW5x6wrOo3IcN/61RI=",
+  "Hash": "OEVz6HsoFsC+QrNopIkgKidiRJBS6JmdzyVeTXFw95U=",
   "Source": "GestForma",
   "BasePath": "_content/GestForma",
   "Mode": "Default",
@@ -3818,12 +3818,12 @@
       "OriginalItemSpec": "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\9.0.0\\staticwebassets\\V5\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Identity": "C:\\Users\\Lenovo\\Documents\\GitHub\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\trk7bvne3d-q9jdjws5rb.gz",
+      "Identity": "C:\\Users\\Lenovo\\Documents\\GitHub\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\trk7bvne3d-pycj3gmsb0.gz",
       "SourceId": "GestForma",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Lenovo\\Documents\\GitHub\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/GestForma",
-      "RelativePath": "css/style#[.{fingerprint=q9jdjws5rb}]?.css.gz",
+      "RelativePath": "css/style#[.{fingerprint=pycj3gmsb0}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -3832,8 +3832,8 @@
       "RelatedAsset": "C:\\Users\\Lenovo\\Documents\\GitHub\\GestForma\\GestForma\\wwwroot\\css\\style.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "l02l4nlvb0",
-      "Integrity": "dU17qyQhL4wVoMIAQLxmq+PBRhhVlEfoczdBNB+ant4=",
+      "Fingerprint": "r3hopsv362",
+      "Integrity": "aTqI+GWi5L2dm5VjPLsTbgX2u1opgqqcWjqi7vKz70E=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Lenovo\\Documents\\GitHub\\GestForma\\GestForma\\wwwroot\\css\\style.css"
@@ -4420,8 +4420,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "q9jdjws5rb",
-      "Integrity": "zhXplWfLN+AvuoDJY2FiSLaYSpT+2QTzMg9dh8rlaA8=",
+      "Fingerprint": "pycj3gmsb0",
+      "Integrity": "YUvKGo1UBUYArfIQyFPeZ/nw4fvC1jGx0EpkyPY0DXs=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\style.css"
@@ -8818,12 +8818,12 @@
     },
     {
       "Route": "css/style.css",
-      "AssetFile": "C:\\Users\\Lenovo\\Documents\\GitHub\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\trk7bvne3d-q9jdjws5rb.gz",
+      "AssetFile": "C:\\Users\\Lenovo\\Documents\\GitHub\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\trk7bvne3d-pycj3gmsb0.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000037652020"
+          "Quality": "0.000037348273"
         }
       ],
       "ResponseHeaders": [
@@ -8833,15 +8833,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "26558"
+          "Value": "26774"
         },
         {
           "Name": "ETag",
-          "Value": "\"dU17qyQhL4wVoMIAQLxmq+PBRhhVlEfoczdBNB+ant4=\""
+          "Value": "\"aTqI+GWi5L2dm5VjPLsTbgX2u1opgqqcWjqi7vKz70E=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 20:50:13 GMT"
+          "Value": "Mon, 06 Jan 2025 12:02:51 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8861,13 +8861,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"zhXplWfLN+AvuoDJY2FiSLaYSpT+2QTzMg9dh8rlaA8=\""
+          "Value": "W/\"YUvKGo1UBUYArfIQyFPeZ/nw4fvC1jGx0EpkyPY0DXs=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-zhXplWfLN+AvuoDJY2FiSLaYSpT+2QTzMg9dh8rlaA8="
+          "Value": "sha256-YUvKGo1UBUYArfIQyFPeZ/nw4fvC1jGx0EpkyPY0DXs="
         }
       ]
     },
@@ -8882,7 +8882,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "194494"
+          "Value": "195039"
         },
         {
           "Name": "Content-Type",
@@ -8890,11 +8890,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"zhXplWfLN+AvuoDJY2FiSLaYSpT+2QTzMg9dh8rlaA8=\""
+          "Value": "\"YUvKGo1UBUYArfIQyFPeZ/nw4fvC1jGx0EpkyPY0DXs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 20:50:13 GMT"
+          "Value": "Mon, 06 Jan 2025 12:02:51 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8904,13 +8904,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-zhXplWfLN+AvuoDJY2FiSLaYSpT+2QTzMg9dh8rlaA8="
+          "Value": "sha256-YUvKGo1UBUYArfIQyFPeZ/nw4fvC1jGx0EpkyPY0DXs="
         }
       ]
     },
     {
       "Route": "css/style.css.gz",
-      "AssetFile": "C:\\Users\\Lenovo\\Documents\\GitHub\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\trk7bvne3d-q9jdjws5rb.gz",
+      "AssetFile": "C:\\Users\\Lenovo\\Documents\\GitHub\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\trk7bvne3d-pycj3gmsb0.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -8919,7 +8919,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "26558"
+          "Value": "26774"
         },
         {
           "Name": "Content-Type",
@@ -8927,11 +8927,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"dU17qyQhL4wVoMIAQLxmq+PBRhhVlEfoczdBNB+ant4=\""
+          "Value": "\"aTqI+GWi5L2dm5VjPLsTbgX2u1opgqqcWjqi7vKz70E=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 20:50:13 GMT"
+          "Value": "Mon, 06 Jan 2025 12:02:51 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8949,7 +8949,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-dU17qyQhL4wVoMIAQLxmq+PBRhhVlEfoczdBNB+ant4="
+          "Value": "sha256-aTqI+GWi5L2dm5VjPLsTbgX2u1opgqqcWjqi7vKz70E="
         }
       ]
     },
@@ -9252,13 +9252,13 @@
       ]
     },
     {
-      "Route": "css/style.q9jdjws5rb.css",
-      "AssetFile": "C:\\Users\\Lenovo\\Documents\\GitHub\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\trk7bvne3d-q9jdjws5rb.gz",
+      "Route": "css/style.pycj3gmsb0.css",
+      "AssetFile": "C:\\Users\\Lenovo\\Documents\\GitHub\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\trk7bvne3d-pycj3gmsb0.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000037652020"
+          "Quality": "0.000037348273"
         }
       ],
       "ResponseHeaders": [
@@ -9268,15 +9268,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "26558"
+          "Value": "26774"
         },
         {
           "Name": "ETag",
-          "Value": "\"dU17qyQhL4wVoMIAQLxmq+PBRhhVlEfoczdBNB+ant4=\""
+          "Value": "\"aTqI+GWi5L2dm5VjPLsTbgX2u1opgqqcWjqi7vKz70E=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 20:50:13 GMT"
+          "Value": "Mon, 06 Jan 2025 12:02:51 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9296,13 +9296,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"zhXplWfLN+AvuoDJY2FiSLaYSpT+2QTzMg9dh8rlaA8=\""
+          "Value": "W/\"YUvKGo1UBUYArfIQyFPeZ/nw4fvC1jGx0EpkyPY0DXs=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "q9jdjws5rb"
+          "Value": "pycj3gmsb0"
         },
         {
           "Name": "label",
@@ -9310,12 +9310,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-zhXplWfLN+AvuoDJY2FiSLaYSpT+2QTzMg9dh8rlaA8="
+          "Value": "sha256-YUvKGo1UBUYArfIQyFPeZ/nw4fvC1jGx0EpkyPY0DXs="
         }
       ]
     },
     {
-      "Route": "css/style.q9jdjws5rb.css",
+      "Route": "css/style.pycj3gmsb0.css",
       "AssetFile": "C:\\Users\\Lenovo\\Documents\\GitHub\\GestForma\\GestForma\\wwwroot\\css\\style.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -9325,7 +9325,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "194494"
+          "Value": "195039"
         },
         {
           "Name": "Content-Type",
@@ -9333,11 +9333,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"zhXplWfLN+AvuoDJY2FiSLaYSpT+2QTzMg9dh8rlaA8=\""
+          "Value": "\"YUvKGo1UBUYArfIQyFPeZ/nw4fvC1jGx0EpkyPY0DXs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 20:50:13 GMT"
+          "Value": "Mon, 06 Jan 2025 12:02:51 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9347,7 +9347,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "q9jdjws5rb"
+          "Value": "pycj3gmsb0"
         },
         {
           "Name": "label",
@@ -9355,13 +9355,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-zhXplWfLN+AvuoDJY2FiSLaYSpT+2QTzMg9dh8rlaA8="
+          "Value": "sha256-YUvKGo1UBUYArfIQyFPeZ/nw4fvC1jGx0EpkyPY0DXs="
         }
       ]
     },
     {
-      "Route": "css/style.q9jdjws5rb.css.gz",
-      "AssetFile": "C:\\Users\\Lenovo\\Documents\\GitHub\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\trk7bvne3d-q9jdjws5rb.gz",
+      "Route": "css/style.pycj3gmsb0.css.gz",
+      "AssetFile": "C:\\Users\\Lenovo\\Documents\\GitHub\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\trk7bvne3d-pycj3gmsb0.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -9370,7 +9370,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "26558"
+          "Value": "26774"
         },
         {
           "Name": "Content-Type",
@@ -9378,11 +9378,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"dU17qyQhL4wVoMIAQLxmq+PBRhhVlEfoczdBNB+ant4=\""
+          "Value": "\"aTqI+GWi5L2dm5VjPLsTbgX2u1opgqqcWjqi7vKz70E=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 20:50:13 GMT"
+          "Value": "Mon, 06 Jan 2025 12:02:51 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9400,7 +9400,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "q9jdjws5rb"
+          "Value": "pycj3gmsb0"
         },
         {
           "Name": "label",
@@ -9408,7 +9408,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-dU17qyQhL4wVoMIAQLxmq+PBRhhVlEfoczdBNB+ant4="
+          "Value": "sha256-aTqI+GWi5L2dm5VjPLsTbgX2u1opgqqcWjqi7vKz70E="
         }
       ]
     },

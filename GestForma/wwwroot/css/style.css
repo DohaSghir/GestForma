@@ -10010,4 +10010,18 @@ h6,
     }
 
 
+.container1 {
+    background-color: #DEF0FF; /* Fond bleu clair */
+    display: flex; /* Active Flexbox */
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    height: 100px; /* Hauteur du conteneur */
+    color: #000; /* Texte noir pour un bon contraste */
+    border-radius: 0; /* Supprime les coins arrondis (si non nécessaire) */
+    margin: 0; /* Supprime les marges autour */
+    width: 100%; /* Largeur totale */
+    text-align: center; /* Centre le texte */
+}
+
+
     
