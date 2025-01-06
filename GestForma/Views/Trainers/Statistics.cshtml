@@ -1,16 +1,153 @@
 ﻿@{
     ViewData["Title"] = "Statistic";
     Layout = "~/Views/Shared/_LayoutFormateur.cshtml";
-
-    // Get data from ViewBag
-    var nbrInscriTotal = ViewBag.nbrInscriTotal as int?;
     var inscriptionsByFormation = ViewBag.inscriptionsByFormation as List<GestForma.Models.FormaInscriVM>;
 }
 
-<p>Number of total inscriptions: @nbrInscriTotal</p>
 
-@foreach (var ele in inscriptionsByFormation)
-{
-    <p>Course name: @ele.FormationName</p>
-    <p>Number of inscriptions: @ele.Count</p>
-}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-auto">
+            <div class="card card1 mb-3">
+                <div class="card-body">
+                    <div class="card2">
+
+                        <i class="fa-solid  fa-users" style="color: blue; font-size: 1.5rem;"></i>
+                        <h5 class="card-title title1">Registrations Number</h5>
+                    </div>
+                    <p class="card-text text1">@ViewBag.nbrInscriTotal</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-auto">
+            <h2>Registration by Courses</h2>
+            @if (ViewBag.inscriptionsByFormation != null)
+            {
+                <canvas id="regisCourseChart" style="max-width: 500px; max-height: 300px; margin: auto;"></canvas>
+
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                <script>
+                    var ctx = document.getElementById('regisCourseChart').getContext('2d');
+                    var registCourses = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.inscriptionsByFormation));
+                    var labels = registCourses.map(function(group) { return group.FormationName; });
+                    var data = registCourses.map(function(group) { return group.Count; });
+
+                    var chart = new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                    labels: labels,
+                    datasets: [{
+                    label: 'Registrations per course',
+                    data: data,
+                    backgroundColor: ['#0073FF', '#00C7FF', '#00FFE9', '#acdcee', '#f0fbff', '#05004e'],
+                    hoverBackgroundColor: ['#0073FF', '#00C7FF', '#00FFE9', '#acdcee', '#f0fbff', '#05004e']
+                    }]
+                    },
+                    options: {
+                    responsive: true,
+                    maintainAspectRatio: false, // Permet de désactiver le ratio par défaut
+                    plugins: {
+                    legend: {
+                    position: 'top',
+                    },
+                    tooltip: {
+                    callbacks: {
+                    label: function(tooltipItem) {
+                    return tooltipItem.label + ': ' + tooltipItem.raw + ' utilisateurs';
+                    }
+                    }
+                    }
+                    },
+                    layout: {
+                    padding: {
+                    left: 0,
+                    right: 0,
+                    top: 0,
+                    bottom: 0
+                    }
+                    },
+                    scales: {
+                    x: {
+                    display: false
+                    },
+                    y: {
+                    display: false
+                    }
+                    }
+                    }
+                    });
+                </script>
+            }
+            else
+            {
+                <div class="alert alert-warning">Aucun participant trouvé pour ce rôle.</div>
+            }
+        </div>
+
+        <div class="col-auto">
+            <h2>Age Distribution of Registered Participants</h2>
+
+            @if (ViewBag.ageGroups != null)
+            {
+                <canvas id="ageDistributionChart" style="max-width: 500px; max-height: 300px; margin: auto;"></canvas>
+
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                <script>
+                    var ctx = document.getElementById('ageDistributionChart').getContext('2d');
+                    var ageGroups = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.ageGroups));
+                    var labels = ageGroups.map(function(group) { return group.AgeGroup; });
+                    var data = ageGroups.map(function(group) { return group.Count; });
+
+                    var chart = new Chart(ctx, {
+                        type: 'pie',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: 'Répartition par âge',
+                                data: data,
+                                backgroundColor: ['#0073FF', '#00C7FF', '#00FFE9', '#acdcee', '#f0fbff', '#05004e'],
+                                hoverBackgroundColor: ['#0073FF', '#00C7FF', '#00FFE9', '#acdcee', '#f0fbff', '#05004e']
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false, // Permet de désactiver le ratio par défaut
+                            plugins: {
+                                legend: {
+                                    position: 'top',
+                                },
+                                tooltip: {
+                                    callbacks: {
+                                        label: function(tooltipItem) {
+                                            return tooltipItem.label + ': ' + tooltipItem.raw + ' utilisateurs';
+                                        }
+                                    }
+                                }
+                            },
+                            layout: {
+                                padding: {
+                                    left: 0,
+                                    right: 0,
+                                    top: 0,
+                                    bottom: 0
+                                }
+                            },
+                            scales: {
+                                x: {
+                                    display: false
+                                },
+                                y: {
+                                    display: false
+                                }
+                            }
+                        }
+                    });
+                </script>
+            }
+            else
+            {
+                <div class="alert alert-warning">Aucun participant trouvé pour ce rôle.</div>
+            }
+        </div>
+</div>
+</div>
