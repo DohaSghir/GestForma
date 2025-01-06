@@ -170,11 +170,16 @@ namespace GestForma.Controllers
             return View();
         }
 
-        public IActionResult Courses()
+        public IActionResult About()
         {
             return View();
         }
-        
+
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
         public async Task<IActionResult> Payement()
         {
             var unpaidInscriptions = await _context.Inscriptions

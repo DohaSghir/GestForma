@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Formation>
+﻿@model IEnumerable<dynamic>
 @{
     ViewData["Title"] = "Courses";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -13,12 +13,12 @@
     <div class="alert alert-danger mt-3 text-center">@TempData["Error"]</div>
 }
 
-<!-- Section du filtre -->
+<!-- Filter Section -->
 <div class="jumbotron jumbotron-fluid page-header position-relative overlay-bottom" style="margin-bottom: 20px;">
     <div class="container text-center py-5">
         <div class="mx-auto mb-5" style="width: 100%; max-width: 600px;">
             <div class="input-group">
-                <!-- Sélecteur de catégorie -->
+                <!-- Category Selector -->
                 <div class="input-group-prepend">
                     <select id="categorySelect" class="form-control border-light" style="height:63px; border-radius:none;">
                         <option value="" selected>All Categories</option>
@@ -29,7 +29,7 @@
                     </select>
                 </div>
 
-                <!-- Champ de recherche par mot-clé -->
+                <!-- Keyword Search Field -->
                 <input type="text" class="form-control border-light" style="padding: 30px 25px;" placeholder="Keyword" id="keywordInput">
                 <div class="input-group-append">
                     <button class="btn btn-secondary px-4 px-lg-5" id="searchButton">Search</button>
@@ -39,7 +39,7 @@
     </div>
 </div>
 
-<!-- Affichage des formations -->
+<!-- Display Courses -->
 <div class="container-fluid py-5">
     <div class="container py-5">
         <div class="row mx-0 justify-content-center">
@@ -50,88 +50,64 @@
                 </div>
             </div>
 
-            <!-- Liste des formations -->
+            <!-- Courses List -->
             <div class="row" id="coursesList">
                 @foreach (var formation in Model)
                 {
                     <div class="col-lg-4 col-md-6 pb-4 course-item"
-                         data-category="@formation.Categorie.Title"
+                         data-category="@formation.CategorieTitle"
                          data-title="@formation.Intitule.ToLower()">
                         <div class="courses-list-item position-relative d-block overflow-hidden">
-
-                            @if (formation.Data != null && formation.Data.Length > 0)
-                            {
-                                <img class="img-fluid"
-                                     src="data:@formation.ContentType;base64,@Convert.ToBase64String(formation.Data)"
-                                     alt="@formation.Intitule" />
-                            }
-                            else
-                            {
-                                <img class="img-fluid"
-                                     src="/img/courses-1.jpg"
-                                     alt="Default Image" />
-                            }
-
+                            <img class="img-fluid" src="@("data:image;base64," + (formation.Data != null ? Convert.ToBase64String(formation.Data) : "default_image_base64"))" alt="@formation.Intitule" />
                             <div class="courses-text">
                                 <h4 class="text-center text-white px-3">@formation.Intitule</h4>
                                 <div class="border-top w-100 mt-3">
                                     <div class="d-flex justify-content-between p-4">
-                                        <span class="text-white">
-                                            <i class="fa fa-user mr-2"></i> @formation.User?.FirstName                                         </span>
-                                        <span class="text-white">
-                                            <i class="fa fa-star mr-2"></i>4.5 <small>(250)</small>
-                                        </span>
-                                        <span>
-                                            <h5 class="card-title">@formation.Cout Dh</h5>
-                                        </span>
+                                        <span class="text-white"><i class="fa fa-user mr-2"></i> @formation.FormateurName</span>
+                                        <span class="text-white"><i class="fa fa-star mr-2"></i> @(formation.AverageRate.ToString("F1") ?? "No Ratings")</span>
+                                        <span><h5 class="card-title">@formation.Cout Dh</h5></span>
                                     </div>
                                 </div>
-
                             </div>
-
                         </div>
                         @if (User.Identity.IsAuthenticated && User.IsInRole("participant"))
                         {
                             <div class="w-100 bg-white text-center p-4 mb-2 mt-n1">
                                 <form asp-controller="Inscriptions" asp-action="CourseRegister" method="post" class="w-100">
-                                    <!-- Add hidden inputs to pass data -->
+                                    <!-- Hidden inputs to pass data -->
                                     <input type="hidden" name="CourseId" value="@formation.ID_Formation" />
                                     <input type="hidden" name="ParticipantId" value="@User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value" />
                                     <button class="btn btn-primary w-75">Registration</button>
                                 </form>
-
                             </div>
                         }
                     </div>
-                    
-                        
-                
                 }
             </div>
         </div>
     </div>
 </div>
 
-<!-- Script pour le filtrage côté client -->
+<!-- Client-Side Filtering Script -->
 <script>
     document.getElementById('searchButton').addEventListener('click', function () {
-        // Récupérer les valeurs de filtre
+        // Get filter values
         const category = document.getElementById('categorySelect').value.toLowerCase();
         const keyword = document.getElementById('keywordInput').value.toLowerCase();
 
-        // Obtenez toutes les formations (éléments de la liste)
+        // Get all courses (list items)
         const courses = document.querySelectorAll('.course-item');
 
-        // Filtrer les formations
+        // Filter courses
         courses.forEach(function (course) {
             const courseCategory = course.getAttribute('data-category').toLowerCase();
             const courseTitle = course.getAttribute('data-title').toLowerCase();
 
-            // Vérifier si la catégorie et le mot-clé correspondent
+            // Check if category and keyword match
             const categoryMatches = category ? courseCategory === category : true;
             const keywordMatches = keyword ? courseTitle.includes(keyword) : true;
 
-            // Afficher ou masquer la formation en fonction des filtres
+            // Show or hide the course based on filters
             course.style.display = (categoryMatches && keywordMatches) ? 'block' : 'none';
         });
     });
