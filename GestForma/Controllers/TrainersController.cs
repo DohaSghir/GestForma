@@ -259,6 +259,7 @@ namespace GestForma.Controllers
                     .ToListAsync();
 
                 var ageGroupsforma = inscriptions
+                     .Where(ins => ins.Formation.ID_Formation == formation.ID_Formation)
                     .GroupBy(ins => GetAgeGroup(ins.User.Age))
                     .Select(group => new AgeGroupVM
                     {
