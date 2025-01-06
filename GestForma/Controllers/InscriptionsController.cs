@@ -103,11 +103,14 @@ namespace GestForma.Controllers
             // Redirect to the Payement action after the update
             return RedirectToAction("Payement", "Home");
         }
+      
+
+
         public async Task<IActionResult> Liste()
         {
             var inscriptionsFini = await _context.Inscriptions
                                           .Include(i => i.Formation)
-                                          .Where(i => i.ID_User == _userManager.GetUserId(User) && i.Fin == true && i.Certificat == true && i.Paiement==true)
+                                          .Where(i => i.ID_User == _userManager.GetUserId(User) && i.Fin == true && i.Certificat == true && i.Paiement == true)
                                          .ToListAsync();
 
             var inscriptionsnonFini = await _context.Inscriptions
@@ -126,7 +129,14 @@ namespace GestForma.Controllers
             ViewData["inscriptionsnonFini"] = inscriptionsnonFini;
             ViewData["inscriptionsNonPayes"] = inscriptionsNonPayes;
 
-            return View(); 
+            var userRatings = await _context.Rates
+                                    .Where(r => r.ID_User == _userManager.GetUserId(User))
+                                    .ToDictionaryAsync(r => r.ID_Formation, r => (int)r.ContenuRate);
+
+            ViewData["inscriptionsFini"] = inscriptionsFini;
+            ViewData["Ratings"] = userRatings;
+
+            return View();
         }
 
 
@@ -183,5 +193,12 @@ namespace GestForma.Controllers
 
 
 
-    }
 }
+
+
+
+     
+
+
+
+    }
