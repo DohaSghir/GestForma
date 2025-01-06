@@ -198,6 +198,60 @@ namespace GestForma.Controllers
 
             return RedirectToAction(nameof(DeleteFormTrainer));
         }
+        [Authorize(Roles = "professeur")]
+        public async Task<IActionResult> Statistics()
+        {
+            var userId = _userManager.GetUserId(User); // Get the current user's ID from ClaimsPrincipal
+
+            // Get the total number of inscriptions for the current user
+            var nbrInscriTotal = await _context.Inscriptions
+                .Where(ins => ins.Formation.ID_User == userId)
+                .CountAsync();
+
+            // Get the inscriptions grouped by formation
+            var inscriptionsByFormation = await _context.Inscriptions
+                .Where(ins => ins.Formation.ID_User == userId) // Filter by trainer's user ID
+                .GroupBy(ins => new { ins.Formation.ID_Formation, ins.Formation.Intitule }) // Group by formation ID and name
+                .Select(group => new FormaInscriVM
+                {
+                    FormationName = group.Key.Intitule,
+                    Count = group.Count() // Count the inscriptions per formation
+                })
+                .ToListAsync();
+
+            var inscriptions = await _context.Inscriptions
+                .Where(ins => ins.User.Age != null)
+                .Include(ins => ins.User)  // Ensure you include the User in the query
+                .ToListAsync();  // Fetch all the data first
+
+            var ageGroups = inscriptions
+                .GroupBy(ins => GetAgeGroup(ins.User.Age))  // Now we can use GetAgeGroup on the client side
+                .Select(group => new
+                {
+                    AgeGroup = group.Key,
+                    Count = group.Count()
+                })
+                .ToList();
+
+
+
+            // Pass the data to ViewBag
+            ViewBag.nbrInscriTotal = nbrInscriTotal;
+            ViewBag.inscriptionsByFormation = inscriptionsByFormation;
+            ViewBag.ageGroups = ageGroups;
+
+            return View();
+        }
+        private string GetAgeGroup(int age)
+        {
+
+            if (age < 18) return "Under 18";
+            if (age <= 25) return "18-25";
+            if (age <= 35) return "26-35";
+            if (age <= 45) return "36-45";
+            if (age <= 60) return "46-60";
+            return "60+";
+        }
 
 
 
