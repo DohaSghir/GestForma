@@ -88,6 +88,15 @@
                         </div>
                     </div>
                     <a asp-controller="Home" asp-action="Contact" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Contact" ? "active" : "")">Contact</a>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        @if (User.IsInRole("participant"))
+                        {
+                            <a asp-controller="Inscriptions" asp-action="Liste" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Liste" ? "active" : "")">History of Trainings</a>
+
+                        }
+                    }
+                
                 </div>
                     <partial name="_LoginPartial" />
             </div>
