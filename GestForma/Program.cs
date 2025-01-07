@@ -72,7 +72,7 @@ app.Use(async (context, next) =>
         if (user != null && await userManager.IsInRoleAsync(user, "invité"))
         {
             // Ajoutez un message pour l'utilisateur
-            tempData["ErrorMessage"] = "Votre compte est en attente de validation par un administrateur.";
+            //tempData["ErrorMessage"] = "Votre compte est en attente de validation par un administrateur.";
 
             await signInManager.SignOutAsync(); // D�connectez l'utilisateur
             context.Response.Redirect(context.Request.Path); // Rechargez la page actuelle

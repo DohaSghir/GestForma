@@ -52,6 +52,7 @@ namespace GestForma.Services
         public DbSet<Inscription> Inscriptions { get; set; }
         public DbSet<Rate> Rates { get; set; }
         public DbSet<Trainer> Trainers { get; set; }
+        public DbSet<Message> Messages { get; set; }
 
     }
 }

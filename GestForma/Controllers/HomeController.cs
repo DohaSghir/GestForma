@@ -111,9 +111,18 @@ namespace GestForma.Controllers
 
             // Fetch trainers
             var role = await _context.Roles.FirstOrDefaultAsync(r => r.Name == "professeur");
+
+            if (role == null)
+            {
+                // Gérer le cas où le rôle "professeur" n'existe pas
+                return NotFound("Role 'professeur' not found.");
+            }
+
             var trainers = await (from user in _context.Users
                                   join trainer in _context.Trainers on user.Id equals trainer.Id_user
-                                  where _context.UserRoles.Any(ur => ur.UserId == user.Id && ur.RoleId == role.Id)
+                                  where !user.archivee // Filtrer les utilisateurs non archivés
+                                        && !trainer.archivee // Filtrer les formateurs non archivés
+                                        && _context.UserRoles.Any(ur => ur.UserId == user.Id && ur.RoleId == role.Id)
                                   select new
                                   {
                                       user.UserName,
@@ -124,6 +133,7 @@ namespace GestForma.Controllers
                                       trainer.ContentType,
                                       trainer.Field
                                   }).ToListAsync();
+
             ViewBag.Trainers = trainers;
 
             // Redirect based on user role
@@ -227,10 +237,18 @@ namespace GestForma.Controllers
         public async Task<IActionResult> Instructors()
         {
             var role = await _context.Roles.FirstOrDefaultAsync(r => r.Name == "professeur");
+
+            if (role == null)
+            {
+                // Gérer le cas où le rôle "professeur" n'existe pas
+                return NotFound("Role 'professeur' not found.");
+            }
+
             var trainers = await (from user in _context.Users
-                                  join trainer in _context.Trainers
-                                  on user.Id equals trainer.Id_user
-                                  where _context.UserRoles.Any(ur => ur.UserId == user.Id && ur.RoleId == role.Id)
+                                  join trainer in _context.Trainers on user.Id equals trainer.Id_user
+                                  where !user.archivee // Filtrer les utilisateurs non archivés
+                                        && !trainer.archivee // Filtrer les formateurs non archivés
+                                        && _context.UserRoles.Any(ur => ur.UserId == user.Id && ur.RoleId == role.Id)
                                   select new
                                   {
                                       user.UserName,
@@ -241,6 +259,7 @@ namespace GestForma.Controllers
                                       trainer.ContentType,
                                       trainer.Field
                                   }).ToListAsync();
+
 
             ViewBag.Trainers = trainers;
             return View();

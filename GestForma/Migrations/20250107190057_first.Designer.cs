@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GestForma.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250107184407_first")]
+    [Migration("20250107190057_first")]
     partial class first
     {
         /// <inheritdoc />
@@ -290,6 +290,35 @@ namespace GestForma.Migrations
                     b.ToTable("Inscriptions");
                 });
 
+            modelBuilder.Entity("GestForma.Models.Message", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Body")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Subject")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Messages");
+                });
+
             modelBuilder.Entity("GestForma.Models.Rate", b =>
                 {
                     b.Property<int>("IdRate")
@@ -389,25 +418,25 @@ namespace GestForma.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "060c4b79-d86d-43be-be02-54737c4e6655",
+                            Id = "ce941d0e-a7f9-4bd6-b87f-c2e00a6e23c9",
                             Name = "administrateur",
                             NormalizedName = "administrateur"
                         },
                         new
                         {
-                            Id = "19f261be-18f6-40a1-bdc0-8831633945d6",
+                            Id = "b4183e25-c89d-4e89-bafb-55c476dd6dbc",
                             Name = "professeur",
                             NormalizedName = "professeur"
                         },
                         new
                         {
-                            Id = "6b8eee3d-402c-4976-bfad-6f9aada468e7",
+                            Id = "20e4f5ca-291b-447b-81c1-7ea792754657",
                             Name = "participant",
                             NormalizedName = "participant"
                         },
                         new
                         {
-                            Id = "36275bf4-4294-4ca4-9142-ee72ad65e8f0",
+                            Id = "32864330-a21d-45b7-a479-13be1b5afe21",
                             Name = "invité",
                             NormalizedName = "invité"
                         });
