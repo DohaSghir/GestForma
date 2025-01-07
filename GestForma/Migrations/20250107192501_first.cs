@@ -92,6 +92,22 @@ namespace GestForma.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Messages",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Subject = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Body = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Messages", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -337,10 +353,10 @@ namespace GestForma.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "00022e0e-2c7d-40a6-815c-161b7fa3ef98", null, "professeur", "professeur" },
-                    { "7616ce38-4264-493f-9a83-db5b8b3e4e3b", null, "administrateur", "administrateur" },
-                    { "d15dbae7-bd9b-4e21-8e58-5ed933c08f1a", null, "participant", "participant" },
-                    { "ed28f1f4-77bf-41b2-9b8f-92133370571f", null, "invité", "invité" }
+                    { "57288021-814e-4165-908b-f24dfa10a54c", null, "professeur", "professeur" },
+                    { "5f38e2a9-ba26-4909-a55e-ca988a2b6f56", null, "invité", "invité" },
+                    { "e756f0f1-7650-4b4a-9441-e26b03968970", null, "administrateur", "administrateur" },
+                    { "ea73b6ac-a440-4ea0-967f-cceacaf01a45", null, "participant", "participant" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -449,6 +465,9 @@ namespace GestForma.Migrations
 
             migrationBuilder.DropTable(
                 name: "Inscriptions");
+
+            migrationBuilder.DropTable(
+                name: "Messages");
 
             migrationBuilder.DropTable(
                 name: "Rates");
