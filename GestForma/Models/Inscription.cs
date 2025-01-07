@@ -21,10 +21,11 @@ namespace GestForma.Models
         [ForeignKey("ID_Formation")]
         public Formation? Formation { get; set; }
 
-        public bool Etat { get; set; } = false;
         public bool Paiement { get; set; } = false;
         public bool Fin { get; set; } = false;
         public bool Certificat { get; set; } = false;
+
+        public bool archivee { get; set; } = false;
 
     }
 }

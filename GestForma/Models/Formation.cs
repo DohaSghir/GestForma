@@ -56,7 +56,9 @@ namespace GestForma.Models
         public ApplicationUser? User { get; set; }
 
         public virtual ICollection<Inscription>? Inscriptions { get; set; } 
-        public virtual ICollection<CommentairesDeFormation>? Commentaires { get; set; }
-        public virtual ICollection<Rate>? Evaluations { get; set; } 
+        
+        public virtual ICollection<Rate>? Evaluations { get; set; }
+
+        public bool archivee { get; set; } = false;
     }
 }

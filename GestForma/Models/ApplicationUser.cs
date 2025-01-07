@@ -13,5 +13,7 @@ namespace GestForma.Models
         public int Age { get; set; } 
 
         public DateTime CreatedAt { get; set; }
+
+        public bool archivee { get; set; } = false;
     }
 }

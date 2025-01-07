@@ -28,5 +28,7 @@ namespace GestForma.Models
 
         public byte[]? Data { get; set; } // Contenu binaire de l'image
 
+        public bool archivee { get; set; } = false;
+
     }
 }

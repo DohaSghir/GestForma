@@ -21,5 +21,7 @@ namespace GestForma.Models
 
         [ForeignKey("Id_User")]
         public ApplicationUser? User { get; set; }
+
+        public bool archivee { get; set; } = false;
     }
 }

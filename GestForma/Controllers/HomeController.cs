@@ -495,8 +495,8 @@ namespace GestForma.Controllers
             {
                 ID_User = user.Id,           // ID de l'utilisateur
                 ID_Formation = formationId,  // ID de la formation choisie
-                Etat = false,                 // Vous pouvez personnaliser l'état de l'inscription si nécessaire
-                Paiement = false,            // Paiement par défaut à false
+     
+                Paiement = false            // Paiement par défaut à false
             };
 
             // Ajouter l'inscription à la base de données
