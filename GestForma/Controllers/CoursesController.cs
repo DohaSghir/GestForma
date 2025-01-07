@@ -9,6 +9,7 @@ using GestForma.Models;
 using GestForma.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.VisualBasic;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GestForma.Controllers
 {
@@ -26,6 +27,7 @@ namespace GestForma.Controllers
             }
 
         // GET: Courses
+        [Authorize(Roles = "professeur")]
         public async Task<IActionResult> Index()
         {
             
@@ -41,9 +43,10 @@ namespace GestForma.Controllers
             return View(await applicationDbContext.ToListAsync());
         }
 
-      
+
 
         // GET: Courses/Details/5
+        [Authorize(Roles = "professeur")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -62,7 +65,7 @@ namespace GestForma.Controllers
 
             return View(formation);
         }
-
+        [Authorize(Roles = "professeur")]
         [HttpGet]
         public async Task<IActionResult> GetImage(int id)
         {
@@ -76,6 +79,7 @@ namespace GestForma.Controllers
         }
 
         // GET: Courses/Create
+        [Authorize(Roles = "professeur")]
         public IActionResult Create()
         {
             ViewData["Id_Categorie"] = new SelectList(_context.Categories, "Id", "Title");
@@ -124,7 +128,7 @@ namespace GestForma.Controllers
         }
 
 
-
+        [Authorize(Roles = "professeur")]
         // GET: Courses/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -146,6 +150,7 @@ namespace GestForma.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         // POST: Courses/Edit/5
+        [Authorize(Roles = "professeur")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, IFormFile file, [Bind("ID_Formation,Intitule,Description,Id_Categorie,Duree,Cout,FileName,ContentType,Size,Data")] Formation formation)
@@ -215,6 +220,7 @@ namespace GestForma.Controllers
         }
 
         // GET: Courses/Delete/5
+        [Authorize(Roles = "professeur")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -235,6 +241,7 @@ namespace GestForma.Controllers
         }
 
         // POST: Courses/Delete/5
+
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -256,32 +263,9 @@ namespace GestForma.Controllers
             return _context.Formations.Any(e => e.ID_Formation == id);
         }
 
-        public async Task<IActionResult> Courses(string category, string keyword)
+        public async Task<IActionResult> Courses(string searchBy, string keyword)
         {
-            // Load all categories for the dropdown list
-            var categories = await _context.Categories
-                .Select(c => c.Title)
-                .Distinct()
-                .ToListAsync();
-            ViewBag.Categories = categories;
-
-            // Load courses with their categories and instructors
-            var formations = _context.Formations
-                .Include(f => f.Categorie)
-                .Include(f => f.User)
-                .AsQueryable();
-
-            // Apply filters if parameters are present
-            if (!string.IsNullOrEmpty(category))
-            {
-                formations = formations.Where(f => f.Categorie.Title.Equals(category, StringComparison.OrdinalIgnoreCase));
-            }
-
-            if (!string.IsNullOrEmpty(keyword))
-            {
-                formations = formations.Where(f => f.Intitule.Contains(keyword, StringComparison.OrdinalIgnoreCase));
-            }
-
+            // Calculer la moyenne des évaluations des formations
             var averageRates = await _context.Rates
                 .GroupBy(r => r.ID_Formation)
                 .Select(g => new
@@ -292,24 +276,63 @@ namespace GestForma.Controllers
                 })
                 .ToDictionaryAsync(x => x.ID_Formation, x => new { x.AverageRate, x.TotalVotes });
 
-            var model = await formations.Select(f => new
+
+            var formations = await _context.Formations
+                .Include(f => f.Categorie)
+                .Include(f => f.User)
+                .ToListAsync();
+
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                switch (searchBy?.ToLower())
+                {
+                    case "categorie":
+                        formations = formations
+                            .Where(f => f.Categorie.Title.Contains(keyword, StringComparison.OrdinalIgnoreCase))
+                            .ToList();
+                        break;
+                    case "prix":
+                        if (float.TryParse(keyword, out float prix))
+                        {
+                            formations = formations
+                                .Where(f => f.Cout <= prix)
+                                .ToList();
+                        }
+                        break;
+                    case "titre":
+                        formations = formations
+                            .Where(f => f.Intitule.Contains(keyword, StringComparison.OrdinalIgnoreCase))
+                            .ToList();
+                        break;
+                    case "nombreheure":
+                        if (int.TryParse(keyword, out int nombreHeure))
+                        {
+                            formations = formations
+                                .Where(f => f.Duree == nombreHeure)
+                                .ToList();
+                        }
+                        break;
+                }
+            }
+
+
+            var result = formations.Select(f => new
             {
                 ID_Formation = f.ID_Formation,
                 Intitule = f.Intitule ?? "No Title Available",
                 Duree = f.Duree,
                 Cout = f.Cout,
-                CategorieTitle = f.Categorie.Title ?? "Uncategorized",
-                FormateurName = f.User.FirstName ?? "No Instructor Assigned",
+                CategorieTitle = f.Categorie?.Title ?? "Uncategorized",
+                FormateurName = f.User?.FirstName ?? "No Instructor Assigned",
                 AverageRate = averageRates.ContainsKey(f.ID_Formation) ? averageRates[f.ID_Formation].AverageRate : 0,
-                Data = f.Data, // Include Data property
-                ContentType = f.ContentType // Include ContentType property if needed
-            }).ToListAsync();
 
-            // Return the filtered courses to the view
-            return View(model);
+                Data = f.Data,
+                ContentType = f.ContentType
+            }).ToList();
+
+
+            return View(result);
         }
-
-}
 
 
 
@@ -317,4 +340,5 @@ namespace GestForma.Controllers
 
 
     }
+}
 
