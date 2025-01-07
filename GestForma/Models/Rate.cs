@@ -24,5 +24,7 @@ namespace GestForma.Models
         [Required]
         [Range(0, 5)]
         public double ContenuRate { get; set; }
+
+        public bool archivee { get; set; } = false;
     }
 }
