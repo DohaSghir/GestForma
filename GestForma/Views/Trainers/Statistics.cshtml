@@ -43,7 +43,7 @@
         </div>
         <div class="col-auto">
             <h2>Registration by Courses</h2>
-            @if (ViewBag.inscriptionsByFormation != null)
+            @if (ViewBag.inscriptionsByFormation != null && ViewBag.inscriptionsByFormation.Count > 0)
             {
                 <canvas id="regisCourseChart" style="max-width: 500px; max-height: 300px; margin: auto;"></canvas>
 
@@ -100,16 +100,15 @@
                     });
                 </script>
             }
-            else
-            {
-                <div class="alert alert-warning">Aucun participant trouvé pour ce rôle.</div>
+            else{
+                <div class="alert alert-warning">No recods found.</div>
             }
         </div>
 
         <div class="col-auto">
             <h2>Registered Participants</h2>
 
-            @if (ViewBag.ageGroups != null)
+            @if (ViewBag.ageGroups != null && ViewBag.ageGroups.Count > 0)
             {
                 <canvas id="ageDistributionChart" style="max-width: 500px; max-height: 300px; margin: auto;"></canvas>
 
@@ -168,7 +167,7 @@
             }
             else
             {
-                <div class="alert alert-warning">Aucun participant trouvé pour ce rôle.</div>
+                <div class="alert alert-warning">No recods found.</div>
             }
         </div>
 </div>
@@ -223,7 +222,7 @@
             <div class="col-auto">
                 <h2>Registered Participants</h2>
 
-                @if (element.ageGroups != null)
+                @if (element.ageGroups != null && element.ageGroups.Count > 0)
                 {
                     <canvas id="ageDistributionChart_@element.formationName" style="max-width: 500px; max-height: 300px; margin: auto;"></canvas>
 
@@ -282,7 +281,7 @@
                 }
                 else
                 {
-                    <div class="alert alert-warning">No recods</div>
+                    <div class="alert alert-warning">No recods found.</div>
                 }
             </div>
         </div>
