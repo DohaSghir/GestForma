@@ -92,9 +92,22 @@ namespace GestForma.Controllers
                 .ToListAsync();
             ViewBag.formations1 = formations;
 
+            var latestActualites = await _context.Actualites
+                    .OrderByDescending(a => a.IdActualite) // Remplacez IdActualite par DatePublication si vous avez une colonne de date
+                    .Take(5) // Limiter aux 5 derniers enregistrements
+                    .ToListAsync();
+
+
             // Fetch latest news and comments
-            ViewBag.Actualites = await _context.Actualites.ToListAsync();
-            ViewBag.Commentaires = await _context.CommentairesEntiers.Include(c => c.User).ToListAsync();
+            ViewBag.Actualites = latestActualites ;
+            var latestCommentaires = await _context.CommentairesEntiers
+                .Include(c => c.User) // Assurez-vous de charger les données associées
+                .OrderByDescending(c => c.IdCommentaire)
+                .Take(5)
+                .ToListAsync();
+
+            ViewBag.Commentaires = latestCommentaires;
+
 
             // Fetch trainers
             var role = await _context.Roles.FirstOrDefaultAsync(r => r.Name == "professeur");
@@ -196,8 +209,19 @@ namespace GestForma.Controllers
             return View();
         }
 
-        public IActionResult Testimonial()
+        public async Task<IActionResult> TestimonialAsync()
         {
+            var latestCommentaires = await _context.CommentairesEntiers
+                .Include(c => c.User) // Assurez-vous de charger les données associées
+                .OrderByDescending(c => c.IdCommentaire)
+                .Take(5)
+                .ToListAsync();
+
+            ViewBag.Commentaires = latestCommentaires;
+
+            // Passer les données à la vue via ViewBag
+
+            ViewBag.LatestCommentaires = latestCommentaires;
             return View();
         }
         public async Task<IActionResult> Instructors()
@@ -529,13 +553,49 @@ namespace GestForma.Controllers
             return RedirectToAction("Index"); // Redirige vers la page actuelle
         }
 
+        [Authorize(Roles = "participant")]
+        [HttpPost]
+        public async Task<IActionResult> AjouterCommentaireT(string ContenuCommentaire)
+        {
+            // Vérifier que le contenu du commentaire n'est pas vide
+            if (string.IsNullOrWhiteSpace(ContenuCommentaire))
+            {
+                TempData["Error"] = "The comment cannot be empty.";
+                return RedirectToAction("Testimonial"); // Redirige vers la page actuelle
+            }
+
+            // Obtenir l'utilisateur actuel
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                TempData["Error"] = "You must be logged in to add a comment.";
+                return RedirectToAction("Testimonial");
+            }
+
+            // Créer un nouveau commentaire
+            var commentaire = new CommentairesEntiers
+            {
+                ContenuCommentaire = ContenuCommentaire,
+                Id_User = user.Id,
+
+            };
+
+            // Ajouter le commentaire à la base de données
+            _context.CommentairesEntiers.Add(commentaire);
+            await _context.SaveChangesAsync();
+
+            // Message de succès
+            TempData["Success"] = "Your comment has been successfully added.";
+            return RedirectToAction("Testimonial"); // Redirige vers la page actuelle
+        }
 
 
 
 
-    
 
-    public async Task<IActionResult> Statistic()
+
+
+        public async Task<IActionResult> Statistic()
         {
 
 
