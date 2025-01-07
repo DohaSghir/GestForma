@@ -82,25 +82,26 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                          
                    
-
-                        @if (User.Identity.IsAuthenticated && User.IsInRole("participant"))
+                          @if (User.Identity.IsAuthenticated && User.IsInRole("participant"))
                         {
                             <div class="w-100 bg-white text-center p-4 mb-2 mt-n1">
                                 <form asp-controller="Inscriptions" asp-action="CourseRegister" method="post" class="w-100">
-                        <input type="hidden" name="CourseId" value="@formation.ID_Formation" />
+                                    <!-- Hidden inputs to pass data -->
+                                    <input type="hidden" name="CourseId" value="@formation.ID_Formation" />
                                     <input type="hidden" name="ParticipantId" value="@User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value" />
                                     <button class="btn btn-primary w-75">Registration</button>
                                 </form>
                             </div>
                         }
-                   
+                    </div>
                 }
             </div>
         </div>
     </div>
 </div>
+
 
 <script>
     document.getElementById('searchButton').addEventListener('click', function () {
@@ -119,3 +120,6 @@
         });
     });
 </script>
+
+
+
