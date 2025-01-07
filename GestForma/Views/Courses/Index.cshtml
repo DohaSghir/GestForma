@@ -4,6 +4,14 @@
     ViewData["Title"] = "Courses";
     Layout = "~/Views/Shared/_LayoutFormateur.cshtml";
 }
+<h1 class="text-center text-dark fw-bold mt-5">Courses</h1>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success text-center">
+        @TempData["SuccessMessage"]
+    </div>
+}
 
 <div class="row">
     <div class="col-2">
