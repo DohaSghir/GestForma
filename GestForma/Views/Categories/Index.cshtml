@@ -5,17 +5,29 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
+<div class="row">
+    <div class="col-md-2">
+        <p>
+            <form asp-action="Create" method="get" class="d-inline">
+                <button type="submit" class="btn btn-info btn-sm ml-xl-4 mx-xl-4 ml-4">
+                    <i class="fa fa-clone"></i> Create New Category
+                </button>
+            </form>
+        </p>
+    </div>
+    <div class="col-md-7">
+        <!-- Search Bar -->
+        <div class="d-flex justify-content-center align-items-center">
+            <div class="mb-3 w-25">
+                <input type="text" id="search" class="form-control" placeholder="Search" />
+            </div>
+        </div>
+    </div>
+</div>
 
-<p class="mx-4">
-    <form asp-action="Create" method="get" class="d-inline">
-        <button type="submit" class="btn btn-info btn-sm ml-xl-4 mx-xl-4 ml-4">
-            <i class="fa fa-clone"></i> Create New Category
-        </button>
-    </form>
-</p>
 
 <div class="table-responsive mx-auto px-4 mt-5">
-    <table class="table table-bordered  table-hover table-striped text-center">
+    <table class="table table-bordered  table-hover table-striped text-center" id="tableCategories">
 
         <thead>
             <tr>
@@ -29,7 +41,7 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>
+                    <td class="element">
                         @Html.DisplayFor(modelItem => item.Title)
                     </td>
                     <td>
@@ -59,4 +71,15 @@
         </tbody>
     </table>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#search").on("keyup", function () {
+            var searchValue = $(this).val().toLowerCase();
+            $("#tableCategories tbody tr").filter(function () {
+                $(this).toggle($(this).find(".element").text().toLowerCase().indexOf(searchValue) > -1);
+            });
+        });
+    });
+</script>
 
