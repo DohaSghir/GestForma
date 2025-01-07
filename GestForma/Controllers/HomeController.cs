@@ -245,20 +245,33 @@ namespace GestForma.Controllers
         [HttpPost]
         public IActionResult MarkAsCertified(int inscriptionId)
         {
-            // Récupérer l'inscription par son ID
-            var inscription = _context.Inscriptions.FirstOrDefault(i => i.ID_Inscription == inscriptionId);
-
-            if (inscription != null)
+            try
             {
-                // Marquer l'inscription comme certifiée
-                inscription.Certificat = true;
+                // Récupérer l'inscription par son ID
+                var inscription = _context.Inscriptions.FirstOrDefault(i => i.ID_Inscription == inscriptionId);
 
-                // Sauvegarder les modifications
-                _context.SaveChanges();
+                if (inscription != null)
+                {
+                    // Marquer l'inscription comme certifiée
+                    inscription.Certificat = true;
+
+                    // Sauvegarder les modifications
+                    _context.SaveChanges();
+                }
+
+                TempData["SuccessMessage"] = "Training marked as certified successfully.";
+
+                // Rediriger vers la page d'administration
+                return RedirectToAction("AdminDashboard");
             }
+            catch (Exception ex)
+            {
+                // Ajouter un message d'erreur en cas d'exception
+                TempData["ErrorMessage"] = "An error occurred while marking the training as certified.";
 
-            // Rediriger vers la page d'administration
-            return RedirectToAction("AdminDashboard");
+                // Rediriger vers la page d'administration
+                return RedirectToAction("AdminDashboard");
+            }
         }
 
 
@@ -290,15 +303,25 @@ namespace GestForma.Controllers
         //marquer la fin de Formation par le formateur
         [HttpPost]
         public IActionResult MarkAsComplete(int inscriptionId)
-        {
-            var inscription = _context.Inscriptions.FirstOrDefault(i => i.ID_Inscription == inscriptionId);
-            if (inscription != null)
+        { 
+            try
             {
-                inscription.Fin = true;
-                _context.SaveChanges();
-            }
+                var inscription = _context.Inscriptions.FirstOrDefault(i => i.ID_Inscription == inscriptionId);
+                if (inscription != null)
+                {
+                    inscription.Fin = true;
+                    _context.SaveChanges();
+                }
 
-            return RedirectToAction("FormateurDashboard");
+                TempData["SuccessMessage"] = "Training marked as completed successfully.";
+                return RedirectToAction("FormateurDashboard"); // Remplacez "Index" par la vue où vous voulez revenir
+            }
+            catch (Exception ex)
+            {
+                // Ajouter un message d'erreur en cas d'exception
+                TempData["ErrorMessage"] = "An error occurred while marking the training as complete.";
+                return RedirectToAction("FormateurDashboard"); // Redirigez vers la vue appropriée
+            }
         }
 
         // Action pour r�cup�rer les utilisateurs ayant le r�le "invit�"
