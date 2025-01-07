@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GestForma.Models;
 using GestForma.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GestForma.Controllers
 {
+    [Authorize(Roles = "administrateur")]
     public class CategoriesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -22,7 +24,8 @@ namespace GestForma.Controllers
         // GET: Categories
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Categories.ToListAsync());
+            return View(await _context.Categories.Where(c => c.archivee== false).
+                ToListAsync());
         }
 
         // GET: Categories/Details/5
@@ -33,7 +36,7 @@ namespace GestForma.Controllers
                 return NotFound();
             }
 
-            var category = await _context.Categories
+            var category = await _context.Categories.Where(c => c.archivee == false)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (category == null)
             {
@@ -151,8 +154,8 @@ namespace GestForma.Controllers
                 _context.Formations.RemoveRange(relatedFormations);
 
                 // Supprimer la catégorie
-                _context.Categories.Remove(category);
-
+           
+                category.archivee = true;
                 // Sauvegarder toutes les modifications
                 await _context.SaveChangesAsync();
             }
