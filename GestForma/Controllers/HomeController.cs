@@ -181,6 +181,10 @@ namespace GestForma.Controllers
             return View();
         }
 
+        public IActionResult Testimonial()
+        {
+            return View();
+        }
         public async Task<IActionResult> Instructors()
         {
             var role = await _context.Roles.FirstOrDefaultAsync(r => r.Name == "professeur");
