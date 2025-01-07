@@ -217,7 +217,7 @@ namespace GestForma.Controllers
 
             // Get the inscriptions grouped by formation
             var inscriptionsByFormation = await _context.Inscriptions
-                .Where(ins => ins.Formation.ID_User == userId) // Filter by trainer's user ID
+                .Where(ins => ins.Formation.ID_User == userId && ins.Formation.archivee == false) // Filter by trainer's user ID
                 .GroupBy(ins => new { ins.Formation.ID_Formation, ins.Formation.Intitule }) // Group by formation ID and name
                 .Select(group => new FormaInscriVM
                 {
@@ -241,7 +241,7 @@ namespace GestForma.Controllers
                 .ToList();
 
             var formations = await _context.Formations
-                .Where(formation => formation.ID_User == userId)
+                .Where(formation => formation.ID_User == userId && formation.archivee == false)
                 .ToListAsync();
             var formationsStatistics = new List<FormationsStatisticList>();
             foreach ( var formation in formations)
