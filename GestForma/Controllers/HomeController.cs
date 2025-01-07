@@ -271,7 +271,7 @@ namespace GestForma.Controllers
                 .Include(i => i.User) // Inclure les données de l'utilisateur
                 .Include(i => i.Formation) // Inclure les données de la formation
                 .ThenInclude(f => f.Categorie) // Inclure les données de la catégorie
-                .Where(i => i.Fin && i.Certificat == false)  // Exclure les inscriptions dont la formation est marquée comme finie
+                .Where(i => i.Fin && i.Certificat == false && i.archivee == false)  // Exclure les inscriptions dont la formation est marquée comme finie
                 .AsQueryable();
 
             // Si une recherche est effectuée, filtrer par nom de formation
@@ -328,7 +328,7 @@ namespace GestForma.Controllers
                 .Include(i => i.User) // Inclure les données de l'utilisateur
                 .Include(i => i.Formation) // Inclure les données de la formation
                 .ThenInclude(f => f.Categorie) // Inclure les données de la catégorie
-                .Where(i => !i.Fin && i.Paiement == true)
+                .Where(i => !i.Fin && i.Paiement == true && i.archivee== false)
                 .AsQueryable();
 
             if (!string.IsNullOrEmpty(search))
