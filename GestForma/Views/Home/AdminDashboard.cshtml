@@ -2,28 +2,26 @@
 @{
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
-
-<div class="container">
     @if (TempData["ErrorMessage"] != null)
     {
-        <div class="alert alert-danger">
+        <div class="alert alert-danger text-center">
             @TempData["ErrorMessage"]
         </div>
     }
     @if (TempData["SuccessMessage"] != null)
     {
-        <div class="alert alert-success">
+        <div class="alert alert-success text-center">
             @TempData["SuccessMessage"]
         </div>
     }
-</div>
+<h2 class="text-center text-dark fw-bold mt-5 mb-4">Participants ready for certification</h2>
 <!-- Search Bar -->
 <div class="d-flex justify-content-center align-items-center">
     <div class="mb-3 w-25">
         <input type="text" id="searchEmail" class="form-control" placeholder="Search by Email" />
     </div>
 </div>
-<h2 class="text-center text-dark fw-bold mt-5">Participants ready for certification</h2>
+
 
 <div class="table-responsive mx-auto px-4 mt-5" style="margin-bottom:200px">
     <table class="table table-bordered table-hover table-striped text-center" id="tableCertificats">

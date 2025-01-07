@@ -2,7 +2,6 @@
 @{
     Layout = "~/Views/Shared/_LayoutFormateur.cshtml";
 }
-<div class="container">
     @if (TempData["ErrorMessage"] != null)
     {
         <div class="alert alert-danger">
@@ -15,7 +14,7 @@
             @TempData["SuccessMessage"]
         </div>
     }
-</div>
+<h2 class="text-center text-dark fw-bold mt-5 mb-4">Participants who remain incomplete in their training</h2>
 <!-- Search Bar -->
 <div class="d-flex justify-content-center align-items-center">
     <div class="mb-3 w-25">
@@ -23,7 +22,7 @@
     </div>
 </div>
 
-<h2 class="text-center text-dark fw-bold mt-5">Participants who remain incomplete in their training</h2>
+
 
 <div class="table-responsive mx-auto px-4 mt-5" style="margin-bottom:200px">
     <table class="table table-bordered table-hover table-striped text-center" id="tableCertificats">
