@@ -123,7 +123,8 @@ namespace GestForma.Controllers
                 ModelState.AddModelError("", error.ErrorMessage);
             }
 
-            ViewData["Id_Categorie"] = new SelectList(_context.Categories.Where(c=>c.archivee==false), "Id", "Title", formation.Id_Categorie);
+            ViewData["Id_Categorie"] = new SelectList(_context.Categories.Where(c => c.archivee == false), "Id", "Title", formation.Id_Categorie);
+
             return View(formation);
         }
 
