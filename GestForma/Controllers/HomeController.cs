@@ -340,7 +340,8 @@ namespace GestForma.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        // Actions Dashboard Admin 
+        // Actions Dashboard Admin
+        [Authorize(Roles = "administrateur")]
         public IActionResult AdminDashboard(string search)
         {
             // Récupérer les inscriptions qui ne sont pas certifiées et qui n'ont pas la fin de formation
@@ -674,6 +675,37 @@ namespace GestForma.Controllers
             // Message de succès
             TempData["Success"] = "Your comment has been successfully added.";
             return RedirectToAction("Testimonial"); // Redirige vers la page actuelle
+        }
+
+
+        [Authorize(Roles = "administrateur")]
+        public IActionResult Message()
+        {
+            var messages = _context.Messages.ToList();
+            return View(messages);
+        }
+        [HttpPost]
+        [Authorize(Roles = "administrateur")]
+        public IActionResult DeleteMessage(int id)
+        {
+            var message = _context.Messages.FirstOrDefault(m => m.Id == id);
+            if (message != null)
+            {
+                // Supprimer le message de la base de données
+                _context.Messages.Remove(message);
+                _context.SaveChanges();
+
+                // Ajouter un message de succès avec TempData
+                TempData["SuccessMessage"] = "Message deleted successfully!";
+            }
+            else
+            {
+                // Ajouter un message d'erreur si le message n'est pas trouvé
+                TempData["ErrorMessage"] = "Message not found.";
+            }
+
+            // Rediriger vers la page d'affichage des messages (par exemple, "Index")
+            return RedirectToAction("Message"); // Assurez-vous que l'action Index existe
         }
 
 
