@@ -623,6 +623,42 @@ namespace GestForma.Controllers
 
 
             ViewBag.TotalNumberOfFormations = totalNumberOfFormations;
+            // Vérifiez que _context n'est pas null et contient des données
+            if (_context.Formations.Any())
+            {
+                var nbrActif = await _context.Formations
+                    .Where(f => f.ID_User != null) // Vérifier que l'ID_User n'est pas null
+                    .Select(f => f.ID_User) // Sélectionner les utilisateurs dans la table Formation
+                    .Distinct() // Rendre l'ID_User distinct (pour ne pas compter les doublons)
+                    .CountAsync(); // Compter le nombre d'utilisateurs distincts
+
+                ViewBag.nbrActif = nbrActif; // Passer la valeur à la vue
+            }
+            else
+            {
+                ViewBag.nbrActif = 0; // Si aucune donnée n'est trouvée
+            }
+
+            var nbrCertifies = await _context.Inscriptions
+               
+    .Where(f => f.Certificat == true)
+    .Select(f => f.ID_User) 
+    .Distinct() 
+    .CountAsync(); 
+
+            ViewBag.nbrCertifies = nbrCertifies; // Passer la valeur à la vue
+
+
+            var nbrnonCertifies = await _context.Inscriptions
+
+.Where(f => f.Certificat == false)
+.Select(f => f.ID_User)
+.Distinct()
+.CountAsync();
+
+            ViewBag.nbrnonCertifies = nbrnonCertifies; // Passer la valeur à la vue
+
+
 
             var role = await _roleManager.FindByNameAsync("participant");
 
@@ -645,9 +681,11 @@ namespace GestForma.Controllers
                 return View(ageGroups);
             }
 
-            ViewBag.ErrorMessage = "Le rôle 'participant' n'existe pas.";
+
+
             return View();
         }
+
 
 
         private string GetAgeGroup(int age)
