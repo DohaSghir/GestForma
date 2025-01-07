@@ -121,7 +121,7 @@ namespace GestForma.Controllers
 
             foreach (var user in users)
             {
-                if (await _userManager.IsInRoleAsync(user, "professeur"))
+                if (await _userManager.IsInRoleAsync(user, "professeur") && user.archivee == false)
                 {
                     var trainer = await _context.Trainers.FirstOrDefaultAsync(t => t.Id_user == user.Id);
 
@@ -163,41 +163,45 @@ namespace GestForma.Controllers
                 return RedirectToAction(nameof(DeleteFormTrainer));
             }
 
-            var formations = _context.Formations.Where(f => f.ID_User == user.Id);
-            _context.Formations.RemoveRange(formations);
-
-            // Récupérer le formateur associé
-            var trainer = await _context.Trainers.FirstOrDefaultAsync(t => t.Id_user == user.Id);
-
-            // Supprimer le formateur s'il existe
-            if (trainer != null)
+            // Utilisation d'une transaction pour garantir l'intégrité des données
+            using var transaction = await _context.Database.BeginTransactionAsync();
+            try
             {
-                _context.Trainers.Remove(trainer);
-            }
+                // Archiver les formations associées
+                var formations = _context.Formations.Where(f => f.ID_User == user.Id).ToList();
+                foreach (var formation in formations)
+                {
+                    formation.archivee = true;
+                }
 
-            // Supprimer l'utilisateur
-            var result = await _userManager.DeleteAsync(user);
-            if (result.Succeeded)
-            {
+                // Archiver le formateur associé
+                var trainer = await _context.Trainers.FirstOrDefaultAsync(t => t.Id_user == user.Id);
+                if (trainer != null)
+                {
+                    trainer.archivee = true;
+                }
+
+                // Archiver l'utilisateur
+                user.archivee = true;
+
+                // Sauvegarder les modifications
+                await _context.SaveChangesAsync();
+
+                // Confirmer la transaction
+                await transaction.CommitAsync();
+
                 TempData["Success"] = $"The user {user.UserName} has been successfully deleted.";
             }
-            else
+            catch (Exception ex)
             {
-                TempData["Error"] = "An error occurred while deleting the user.";
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError("", error.Description);
-                }
-            }
-
-            // Sauvegarder les changements dans la base de données
-            if (trainer != null)
-            {
-                await _context.SaveChangesAsync();
+                // Annuler la transaction en cas d'erreur
+                await transaction.RollbackAsync();
+                TempData["Error"] = $"An error occurred while deleting the trainer: {ex.Message}";
             }
 
             return RedirectToAction(nameof(DeleteFormTrainer));
         }
+
         [Authorize(Roles = "professeur")]
         public async Task<IActionResult> Statistics()
         {
@@ -213,7 +217,7 @@ namespace GestForma.Controllers
 
             // Get the inscriptions grouped by formation
             var inscriptionsByFormation = await _context.Inscriptions
-                .Where(ins => ins.Formation.ID_User == userId) // Filter by trainer's user ID
+                .Where(ins => ins.Formation.ID_User == userId && ins.Formation.archivee == false) // Filter by trainer's user ID
                 .GroupBy(ins => new { ins.Formation.ID_Formation, ins.Formation.Intitule }) // Group by formation ID and name
                 .Select(group => new FormaInscriVM
                 {
@@ -237,10 +241,10 @@ namespace GestForma.Controllers
                 .ToList();
 
             var formations = await _context.Formations
-                .Where(formation => formation.ID_User == userId)
+                .Where(formation => formation.ID_User == userId && formation.archivee == false)
                 .ToListAsync();
             var formationsStatistics = new List<FormationsStatisticList>();
-            foreach ( var formation in formations)
+            foreach (var formation in formations)
             {
                 // Get the total number of inscriptions for this formation
                 var nbrInscriTotalforma = await _context.Inscriptions
