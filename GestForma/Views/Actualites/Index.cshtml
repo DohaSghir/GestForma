@@ -5,6 +5,13 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
+<h1 class="text-center text-dark fw-bold mt-5">News</h1>
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success text-center">
+        @TempData["SuccessMessage"]
+    </div>
+}
 <div class="row">
     <div class="col-2">
         <p class="mx-4">

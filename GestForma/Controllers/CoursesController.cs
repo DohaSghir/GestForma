@@ -110,6 +110,7 @@ namespace GestForma.Controllers
                 
                 _context.Add(formation);
                 await _context.SaveChangesAsync();
+                TempData["SuccessMessage"] = "Course successfully added!";
                 return RedirectToAction(nameof(Index));
             }
             foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
@@ -192,6 +193,7 @@ namespace GestForma.Controllers
                     // Pas besoin de code ici car on ne modifie pas les propriétés du fichier
 
                     await _context.SaveChangesAsync();
+                    TempData["SuccessMessage"] = "Course successfully updated!";
                     return RedirectToAction(nameof(Index));
                 }
                 catch (DbUpdateConcurrencyException)
@@ -241,9 +243,11 @@ namespace GestForma.Controllers
             if (formation != null)
             {
                 _context.Formations.Remove(formation);
+                TempData["SuccessMessage"] = "Course successfully deleted!";
             }
 
             await _context.SaveChangesAsync();
+
             return RedirectToAction(nameof(Index));
         }
 

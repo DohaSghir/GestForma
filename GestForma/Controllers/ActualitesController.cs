@@ -53,8 +53,6 @@ namespace GestForma.Controllers
         }
 
         // POST: Actualites/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(IFormFile file, [Bind("IdActualite,Titre,Description")] Actualite actualite)
@@ -74,7 +72,13 @@ namespace GestForma.Controllers
                 }
                 _context.Add(actualite);
                 await _context.SaveChangesAsync();
+                TempData["SuccessMessage"] = "News successfully created.";
                 return RedirectToAction(nameof(Index));
+            }
+            foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+            {
+                Console.WriteLine($"Validation error: {error.ErrorMessage}");
+                ModelState.AddModelError("", error.ErrorMessage);
             }
             return View(actualite);
         }
@@ -96,8 +100,6 @@ namespace GestForma.Controllers
         }
 
         // POST: Actualites/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, IFormFile file, [Bind("IdActualite,Titre,Description")] Actualite actualite)
@@ -113,20 +115,16 @@ namespace GestForma.Controllers
             {
                 try
                 {
-                    // Récupérer l'actualité existante
-                    var existingActualite = await _context.Actualites
-                        .FirstOrDefaultAsync(a => a.IdActualite == id);
+                    var existingActualite = await _context.Actualites.FirstOrDefaultAsync(a => a.IdActualite == id);
 
                     if (existingActualite == null)
                     {
                         return NotFound();
                     }
 
-                    // Mettre à jour les propriétés de base
                     existingActualite.Titre = actualite.Titre;
                     existingActualite.Description = actualite.Description;
 
-                    // Gérer le nouveau fichier s'il existe
                     if (file != null && file.Length > 0)
                     {
                         using (var memoryStream = new MemoryStream())
@@ -138,9 +136,9 @@ namespace GestForma.Controllers
                             existingActualite.Data = memoryStream.ToArray();
                         }
                     }
-                    // Si pas de nouveau fichier, les propriétés du fichier existant sont conservées automatiquement
 
                     await _context.SaveChangesAsync();
+                    TempData["SuccessMessage"] = "News successfully edited.";
                     return RedirectToAction(nameof(Index));
                 }
                 catch (DbUpdateConcurrencyException)
@@ -185,9 +183,9 @@ namespace GestForma.Controllers
             if (actualite != null)
             {
                 _context.Actualites.Remove(actualite);
+                await _context.SaveChangesAsync();
+                TempData["SuccessMessage"] = "News successfully deleted.";
             }
-
-            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
@@ -205,8 +203,7 @@ namespace GestForma.Controllers
                 return NotFound();
             }
 
-            return File(actualite.Data, actualite.ContentType);  // Retourner l'image avec le type MIME
+            return File(actualite.Data, actualite.ContentType); // Retourner l'image avec le type MIME
         }
     }
-
 }
