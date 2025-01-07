@@ -1,6 +1,4 @@
-﻿@model IEnumerable<Formation>
-
-
+﻿@model IEnumerable<dynamic>
 
 @{
     var formations = ViewBag.Formations1 as List<GestForma.Models.Formation>;
@@ -155,8 +153,8 @@
                 <div class="courses-item position-relative">
                     <img class="img-fluid"
                          src="@(formation.Data != null && formation.Data.Length > 0
-                        ? $"data:{formation.ContentType};base64,{Convert.ToBase64String(formation.Data)}"
-                        : "/img/courses-1.jpg")"
+                          ? $"data:{formation.ContentType};base64,{Convert.ToBase64String(formation.Data)}"
+                          : "/img/courses-1.jpg")"
                          alt="@formation.Intitule ?? " Default Title"" />
 
                     <div class="courses-text">
