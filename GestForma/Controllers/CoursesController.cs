@@ -123,7 +123,7 @@ namespace GestForma.Controllers
                 ModelState.AddModelError("", error.ErrorMessage);
             }
 
-            ViewData["Id_Categorie"] = new SelectList(_context.Categories, "Id", "Title", formation.Id_Categorie);
+            ViewData["Id_Categorie"] = new SelectList(_context.Categories.Where(c=>c.archivee==false), "Id", "Title", formation.Id_Categorie);
             return View(formation);
         }
 
@@ -281,6 +281,8 @@ namespace GestForma.Controllers
             return _context.Formations.Any(e => e.ID_Formation == id);
         }
 
+
+
         public async Task<IActionResult> Courses(string searchBy, string keyword)
         {
             // Calculer la moyenne des évaluations des formations
@@ -307,27 +309,27 @@ namespace GestForma.Controllers
                 {
                     case "categorie":
                         formations = formations
-                            .Where(f => f.Categorie.Title.Contains(keyword, StringComparison.OrdinalIgnoreCase))
+                            .Where(f => f.Categorie.Title.Contains(keyword, StringComparison.OrdinalIgnoreCase) && f.archivee==false)
                             .ToList();
                         break;
                     case "prix":
                         if (float.TryParse(keyword, out float prix))
                         {
                             formations = formations
-                                .Where(f => f.Cout <= prix)
+                                .Where(f => f.Cout <= prix && f.archivee == false)
                                 .ToList();
                         }
                         break;
                     case "titre":
                         formations = formations
-                            .Where(f => f.Intitule.Contains(keyword, StringComparison.OrdinalIgnoreCase))
+                            .Where(f => f.Intitule.Contains(keyword, StringComparison.OrdinalIgnoreCase) && f.archivee == false)
                             .ToList();
                         break;
                     case "nombreheure":
                         if (int.TryParse(keyword, out int nombreHeure))
                         {
                             formations = formations
-                                .Where(f => f.Duree == nombreHeure)
+                                .Where(f => f.Duree == nombreHeure && f.archivee == false)
                                 .ToList();
                         }
                         break;
@@ -335,7 +337,7 @@ namespace GestForma.Controllers
             }
 
 
-            var result = formations.Select(f => new
+            var result = formations.Where( f =>f.archivee == false).Select(f => new
             {
                 ID_Formation = f.ID_Formation,
                 Intitule = f.Intitule ?? "No Title Available",

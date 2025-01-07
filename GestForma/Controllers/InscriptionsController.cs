@@ -110,17 +110,17 @@ namespace GestForma.Controllers
         {
             var inscriptionsFini = await _context.Inscriptions
                                           .Include(i => i.Formation)
-                                          .Where(i => i.ID_User == _userManager.GetUserId(User) && i.Fin == true && i.Certificat == true && i.Paiement == true)
+                                          .Where(i => i.ID_User == _userManager.GetUserId(User) && i.Fin == true && i.Certificat == true && i.Paiement == true && i.archivee==false)
                                          .ToListAsync();
 
             var inscriptionsnonFini = await _context.Inscriptions
                                               .Include(i => i.Formation)
-                                              .Where(i => i.ID_User == _userManager.GetUserId(User) && i.Fin == false)
+                                              .Where(i => i.ID_User == _userManager.GetUserId(User) && i.Fin == false && i.archivee == false)
                                              .ToListAsync();
 
             var inscriptionsNonPayes = await _context.Inscriptions
                                               .Include(i => i.Formation)
-                                              .Where(i => i.ID_User == _userManager.GetUserId(User) && i.Paiement == false)
+                                              .Where(i => i.ID_User == _userManager.GetUserId(User) && i.Paiement == false && i.archivee == false)
                                              .ToListAsync();
 
             //i.ID_User == _userManager.GetUserId(User) &&
@@ -130,7 +130,7 @@ namespace GestForma.Controllers
             ViewData["inscriptionsNonPayes"] = inscriptionsNonPayes;
 
             var userRatings = await _context.Rates
-                                    .Where(r => r.ID_User == _userManager.GetUserId(User))
+                                    .Where(r => r.ID_User == _userManager.GetUserId(User) && r.archivee == false)
                                     .ToDictionaryAsync(r => r.ID_Formation, r => (int)r.ContenuRate);
 
             ViewData["inscriptionsFini"] = inscriptionsFini;
@@ -163,7 +163,7 @@ namespace GestForma.Controllers
 
             // Vérifier si l'évaluation existe déjà pour cette formation et cet utilisateur
             var existingRating = await _context.Rates
-                                               .FirstOrDefaultAsync(r => r.ID_User == userId && r.ID_Formation == formationId);
+            .FirstOrDefaultAsync(r => r.ID_User == userId && r.ID_Formation == formationId && r.archivee == false);
 
             if (existingRating != null)
             {

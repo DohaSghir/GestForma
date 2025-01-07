@@ -71,19 +71,22 @@ namespace GestForma.Controllers
         */
         public async Task<IActionResult> Index()
         {
-            // Fetch and count users in different roles
+
             var participants = await _userManager.GetUsersInRoleAsync("participant");
-            ViewBag.nbrPart = participants.Count;
+            var activeParticipants = participants.Where(u => !u.archivee);
+            ViewBag.nbrPart = activeParticipants.Count();
 
             var professors = await _userManager.GetUsersInRoleAsync("professeur");
-            ViewBag.nbrprof = professors.Count;
+            var activeProfessors = professors.Where(u => !u.archivee);
+            ViewBag.nbrprof = activeProfessors.Count();
 
             var guests = await _userManager.GetUsersInRoleAsync("invité");
-            ViewBag.nbrinv = guests.Count;
+            var activeGuests = guests.Where(u => !u.archivee);
+            ViewBag.nbrinv = activeGuests.Count();
 
             // Count formations and categories
-            ViewBag.nbrform = await _context.Formations.CountAsync();
-            ViewBag.nbrcat = await _context.Categories.CountAsync();
+            ViewBag.nbrform = await _context.Formations.Where(f=>f.archivee==false).CountAsync();
+            ViewBag.nbrcat = await _context.Categories.Where(f => f.archivee == false).CountAsync();
 
             // Fetch formations, categories, and instructors
             var formations = await _context.Formations
@@ -161,7 +164,7 @@ namespace GestForma.Controllers
                 .ToDictionaryAsync(x => x.ID_Formation, x => new { x.AverageRate, x.TotalVotes });
 
             // Create model for the view
-            var model = formations.Select(f => new
+            var model = formations.Where(f=>f.archivee==false).Select(f => new
             {
                 f.ID_Formation,
                 Intitule = f.Intitule ?? "No Title Available",
@@ -197,17 +200,20 @@ namespace GestForma.Controllers
         {
 
             var participants = await _userManager.GetUsersInRoleAsync("participant");
-            ViewBag.nbrPart = participants.Count;
+            var activeParticipants = participants.Where(u => !u.archivee);
+            ViewBag.nbrPart = activeParticipants.Count();
 
             var professors = await _userManager.GetUsersInRoleAsync("professeur");
-            ViewBag.nbrprof = professors.Count;
+            var activeProfessors = professors.Where(u => !u.archivee);
+            ViewBag.nbrprof = activeProfessors.Count();
 
             var guests = await _userManager.GetUsersInRoleAsync("invité");
-            ViewBag.nbrinv = guests.Count;
+            var activeGuests = guests.Where(u => !u.archivee);
+            ViewBag.nbrinv = activeGuests.Count();
 
             // Count formations and categories
-            ViewBag.nbrform = await _context.Formations.CountAsync();
-            ViewBag.nbrcat = await _context.Categories.CountAsync();
+            ViewBag.nbrform = await _context.Formations.Where(f => f.archivee == false).CountAsync();
+            ViewBag.nbrcat = await _context.Categories.Where(f => f.archivee == false).CountAsync();
 
 
             return View();
@@ -456,9 +462,14 @@ namespace GestForma.Controllers
                 return RedirectToAction(nameof(GetUsersWithRoleP));
             }
 
-            var result = await _userManager.DeleteAsync(user);
+            user.archivee = true;
+            var result = await _userManager.UpdateAsync(user);
             if (result.Succeeded)
             {
+                var inscriptions = _context.Inscriptions.Where(fp => fp.ID_User == user.Id);
+                foreach (var inscription in inscriptions)
+                { inscription.archivee = true; }
+                await _context.SaveChangesAsync();
                 TempData["Success"] = $"The user {user.UserName} has been successfully deleted.";
             }
             else
@@ -617,34 +628,29 @@ namespace GestForma.Controllers
 
 
             var par = await _userManager.GetUsersInRoleAsync("participant");
-
-            var nbrPart = par.Count;
-
+            var activePar = par.Where(u => !u.archivee);
+            var nbrPart = activePar.Count();
             ViewBag.nbrPart = nbrPart;
 
             var prof = await _userManager.GetUsersInRoleAsync("professeur");
-
-            var nbrprof = prof.Count;
-
+            var activeProf = prof.Where(u => !u.archivee);
+            var nbrprof = activeProf.Count();
             ViewBag.nbrprof = nbrprof;
 
-
             var inv = await _userManager.GetUsersInRoleAsync("invité");
-
-
-            var nbrinv = inv.Count;
-
+            var activeInv = inv.Where(u => !u.archivee);
+            var nbrinv = activeInv.Count();
             ViewBag.nbrinv = nbrinv;
 
-            var totalNumberOfFormations = await _context.Formations.CountAsync();
+            var totalNumberOfFormations = await _context.Formations.Where(f=>f.archivee==false).CountAsync();
 
 
             ViewBag.TotalNumberOfFormations = totalNumberOfFormations;
             // Vérifiez que _context n'est pas null et contient des données
-            if (_context.Formations.Any())
+            if (_context.Formations.Where(f=>f.archivee==false).Any())
             {
                 var nbrActif = await _context.Formations
-                    .Where(f => f.ID_User != null) // Vérifier que l'ID_User n'est pas null
+                    .Where(f => f.ID_User != null && f.archivee==false) // Vérifier que l'ID_User n'est pas null
                     .Select(f => f.ID_User) // Sélectionner les utilisateurs dans la table Formation
                     .Distinct() // Rendre l'ID_User distinct (pour ne pas compter les doublons)
                     .CountAsync(); // Compter le nombre d'utilisateurs distincts
@@ -658,7 +664,7 @@ namespace GestForma.Controllers
 
             var nbrCertifies = await _context.Inscriptions
                
-    .Where(f => f.Certificat == true)
+    .Where(f => f.Certificat == true && f.archivee==false)
     .Select(f => f.ID_User) 
     .Distinct() 
     .CountAsync(); 
@@ -668,7 +674,7 @@ namespace GestForma.Controllers
 
             var nbrnonCertifies = await _context.Inscriptions
 
-.Where(f => f.Certificat == false)
+.Where(f => f.Certificat == false && f.archivee == false)
 .Select(f => f.ID_User)
 .Distinct()
 .CountAsync();
@@ -683,9 +689,10 @@ namespace GestForma.Controllers
             {
                 // Obtenir les utilisateurs dans ce rôle
                 var usersInRole = await _userManager.GetUsersInRoleAsync("participant");
+                var activeParticipants = usersInRole.Where(user => !user.archivee);
 
                 // Extraire l'âge des utilisateurs
-                var ageGroups = usersInRole
+                var ageGroups = activeParticipants
                     .Where(user => user.Age != null)  // Assurez-vous que la propriété d'âge est dans la base de données, par exemple BirthDate
                     .GroupBy(user => GetAgeGroup(user.Age))
                     .Select(group => new

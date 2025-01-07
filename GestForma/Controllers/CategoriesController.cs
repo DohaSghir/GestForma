@@ -147,14 +147,17 @@ namespace GestForma.Controllers
             if (category != null)
             {
                 // Supprimer toutes les formations associées
-                var relatedFormations = _context.Formations
-                    .Where(f => f.Id_Categorie == id)
-                    .ToList();
+             
+                var relatedFormations = _context.Formations.Where(f => f.Id_Categorie == id).ToList(); 
+                foreach (var formation in relatedFormations)
+                { formation.archivee = true;
 
-                _context.Formations.RemoveRange(relatedFormations);
-
+                    var inscriptions = _context.Inscriptions.Where(fp => fp.ID_Formation == formation.ID_Formation).ToList(); 
+                    foreach (var inscription in inscriptions)
+                    { inscription.archivee = true; }
+                }
                 // Supprimer la catégorie
-           
+
                 category.archivee = true;
                 // Sauvegarder toutes les modifications
                 await _context.SaveChangesAsync();
