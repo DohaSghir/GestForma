@@ -1,3 +1,4 @@
+using System.Data;
 using System.Diagnostics;
 using GestForma.Models;
 using GestForma.Services;
@@ -177,6 +178,28 @@ namespace GestForma.Controllers
 
         public IActionResult Contact()
         {
+            return View();
+        }
+
+        public async Task<IActionResult> Instructors()
+        {
+            var role = await _context.Roles.FirstOrDefaultAsync(r => r.Name == "professeur");
+            var trainers = await (from user in _context.Users
+                                  join trainer in _context.Trainers
+                                  on user.Id equals trainer.Id_user
+                                  where _context.UserRoles.Any(ur => ur.UserId == user.Id && ur.RoleId == role.Id)
+                                  select new
+                                  {
+                                      user.UserName,
+                                      user.Email,
+                                      user.FirstName,
+                                      user.LastName,
+                                      trainer.Data,
+                                      trainer.ContentType,
+                                      trainer.Field
+                                  }).ToListAsync();
+
+            ViewBag.Trainers = trainers;
             return View();
         }
 

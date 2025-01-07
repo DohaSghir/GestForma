@@ -21,9 +21,15 @@
         @TempData["Error"]
     </div>
 }
+<!-- Search Bar -->
+<div class="d-flex justify-content-center align-items-center">
+    <div class="mb-3 w-25">
+        <input type="text" id="searchEmail" class="form-control" placeholder="Search by Email" />
+    </div>
+</div>
 
-<div class="table-responsive mx-auto px-4 mt-5">
-    <table class="table table-bordered  table-hover table-striped text-center">
+<div class="table-responsive mx-auto px-4 mt-5" style="margin-bottom:200px">
+    <table class="table table-bordered  table-hover table-striped text-center" id="tableParticipant">
         <thead>
             <tr>
                 <th>Last Name</th>
@@ -37,7 +43,7 @@
             {
                 <tr>
                     <td>@user.LastName</td>
-                    <td>@user.Email</td>
+                    <td class="email">@user.Email</td>
                     <td>@user.CreatedAt.ToString("d")</td>
                     <td>
 
@@ -53,4 +59,16 @@
         </tbody>
     </table>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#searchEmail").on("keyup", function () {
+            var searchValue = $(this).val().toLowerCase();
+            $("#tableParticipant tbody tr").filter(function () {
+                $(this).toggle($(this).find(".email").text().toLowerCase().indexOf(searchValue) > -1);
+            });
+        });
+    });
+</script>
 
