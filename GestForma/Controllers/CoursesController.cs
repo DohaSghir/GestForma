@@ -34,12 +34,12 @@ namespace GestForma.Controllers
             var userId = _userManager.GetUserId(User);
 
             var applicationDbContext = _context.Formations
-                .Where(f => f.ID_User == userId) 
-                .Include(f => f.Categorie)       
-                .Include(f => f.User)           
-                .AsQueryable();
+                 .Where(f => f.ID_User == userId && f.archivee == false)  // Ajout de la condition archivee == false
+                 .Include(f => f.Categorie)
+                 .Include(f => f.User)
+                 .AsQueryable();
 
-      
+
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -247,14 +247,32 @@ namespace GestForma.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var formation = await _context.Formations.FindAsync(id);
+
             if (formation != null)
             {
-                _context.Formations.Remove(formation);
-                TempData["SuccessMessage"] = "Course successfully deleted!";
+                // Archiver la formation
+                formation.archivee = true;
+
+                // Rechercher les inscriptions associées à l'utilisateur et les archiver
+                var inscriptions = await _context.Inscriptions
+                    .Where(inscription => inscription.ID_Formation == id) // Remplacez `IdUser` par le nom exact de la propriété dans votre modèle
+                    .ToListAsync();
+
+                foreach (var inscription in inscriptions)
+                {
+                    inscription.archivee = true;
+                }
+
+                // Message de succès
+                TempData["SuccessMessage"] = "Course and associated enrollments successfully archived!";
+            }
+            else
+            {
+                TempData["ErrorMessage"] = "Course not found!";
             }
 
+            // Sauvegarder les modifications dans la base de données
             await _context.SaveChangesAsync();
-
             return RedirectToAction(nameof(Index));
         }
 
