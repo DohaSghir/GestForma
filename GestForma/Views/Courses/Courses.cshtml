@@ -12,34 +12,45 @@
 {
     <div class="alert alert-danger mt-3 text-center">@TempData["Error"]</div>
 }
-
-<!-- Filter Section -->
 <div class="jumbotron jumbotron-fluid page-header position-relative overlay-bottom" style="margin-bottom: 20px;">
     <div class="container text-center py-5">
         <div class="mx-auto mb-5" style="width: 100%; max-width: 600px;">
-            <div class="input-group">
-                <!-- Category Selector -->
-                <div class="input-group-prepend">
-                    <select id="categorySelect" class="form-control border-light" style="height:63px; border-radius:none;">
-                        <option value="" selected>All Categories</option>
-                        @foreach (var cat in ViewBag.Categories as List<string>)
-                        {
-                            <option value="@cat">@cat</option>
-                        }
+            <form method="get" action="@Url.Action("Courses")" class="d-flex justify-content-center align-items-center">
+                <!-- Dropdown for Search By -->
+                <div class="mr-3 d-flex align-items-center">
+                    <label for="searchBy" class="font-weight-bold mr-2 mb-0 text-light">Search By:</label>
+                    <select name="searchBy" id="searchBy" class="form-control"
+                            style="height: 50px; border-radius: 5px;">
+                        <option value="categorie">Category</option>
+                        <option value="prix">Price</option>
+                        <option value="titre">Course Title</option>
+                        <option value="nombreHeure">Number of hours</option>
                     </select>
                 </div>
 
-                <!-- Keyword Search Field -->
-                <input type="text" class="form-control border-light" style="padding: 30px 25px;" placeholder="Keyword" id="keywordInput">
-                <div class="input-group-append">
-                    <button class="btn btn-secondary px-4 px-lg-5" id="searchButton">Search</button>
+                <!-- Input Field for Keyword -->
+                <div class="mr-3 d-flex align-items-center">
+                    <input type="text" name="keyword" id="keyword" class="form-control"
+                           style="height: 50px; border-radius: 5px; padding: 0 15px;"
+                           placeholder="Keyword" />
                 </div>
-            </div>
+
+                <!-- Submit Button -->
+                <div class="d-flex align-items-center">
+                    <button type="submit" class="btn btn-secondary"
+                            style="height: 50px; border-radius: 5px; padding: 0 20px;">
+                        Search
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
 
-<!-- Display Courses -->
+</div>
+
+
+
 <div class="container-fluid py-5">
     <div class="container py-5">
         <div class="row mx-0 justify-content-center">
@@ -50,7 +61,8 @@
                 </div>
             </div>
 
-            <!-- Courses List -->
+
+
             <div class="row" id="coursesList">
                 @foreach (var formation in Model)
                 {
@@ -64,12 +76,14 @@
                                 <div class="border-top w-100 mt-3">
                                     <div class="d-flex justify-content-between p-4">
                                         <span class="text-white"><i class="fa fa-user mr-2"></i> @formation.FormateurName</span>
-                                        <span class="text-white"><i class="fa fa-star mr-2"></i> @(formation.AverageRate.ToString("F1") ?? "No Ratings")</span>
+                                        <span class="text-white"><i class="fa fa-star mr-2"></i> @(formation.AverageRate.ToString("F1")) </span>
                                         <span><h5 class="card-title">@formation.Cout Dh</h5></span>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+
                         @if (User.Identity.IsAuthenticated && User.IsInRole("participant"))
                         {
                             <div class="w-100 bg-white text-center p-4 mb-2 mt-n1">
@@ -88,27 +102,24 @@
     </div>
 </div>
 
-<!-- Client-Side Filtering Script -->
+
 <script>
     document.getElementById('searchButton').addEventListener('click', function () {
-        // Get filter values
         const category = document.getElementById('categorySelect').value.toLowerCase();
         const keyword = document.getElementById('keywordInput').value.toLowerCase();
-
-        // Get all courses (list items)
         const courses = document.querySelectorAll('.course-item');
 
-        // Filter courses
         courses.forEach(function (course) {
             const courseCategory = course.getAttribute('data-category').toLowerCase();
             const courseTitle = course.getAttribute('data-title').toLowerCase();
 
-            // Check if category and keyword match
             const categoryMatches = category ? courseCategory === category : true;
             const keywordMatches = keyword ? courseTitle.includes(keyword) : true;
 
-            // Show or hide the course based on filters
             course.style.display = (categoryMatches && keywordMatches) ? 'block' : 'none';
         });
     });
 </script>
+
+
+

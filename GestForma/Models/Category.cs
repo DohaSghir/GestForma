@@ -13,5 +13,7 @@ namespace GestForma.Models
         [MaxLength(100)]
         public string Title { get; set; }
 
+        public bool archivee { get; set; } = false;
+
     }
 }

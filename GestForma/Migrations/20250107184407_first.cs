@@ -24,7 +24,8 @@ namespace GestForma.Migrations
                     FileName = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
                     ContentType = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     Size = table.Column<long>(type: "bigint", nullable: true),
-                    Data = table.Column<byte[]>(type: "varbinary(max)", nullable: true)
+                    Data = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
+                    archivee = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -55,6 +56,7 @@ namespace GestForma.Migrations
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Age = table.Column<int>(type: "int", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    archivee = table.Column<bool>(type: "bit", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -81,27 +83,12 @@ namespace GestForma.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
+                    Title = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    archivee = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Categories", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "StatistiqueGlobales",
-                columns: table => new
-                {
-                    IdStatistiqueGlobale = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    NombreDeFormations = table.Column<int>(type: "int", nullable: false),
-                    NombreDeParticipants = table.Column<int>(type: "int", nullable: false),
-                    NombreDeCategories = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_StatistiqueGlobales", x => x.IdStatistiqueGlobale);
                 });
 
             migrationBuilder.CreateTable(
@@ -217,7 +204,8 @@ namespace GestForma.Migrations
                     IdCommentaire = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ContenuCommentaire = table.Column<string>(type: "nvarchar(2000)", maxLength: 2000, nullable: false),
-                    Id_User = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    Id_User = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    archivee = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -240,7 +228,8 @@ namespace GestForma.Migrations
                     Size = table.Column<long>(type: "bigint", nullable: true),
                     Data = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
                     Field = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Id_user = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    Id_user = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    archivee = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -267,7 +256,8 @@ namespace GestForma.Migrations
                     FileName = table.Column<string>(type: "nvarchar(2955)", maxLength: 2955, nullable: true),
                     ContentType = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
                     Size = table.Column<long>(type: "bigint", nullable: true),
-                    Data = table.Column<byte[]>(type: "varbinary(max)", nullable: true)
+                    Data = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
+                    archivee = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -285,33 +275,6 @@ namespace GestForma.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "CommentairesDeFormations",
-                columns: table => new
-                {
-                    IdCommentaire = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ID_Formation = table.Column<int>(type: "int", nullable: false),
-                    ID_User = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Commentaire = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CommentairesDeFormations", x => x.IdCommentaire);
-                    table.ForeignKey(
-                        name: "FK_CommentairesDeFormations_AspNetUsers_ID_User",
-                        column: x => x.ID_User,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_CommentairesDeFormations_Formations_ID_Formation",
-                        column: x => x.ID_Formation,
-                        principalTable: "Formations",
-                        principalColumn: "ID_Formation",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Inscriptions",
                 columns: table => new
                 {
@@ -319,10 +282,10 @@ namespace GestForma.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ID_User = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     ID_Formation = table.Column<int>(type: "int", nullable: false),
-                    Etat = table.Column<bool>(type: "bit", nullable: false),
                     Paiement = table.Column<bool>(type: "bit", nullable: false),
                     Fin = table.Column<bool>(type: "bit", nullable: false),
-                    Certificat = table.Column<bool>(type: "bit", nullable: false)
+                    Certificat = table.Column<bool>(type: "bit", nullable: false),
+                    archivee = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -349,7 +312,8 @@ namespace GestForma.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ID_Formation = table.Column<int>(type: "int", nullable: false),
                     ID_User = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ContenuRate = table.Column<double>(type: "float", nullable: false)
+                    ContenuRate = table.Column<double>(type: "float", nullable: false),
+                    archivee = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -368,37 +332,15 @@ namespace GestForma.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "StatistiqueFormations",
-                columns: table => new
-                {
-                    IdStatistiqueFormation = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    IdFormation = table.Column<int>(type: "int", nullable: false),
-                    ParticipantsParFormation = table.Column<int>(type: "int", nullable: false),
-                    RateMoyen = table.Column<double>(type: "float", nullable: false),
-                    date = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_StatistiqueFormations", x => x.IdStatistiqueFormation);
-                    table.ForeignKey(
-                        name: "FK_StatistiqueFormations_Formations_IdFormation",
-                        column: x => x.IdFormation,
-                        principalTable: "Formations",
-                        principalColumn: "ID_Formation",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "3e1d3f8f-e978-4762-8086-ab5db372a5d0", null, "participant", "participant" },
-                    { "a9c2840b-d197-4f70-ac0d-b21e37d459ff", null, "professeur", "professeur" },
-                    { "ac7222f5-b3ca-4ec7-b016-b11d48604127", null, "invité", "invité" },
-                    { "db9ad511-8206-453e-a13f-907980177b72", null, "administrateur", "administrateur" }
+                    { "060c4b79-d86d-43be-be02-54737c4e6655", null, "administrateur", "administrateur" },
+                    { "19f261be-18f6-40a1-bdc0-8831633945d6", null, "professeur", "professeur" },
+                    { "36275bf4-4294-4ca4-9142-ee72ad65e8f0", null, "invité", "invité" },
+                    { "6b8eee3d-402c-4976-bfad-6f9aada468e7", null, "participant", "participant" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -441,16 +383,6 @@ namespace GestForma.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CommentairesDeFormations_ID_Formation",
-                table: "CommentairesDeFormations",
-                column: "ID_Formation");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_CommentairesDeFormations_ID_User",
-                table: "CommentairesDeFormations",
-                column: "ID_User");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_CommentairesEntiers_Id_User",
                 table: "CommentairesEntiers",
                 column: "Id_User");
@@ -486,11 +418,6 @@ namespace GestForma.Migrations
                 column: "ID_User");
 
             migrationBuilder.CreateIndex(
-                name: "IX_StatistiqueFormations_IdFormation",
-                table: "StatistiqueFormations",
-                column: "IdFormation");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Trainers_Id_user",
                 table: "Trainers",
                 column: "Id_user");
@@ -518,9 +445,6 @@ namespace GestForma.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "CommentairesDeFormations");
-
-            migrationBuilder.DropTable(
                 name: "CommentairesEntiers");
 
             migrationBuilder.DropTable(
@@ -528,12 +452,6 @@ namespace GestForma.Migrations
 
             migrationBuilder.DropTable(
                 name: "Rates");
-
-            migrationBuilder.DropTable(
-                name: "StatistiqueFormations");
-
-            migrationBuilder.DropTable(
-                name: "StatistiqueGlobales");
 
             migrationBuilder.DropTable(
                 name: "Trainers");

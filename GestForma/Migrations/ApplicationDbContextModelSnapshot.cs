@@ -53,6 +53,9 @@ namespace GestForma.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<bool>("archivee")
+                        .HasColumnType("bit");
+
                     b.HasKey("IdActualite");
 
                     b.ToTable("Actualites");
@@ -130,6 +133,9 @@ namespace GestForma.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
+                    b.Property<bool>("archivee")
+                        .HasColumnType("bit");
+
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
@@ -156,38 +162,12 @@ namespace GestForma.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<bool>("archivee")
+                        .HasColumnType("bit");
+
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
-                });
-
-            modelBuilder.Entity("GestForma.Models.CommentairesDeFormation", b =>
-                {
-                    b.Property<int>("IdCommentaire")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdCommentaire"));
-
-                    b.Property<string>("Commentaire")
-                        .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
-
-                    b.Property<int>("ID_Formation")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ID_User")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("IdCommentaire");
-
-                    b.HasIndex("ID_Formation");
-
-                    b.HasIndex("ID_User");
-
-                    b.ToTable("CommentairesDeFormations");
                 });
 
             modelBuilder.Entity("GestForma.Models.CommentairesEntiers", b =>
@@ -205,6 +185,9 @@ namespace GestForma.Migrations
 
                     b.Property<string>("Id_User")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<bool>("archivee")
+                        .HasColumnType("bit");
 
                     b.HasKey("IdCommentaire");
 
@@ -256,6 +239,9 @@ namespace GestForma.Migrations
                     b.Property<long?>("Size")
                         .HasColumnType("bigint");
 
+                    b.Property<bool>("archivee")
+                        .HasColumnType("bit");
+
                     b.HasKey("ID_Formation");
 
                     b.HasIndex("ID_User");
@@ -276,9 +262,6 @@ namespace GestForma.Migrations
                     b.Property<bool>("Certificat")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("Etat")
-                        .HasColumnType("bit");
-
                     b.Property<bool>("Fin")
                         .HasColumnType("bit");
 
@@ -290,6 +273,9 @@ namespace GestForma.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<bool>("Paiement")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("archivee")
                         .HasColumnType("bit");
 
                     b.HasKey("ID_Inscription");
@@ -319,6 +305,9 @@ namespace GestForma.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<bool>("archivee")
+                        .HasColumnType("bit");
+
                     b.HasKey("IdRate");
 
                     b.HasIndex("ID_Formation");
@@ -326,58 +315,6 @@ namespace GestForma.Migrations
                     b.HasIndex("ID_User");
 
                     b.ToTable("Rates");
-                });
-
-            modelBuilder.Entity("GestForma.Models.StatistiqueFormation", b =>
-                {
-                    b.Property<int>("IdStatistiqueFormation")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdStatistiqueFormation"));
-
-                    b.Property<int>("IdFormation")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ParticipantsParFormation")
-                        .HasColumnType("int");
-
-                    b.Property<double>("RateMoyen")
-                        .HasColumnType("float");
-
-                    b.Property<DateTime>("date")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("IdStatistiqueFormation");
-
-                    b.HasIndex("IdFormation");
-
-                    b.ToTable("StatistiqueFormations");
-                });
-
-            modelBuilder.Entity("GestForma.Models.StatistiqueGlobale", b =>
-                {
-                    b.Property<int>("IdStatistiqueGlobale")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdStatistiqueGlobale"));
-
-                    b.Property<int>("NombreDeCategories")
-                        .HasColumnType("int");
-
-                    b.Property<int>("NombreDeFormations")
-                        .HasColumnType("int");
-
-                    b.Property<int>("NombreDeParticipants")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("date")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("IdStatistiqueGlobale");
-
-                    b.ToTable("StatistiqueGlobales");
                 });
 
             modelBuilder.Entity("GestForma.Models.Trainer", b =>
@@ -409,6 +346,9 @@ namespace GestForma.Migrations
 
                     b.Property<long?>("Size")
                         .HasColumnType("bigint");
+
+                    b.Property<bool>("archivee")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
@@ -446,25 +386,25 @@ namespace GestForma.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "db9ad511-8206-453e-a13f-907980177b72",
+                            Id = "060c4b79-d86d-43be-be02-54737c4e6655",
                             Name = "administrateur",
                             NormalizedName = "administrateur"
                         },
                         new
                         {
-                            Id = "a9c2840b-d197-4f70-ac0d-b21e37d459ff",
+                            Id = "19f261be-18f6-40a1-bdc0-8831633945d6",
                             Name = "professeur",
                             NormalizedName = "professeur"
                         },
                         new
                         {
-                            Id = "3e1d3f8f-e978-4762-8086-ab5db372a5d0",
+                            Id = "6b8eee3d-402c-4976-bfad-6f9aada468e7",
                             Name = "participant",
                             NormalizedName = "participant"
                         },
                         new
                         {
-                            Id = "ac7222f5-b3ca-4ec7-b016-b11d48604127",
+                            Id = "36275bf4-4294-4ca4-9142-ee72ad65e8f0",
                             Name = "invité",
                             NormalizedName = "invité"
                         });
@@ -580,25 +520,6 @@ namespace GestForma.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("GestForma.Models.CommentairesDeFormation", b =>
-                {
-                    b.HasOne("GestForma.Models.Formation", "Formation")
-                        .WithMany("Commentaires")
-                        .HasForeignKey("ID_Formation")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("GestForma.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("ID_User")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Formation");
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("GestForma.Models.CommentairesEntiers", b =>
                 {
                     b.HasOne("GestForma.Models.ApplicationUser", "User")
@@ -659,17 +580,6 @@ namespace GestForma.Migrations
                     b.Navigation("Formation");
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("GestForma.Models.StatistiqueFormation", b =>
-                {
-                    b.HasOne("GestForma.Models.Formation", "Formation")
-                        .WithMany()
-                        .HasForeignKey("IdFormation")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Formation");
                 });
 
             modelBuilder.Entity("GestForma.Models.Trainer", b =>
@@ -734,8 +644,6 @@ namespace GestForma.Migrations
 
             modelBuilder.Entity("GestForma.Models.Formation", b =>
                 {
-                    b.Navigation("Commentaires");
-
                     b.Navigation("Evaluations");
 
                     b.Navigation("Inscriptions");

@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using GestForma.Models;
 using GestForma.Services;
 using Microsoft.VisualBasic;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GestForma.Controllers
 {
+    [Authorize(Roles = "administrateur")]
     public class ActualitesController : Controller
     {
         private readonly ApplicationDbContext _context;
