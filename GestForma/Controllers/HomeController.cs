@@ -87,6 +87,7 @@ namespace GestForma.Controllers
 
             // Fetch formations, categories, and instructors
             var formations = await _context.Formations
+                .Where(f => f.archivee == false)
                 .Include(f => f.Categorie)
                 .Include(f => f.User)
                 .ToListAsync();
@@ -109,11 +110,19 @@ namespace GestForma.Controllers
             ViewBag.Commentaires = latestCommentaires;
 
 
-            // Fetch trainers
             var role = await _context.Roles.FirstOrDefaultAsync(r => r.Name == "professeur");
+
+            if (role == null)
+            {
+                // Gérer le cas où le rôle "professeur" n'existe pas
+                return NotFound("Role 'professeur' not found.");
+            }
+
             var trainers = await (from user in _context.Users
                                   join trainer in _context.Trainers on user.Id equals trainer.Id_user
-                                  where _context.UserRoles.Any(ur => ur.UserId == user.Id && ur.RoleId == role.Id)
+                                  where !user.archivee // Filtrer les utilisateurs non archivés
+                                        && !trainer.archivee // Filtrer les formateurs non archivés
+                                        && _context.UserRoles.Any(ur => ur.UserId == user.Id && ur.RoleId == role.Id)
                                   select new
                                   {
                                       user.UserName,
@@ -227,10 +236,18 @@ namespace GestForma.Controllers
         public async Task<IActionResult> Instructors()
         {
             var role = await _context.Roles.FirstOrDefaultAsync(r => r.Name == "professeur");
+
+            if (role == null)
+            {
+                // Gérer le cas où le rôle "professeur" n'existe pas
+                return NotFound("Role 'professeur' not found.");
+            }
+
             var trainers = await (from user in _context.Users
-                                  join trainer in _context.Trainers
-                                  on user.Id equals trainer.Id_user
-                                  where _context.UserRoles.Any(ur => ur.UserId == user.Id && ur.RoleId == role.Id)
+                                  join trainer in _context.Trainers on user.Id equals trainer.Id_user
+                                  where !user.archivee // Filtrer les utilisateurs non archivés
+                                        && !trainer.archivee // Filtrer les formateurs non archivés
+                                        && _context.UserRoles.Any(ur => ur.UserId == user.Id && ur.RoleId == role.Id)
                                   select new
                                   {
                                       user.UserName,
@@ -251,7 +268,7 @@ namespace GestForma.Controllers
             var unpaidInscriptions = await _context.Inscriptions
         .Include(i => i.User)   // Make sure User is included in the query
         .Include(i => i.Formation)  // Make sure Formation is included in the query
-        .Where(element => element.Paiement == false)
+        .Where(element => element.Paiement == false && element.Formation.archivee == false)
         .ToListAsync();
             return View(unpaidInscriptions);
         }

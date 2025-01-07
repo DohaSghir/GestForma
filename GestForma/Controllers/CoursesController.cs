@@ -114,7 +114,7 @@ namespace GestForma.Controllers
                 
                 _context.Add(formation);
                 await _context.SaveChangesAsync();
-                TempData["SuccessMessage"] = "Course successfully added!";
+                TempData["Success"] = "Course successfully added!";
                 return RedirectToAction(nameof(Index));
             }
             foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
@@ -264,11 +264,11 @@ namespace GestForma.Controllers
                 }
 
                 // Message de succès
-                TempData["SuccessMessage"] = "Course and associated enrollments successfully archived!";
+                TempData["Success"] = "Course and associated enrollments successfully archived!";
             }
             else
             {
-                TempData["ErrorMessage"] = "Course not found!";
+                TempData["Error"] = "Course not found!";
             }
 
             // Sauvegarder les modifications dans la base de données
@@ -296,6 +296,7 @@ namespace GestForma.Controllers
 
 
             var formations = await _context.Formations
+                .Where(f => f.archivee == false)
                 .Include(f => f.Categorie)
                 .Include(f => f.User)
                 .ToListAsync();
