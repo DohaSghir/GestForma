@@ -49,7 +49,7 @@
                     @foreach (var inscription in Model)
                     {
                         <tr>
-                            <td>@(inscription.User != null ? inscription.User.Email : "No Email Available")</td>
+                            <td class="email">@(inscription.User != null ? inscription.User.Email : "No Email Available")</td>
                             <td>@(inscription.Formation != null ? inscription.Formation.Intitule : "No Course Name")</td>
                             <td>@(inscription.Formation != null ? inscription.Formation.Cout.ToString("C") : "0 $")</td>
 

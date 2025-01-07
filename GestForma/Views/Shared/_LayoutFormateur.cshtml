@@ -73,12 +73,10 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav mx-auto py-0">
-                    <a asp-controller="Courses" asp-action="Index" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "active" : "")">Courses</a>
+                    <a asp-controller="Courses" asp-action="Index" class="nav-item nav-link @((ViewContext.RouteData.Values["controller"]?.ToString() == "Courses" && (ViewContext.RouteData.Values["action"]?.ToString() == "Index" ||  ViewContext.RouteData.Values["action"]?.ToString() == "Edit" || ViewContext.RouteData.Values["action"]?.ToString() == "Create" || ViewContext.RouteData.Values["action"]?.ToString() == "Delete"))? "active" : "")">Courses</a>
+
                     <a asp-controller="Trainers" asp-action="Statistics" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Statistics" ? "active" : "")">Statistics</a>
                     <a asp-controller="Home" asp-action="FormateurDashboard" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "FormateurDashboard" ? "active" : "")">Activities</a>
-                    <a asp-controller="Home" asp-action="Contact" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Contact" ? "active" : "")">Contact</a>
-               
-
                 </div>
                 <!-- Align the logout button to the right -->
                 <partial name="_LoginPartial" />
@@ -95,7 +93,7 @@
     <div class="container-fluid position-relative overlay-top bg-dark text-white-50 py-5" style="margin-top: 90px;">
         <div class="container mt-5 pt-5">
             <div class="row">
-                <div class="col-md-4 mb-5">
+                <div class="col-md-5 mb-5">
                     <h3 class="text-white mb-4">Get In Touch</h3>
                     <p><i class="fa fa-map-marker-alt mr-2"></i>PowerLearn B.P. 2202 – Route d’Imouzzer, Fez</p>
                     <p><i class="fa fa-phone-alt mr-2"></i>+212 5 22 34 56 78</p>
@@ -107,14 +105,7 @@
                         <a class="text-white" href="#"><i class="fab fa-2x fa-instagram"></i></a>
                     </div>
                 </div>
-                <div class="col-md-4 mb-5">
-                    <h3 class="text-white mb-4">Quick Links</h3>
-                    <div class="d-flex flex-column justify-content-start">
-                        <a class="text-white-50 mb-2" asp-controller="Home" asp-action="About"><i class="fa fa-angle-right mr-2"></i>About Us</a>
-                        <a class="text-white-50 mb-2" asp-controller="Home" asp-action="Contact"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
-                        <a class="text-white-50 mb-2" asp-controller="Home" asp-action="Privacy"><i class="fa fa-angle-right mr-2"></i>Privacy Policy</a>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </div>

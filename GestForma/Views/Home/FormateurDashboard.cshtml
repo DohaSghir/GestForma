@@ -2,21 +2,30 @@
 @{
     Layout = "~/Views/Shared/_LayoutFormateur.cshtml";
 }
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["ErrorMessage"]
+        </div>
+    }
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+<h2 class="text-center text-dark fw-bold mt-5 mb-4">Participants who remain incomplete in their training</h2>
+<!-- Search Bar -->
+<div class="d-flex justify-content-center align-items-center">
+    <div class="mb-3 w-25">
+        <input type="text" id="searchEmail" class="form-control" placeholder="Search by Email" />
+    </div>
+</div>
 
-<h1 class="text-center text-dark fw-bold mt-5">Welcome Trainer</h1>
 
-<!-- Barre de recherche -->
-<form method="get" action="@Url.Action("FormateurDashboard", "Home")" class="mx-4">
-    <input type="text" name="search" placeholder="Search by course" class="form-control d-inline w-50" />
-    <button type="submit" class="btn btn-info btn-sm ml-2">
-        <i class="fa fa-search"></i> Search
-    </button>
-</form>
 
-<h2 class="text-center text-dark fw-bold mt-5">Participants who remain incomplete in their training</h2>
-
-<div class="table-responsive mx-auto px-4 mt-5">
-    <table class="table table-bordered table-hover table-striped text-center">
+<div class="table-responsive mx-auto px-4 mt-5" style="margin-bottom:200px">
+    <table class="table table-bordered table-hover table-striped text-center" id="tableCertificats">
         <thead>
             <tr>
                 <th>Participant Name</th>
@@ -31,7 +40,7 @@
             {
                 <tr>
                     <td>@(item.User != null ? item.User.FirstName +" "+ item.User.LastName : "No Name Available")</td>
-                    <td>@(item.User != null ? item.User.Email : "No Email Available")</td>
+                    <td class="email">@(item.User != null ? item.User.Email : "No Email Available")</td>
                     <td>@(item.Formation != null ? item.Formation.Intitule : "No Course Name")</td>
                     <td>@(item.Formation != null ? item.Formation.Categorie.Title : "No Category Title")</td>
                     <td>
@@ -47,3 +56,15 @@
         </tbody>
     </table>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#searchEmail").on("keyup", function () {
+            var searchValue = $(this).val().toLowerCase();
+            $("#tableCertificats tbody tr").filter(function () {
+                $(this).toggle($(this).find(".email").text().toLowerCase().indexOf(searchValue) > -1);
+            });
+        });
+    });
+</script>
