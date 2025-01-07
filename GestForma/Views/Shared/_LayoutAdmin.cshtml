@@ -82,6 +82,7 @@
 
                             <a asp-controller="Trainers" asp-action="Trainers" class="dropdown-item  @(new[] {"Trainers","AddTrainer","DeleteFormTrainer"}.Contains(ViewContext.RouteData.Values["action"]?.ToString()) ? "active" : "")">Trainers </a>
                             <a asp-controller="Categories" asp-action="Index" class="dropdown-item @((ViewContext.RouteData.Values["controller"]?.ToString() == "Categories" && (ViewContext.RouteData.Values["action"]?.ToString() == "Index" ||  ViewContext.RouteData.Values["action"]?.ToString() == "Edit" || ViewContext.RouteData.Values["action"]?.ToString() == "Create" || ViewContext.RouteData.Values["action"]?.ToString() == "Delete"))? "active" : "")">Categories </a>
+                            <a asp-controller="Home" asp-action="Message" class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "Message" ? "active" : "")">Message</a>
 
                         </div>
                     </div>
