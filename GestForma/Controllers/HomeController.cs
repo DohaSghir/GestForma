@@ -217,7 +217,35 @@ namespace GestForma.Controllers
         {
             return View();
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Contact(string name, string email, string subject, string messageContent)
+        {
+            if (ModelState.IsValid)
+            {
+                // Créer une nouvelle instance de Message
+                var message = new Message
+                {
+                    Name = name,
+                    Email = email,
+                    Subject = subject,
+                    Body = messageContent
+                };
 
+                // Ajouter l'objet message dans la table Messages
+                _context.Messages.Add(message);
+                _context.SaveChanges(); // Sauvegarder les changements dans la base de données
+
+                // Utiliser TempData pour transmettre un message de confirmation
+                TempData["ConfirmationMessage"] = "Your message has been sent successfully!";
+
+                // Retourner la même vue pour afficher le message de confirmation
+                return View();
+            }
+
+            // Si le modèle n'est pas valide, on retourne la vue avec les messages d'erreur
+            return View();
+        }
         public async Task<IActionResult> TestimonialAsync()
         {
             var latestCommentaires = await _context.CommentairesEntiers
