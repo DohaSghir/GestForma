@@ -75,6 +75,11 @@ namespace GestForma.Controllers
                 TempData["SuccessMessage"] = "News successfully created.";
                 return RedirectToAction(nameof(Index));
             }
+            foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+            {
+                Console.WriteLine($"Validation error: {error.ErrorMessage}");
+                ModelState.AddModelError("", error.ErrorMessage);
+            }
             return View(actualite);
         }
 
