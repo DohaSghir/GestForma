@@ -9,6 +9,7 @@ using GestForma.Models;
 using GestForma.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.VisualBasic;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GestForma.Controllers
 {
@@ -26,6 +27,7 @@ namespace GestForma.Controllers
             }
 
         // GET: Courses
+        [Authorize(Roles = "professeur")]
         public async Task<IActionResult> Index()
         {
             
@@ -41,9 +43,10 @@ namespace GestForma.Controllers
             return View(await applicationDbContext.ToListAsync());
         }
 
-      
+
 
         // GET: Courses/Details/5
+        [Authorize(Roles = "professeur")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -62,7 +65,7 @@ namespace GestForma.Controllers
 
             return View(formation);
         }
-
+        [Authorize(Roles = "professeur")]
         [HttpGet]
         public async Task<IActionResult> GetImage(int id)
         {
@@ -76,6 +79,7 @@ namespace GestForma.Controllers
         }
 
         // GET: Courses/Create
+        [Authorize(Roles = "professeur")]
         public IActionResult Create()
         {
             ViewData["Id_Categorie"] = new SelectList(_context.Categories, "Id", "Title");
@@ -124,7 +128,7 @@ namespace GestForma.Controllers
         }
 
 
-
+        [Authorize(Roles = "professeur")]
         // GET: Courses/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -146,6 +150,7 @@ namespace GestForma.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         // POST: Courses/Edit/5
+        [Authorize(Roles = "professeur")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, IFormFile file, [Bind("ID_Formation,Intitule,Description,Id_Categorie,Duree,Cout,FileName,ContentType,Size,Data")] Formation formation)
@@ -215,6 +220,7 @@ namespace GestForma.Controllers
         }
 
         // GET: Courses/Delete/5
+        [Authorize(Roles = "professeur")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -235,6 +241,7 @@ namespace GestForma.Controllers
         }
 
         // POST: Courses/Delete/5
+
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
