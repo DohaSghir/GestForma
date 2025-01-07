@@ -82,7 +82,7 @@ namespace GestForma.Controllers
         [Authorize(Roles = "professeur")]
         public IActionResult Create()
         {
-            ViewData["Id_Categorie"] = new SelectList(_context.Categories, "Id", "Title");
+            ViewData["Id_Categorie"] = new SelectList(_context.Categories.Where(c => c.archivee == false), "Id", "Title");
             return View();
         }
         [HttpPost]

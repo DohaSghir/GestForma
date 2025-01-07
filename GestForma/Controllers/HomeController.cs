@@ -469,6 +469,11 @@ namespace GestForma.Controllers
                 var inscriptions = _context.Inscriptions.Where(fp => fp.ID_User == user.Id);
                 foreach (var inscription in inscriptions)
                 { inscription.archivee = true; }
+
+                var rates = _context.Rates.Where(r => r.ID_User == user.Id);
+                foreach (var rate in rates)
+                { rate.archivee = true; }
+
                 await _context.SaveChangesAsync();
                 TempData["Success"] = $"The user {user.UserName} has been successfully deleted.";
             }
@@ -493,7 +498,7 @@ namespace GestForma.Controllers
 
             foreach (var user in users)
             {
-                if (await _userManager.IsInRoleAsync(user, "participant"))
+                if (await _userManager.IsInRoleAsync(user, "participant") && !user.archivee)
                 {
                     participants.Add(user);
                 }
