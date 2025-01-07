@@ -69,59 +69,35 @@ namespace GestForma.Controllers
         */
         public async Task<IActionResult> Index()
         {
+            // Fetch and count users in different roles
+            var participants = await _userManager.GetUsersInRoleAsync("participant");
+            ViewBag.nbrPart = participants.Count;
 
-            // Charger les formations avec leurs catégories et les formateurs
-            var formations = _context.Formations
-                .Include(f => f.Categorie) // Charger la catégorie associée
-                .Include(f => f.User)      // Charger le formateur associé
-                .AsQueryable();
+            var professors = await _userManager.GetUsersInRoleAsync("professeur");
+            ViewBag.nbrprof = professors.Count;
 
-            var par = await _userManager.GetUsersInRoleAsync("participant");
+            var guests = await _userManager.GetUsersInRoleAsync("invité");
+            ViewBag.nbrinv = guests.Count;
 
-            var nbrPart = par.Count;
+            // Count formations and categories
+            ViewBag.nbrform = await _context.Formations.CountAsync();
+            ViewBag.nbrcat = await _context.Categories.CountAsync();
 
-            ViewBag.nbrPart = nbrPart;
+            // Fetch formations, categories, and instructors
+            var formations = await _context.Formations
+                .Include(f => f.Categorie)
+                .Include(f => f.User)
+                .ToListAsync();
+            ViewBag.formations1 = formations;
 
-            var prof = await _userManager.GetUsersInRoleAsync("professeur");
+            // Fetch latest news and comments
+            ViewBag.Actualites = await _context.Actualites.ToListAsync();
+            ViewBag.Commentaires = await _context.CommentairesEntiers.Include(c => c.User).ToListAsync();
 
-            var nbrprof = prof.Count;
-
-            ViewBag.nbrprof = nbrprof;
-
-
-            var inv = await _userManager.GetUsersInRoleAsync("invité");
-
-
-            var nbrinv = inv.Count;
-
-            ViewBag.nbrinv = nbrinv;
-
-            var nbrform = await _context.Formations.CountAsync();
-            ViewBag.nbrform = nbrform;
-            var nbrcat = await _context.Categories.CountAsync();
-            ViewBag.nbrcat = nbrcat;
-
-            var formations1 = await _context.Formations.ToListAsync();
-            ViewBag.formations1 = formations1;
-
-            var actualites = await _context.Actualites.ToListAsync();
-            var commentaires = await _context.CommentairesEntiers.Include(c => c.User).ToListAsync();
-
-            ViewBag.Actualites = actualites;
-            ViewBag.Commentaires = commentaires;
-            // Récupérer l'ID du rôle "Professeur"
+            // Fetch trainers
             var role = await _context.Roles.FirstOrDefaultAsync(r => r.Name == "professeur");
-
-            /*  var trainer = await _context.Users
-               .Where(u => _context.UserRoles
-                   .Any(ur => ur.UserId == u.Id && ur.RoleId == role.Id))
-               .ToListAsync();
-
-           ViewBag.trainers = trainer;*/
-
             var trainers = await (from user in _context.Users
-                                  join trainer in _context.Trainers
-                                  on user.Id equals trainer.Id_user
+                                  join trainer in _context.Trainers on user.Id equals trainer.Id_user
                                   where _context.UserRoles.Any(ur => ur.UserId == user.Id && ur.RoleId == role.Id)
                                   select new
                                   {
@@ -133,11 +109,9 @@ namespace GestForma.Controllers
                                       trainer.ContentType,
                                       trainer.Field
                                   }).ToListAsync();
-
             ViewBag.Trainers = trainers;
 
-
-
+            // Redirect based on user role
             if (User.Identity.IsAuthenticated)
             {
                 if (User.IsInRole("administrateur"))
@@ -150,8 +124,35 @@ namespace GestForma.Controllers
                     return RedirectToAction("FormateurDashboard");
                 }
             }
-            return View(await formations.ToListAsync());
+
+            // Calculate average ratings for formations
+            var averageRates = await _context.Rates
+                .GroupBy(r => r.ID_Formation)
+                .Select(g => new
+                {
+                    ID_Formation = g.Key,
+                    AverageRate = g.Average(r => r.ContenuRate),
+                    TotalVotes = g.Count()
+                })
+                .ToDictionaryAsync(x => x.ID_Formation, x => new { x.AverageRate, x.TotalVotes });
+
+            // Create model for the view
+            var model = formations.Select(f => new
+            {
+                f.ID_Formation,
+                Intitule = f.Intitule ?? "No Title Available",
+                f.Duree,
+                f.Cout,
+                CategorieTitle = f.Categorie.Title ?? "Uncategorized",
+                FormateurName = f.User.FirstName ?? "No Instructor Assigned",
+                AverageRate = averageRates.ContainsKey(f.ID_Formation) ? averageRates[f.ID_Formation].AverageRate : 0,
+                f.Data,
+                f.ContentType
+            }).ToList();
+
+            return View(model);
         }
+
 
         public async Task<IActionResult> GetImage(int id)
         {
