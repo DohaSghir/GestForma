@@ -16,13 +16,13 @@
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\style.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"coveupmh5s"},{"Name":"integrity","Value":"sha256-3BmIF5NuFSdEZ9ZojRt40of5cxBE44QG5imuu9ueRLU="},{"Name":"label","Value":"_content/GestForma/css/style.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"195596"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00223BmIF5NuFSdEZ9ZojRt40of5cxBE44QG5imuu9ueRLU=\u0022"},{"Name":"Last-Modified","Value":"Tue, 07 Jan 2025 10:51:53 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"195596"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00223BmIF5NuFSdEZ9ZojRt40of5cxBE44QG5imuu9ueRLU=\u0022"},{"Name":"Last-Modified","Value":"Tue, 07 Jan 2025 11:35:33 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/GestForma/css/style.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\style.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-3BmIF5NuFSdEZ9ZojRt40of5cxBE44QG5imuu9ueRLU="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"195596"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00223BmIF5NuFSdEZ9ZojRt40of5cxBE44QG5imuu9ueRLU=\u0022"},{"Name":"Last-Modified","Value":"Tue, 07 Jan 2025 10:51:53 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"195596"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00223BmIF5NuFSdEZ9ZojRt40of5cxBE44QG5imuu9ueRLU=\u0022"},{"Name":"Last-Modified","Value":"Tue, 07 Jan 2025 11:35:33 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/GestForma/css/style.min.bm8s7crdtr.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\style.min.css'))</AssetFile>
