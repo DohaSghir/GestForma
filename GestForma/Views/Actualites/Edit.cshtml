@@ -28,18 +28,14 @@
                 <input type="file" id="file" name="file" class="form-control" />
             </div>
             <div class="row mb-3">
-
                 <div class="col d-grid">
                     <input type="submit" value="Save" class="w-100 btn btn-lg btn-primary " />
                 </div>
-
-                <div class="col d-grid">
-                    <button class="w-100 btn btn-outline-primary">
-                        <a asp-action="Index">Back to List</a>
-                    </button>
-                </div>
             </div>
         </form>
+        <div class="col d-grid">
+            <a asp-action="Index" class="btn btn-info text-light w-100">Back to List</a>
+        </div>
     </div>
 </div>
 
