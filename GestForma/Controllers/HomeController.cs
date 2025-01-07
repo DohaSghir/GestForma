@@ -246,6 +246,32 @@ namespace GestForma.Controllers
             // Si le modèle n'est pas valide, on retourne la vue avec les messages d'erreur
             return View();
         }
+        // Action pour le formulaire de la page d'accueil
+        [HttpPost]
+        public IActionResult ContactFromHome(string name, string email, string subject, string messageContent)
+        {
+            if (ModelState.IsValid)
+            {
+                var message = new Message
+                {
+                    Name = name,
+                    Email = email,
+                    Subject = subject,
+                    Body = messageContent
+                };
+
+                _context.Messages.Add(message);
+                _context.SaveChanges();
+
+                // Message de confirmation pour le formulaire de la page d'accueil
+                TempData["ConfirmationMessage"] = "Your message has been sent successfully from the homepage!";
+
+                return RedirectToAction("Index");  // Redirige vers la page d'accueil après soumission
+            }
+
+            // Retourne la même vue en cas d'erreur
+            return View("Index");
+        }
         public async Task<IActionResult> TestimonialAsync()
         {
             var latestCommentaires = await _context.CommentairesEntiers
