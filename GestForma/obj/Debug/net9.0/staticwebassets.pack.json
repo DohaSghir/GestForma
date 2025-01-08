@@ -33,6 +33,26 @@
       "PackagePath": "staticwebassets\\img\\bg-image.jpg"
     },
     {
+      "Id": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\img\\course.jpeg",
+      "PackagePath": "staticwebassets\\img\\course.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\img\\course2.jpeg",
+      "PackagePath": "staticwebassets\\img\\course2.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\img\\course3.jpeg",
+      "PackagePath": "staticwebassets\\img\\course3.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\img\\course4.jpeg",
+      "PackagePath": "staticwebassets\\img\\course4.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\img\\course5.jpeg",
+      "PackagePath": "staticwebassets\\img\\course5.jpeg"
+    },
+    {
       "Id": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\img\\courses-1.jpg",
       "PackagePath": "staticwebassets\\img\\courses-1.jpg"
     },
@@ -67,6 +87,14 @@
     {
       "Id": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\img\\header.jpg",
       "PackagePath": "staticwebassets\\img\\header.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\img\\new1.png",
+      "PackagePath": "staticwebassets\\img\\new1.png"
+    },
+    {
+      "Id": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\img\\new2.jpeg",
+      "PackagePath": "staticwebassets\\img\\new2.jpeg"
     },
     {
       "Id": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\img\\overlay-bottom.png",

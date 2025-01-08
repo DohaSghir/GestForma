@@ -3,7 +3,16 @@
     ViewData["Title"] = "Courses";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="~/css/trainers.css">
+</head>
+<body>
 @if (TempData["Success"] != null)
 {
     <div class="alert alert-success mt-3 text-center">@TempData["Success"]</div>
@@ -120,6 +129,7 @@
         });
     });
 </script>
-
+</body>
+</html>
 
 

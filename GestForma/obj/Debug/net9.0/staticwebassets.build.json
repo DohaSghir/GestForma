@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "yiYtS5WDL4iZ2nlidNO9OeZA/v3BzbG5wVXZMiYties=",
+  "Hash": "YzKIRSoD25+XJp0mWxfxhRtdQDcobhbWXv+QZIaq0vU=",
   "Source": "GestForma",
   "BasePath": "_content/GestForma",
   "Mode": "Default",
@@ -2222,12 +2222,12 @@
       "OriginalItemSpec": "C:\\Users\\Doha\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\9.0.0\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\bhw52e9owe-5gg35ioea8.gz",
+      "Identity": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\bhw52e9owe-hb508f9g2r.gz",
       "SourceId": "GestForma",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/GestForma",
-      "RelativePath": "css/trainers#[.{fingerprint=5gg35ioea8}]?.css.gz",
+      "RelativePath": "css/trainers#[.{fingerprint=hb508f9g2r}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -2236,8 +2236,8 @@
       "RelatedAsset": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\css\\trainers.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "8cemrlbg1a",
-      "Integrity": "GBEGRjvYWVkdWOoT8c3LU8dq2ckKCtolzqABCRqN+pg=",
+      "Fingerprint": "79po6kvc44",
+      "Integrity": "2xvyOsvi85tWTM9N69mVDSBmMoI5WXnX3bDZJPi0JRM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\css\\trainers.css"
@@ -4462,8 +4462,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "5gg35ioea8",
-      "Integrity": "BSP9av1/QjB+ru1YjwgUW7QS+fLZ3ppU+3AK1zSIgiA=",
+      "Fingerprint": "hb508f9g2r",
+      "Integrity": "7U6Ws9hgjzU+BMYj305C/uLk1b9eC5IwKXeaK5d/mfQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\trainers.css"
@@ -4530,6 +4530,111 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\bg-image.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\img\\course.jpeg",
+      "SourceId": "GestForma",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\",
+      "BasePath": "_content/GestForma",
+      "RelativePath": "img/course#[.{fingerprint}]?.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "tob06r3vr0",
+      "Integrity": "08IE0MmXaqqn6kIn2rO0Eg3TcAz1srt3D9GxXg7g8cg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\course.jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\img\\course2.jpeg",
+      "SourceId": "GestForma",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\",
+      "BasePath": "_content/GestForma",
+      "RelativePath": "img/course2#[.{fingerprint}]?.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "x62zvfj7br",
+      "Integrity": "2QDc9ErEjq89nZ0ix6l83B+2E1bLdKywuJQ0l+kWDK8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\course2.jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\img\\course3.jpeg",
+      "SourceId": "GestForma",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\",
+      "BasePath": "_content/GestForma",
+      "RelativePath": "img/course3#[.{fingerprint}]?.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "4pfuiunpn8",
+      "Integrity": "CBv4VSA9th6YUTiiCqbTHBfDi11azC7Ty8OprfnGgtg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\course3.jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\img\\course4.jpeg",
+      "SourceId": "GestForma",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\",
+      "BasePath": "_content/GestForma",
+      "RelativePath": "img/course4#[.{fingerprint}]?.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "w3jrzlark7",
+      "Integrity": "fHAbrMzTSJZ8j8UX9BuGuKIuqcg0CTJLc8VFa3q4hl8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\course4.jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\img\\course5.jpeg",
+      "SourceId": "GestForma",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\",
+      "BasePath": "_content/GestForma",
+      "RelativePath": "img/course5#[.{fingerprint}]?.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "v5n4gyzp5p",
+      "Integrity": "vWms5SAXvWum4tLByTKTFHhv47U7eG0uv1OFIl2kMWc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\course5.jpeg"
     },
     {
       "Identity": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\img\\courses-1.jpg",
@@ -4719,6 +4824,48 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\header.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\img\\new1.png",
+      "SourceId": "GestForma",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\",
+      "BasePath": "_content/GestForma",
+      "RelativePath": "img/new1#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "mz8tdrj2k7",
+      "Integrity": "PgS0irGlrTXmjY6Oi3wPD1hjooj1HqqVW+hEyWmhpYY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\new1.png"
+    },
+    {
+      "Identity": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\img\\new2.jpeg",
+      "SourceId": "GestForma",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\",
+      "BasePath": "_content/GestForma",
+      "RelativePath": "img/new2#[.{fingerprint}]?.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "i2f1b0l4i6",
+      "Integrity": "dsKlIfKa8CTH7y2/uEp+gAY2v+xCkuYa/nyl26A4BVc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\new2.jpeg"
     },
     {
       "Identity": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\img\\overlay-bottom.png",
@@ -9413,13 +9560,13 @@
       ]
     },
     {
-      "Route": "css/trainers.5gg35ioea8.css",
-      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\bhw52e9owe-5gg35ioea8.gz",
+      "Route": "css/trainers.css",
+      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\bhw52e9owe-hb508f9g2r.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.003649635036"
+          "Quality": "0.003105590062"
         }
       ],
       "ResponseHeaders": [
@@ -9429,19 +9576,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "273"
+          "Value": "321"
         },
         {
           "Name": "ETag",
-          "Value": "\"GBEGRjvYWVkdWOoT8c3LU8dq2ckKCtolzqABCRqN+pg=\""
+          "Value": "\"2xvyOsvi85tWTM9N69mVDSBmMoI5WXnX3bDZJPi0JRM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 04 Jan 2025 21:25:34 GMT"
+          "Value": "Wed, 08 Jan 2025 20:44:03 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
+          "Value": "no-cache"
         },
         {
           "Name": "Content-Encoding",
@@ -9457,26 +9604,18 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"BSP9av1/QjB+ru1YjwgUW7QS+fLZ3ppU+3AK1zSIgiA=\""
+          "Value": "W/\"7U6Ws9hgjzU+BMYj305C/uLk1b9eC5IwKXeaK5d/mfQ=\""
         }
       ],
       "EndpointProperties": [
         {
-          "Name": "fingerprint",
-          "Value": "5gg35ioea8"
-        },
-        {
-          "Name": "label",
-          "Value": "css/trainers.css"
-        },
-        {
           "Name": "integrity",
-          "Value": "sha256-BSP9av1/QjB+ru1YjwgUW7QS+fLZ3ppU+3AK1zSIgiA="
+          "Value": "sha256-7U6Ws9hgjzU+BMYj305C/uLk1b9eC5IwKXeaK5d/mfQ="
         }
       ]
     },
     {
-      "Route": "css/trainers.5gg35ioea8.css",
+      "Route": "css/trainers.css",
       "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\css\\trainers.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -9486,7 +9625,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "464"
+          "Value": "768"
         },
         {
           "Name": "Content-Type",
@@ -9494,11 +9633,156 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"BSP9av1/QjB+ru1YjwgUW7QS+fLZ3ppU+3AK1zSIgiA=\""
+          "Value": "\"7U6Ws9hgjzU+BMYj305C/uLk1b9eC5IwKXeaK5d/mfQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 04 Jan 2025 21:25:34 GMT"
+          "Value": "Wed, 08 Jan 2025 20:44:03 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-7U6Ws9hgjzU+BMYj305C/uLk1b9eC5IwKXeaK5d/mfQ="
+        }
+      ]
+    },
+    {
+      "Route": "css/trainers.css.gz",
+      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\bhw52e9owe-hb508f9g2r.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "321"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2xvyOsvi85tWTM9N69mVDSBmMoI5WXnX3bDZJPi0JRM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 08 Jan 2025 20:44:03 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2xvyOsvi85tWTM9N69mVDSBmMoI5WXnX3bDZJPi0JRM="
+        }
+      ]
+    },
+    {
+      "Route": "css/trainers.hb508f9g2r.css",
+      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\bhw52e9owe-hb508f9g2r.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.003105590062"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "321"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2xvyOsvi85tWTM9N69mVDSBmMoI5WXnX3bDZJPi0JRM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 08 Jan 2025 20:44:03 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"7U6Ws9hgjzU+BMYj305C/uLk1b9eC5IwKXeaK5d/mfQ=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "hb508f9g2r"
+        },
+        {
+          "Name": "label",
+          "Value": "css/trainers.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7U6Ws9hgjzU+BMYj305C/uLk1b9eC5IwKXeaK5d/mfQ="
+        }
+      ]
+    },
+    {
+      "Route": "css/trainers.hb508f9g2r.css",
+      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\css\\trainers.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "768"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7U6Ws9hgjzU+BMYj305C/uLk1b9eC5IwKXeaK5d/mfQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 08 Jan 2025 20:44:03 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9508,7 +9792,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "5gg35ioea8"
+          "Value": "hb508f9g2r"
         },
         {
           "Name": "label",
@@ -9516,13 +9800,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-BSP9av1/QjB+ru1YjwgUW7QS+fLZ3ppU+3AK1zSIgiA="
+          "Value": "sha256-7U6Ws9hgjzU+BMYj305C/uLk1b9eC5IwKXeaK5d/mfQ="
         }
       ]
     },
     {
-      "Route": "css/trainers.5gg35ioea8.css.gz",
-      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\bhw52e9owe-5gg35ioea8.gz",
+      "Route": "css/trainers.hb508f9g2r.css.gz",
+      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\bhw52e9owe-hb508f9g2r.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -9531,7 +9815,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "273"
+          "Value": "321"
         },
         {
           "Name": "Content-Type",
@@ -9539,11 +9823,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"GBEGRjvYWVkdWOoT8c3LU8dq2ckKCtolzqABCRqN+pg=\""
+          "Value": "\"2xvyOsvi85tWTM9N69mVDSBmMoI5WXnX3bDZJPi0JRM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 04 Jan 2025 21:25:34 GMT"
+          "Value": "Wed, 08 Jan 2025 20:44:03 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9561,7 +9845,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "5gg35ioea8"
+          "Value": "hb508f9g2r"
         },
         {
           "Name": "label",
@@ -9569,144 +9853,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-GBEGRjvYWVkdWOoT8c3LU8dq2ckKCtolzqABCRqN+pg="
-        }
-      ]
-    },
-    {
-      "Route": "css/trainers.css",
-      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\bhw52e9owe-5gg35ioea8.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.003649635036"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "273"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"GBEGRjvYWVkdWOoT8c3LU8dq2ckKCtolzqABCRqN+pg=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 04 Jan 2025 21:25:34 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"BSP9av1/QjB+ru1YjwgUW7QS+fLZ3ppU+3AK1zSIgiA=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-BSP9av1/QjB+ru1YjwgUW7QS+fLZ3ppU+3AK1zSIgiA="
-        }
-      ]
-    },
-    {
-      "Route": "css/trainers.css",
-      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\css\\trainers.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "464"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"BSP9av1/QjB+ru1YjwgUW7QS+fLZ3ppU+3AK1zSIgiA=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 04 Jan 2025 21:25:34 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-BSP9av1/QjB+ru1YjwgUW7QS+fLZ3ppU+3AK1zSIgiA="
-        }
-      ]
-    },
-    {
-      "Route": "css/trainers.css.gz",
-      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\obj\\Debug\\net9.0\\compressed\\bhw52e9owe-5gg35ioea8.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "273"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"GBEGRjvYWVkdWOoT8c3LU8dq2ckKCtolzqABCRqN+pg=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 04 Jan 2025 21:25:34 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-GBEGRjvYWVkdWOoT8c3LU8dq2ckKCtolzqABCRqN+pg="
+          "Value": "sha256-2xvyOsvi85tWTM9N69mVDSBmMoI5WXnX3bDZJPi0JRM="
         }
       ]
     },
@@ -19337,6 +19484,416 @@
       ]
     },
     {
+      "Route": "img/course.jpeg",
+      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\img\\course.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "10590"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"08IE0MmXaqqn6kIn2rO0Eg3TcAz1srt3D9GxXg7g8cg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 08 Jan 2025 20:17:14 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-08IE0MmXaqqn6kIn2rO0Eg3TcAz1srt3D9GxXg7g8cg="
+        }
+      ]
+    },
+    {
+      "Route": "img/course.tob06r3vr0.jpeg",
+      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\img\\course.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "10590"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"08IE0MmXaqqn6kIn2rO0Eg3TcAz1srt3D9GxXg7g8cg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 08 Jan 2025 20:17:14 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "tob06r3vr0"
+        },
+        {
+          "Name": "label",
+          "Value": "img/course.jpeg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-08IE0MmXaqqn6kIn2rO0Eg3TcAz1srt3D9GxXg7g8cg="
+        }
+      ]
+    },
+    {
+      "Route": "img/course2.jpeg",
+      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\img\\course2.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8932"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2QDc9ErEjq89nZ0ix6l83B+2E1bLdKywuJQ0l+kWDK8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 08 Jan 2025 20:28:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2QDc9ErEjq89nZ0ix6l83B+2E1bLdKywuJQ0l+kWDK8="
+        }
+      ]
+    },
+    {
+      "Route": "img/course2.x62zvfj7br.jpeg",
+      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\img\\course2.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8932"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2QDc9ErEjq89nZ0ix6l83B+2E1bLdKywuJQ0l+kWDK8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 08 Jan 2025 20:28:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "x62zvfj7br"
+        },
+        {
+          "Name": "label",
+          "Value": "img/course2.jpeg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2QDc9ErEjq89nZ0ix6l83B+2E1bLdKywuJQ0l+kWDK8="
+        }
+      ]
+    },
+    {
+      "Route": "img/course3.4pfuiunpn8.jpeg",
+      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\img\\course3.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "10920"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"CBv4VSA9th6YUTiiCqbTHBfDi11azC7Ty8OprfnGgtg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 08 Jan 2025 20:32:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "4pfuiunpn8"
+        },
+        {
+          "Name": "label",
+          "Value": "img/course3.jpeg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-CBv4VSA9th6YUTiiCqbTHBfDi11azC7Ty8OprfnGgtg="
+        }
+      ]
+    },
+    {
+      "Route": "img/course3.jpeg",
+      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\img\\course3.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "10920"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"CBv4VSA9th6YUTiiCqbTHBfDi11azC7Ty8OprfnGgtg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 08 Jan 2025 20:32:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-CBv4VSA9th6YUTiiCqbTHBfDi11azC7Ty8OprfnGgtg="
+        }
+      ]
+    },
+    {
+      "Route": "img/course4.jpeg",
+      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\img\\course4.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5674"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"fHAbrMzTSJZ8j8UX9BuGuKIuqcg0CTJLc8VFa3q4hl8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 08 Jan 2025 20:33:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-fHAbrMzTSJZ8j8UX9BuGuKIuqcg0CTJLc8VFa3q4hl8="
+        }
+      ]
+    },
+    {
+      "Route": "img/course4.w3jrzlark7.jpeg",
+      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\img\\course4.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5674"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"fHAbrMzTSJZ8j8UX9BuGuKIuqcg0CTJLc8VFa3q4hl8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 08 Jan 2025 20:33:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "w3jrzlark7"
+        },
+        {
+          "Name": "label",
+          "Value": "img/course4.jpeg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-fHAbrMzTSJZ8j8UX9BuGuKIuqcg0CTJLc8VFa3q4hl8="
+        }
+      ]
+    },
+    {
+      "Route": "img/course5.jpeg",
+      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\img\\course5.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7343"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"vWms5SAXvWum4tLByTKTFHhv47U7eG0uv1OFIl2kMWc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 08 Jan 2025 20:34:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-vWms5SAXvWum4tLByTKTFHhv47U7eG0uv1OFIl2kMWc="
+        }
+      ]
+    },
+    {
+      "Route": "img/course5.v5n4gyzp5p.jpeg",
+      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\img\\course5.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7343"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"vWms5SAXvWum4tLByTKTFHhv47U7eG0uv1OFIl2kMWc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 08 Jan 2025 20:34:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "v5n4gyzp5p"
+        },
+        {
+          "Name": "label",
+          "Value": "img/course5.jpeg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-vWms5SAXvWum4tLByTKTFHhv47U7eG0uv1OFIl2kMWc="
+        }
+      ]
+    },
+    {
       "Route": "img/courses-1.jpg",
       "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\img\\courses-1.jpg",
       "Selectors": [],
@@ -20071,6 +20628,170 @@
         {
           "Name": "integrity",
           "Value": "sha256-Uz6qYVcS9vEFcNg32/djbom1tMJWqbmUghzLCrI4alA="
+        }
+      ]
+    },
+    {
+      "Route": "img/new1.mz8tdrj2k7.png",
+      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\img\\new1.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7197"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"PgS0irGlrTXmjY6Oi3wPD1hjooj1HqqVW+hEyWmhpYY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 08 Jan 2025 20:38:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "mz8tdrj2k7"
+        },
+        {
+          "Name": "label",
+          "Value": "img/new1.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-PgS0irGlrTXmjY6Oi3wPD1hjooj1HqqVW+hEyWmhpYY="
+        }
+      ]
+    },
+    {
+      "Route": "img/new1.png",
+      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\img\\new1.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7197"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"PgS0irGlrTXmjY6Oi3wPD1hjooj1HqqVW+hEyWmhpYY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 08 Jan 2025 20:38:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-PgS0irGlrTXmjY6Oi3wPD1hjooj1HqqVW+hEyWmhpYY="
+        }
+      ]
+    },
+    {
+      "Route": "img/new2.i2f1b0l4i6.jpeg",
+      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\img\\new2.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "11529"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"dsKlIfKa8CTH7y2/uEp+gAY2v+xCkuYa/nyl26A4BVc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 08 Jan 2025 20:40:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "i2f1b0l4i6"
+        },
+        {
+          "Name": "label",
+          "Value": "img/new2.jpeg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-dsKlIfKa8CTH7y2/uEp+gAY2v+xCkuYa/nyl26A4BVc="
+        }
+      ]
+    },
+    {
+      "Route": "img/new2.jpeg",
+      "AssetFile": "C:\\Users\\Doha\\source\\repos\\GestForma\\GestForma\\wwwroot\\img\\new2.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "11529"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"dsKlIfKa8CTH7y2/uEp+gAY2v+xCkuYa/nyl26A4BVc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 08 Jan 2025 20:40:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-dsKlIfKa8CTH7y2/uEp+gAY2v+xCkuYa/nyl26A4BVc="
         }
       ]
     },
