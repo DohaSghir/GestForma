@@ -84,6 +84,11 @@ wwwroot\css\trainers.css
 wwwroot\favicon.ico
 wwwroot\img\About.jpg
 wwwroot\img\bg-image.jpg
+wwwroot\img\course.jpeg
+wwwroot\img\course2.jpeg
+wwwroot\img\course3.jpeg
+wwwroot\img\course4.jpeg
+wwwroot\img\course5.jpeg
 wwwroot\img\courses-1.jpg
 wwwroot\img\courses-2.jpg
 wwwroot\img\courses-3.jpg
@@ -93,6 +98,8 @@ wwwroot\img\courses-6.jpg
 wwwroot\img\courses-80x80.jpg
 wwwroot\img\feature.jpg
 wwwroot\img\header.jpg
+wwwroot\img\new1.png
+wwwroot\img\new2.jpeg
 wwwroot\img\overlay-bottom.png
 wwwroot\img\overlay-top.png
 wwwroot\img\page-header.jpg
