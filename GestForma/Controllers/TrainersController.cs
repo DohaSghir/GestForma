@@ -262,7 +262,7 @@ namespace GestForma.Controllers
                     .Include(ins => ins.User) // Ensure the User is included
                     .ToListAsync();
 
-                var ageGroupsforma = inscriptions
+                var ageGroupsforma = inscriptionsforma
                      .Where(ins => ins.Formation.ID_Formation == formation.ID_Formation)
                     .GroupBy(ins => GetAgeGroup(ins.User.Age))
                     .Select(group => new AgeGroupVM
