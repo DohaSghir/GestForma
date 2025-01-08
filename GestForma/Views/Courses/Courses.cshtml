@@ -69,7 +69,7 @@
                     <div class="col-lg-4 col-md-6 pb-4 course-item"
                          data-category="@formation.CategorieTitle"
                          data-title="@formation.Intitule.ToLower()">
-                        <div class="courses-list-item position-relative d-block overflow-hidden">
+                        <div class="courses-list-item position-relative d-block overflow-hidden team-item">
                             <img class="img-fluid" src="@("data:image;base64," + (formation.Data != null ? Convert.ToBase64String(formation.Data) : "default_image_base64"))" alt="@formation.Intitule" />
                             <div class="courses-text">
                                 <h4 class="text-center text-white px-3">@formation.Intitule</h4>
