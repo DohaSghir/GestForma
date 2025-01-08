@@ -32,8 +32,8 @@ namespace GestForma.Controllers
                 return BadRequest("Invalid CourseId or ParticipantId.");
             }
 
-            var result = await _context.Inscriptions.FirstOrDefaultAsync(element => element.User.Id == ParticipantId && element.ID_Formation == CourseId);
-            if (result != null && !result.Certificat) {
+            var result = await _context.Inscriptions.FirstOrDefaultAsync(element => element.User.Id == ParticipantId && element.ID_Formation == CourseId && !element.Certificat);
+            if (result != null) {
                 TempData["Error"] = "You are already registered for this course and have not yet received a certificate. After receiving the certificate, you can register for this course again if you wish.";
                 return RedirectToAction("Index", "Home");
             }
@@ -60,8 +60,8 @@ namespace GestForma.Controllers
                 return BadRequest("Invalid CourseId or ParticipantId.");
             }
 
-            var result = await _context.Inscriptions.FirstOrDefaultAsync(element => element.User.Id == ParticipantId && element.ID_Formation == CourseId);
-            if (result != null && !result.Certificat)
+            var result = await _context.Inscriptions.FirstOrDefaultAsync(element => element.User.Id == ParticipantId && element.ID_Formation == CourseId && !element.Certificat);
+            if (result != null)
             {
                 TempData["Error"] = "You are already registered for this course and have not yet received a certificate. After receiving the certificate, you can register for this course again if you wish.";
                 return RedirectToAction("Courses", "Courses");
