@@ -10,19 +10,9 @@
 
 @if (TempData["Success"] != null)
 {
-
-
-
-    <div class="toast align-items-center text-white bg-primary border-0 position-fixed top-0 start-50 translate-middle-x" role="alert" aria-live="assertive" aria-atomic="true" style="z-index: 1055;">
-        <div class="d-flex">
-            <div class="toast-body">
-                @TempData["Success"]
-            </div>
-            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-        </div>
+    <div class="alert alert-success text-center">
+        @TempData["Success"]
     </div>
-
-
 
 }
 
@@ -33,7 +23,7 @@
     </div>
 
 }
-
+<h2 class="text-center text-dark fw-bold mt-5 mb-4">Guests</h2>
 <!-- Search Bar -->
 <div class="d-flex justify-content-center align-items-center">
     <div class="mb-3 w-25">
@@ -52,24 +42,34 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var user in Model)
+            @if (Model != null && Model.Any()){
+                @foreach (var user in Model)
+                {
+                    <tr>
+                        <td>@user.LastName</td>
+                        <td class="email">@user.Email</td>
+                        <td>@user.CreatedAt.ToString("d")</td>
+                        <td>
+                            @if (await UserManager.IsInRoleAsync(user, "invité"))
+                            {
+                                <form asp-action="ChangeRoleToParticipant" asp-route-userId="@user.Id" method="post" class="d-inline">
+                                    <button type="submit" class="btn btn-primary btn-sm">
+                                        <i class="fa fa-user-plus"></i> Accept
+                                    </button>
+                                </form>
+                            }
+                        </td>
+                    </tr>
+                }
+            }
+            else
             {
                 <tr>
-                    <td>@user.LastName</td>
-                    <td class="email">@user.Email</td>
-                    <td>@user.CreatedAt.ToString("d")</td>
-                    <td>
-                        @if (await UserManager.IsInRoleAsync(user, "invité"))
-                        {
-                            <form asp-action="ChangeRoleToParticipant" asp-route-userId="@user.Id" method="post" class="d-inline">
-                                <button type="submit" class="btn btn-primary btn-sm">
-                                    <i class="fa fa-user-plus"></i> Accept
-                                </button>
-                            </form>
-                        }
-                    </td>
+                    <td colspan="4">No records found.</td>
                 </tr>
             }
+
+
         </tbody>
     </table>
 </div>

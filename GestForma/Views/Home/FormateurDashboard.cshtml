@@ -36,23 +36,32 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model)
+            @if (Model != null && Model.Any()){
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@(item.User != null ? item.User.FirstName + " " + item.User.LastName : "No Name Available")</td>
+                        <td class="email">@(item.User != null ? item.User.Email : "No Email Available")</td>
+                        <td>@(item.Formation != null ? item.Formation.Intitule : "No Course Name")</td>
+                        <td>@(item.Formation != null ? item.Formation.Categorie.Title : "No Category Title")</td>
+                        <td>
+                            <form method="post" action="@Url.Action("MarkAsComplete", "Home")">
+                                <input type="hidden" name="inscriptionId" value="@item.ID_Inscription" />
+                                <button type="submit" class="btn btn-success btn-sm">
+                                    <i class="fa fa-check"></i> End of training
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            }
+            else
             {
                 <tr>
-                    <td>@(item.User != null ? item.User.FirstName +" "+ item.User.LastName : "No Name Available")</td>
-                    <td class="email">@(item.User != null ? item.User.Email : "No Email Available")</td>
-                    <td>@(item.Formation != null ? item.Formation.Intitule : "No Course Name")</td>
-                    <td>@(item.Formation != null ? item.Formation.Categorie.Title : "No Category Title")</td>
-                    <td>
-                        <form method="post" action="@Url.Action("MarkAsComplete", "Home")">
-                            <input type="hidden" name="inscriptionId" value="@item.ID_Inscription" />
-                            <button type="submit" class="btn btn-success btn-sm">
-                                <i class="fa fa-check"></i> End of training
-                            </button>
-                        </form>
-                    </td>
+                    <td colspan="5">No records found.</td>
                 </tr>
             }
+            
         </tbody>
     </table>
 </div>
