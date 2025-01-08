@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace GestForma.Controllers
 {
-    [Authorize(Roles = "administrateur")]
+    
     public class ActualitesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -25,12 +25,14 @@ namespace GestForma.Controllers
         }
 
         // GET: Actualites
+        [Authorize(Roles = "administrateur")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Actualites.ToListAsync());
         }
 
         // GET: Actualites/Details/5
+        [Authorize(Roles = "administrateur")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -49,6 +51,7 @@ namespace GestForma.Controllers
         }
 
         // GET: Actualites/Create
+        [Authorize(Roles = "administrateur")]
         public IActionResult Create()
         {
             return View();
@@ -57,6 +60,7 @@ namespace GestForma.Controllers
         // POST: Actualites/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "administrateur")]
         public async Task<IActionResult> Create(IFormFile file, [Bind("IdActualite,Titre,Description")] Actualite actualite)
         {
             if (ModelState.IsValid)
@@ -86,6 +90,7 @@ namespace GestForma.Controllers
         }
 
         // GET: Actualites/Edit/5
+        [Authorize(Roles = "administrateur")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -102,6 +107,7 @@ namespace GestForma.Controllers
         }
 
         // POST: Actualites/Edit/5
+        [Authorize(Roles = "administrateur")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, IFormFile file, [Bind("IdActualite,Titre,Description")] Actualite actualite)
@@ -159,6 +165,7 @@ namespace GestForma.Controllers
         }
 
         // GET: Actualites/Delete/5
+        [Authorize(Roles = "administrateur")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -179,6 +186,7 @@ namespace GestForma.Controllers
         // POST: Actualites/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "administrateur")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var actualite = await _context.Actualites.FindAsync(id);

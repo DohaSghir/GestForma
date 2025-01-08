@@ -104,6 +104,7 @@ namespace GestForma.Controllers
 
             // Fetch latest news and comments
             ViewBag.Actualites = latestActualites ;
+
             var latestCommentaires = await _context.CommentairesEntiers
                 .Include(c => c.User) // Assurez-vous de charger les données associées
                 .OrderByDescending(c => c.IdCommentaire)
