@@ -115,7 +115,7 @@ namespace GestForma.Controllers
 
             var inscriptionsnonFini = await _context.Inscriptions
                                               .Include(i => i.Formation)
-                                              .Where(i => i.ID_User == _userManager.GetUserId(User) && i.Fin == false && i.archivee == false)
+                                              .Where(i => i.ID_User == _userManager.GetUserId(User) && i.Fin == false && i.archivee == false && i.Paiement==true)
                                              .ToListAsync();
 
             var inscriptionsNonPayes = await _context.Inscriptions
