@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GestForma")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1820eee15defa9dcb556f065caab309e32a95b49")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+62e8712d38847c3f8eff6a9e9aecc78f2b631a56")]
 [assembly: System.Reflection.AssemblyProductAttribute("GestForma")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GestForma")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
