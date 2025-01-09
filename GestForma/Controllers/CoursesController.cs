@@ -199,7 +199,7 @@ namespace GestForma.Controllers
                     // Pas besoin de code ici car on ne modifie pas les propriétés du fichier
 
                     await _context.SaveChangesAsync();
-                    TempData["SuccessMessage"] = "Course successfully updated!";
+                    TempData["Success"] = "Course successfully updated!";
                     return RedirectToAction(nameof(Index));
                 }
                 catch (DbUpdateConcurrencyException)
