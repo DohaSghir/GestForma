@@ -1,6 +1,7 @@
 ﻿using Azure;
 using GestForma.Models;
 using GestForma.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -103,8 +104,8 @@ namespace GestForma.Controllers
             // Redirect to the Payement action after the update
             return RedirectToAction("Payement", "Home");
         }
-      
 
+        [Authorize(Roles = "participant")]
 
         public async Task<IActionResult> Liste()
         {

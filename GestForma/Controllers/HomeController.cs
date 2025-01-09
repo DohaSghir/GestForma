@@ -323,7 +323,7 @@ namespace GestForma.Controllers
             ViewBag.Trainers = trainers;
             return View();
         }
-
+        [Authorize(Roles = "administrateur")]
         public async Task<IActionResult> Payement()
         {
             var unpaidInscriptions = await _context.Inscriptions
@@ -364,6 +364,8 @@ namespace GestForma.Controllers
         }
 
         // marquer la certificat pour chaque participant
+
+        [Authorize(Roles = "administrateur")]
         [HttpPost]
         public IActionResult MarkAsCertified(int inscriptionId)
         {
@@ -423,6 +425,7 @@ namespace GestForma.Controllers
         }
 
         //marquer la fin de Formation par le formateur
+        [Authorize(Roles = "professeur")]
         [HttpPost]
         public IActionResult MarkAsComplete(int inscriptionId)
         { 
@@ -713,7 +716,7 @@ namespace GestForma.Controllers
 
 
 
-
+        [Authorize(Roles = "administrateur")]
 
         public async Task<IActionResult> Statistic()
         {
