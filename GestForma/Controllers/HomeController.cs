@@ -329,7 +329,7 @@ namespace GestForma.Controllers
             var unpaidInscriptions = await _context.Inscriptions
         .Include(i => i.User)   // Make sure User is included in the query
         .Include(i => i.Formation)  // Make sure Formation is included in the query
-        .Where(element => element.Paiement == false && element.Formation.archivee == false)
+        .Where(element => element.Paiement == false && element.Formation.archivee == false && element.User.archivee == false)
         .ToListAsync();
             return View(unpaidInscriptions);
         }
