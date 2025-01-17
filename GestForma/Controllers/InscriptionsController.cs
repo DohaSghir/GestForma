@@ -112,7 +112,9 @@ namespace GestForma.Controllers
             var inscriptionsFini = await _context.Inscriptions
                                           .Include(i => i.Formation)
                                           .Where(i => i.ID_User == _userManager.GetUserId(User) && i.Fin == true && i.Certificat == true && i.Paiement == true && i.archivee==false)
-                                         .ToListAsync();
+                                          .GroupBy(i => i.Formation)
+                                          .Select(group => group.First())
+                                          .ToListAsync();
 
             var inscriptionsnonFini = await _context.Inscriptions
                                               .Include(i => i.Formation)

@@ -402,14 +402,15 @@ namespace GestForma.Controllers
 
         // Actions Dashboard Professeur
         [Authorize(Roles = "professeur")]
-        public IActionResult FormateurDashboard(string search)
+        public async Task<IActionResult> FormateurDashboard(string search)
         {
+            var user = await _userManager.GetUserAsync(User);
             // Récupérer toutes les inscriptions sauf celles certifiées
             var inscriptions = _context.Inscriptions
                 .Include(i => i.User) // Inclure les données de l'utilisateur
                 .Include(i => i.Formation) // Inclure les données de la formation
                 .ThenInclude(f => f.Categorie) // Inclure les données de la catégorie
-                .Where(i => !i.Fin && i.Paiement == true && i.archivee== false)
+                .Where(i => !i.Fin && i.Paiement == true && i.archivee== false && i.Formation.User == user)
                 .AsQueryable();
 
             if (!string.IsNullOrEmpty(search))

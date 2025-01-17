@@ -51,7 +51,7 @@
                         <tr>
                             <td class="email">@(inscription.User != null ? inscription.User.Email : "No Email Available")</td>
                             <td>@(inscription.Formation != null ? inscription.Formation.Intitule : "No Course Name")</td>
-                            <td>@(inscription.Formation != null ? inscription.Formation.Cout.ToString("C") : "0 Dh")</td>
+                            <td>@(inscription.Formation != null ? $"{inscription.Formation.Cout} Dh" : "0 Dh")</td>
 
                             <td>
                                 <form asp-controller="Inscriptions" asp-action="CoursePaid" asp-route-id="@inscription.ID_Inscription" method="post">
