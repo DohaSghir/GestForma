@@ -329,7 +329,7 @@ namespace GestForma.Controllers
             var unpaidInscriptions = await _context.Inscriptions
         .Include(i => i.User)   // Make sure User is included in the query
         .Include(i => i.Formation)  // Make sure Formation is included in the query
-        .Where(element => element.Paiement == false && element.Formation.archivee == false)
+        .Where(element => element.Paiement == false && element.Formation.archivee == false && element.User.archivee == false)
         .ToListAsync();
             return View(unpaidInscriptions);
         }
@@ -402,14 +402,15 @@ namespace GestForma.Controllers
 
         // Actions Dashboard Professeur
         [Authorize(Roles = "professeur")]
-        public IActionResult FormateurDashboard(string search)
+        public async Task<IActionResult> FormateurDashboard(string search)
         {
+            var user = await _userManager.GetUserAsync(User);
             // Récupérer toutes les inscriptions sauf celles certifiées
             var inscriptions = _context.Inscriptions
                 .Include(i => i.User) // Inclure les données de l'utilisateur
                 .Include(i => i.Formation) // Inclure les données de la formation
                 .ThenInclude(f => f.Categorie) // Inclure les données de la catégorie
-                .Where(i => !i.Fin && i.Paiement == true && i.archivee== false)
+                .Where(i => !i.Fin && i.Paiement == true && i.archivee== false && i.Formation.User == user)
                 .AsQueryable();
 
             if (!string.IsNullOrEmpty(search))
